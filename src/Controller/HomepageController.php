@@ -10,7 +10,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class HomepageController extends AbstractController
 {
-    #[Route('/{_locale}', name: 'app_homepage')]
+    #[Route('/{_locale}', name: 'homepage')]
     public function index(TranslatorInterface $translator, Request $request): Response
     {
         return $this->render('homepage/index.html.twig', [
