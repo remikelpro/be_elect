@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class RessourceController extends AbstractController
 {
-    #[Route('/{_locale}/ressource', name: 'ressource')]
+    #[Route('/ressource', name: 'ressource')]
     public function index(): Response
     {
         return $this->render('ressource/index.html.twig', [

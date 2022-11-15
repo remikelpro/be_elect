@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PartiController extends AbstractController
 {
-    #[Route('/{_locale}/partis', name: 'partis')]
+    #[Route('/partis', name: 'partis')]
     public function index(): Response
     {
         return $this->render('parti/index.html.twig', [
@@ -16,7 +16,7 @@ class PartiController extends AbstractController
         ]);
     }
 
-    #[Route('/{_locale}/parti/{parti}', name: 'parti')]
+    #[Route('/parti/{parti}', name: 'parti')]
     public function parti(): Response
     {
         return $this->render('parti/parti.html.twig', [

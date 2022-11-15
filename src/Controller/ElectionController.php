@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ElectionController extends AbstractController
 {
-    #[Route('/{_locale}/elections', name: 'elections')]
+    #[Route('/elections', name: 'elections')]
     public function index(): Response
     {
         return $this->render('election/index.html.twig', [
