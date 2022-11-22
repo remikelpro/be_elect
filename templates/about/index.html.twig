@@ -1,20 +1,99 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AboutController!{% endblock %}
+{% block title %}A Propos
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<h1>BE-ELECT</h1>
+	<i>Ce site sera bientôt disponible !</i>
+	<h2>À propos / Qui sommes-nous ?
+	</h2>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+	<h3>En quelques mots</h3>
+	<p>BE-ELECT est un outil académique visant à mettre à disposition toute une série d’informations relatives aux élections, aux partis, et à la démocratie en Belgique, sur le temps long. Il permet aux citoyens, journalistes, chercheurs et acteurs politiques d’accéder directement à ces informations afin de mieux comprendre le fonctionnement de la démocratie en Belgique.</p>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/remikel/workspace/be_elect/src/Controller/AboutController.php'|file_link(0) }}">src/Controller/AboutController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/remikel/workspace/be_elect/templates/about/index.html.twig'|file_link(0) }}">templates/about/index.html.twig</a></code></li>
-    </ul>
-</div>
+	<h3>Documentation</h3>
+	<p>Sur les partis politiques, BE-ELECT rassemble des documents tels que :
+	</p>
+	<ul>
+		<li>Programmes électoraux</li>
+		<li>Statuts</li>
+		<li>Structures</li>
+		<li>Finances</li>
+		<li>Comptes-rendus de Congrès</li>
+	</ul>
+	<p>BE-ELECT met également à disposition des données sur le personnel des partis politiques :
+	</p>
+	<ul>
+		<li>Président.es</li>
+		<li>Candidat.es aux élections</li>
+		<li>Nombre et profil des adhérents</li>
+	</ul>
+
+	<p>Sur les élections, BE-ELECT rassemble des données et documents tels que :</p>
+	<ul>
+		<li>Résultats des élections en Belgique depuis 1830</li>
+		<li>Enquêtes auprès des électeurs depuis 2009</li>
+		<li>Composition des gouvernements</li>
+		<li>Accords de gouvernement</li>
+	</ul>
+	<h3>Conseil scientifique</h3>
+	<p>BE-ELECT a été fondé par des chercheurs du Centre d’étude de la vie politique (Cevipol) de l’Université libre de Bruxelles (ULB) et du Vakgroep Politieke Wetenschappen (POLI) de la Vrije Universiteit Brussel (VUB). Il est supervisé par un conseil scientifique composé de 10 universitaires spécialistes dans l’analyse des élections, des partis, et de l’opinion publique en Belgique.</p>
+	<p>Le conseil est co-présidé par Emilie van Haute et Kris Deschouwer, et vise à garantir la validité des sources et données, leur mise en ligne et exploitation. Il veille également à la neutralité du site vis-à-vis des organisations et institutions politiques.</p>
+	<p>Membres du conseil scientifique</p>
+	<div
+		class="card" style="width: 18rem;">
+		<!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+		<div
+			class="card-body">
+			<h5 class="card-title">ULB</h5>
+			<p class="card-text">
+				Brack Nathalie<br>
+				Close Caroline<br>
+				Delwit Pascal<br>
+				Pilet Jean-Benoit<br>
+				Van Haute Emilie<br>
+			</p>
+		</div>
+	</div>
+	<div
+		class="card" style="width: 18rem;">
+		<!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+		<div
+			class="card-body">
+			<h5 class="card-title">VUB</h5>
+			<p class="card-text">
+				Caluwaerts Didier<br>
+				Celis Karen<br>
+				Deschouwer Kris<br>
+				Erzeel Silvia<br>
+				Severs Eline<br>
+			</p>
+		</div>
+	</div>
+
+	<h3>Publications</h3>
+	<p>Delwit P. (2022), La vie politique en Belgique de 1830 à nos jours. Brussels, Editions de l’Université de Bruxelles.
+	</p>
+	<p>Delwit P., van Haute E. (Eds.) (2021), Les partis politiques en Belgique. Brussels, Editions de l’Université de Bruxelles.
+	</p>
+	<p>Pilet J.-B., Baudewyns P., Deschouwer K., Kern A., Lefevere J. (Eds.) (2020), Les belges haussent leur voix. Une analyse des comportements électoraux du 26 mai 2019/ De Belgen verheffen hun stem. Een analyse van het stemgedrag op 26 mei 2019. Louvain-La-Neuve, PUL.
+	</p>
+	<p>Dodeigne J., Close C., Jacquet V., Matagne G. (Eds.) (2020), Les élections locales du 14 octobre 2018 en Wallonie et à Bruxelles : une offre politique renouvelée ?, Genval, Vanden Broele.
+	</p>
+	<p>Deschouwer K. (Ed.) (2017), Mind the Gap. Political Participation and Representation in Belgium, London: Rowman & Littlefield.
+	</p>
+	<p>Deschouwer K., Delwit P., Hooghe M., Baudewijns P., Walgrave S. (Eds.) (2015), Décrypter l’électeur/ Het cryptogram van de kiezer. Leuven, Lannoo.
+	</p>
+	<p>Pilet J.-B., Dassonneville R., Hooghe M., Marien S. (Eds.) (2013), L'électeur local: Une analyse des comportements électoraux aux élections communales d'octobre 2012. Brussels, Editions de l'Université de Bruxelles. Dassonneville R., Hooghe M., Marien S., Pilet J.-B. (Eds.) (2013), De Lokale Kiezer. Het kiesgedrag bij de Belgische gemeenteraadsverkiezingen. Brussels, ASP Editions.
+	</p>
+	<p>Deschouwer K., Verthé T., Rihoux B. (Eds.), Op zoek naar de kiezers. Lokale partijafdelingen en de gemeenteraadsverkiezingen. Brussels, ASP.
+	</p>
+	<p>Deschouwer K., Delwit P., Hooghe M., Walgrave S. (Eds.) (2010), Les voix du peuple. Le comportement électoral au scrutin du 10 juin 2009. Brussels, Editions de l’Université de Bruxelles. / Deschouwer K., Delwit P., Hooghe M., Walgrave S. (Eds.) (2010), De stemmen van het volk. Een analyse van het kiesgedrag of 10 juni 2009, Brussels, VUB Press.
+	</p>
+	<p>Deschouwer K. (2009), The Politics of Belgium. Governing a Divided Society. London, Palgrave.
+	</p>
+
+	<h3>Contactez-nous</h3>
+	<a href="mailto:beelect@ulb.be">beelect@ulb.be</a>
 {% endblock %}
