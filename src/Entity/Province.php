@@ -2,34 +2,38 @@
 
 namespace App\Entity;
 
-use App\Repository\RegionRepository;
+use App\Repository\ProvinceRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Mapping\Table;
 
-#[ORM\Entity(repositoryClass: RegionRepository::class)]
-class Region
+#[ORM\Entity(repositoryClass: ProvinceRepository::class)]
+class Province
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
+
     #[ORM\Column(length: 255)]
     private ?string $nameFr = null;
 
     #[ORM\Column(length: 255)]
     private ?string $nameNl = null;
 
-    #[ORM\OneToMany(mappedBy: 'idRegion', targetEntity: Province::class, orphanRemoval: true)]
-    private Collection $provinces;
+    #[ORM\ManyToOne(inversedBy: 'provinces')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Region $idRegion = null;
 
-    #[ORM\OneToMany(mappedBy: 'idRegion', targetEntity: Resultat::class)]
+    #[ORM\OneToMany(mappedBy: 'idProvince', targetEntity: Arrondissement::class, orphanRemoval: true)]
+    private Collection $arrondissements;
+
+    #[ORM\OneToMany(mappedBy: 'idProvince', targetEntity: Resultat::class)]
     private Collection $resultats;
 
     public function __construct()
     {
-        $this->provinces = new ArrayCollection();
+        $this->arrondissements = new ArrayCollection();
         $this->resultats = new ArrayCollection();
     }
 
@@ -62,30 +66,42 @@ class Region
         return $this;
     }
 
-    /**
-     * @return Collection<int, Province>
-     */
-    public function getProvinces(): Collection
+    public function getIdRegion(): ?Region
     {
-        return $this->provinces;
+        return $this->idRegion;
     }
 
-    public function addProvince(Province $province): self
+    public function setIdRegion(?Region $idRegion): self
     {
-        if (!$this->provinces->contains($province)) {
-            $this->provinces->add($province);
-            $province->setIdRegion($this);
+        $this->idRegion = $idRegion;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Arrondissement>
+     */
+    public function getArrondissements(): Collection
+    {
+        return $this->arrondissements;
+    }
+
+    public function addArrondissement(Arrondissement $arrondissement): self
+    {
+        if (!$this->arrondissements->contains($arrondissement)) {
+            $this->arrondissements->add($arrondissement);
+            $arrondissement->setIdProvince($this);
         }
 
         return $this;
     }
 
-    public function removeProvince(Province $province): self
+    public function removeArrondissement(Arrondissement $arrondissement): self
     {
-        if ($this->provinces->removeElement($province)) {
+        if ($this->arrondissements->removeElement($arrondissement)) {
             // set the owning side to null (unless already changed)
-            if ($province->getIdRegion() === $this) {
-                $province->setIdRegion(null);
+            if ($arrondissement->getIdProvince() === $this) {
+                $arrondissement->setIdProvince(null);
             }
         }
 
@@ -104,7 +120,7 @@ class Region
     {
         if (!$this->resultats->contains($resultat)) {
             $this->resultats->add($resultat);
-            $resultat->setIdRegion($this);
+            $resultat->setIdProvince($this);
         }
 
         return $this;
@@ -114,8 +130,8 @@ class Region
     {
         if ($this->resultats->removeElement($resultat)) {
             // set the owning side to null (unless already changed)
-            if ($resultat->getIdRegion() === $this) {
-                $resultat->setIdRegion(null);
+            if ($resultat->getIdProvince() === $this) {
+                $resultat->setIdProvince(null);
             }
         }
 

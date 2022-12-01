@@ -2,34 +2,34 @@
 
 namespace App\Entity;
 
-use App\Repository\RegionRepository;
+use App\Repository\CommuneRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Mapping\Table;
 
-#[ORM\Entity(repositoryClass: RegionRepository::class)]
-class Region
+#[ORM\Entity(repositoryClass: CommuneRepository::class)]
+class Commune
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
+
     #[ORM\Column(length: 255)]
     private ?string $nameFr = null;
 
     #[ORM\Column(length: 255)]
     private ?string $nameNl = null;
 
-    #[ORM\OneToMany(mappedBy: 'idRegion', targetEntity: Province::class, orphanRemoval: true)]
-    private Collection $provinces;
+    #[ORM\ManyToOne(inversedBy: 'communes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Canton $idCanton = null;
 
-    #[ORM\OneToMany(mappedBy: 'idRegion', targetEntity: Resultat::class)]
+    #[ORM\OneToMany(mappedBy: 'idCommune', targetEntity: Resultat::class)]
     private Collection $resultats;
 
     public function __construct()
     {
-        $this->provinces = new ArrayCollection();
         $this->resultats = new ArrayCollection();
     }
 
@@ -62,32 +62,14 @@ class Region
         return $this;
     }
 
-    /**
-     * @return Collection<int, Province>
-     */
-    public function getProvinces(): Collection
+    public function getIdCanton(): ?Canton
     {
-        return $this->provinces;
+        return $this->idCanton;
     }
 
-    public function addProvince(Province $province): self
+    public function setIdCanton(?Canton $idCanton): self
     {
-        if (!$this->provinces->contains($province)) {
-            $this->provinces->add($province);
-            $province->setIdRegion($this);
-        }
-
-        return $this;
-    }
-
-    public function removeProvince(Province $province): self
-    {
-        if ($this->provinces->removeElement($province)) {
-            // set the owning side to null (unless already changed)
-            if ($province->getIdRegion() === $this) {
-                $province->setIdRegion(null);
-            }
-        }
+        $this->idCanton = $idCanton;
 
         return $this;
     }
@@ -104,7 +86,7 @@ class Region
     {
         if (!$this->resultats->contains($resultat)) {
             $this->resultats->add($resultat);
-            $resultat->setIdRegion($this);
+            $resultat->setIdCommune($this);
         }
 
         return $this;
@@ -114,8 +96,8 @@ class Region
     {
         if ($this->resultats->removeElement($resultat)) {
             // set the owning side to null (unless already changed)
-            if ($resultat->getIdRegion() === $this) {
-                $resultat->setIdRegion(null);
+            if ($resultat->getIdCommune() === $this) {
+                $resultat->setIdCommune(null);
             }
         }
 

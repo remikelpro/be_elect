@@ -8,37 +8,63 @@
 			{% endblock %}
 		</title>
 		{% block stylesheets %}
-			{# 'app' must match the first argument to addEntry() in webpack.config.js #}
 			{{ encore_entry_link_tags('app') }}
 
-			<!-- Renders a link tag (if your module requires any CSS)
-			                 <link rel="stylesheet" href="/build/app.css"> -->
 		{% endblock %}
 
 		{% block javascripts %}
 			{{ encore_entry_script_tags('app') }}
-
-			<!-- Renders app.js & a webpack runtime.js file
-			                <script src="/build/runtime.js" defer></script>
-			                <script src="/build/app.js" defer></script>
-			                See note below about the "defer" attribute -->
 		{% endblock %}
 	</head>
 	<body>
 		{% block body %}
-			<div id="sidebar">
-				{% block sidebar %}
-					<ul>
-						<li><ahref="{{path('homepage')}}">{{ "Accueil" | trans }}</a></li>
-						<li><ahref="{{path('partis')}}">{{ "Blog" | trans }}</a></li>
-					</ul>
-					<button class="primary btn btn-primary">COUCOU</button>
-				{% endblock %}
-			</div>
+			<header>
+				<nav class="navbar navbar-expand-lg navbar-light bg-light">
+					<a class="mx-5 navbar-brand" href="#">Be-Elect</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
 
-			<div id="content">
-				{% block content %}{% endblock %}
-			</div>
-		{% endblock %}
-	</body>
-</html>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav mr-auto">
+							<li class="nav-item active">
+								<a class="nav-link" href="{{path('homepage')}}">{{ "Accueil" | trans }}</a>
+							</li>
+							<li class="nav-item active">
+								<a class="nav-link" href="{{path('ressource')}}">{{ "Ressources" | trans }}</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+									{{ "Partis" | trans }}
+								</a>
+								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<li>
+										<a class="dropdown-item" href="{{path('partis')}}">{{ "Tous les partis" | trans }}</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="#">Another action</a>
+									</li>
+									<li><hr class="dropdown-divider"></li>
+									<li>
+										<a class="dropdown-item" href="#">Something else here</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</nav>
+				<li>
+					<a href="{{path('elections')}}">{{ "Elections" | trans }}</a>
+				</li>
+				<li>
+					<a href="{{path('about')}}">{{ "A propos" | trans }}</a>
+				</li>
+				<button class="primary btn btn-primary">COUCOU</button>
+			</nav>
+		</body>
+	</html>
+</header>
+
+<div id="content">
+	{% block content %}{% endblock %}
+</div>{% endblock %}</body></html>
