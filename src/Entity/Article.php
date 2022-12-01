@@ -5,6 +5,9 @@ namespace App\Entity;
 use App\Repository\ArticleRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
@@ -14,8 +17,17 @@ class Article
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $content = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $titleFr = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $titleNl = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $contentFr = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $contentNl = null;
 
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
@@ -23,21 +35,10 @@ class Article
     #[ORM\Column]
     private ?\DateTimeImmutable $updatedAt = null;
 
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getContent(): ?string
-    {
-        return $this->content;
-    }
-
-    public function setContent(string $content): self
-    {
-        $this->content = $content;
-
-        return $this;
     }
 
     public function getCreatedAt(): ?\DateTimeImmutable
@@ -62,5 +63,58 @@ class Article
         $this->updatedAt = $updatedAt;
 
         return $this;
+    }
+
+    public function getTitleFr(): ?string
+    {
+        return $this->titleFr;
+    }
+
+    public function setTitleFr(?string $titleFr): self
+    {
+        $this->titleFr = $titleFr;
+
+        return $this;
+    }
+
+    public function getTitleNl(): ?string
+    {
+        return $this->titleNl;
+    }
+
+    public function setTitleNl(?string $titleNl): self
+    {
+        $this->titleNl = $titleNl;
+
+        return $this;
+    }
+
+    public function getContentFr(): ?string
+    {
+        return $this->contentFr;
+    }
+
+    public function setContentFr(string $contentFr): self
+    {
+        $this->contentFr = $contentFr;
+
+        return $this;
+    }
+
+    public function getContentNl(): ?string
+    {
+        return $this->contentNl;
+    }
+
+    public function setContentNl(?string $contentNl): self
+    {
+        $this->contentNl = $contentNl;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->titleFr . ' - ' . $this->titleNl;
     }
 }
