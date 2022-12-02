@@ -3,6 +3,8 @@
   "build/app.js": "/build/app.js",
   "build/runtime.js": "/build/runtime.js",
   "build/vendors-node_modules_bootstrap_dist_js_bootstrap_esm_js.js": "/build/vendors-node_modules_bootstrap_dist_js_bootstrap_esm_js.js",
+  "build/fonts/PTS75F.ttf": "/build/fonts/PTS75F.67299b07.ttf",
+  "build/fonts/PTS55F.ttf": "/build/fonts/PTS55F.6b198b59.ttf",
   "build/fonts/MuseoModerno-Regular.ttf": "/build/fonts/MuseoModerno-Regular.6019bae4.ttf",
   "build/fonts/MuseoModerno-Bold.ttf": "/build/fonts/MuseoModerno-Bold.7c88dff0.ttf"
 }

@@ -20,8 +20,18 @@ $dropdown-dark-bg: $primary;
     src: url("../fonts/MuseoModerno-Bold.ttf");
 }
 
+@font-face {
+    font-family: "PT-Bold";
+    src: url("../fonts/PTS75F.ttf");
+}
+@font-face {
+    font-family: "PT";
+    src: url("../fonts/PTS55F.ttf");
+}
+
 body {
     background-color: $white;
+    font-family: "PT";
 }
 
 @media only screen and (min-width: 990px) {
