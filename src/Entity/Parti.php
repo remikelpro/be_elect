@@ -34,7 +34,7 @@ class Parti
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $descriptionFr = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $descriptionNl = null;
 
     #[ORM\OneToMany(mappedBy: 'idParty', targetEntity: Resultat::class)]

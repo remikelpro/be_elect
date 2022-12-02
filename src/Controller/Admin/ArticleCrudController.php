@@ -8,6 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 
 class ArticleCrudController extends AbstractCrudController
 {
@@ -28,8 +29,8 @@ class ArticleCrudController extends AbstractCrudController
     {
         yield TextField::new('titleFr');
         yield TextField::new('titleNl');
-        yield TextField::new('contentFr');
-        yield TextField::new('contentNl');
+        yield TextEditorField::new('contentFr');
+        yield TextEditorField::new('contentNl');
 
         $createdAt = DateTimeField::new('createdAt')->setFormTypeOptions([
             'html5' => true,
@@ -42,15 +43,4 @@ class ArticleCrudController extends AbstractCrudController
             yield $createdAt;
         }
     }
-
-    /*
-    public function configureFields(string $pageName): iterable
-    {
-        return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
-        ];
-    }
-    */
 }
