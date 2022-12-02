@@ -40,10 +40,28 @@ a {
     text-decoration: none;
 }
 
+footer {
+    a{
+        color:$grey;
+    }
+    a:hover {
+        color:$white;
+        text-decoration: underline;
+    }
+    .logo {
+        max-height: 3em;
+    }
+}
+
 .nav-item {
     margin-right: 1.5em;
 }
 
 .logo {
-    max-height: 35px;
+    max-height: 2em;
+}
+
+.social-logo {
+    height: 2em;
+    margin-left: 1em;
 }
