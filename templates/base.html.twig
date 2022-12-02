@@ -1,70 +1,117 @@
 {# templates/base.html.twig #}
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>
-			{% block title %}GRP Be Elect
-			{% endblock %}
-		</title>
-		{% block stylesheets %}
-			{{ encore_entry_link_tags('app') }}
 
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>
+		{% block title %}GRP Be Elect
 		{% endblock %}
+	</title>
+	{% block stylesheets %}
+	{{ encore_entry_link_tags('app') }}
 
-		{% block javascripts %}
-			{{ encore_entry_script_tags('app') }}
-		{% endblock %}
-	</head>
-	<body>
-		{% block body %}
-			<header>
-				<nav class="navbar navbar-expand-lg navbar-light bg-light">
-					<a class="mx-5 navbar-brand" href="#">Be-Elect</a>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
+	{% endblock %}
 
-					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul class="navbar-nav mr-auto">
-							<li class="nav-item active">
-								<a class="nav-link" href="{{path('homepage')}}">{{ "Accueil" | trans }}</a>
-							</li>
-							<li class="nav-item active">
-								<a class="nav-link" href="{{path('ressource')}}">{{ "Ressources" | trans }}</a>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-									{{ "Partis" | trans }}
+	{% block javascripts %}
+	{{ encore_entry_script_tags('app') }}
+	{% endblock %}
+</head>
+
+<body>
+	{% block body %}
+	<header>
+		<nav class="navbar navbar-expand-lg bg-primary navbar-dark sticky-top">
+			<div class="container justify-content-between d-flex">
+
+				<a class="navbar-brand" href="{{ path('homepage') }}">
+					<img src="{{ asset('img/logo-header.svg') }}" class="logo" />
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link {{ path(app.request.attributes.get('_route')) == path('homepage') ? 'active' : ''}}"
+								href="{{path('homepage')}}">{{ "Accueil" | trans }}</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link {{ path(app.request.attributes.get('_route')) == path('ressource') ? 'active' : ''}}"
+								href="{{path('ressource')}}">{{ "Ressources" | trans }}</a>
+						</li>
+						<li class="nav-item dropdown">
+							<span class="nav-link {{ app.request.attributes.get('_route') starts with 'partis' ? 'active' : ''}}">
+							<a class="text-white-50 dropdown-toggle"
+								href="#" id="navbarParti" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								{{ "Partis" | trans }}
+							</a>
+							<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarParti">
+								<li>
+									<a class="dropdown-item" href="{{path('partis')}}">{{ "Tous les partis" | trans
+										}}</a>
+								</li>
+								<li>
+									<hr class="dropdown-divider">
+								</li>
+								{# FOREACH partis #}
+							</ul>
+						</span>
+						</li>
+						<li class="nav-item">
+							<span
+								class="dropdown nav-link {{ app.request.attributes.get('_route') starts with 'elections' ? 'active' : ''}}">
+								<a class="text-white-50 dropdown-toggle" href="#" id="navbarElection" role="button"
+									data-bs-toggle="dropdown" aria-expanded="false">
+									{{ "Elections" | trans }}
 								</a>
-								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarElection">
 									<li>
-										<a class="dropdown-item" href="{{path('partis')}}">{{ "Tous les partis" | trans }}</a>
+										<a class="dropdown-item" href="{{path('elections')}}">{{ "Toutes les élections"
+											|
+											trans }}</a>
 									</li>
 									<li>
-										<a class="dropdown-item" href="#">Another action</a>
+										<hr class="dropdown-divider">
 									</li>
-									<li><hr class="dropdown-divider"></li>
-									<li>
-										<a class="dropdown-item" href="#">Something else here</a>
-									</li>
+									{# TODO FOREACH Election #}
 								</ul>
-							</li>
-						</ul>
-					</div>
-				</nav>
-				<li>
-					<a href="{{path('elections')}}">{{ "Elections" | trans }}</a>
-				</li>
-				<li>
-					<a href="{{path('about')}}">{{ "A propos" | trans }}</a>
-				</li>
-				<button class="primary btn btn-primary">COUCOU</button>
-			</nav>
-		</body>
-	</html>
-</header>
+							</span>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link {{ path(app.request.attributes.get('_route')) == path('about') ? 'active' : ''}}"
+								href="{{path('about')}}">{{ "A propos" | trans }}</a>
+						</li>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="dropdown-toggle btn btn-light btn-sm mt-1" href="#" id="dropdown-language" role="button"
+								data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								{{ app.request.locale|locale_name(app.request.locale)| u.title }}
+							</a>
+							<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-language">
+								<li>
+									<a class="dropdown-item"
+										href="{{ path(app.request.attributes.get('_route'), {_locale: 'nl'}) }}">{{'Nederland'
+										| trans }}</a>
+								</li>
+								<li>
+									<a class="dropdown-item"
+										href="{{ path(app.request.attributes.get('_route'), {_locale: 'fr'}) }}">{{
+										'Français' | trans }}</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<div id="content">
+		{% block content %}{% endblock %}
+	</div>{% endblock %}
+</body>
 
-<div id="content">
-	{% block content %}{% endblock %}
-</div>{% endblock %}</body></html>
+</html>

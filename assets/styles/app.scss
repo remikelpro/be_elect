@@ -1,10 +1,49 @@
-$primary: #004C93;
-$secondary: #E86F00;
-$grey: #EAEFF2;
-$white: #FFFFFF;
+$primary: #004c93;
+$secondary: #e86f00;
+$grey: #eaeff2;
+$white: #ffffff;
+$dark: $primary;
+$btn-border-radius: 2em;
+$btn-border-radius-sm: 1em;
+$btn-border-radius-lg: 3em;
+
+$dropdown-dark-bg: $primary;
 
 @import "~bootstrap/scss/bootstrap";
 
 body {
-    background-color: #fff;
+    background-color: $white;
+}
+
+@media only screen and (min-width: 990px) {
+    .nav-link.active:after,
+    .nav-link:not(.active):hover:after {
+        position: relative;
+        top: 19px;
+        display: block;
+        content: "";
+        border-bottom: solid 8px $secondary;
+        animation: border_anim 0.1s linear forwards;
+    }
+}
+
+@keyframes border_anim {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav-item {
+    margin-right: 1.5em;
+}
+
+.logo {
+    max-height: 35px;
 }
