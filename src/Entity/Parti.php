@@ -40,6 +40,9 @@ class Parti
     #[ORM\OneToMany(mappedBy: 'idParty', targetEntity: Resultat::class)]
     private Collection $resultats;
 
+    #[ORM\Column(length: 255)]
+    private ?string $slug = null;
+
     public function __construct()
     {
         $this->resultats = new ArrayCollection();
@@ -160,6 +163,18 @@ class Parti
                 $resultat->setIdParty(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

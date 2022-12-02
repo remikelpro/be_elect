@@ -1,0 +1,5 @@
+{% for parti in partis %}
+<li>
+    <a class="dropdown-item" href="{{path('parti', { slug: parti.slug })}}">{{ parti.name }}</a>
+</li>
+{% endfor %}

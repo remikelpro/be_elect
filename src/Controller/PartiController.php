@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Parti;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,8 +17,8 @@ class PartiController extends AbstractController
         ]);
     }
 
-    #[Route('/parti/{parti}', name: 'parti')]
-    public function parti(): Response
+    #[Route('/parti/{slug}', name: 'parti')]
+    public function parti(Parti $parti): Response
     {
         return $this->render('parti/parti.html.twig', [
             'controller_name' => 'PartiController',

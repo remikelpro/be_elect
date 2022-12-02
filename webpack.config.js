@@ -71,6 +71,11 @@ Encore
 
     // uncomment if you're having problems with a jQuery plugin
     .autoProvidejQuery()
+    
+    .configureFontRule({
+        type: 'asset',
+        //maxSize: 4 * 1024
+    })
 ;
 
 module.exports = Encore.getWebpackConfig();

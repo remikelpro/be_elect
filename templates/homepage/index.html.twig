@@ -1,20 +1,21 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Hello HomepageController!{% endblock %}
+{% block title %}Be Elect{% endblock %}
 
 {% block page_contents %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/remikel/workspace/ulb/src/Controller/HomepageController.php'|file_link(0) }}">src/Controller/HomepageController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/remikel/workspace/ulb/templates/homepage/index.html.twig'|file_link(0) }}">templates/homepage/index.html.twig</a></code></li>
-    </ul>
-</div>
+<section class="my-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <h1>Tout le détail des <span class="text-secondary">élections</span> est sur Be-Elect</h1>
+            <p>Un clic-clac, aussi appelé divan-lit au Canada1, est une sorte de canapé à structure métallique
+                transformable en lit en rabattant le dossier vers l'arrière, ce qui déplace l'assise vers l'avant pour
+                former un couchage deux places2. Son nom vient du mécanisme de la charnière reliant les deux parties.
+            </p>
+        </div>
+        <div class="col-lg-4 d-flex align-self-center">
+            <img src="{{ asset('img/homepage/election.svg') }}" class="w-100 illustration" alt="{{ " illustration de
+                vote" | trans }}" />
+        </div>
+    </div>
+</section>
 {% endblock %}

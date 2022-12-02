@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ColorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -36,6 +37,7 @@ class PartiCrudController extends AbstractCrudController
             TextField::new('president'),
             TextEditorField::new('descriptionFr'),
             TextEditorField::new('descriptionNl'),
+            SlugField::new('slug')->setTargetFieldName('name'),
         ];
     }
 }
