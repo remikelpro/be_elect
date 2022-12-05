@@ -9,6 +9,76 @@
         <source>Symfony goold</source>
         <target>Symfony is good in FR</target>
       </trans-unit>
+      <trans-unit id="UzFhc1Y" resname="Accueil">
+        <source>Accueil</source>
+        <target>__Accueil</target>
+      </trans-unit>
+      <trans-unit id="8VwSl1I" resname="Ressources">
+        <source>Ressources</source>
+        <target>__Ressources</target>
+      </trans-unit>
+      <trans-unit id="Im_ICbt" resname="Partis">
+        <source>Partis</source>
+        <target>__Partis</target>
+      </trans-unit>
+      <trans-unit id="VqySVuN" resname="Elections">
+        <source>Elections</source>
+        <target>__Elections</target>
+      </trans-unit>
+      <trans-unit id="0YTG1lJ" resname="A propose">
+        <source>A propose</source>
+        <target>__A propose</target>
+      </trans-unit>
+      <trans-unit id="ioads.p" resname="Nederland">
+        <source>Nederland</source>
+        <target>__Nederland</target>
+      </trans-unit>
+      <trans-unit id="5JXVO5Z" resname="Français">
+        <source>Français</source>
+        <target>__Français</target>
+      </trans-unit>
+      <trans-unit id="wNjyyCk" resname="logo be elect">
+        <source>logo be elect</source>
+        <target>__logo be elect</target>
+      </trans-unit>
+      <trans-unit id="qatj.qK" resname="logo université">
+        <source>logo université</source>
+        <target>__logo université</target>
+      </trans-unit>
+      <trans-unit id="SCNZEaQ" resname="Tous les partis">
+        <source>Tous les partis</source>
+        <target>__Tous les partis</target>
+      </trans-unit>
+      <trans-unit id="JlrweUH" resname="Toutes les élections">
+        <source>Toutes les élections</source>
+        <target>__Toutes les élections</target>
+      </trans-unit>
+      <trans-unit id="ZyFT62v" resname="A propos">
+        <source>A propos</source>
+        <target>__A propos</target>
+      </trans-unit>
+      <trans-unit id="5bNFpGR" resname="illustration de&#10;                vote">
+        <source>illustration de
+                vote</source>
+        <target>__illustration de
+                vote</target>
+      </trans-unit>
+      <trans-unit id="qUQLOLR" resname="Je trouve mon parti politique en 1 clic :">
+        <source>Je trouve mon parti politique en 1 clic :</source>
+        <target>__Je trouve mon parti politique en 1 clic :</target>
+      </trans-unit>
+      <trans-unit id="mEWuGxa" resname="Un parti politique au hasard">
+        <source>Un parti politique au hasard</source>
+        <target>__Un parti politique au hasard</target>
+      </trans-unit>
+      <trans-unit id="dX4277Z" resname="Voir toutes les élections">
+        <source>Voir toutes les élections</source>
+        <target>__Voir toutes les élections</target>
+      </trans-unit>
+      <trans-unit id="aIL2A1D" resname="découvrez la carte et le résultat des votes">
+        <source>découvrez la carte et le résultat des votes</source>
+        <target>__découvrez la carte et le résultat des votes</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
