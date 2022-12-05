@@ -3,7 +3,7 @@
 {% block title %}Be Elect{% endblock %}
 
 {% block page_contents %}
-<section class="my-5">
+<section class="my-5 container">
     <div class="row">
         <div class="col-lg-8">
             <h1>Tout le détail des <span class="text-secondary">élections</span> est sur Be-Elect</h1>
@@ -17,5 +17,58 @@
                 vote" | trans }}" />
         </div>
     </div>
+</section>
+<section class="section-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 text-center py-3 text-light search-part">
+                <img src="{{ asset('img/homepage/search_icon.svg') }}" alt="search icon" />
+                <h3 class="my-2">{{ "Je trouve mon parti politique en 1 clic :" | trans }}</h3>
+                <input type="text" placeholder="{{ " Cherchez ici le nom du parti politique (exemple : PS)" }}"
+                    class="form-control" />
+            </div>
+            <div class="col-lg-6 text-center py-3 random-part">
+                <h3>{{ "Un parti politique au hasard" | trans }}</h3>
+                {# TODO PARTIAL CARD PARTI #}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container text-center my-3 py-3">
+    <h2>Découvrir les élections passées</h2>
+    <p>Staré Město (en allemand : Altstadt) est une ville du district de Šumperk, dans la région d'Olomouc, en Tchéquie.
+        Sa population s'élevait à 1 712 habitants en 20201.Géographie
+        Staré Město se trouve à 21 km au nord de Šumperk, à 67 km au nord-nord-ouest d'Olomouc et à 180 km à l'est de
+        Prague2.
+
+        La commune est limitée par la Pologne au nord, par Ostruzna, Branná, Šléglov et Vikantice à l'est, par
+        Jindřichov et Hanušovice au sud, et par Malá Morava et Dolní Morava à l'ouest3.
+
+        Histoire
+        La localité a été fondée au xiiie siècle. Elle tire son ancien nom, Goldeck, des mines d'or et d'argent qui y
+        étaient exploitées au Moyen Âge.
+    </p>
+    {# TODO Boucle avec card des élections #}
+    <a href="{{path('elections')}}" class="btn btn-secondary">{{"Voir toutes les élections" | trans }}</a>
+</section>
+
+<section class="container">
+    <h2>TODO nom élection, {{ "découvrez la carte et le résultat des votes" | trans }}</h2>
+    <div class="row">
+            <div id="map" class="bg-primary text-center col-lg-9">
+                map
+                <button id="closeMap">ok</button>
+            </div>
+            <div id="donut" class="text-right col-lg-3">
+                <button id="openMap">ko</button>
+                donut
+            </div>
+    </div>
+</section>
+
+<section class="container">
+    <h2>{{ "Zoom sur les 6 parties majeurs" }}</h2>
+    {# TODO card parti #}
 </section>
 {% endblock %}
