@@ -5,6 +5,7 @@ framework:
         fallbacks:
             - fr
             - nl
+            - en
 #        providers:
 #            crowdin:
 #                dsn: '%env(CROWDIN_DSN)%'

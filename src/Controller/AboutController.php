@@ -10,7 +10,8 @@ class AboutController extends AbstractController
 {
     #[Route(path: [
         'fr' => '/{_locale}/a-propos',
-        'nl' => '/{_locale}/over-ons'
+        'nl' => '/{_locale}/over-ons',
+        'en' => '/{_locale}/about'
     ], name: 'about')]
     public function index(): Response
     {

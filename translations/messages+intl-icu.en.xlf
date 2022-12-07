@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="fr" target-language="nl" datatype="plaintext" original="file.ext">
+  <file source-language="fr" target-language="en" datatype="plaintext" original="file.ext">
     <header>
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
-      <trans-unit id="ykp8DzX" resname="Symfony goold">
-        <source>Symfony goold</source>
-        <target>Symfony is good en NL</target>
-      </trans-unit>
       <trans-unit id="UzFhc1Y" resname="Accueil">
         <source>Accueil</source>
         <target>__Accueil</target>
@@ -37,6 +33,10 @@
         <source>Français</source>
         <target>__Français</target>
       </trans-unit>
+      <trans-unit id="uhGL9.y" resname="English">
+        <source>English</source>
+        <target>__English</target>
+      </trans-unit>
       <trans-unit id="wNjyyCk" resname="logo be elect">
         <source>logo be elect</source>
         <target>__logo be elect</target>
@@ -57,7 +57,11 @@
         <source>A propos</source>
         <target>__A propos</target>
       </trans-unit>
-      <trans-unit id="5bNFpGR" resname="illustration de vote">
+      <trans-unit id="9oNCIXM" resname="Tout le détail des : &lt;span class=&quot;text-secondary&quot;&gt;élections&lt;/span&gt; est sur Be-Elect">
+        <source>Tout le détail des : &lt;span class="text-secondary"&gt;élections&lt;/span&gt; est sur Be-Elect</source>
+        <target><![CDATA[__Tout le détail des : <span class="text-secondary">élections</span> est sur Be-Elect]]></target>
+      </trans-unit>
+      <trans-unit id="YP.gGjv" resname="illustration de vote">
         <source>illustration de vote</source>
         <target>__illustration de vote</target>
       </trans-unit>
@@ -69,6 +73,10 @@
         <source>Un parti politique au hasard</source>
         <target>__Un parti politique au hasard</target>
       </trans-unit>
+      <trans-unit id=".EDxbIF" resname="Découvrir les élections passées">
+        <source>Découvrir les élections passées</source>
+        <target>__Découvrir les élections passées</target>
+      </trans-unit>
       <trans-unit id="dX4277Z" resname="Voir toutes les élections">
         <source>Voir toutes les élections</source>
         <target>__Voir toutes les élections</target>
@@ -76,6 +84,10 @@
       <trans-unit id="aIL2A1D" resname="découvrez la carte et le résultat des votes">
         <source>découvrez la carte et le résultat des votes</source>
         <target>__découvrez la carte et le résultat des votes</target>
+      </trans-unit>
+      <trans-unit id="tNVfI5q" resname="Zoom sur les 6 parties majeurs">
+        <source>Zoom sur les 6 parties majeurs</source>
+        <target>__Zoom sur les 6 parties majeurs</target>
       </trans-unit>
     </body>
   </file>

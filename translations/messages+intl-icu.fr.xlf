@@ -57,11 +57,9 @@
         <source>A propos</source>
         <target>A propos</target>
       </trans-unit>
-      <trans-unit id="5bNFpGR" resname="illustration de&#10;                vote">
-        <source>illustration de
-                vote</source>
-        <target>illustration de
-                vote</target>
+      <trans-unit id="5bNFpGR" resname="illustration de vote">
+        <source>illustration de vote</source>
+        <target>illustration de vote</target>
       </trans-unit>
       <trans-unit id="qUQLOLR" resname="Je trouve mon parti politique en 1 clic :">
         <source>Je trouve mon parti politique en 1 clic :</source>
@@ -78,6 +76,18 @@
       <trans-unit id="aIL2A1D" resname="découvrez la carte et le résultat des votes">
         <source>découvrez la carte et le résultat des votes</source>
         <target>découvrez la carte et le résultat des votes</target>
+      </trans-unit>
+      <trans-unit id=".k_haeT" resname="Tout le détail des :&lt;span class=&quot;text-secondary&quot;&gt;élections&lt;/span&gt; est sur Be-Elect">
+        <source>Tout le détail des : &lt;span class="text-secondary"&gt;élections&lt;/span&gt; est sur Be-Elect</source>
+        <target><![CDATA[Tout le détail des : <span class="text-secondary">élections</span> est sur Be-Elect]]></target>
+      </trans-unit>
+      <trans-unit id=".EDxbIF" resname="Découvrir les élections passées">
+        <source>Découvrir les élections passées</source>
+        <target>Découvrir les élections passées</target>
+      </trans-unit>
+      <trans-unit id="tNVfI5q" resname="Zoom sur les 6 parties majeurs">
+        <source>Zoom sur les 6 parties majeurs</source>
+        <target>Zoom sur les 6 parties majeurs</target>
       </trans-unit>
     </body>
   </file>

@@ -6,15 +6,14 @@
 <section class="my-5 container">
     <div class="row">
         <div class="col-lg-8">
-            <h1>Tout le détail des <span class="text-secondary">élections</span> est sur Be-Elect</h1>
+            <h1>{{ "Tout le détail des : <span class=\"text-secondary\">élections</span> est sur Be-Elect" | trans | raw }}</h1>
             <p>Un clic-clac, aussi appelé divan-lit au Canada1, est une sorte de canapé à structure métallique
                 transformable en lit en rabattant le dossier vers l'arrière, ce qui déplace l'assise vers l'avant pour
                 former un couchage deux places2. Son nom vient du mécanisme de la charnière reliant les deux parties.
             </p>
         </div>
         <div class="col-lg-4 d-flex align-self-center">
-            <img src="{{ asset('img/homepage/election.svg') }}" class="w-100 illustration" alt="{{ " illustration de
-                vote" | trans }}" />
+            <img src="{{ asset('img/homepage/election.svg') }}" class="w-100 illustration" alt="{{ " illustration de vote" | trans }}" />
         </div>
     </div>
 </section>
@@ -36,7 +35,7 @@
 </section>
 
 <section class="container text-center my-3 py-3">
-    <h2>Découvrir les élections passées</h2>
+    <h2>{{ "Découvrir les élections passées" | trans }}</h2>
     <p>Staré Město (en allemand : Altstadt) est une ville du district de Šumperk, dans la région d'Olomouc, en Tchéquie.
         Sa population s'élevait à 1 712 habitants en 20201.Géographie
         Staré Město se trouve à 21 km au nord de Šumperk, à 67 km au nord-nord-ouest d'Olomouc et à 180 km à l'est de
@@ -68,7 +67,7 @@
 </section>
 
 <section class="container">
-    <h2>{{ "Zoom sur les 6 parties majeurs" }}</h2>
+    <h2>{{ "Zoom sur les 6 parties majeurs" | trans }}</h2>
     {# TODO card parti #}
 </section>
 {% endblock %}
