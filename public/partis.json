@@ -1,0 +1,20 @@
+[
+    {
+      "value": 1,
+      "text": "Google Cloud Platform",
+      "slug": "coucou-toi"
+    },
+    {
+      "value": 2,
+      "text": "Amazon AWS",
+      "slug": "coucou-toi"
+    },
+    {
+      "value": 3,
+      "text": "Docker"
+    },
+    {
+      "value": 4,
+      "text": "Digital Ocean"
+    }
+  ]

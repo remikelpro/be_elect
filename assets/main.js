@@ -10,3 +10,9 @@ $("#openMap").on( 'click', () => {
     $('#donut').removeClass('col-lg-9')
     $('#donut').addClass('col-lg-3')
 });
+$('.bootstrap-autocomplete.dropdown-menu').show();
+
+$('.basicAutoSelect').autoComplete();
+$('.basicAutoSelect').on('autocomplete.select', function (e,item) {
+    window.location.href = 'parti/' + item.slug;
+});

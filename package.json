@@ -10,5 +10,8 @@
   },
   "scripts": {
     "encore": "encore"
+  },
+  "dependencies": {
+    "bootstrap-autocomplete": "^2.3.7"
   }
 }

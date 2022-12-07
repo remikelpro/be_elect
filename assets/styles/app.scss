@@ -99,6 +99,9 @@ h1 {
     line-height: 1;
 }
 
+.bootstrap-autocomplete.dropdown-menu{
+    display: block;
+}
 .btn-secondary:hover {
     background-color: $primary;
     border-color: $primary;

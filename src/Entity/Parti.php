@@ -7,9 +7,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use JsonSerializable;
 
 #[ORM\Entity(repositoryClass: PartiRepository::class)]
-class Parti
+class Parti implements JsonSerializable
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -46,6 +47,11 @@ class Parti
     public function __construct()
     {
         $this->resultats = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 
     public function getId(): ?int
@@ -177,5 +183,16 @@ class Parti
         $this->slug = $slug;
 
         return $this;
+    }
+
+    public function jsonSerialize()
+    {
+        return array(
+            'id' => $this->id,
+            'value' => $this->id,
+            'name' => $this->name,
+            'text' => $this->name,
+            'slug'=> $this->slug,
+        );
     }
 }
