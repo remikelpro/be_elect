@@ -99,7 +99,7 @@ h1 {
     line-height: 1;
 }
 
-.bootstrap-autocomplete.dropdown-menu{
+.bootstrap-autocomplete.dropdown-menu {
     display: block;
 }
 .btn-secondary:hover {
@@ -160,28 +160,59 @@ h1 {
 }
 
 @media only screen and (min-width: 768px) {
-    .parti-card {
+    .parti-card-random {
         margin-left: 10vw;
-        .logo-parti, .card-body {
+        .logo-parti {
             position: relative;
-            left: -8vw;
-            @media only screen and (min-width: 990px) {
-                left: -4vw;
-            }
+            transform: translate(-50%, 0px);
         }
-        .card-body{
-            width: calc(100% + 8vw);
-            @media only screen and (min-width: 990px) {
-                width: calc(100% + 4vw);
-            }
+        .card-body {
+            position: relative;
+            transform: translate(-10%, 0px);
+            width: 110%;
         }
     }
 }
-.parti-card{
-    text-align:left;
+.parti-card-random {
+    text-align: left;
     hr {
         border: 3px solid $secondary;
-        width:30%;
+        width: 30%;
         opacity: 1;
+    }
+}
+
+.parti-card {
+    border: none;
+    img {
+        max-width: 40%;
+    }
+    .btn:hover {
+        filter: invert(0.2);
+    }
+}
+.border-between {
+    .col {
+        border: none;
+    }
+
+    @include media-breakpoint-up(md) {
+        .col:last-child {
+            border: none;
+        }
+        .col {
+            border-right: 2px solid $grey;
+        }
+        .col:nth-child(2) {
+            border: none;
+        }
+    }
+    @include media-breakpoint-up(lg) {
+        .col:nth-child(2) {
+            border-right: 2px solid $grey;
+        }
+        .col:nth-child(3) {
+            border: none;
+        }
     }
 }

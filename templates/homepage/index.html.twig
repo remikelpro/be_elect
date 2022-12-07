@@ -6,14 +6,16 @@
 <section class="my-5 container">
     <div class="row">
         <div class="col-lg-8">
-            <h1>{{ "Tout le détail des : <span class=\"text-secondary\">élections</span> est sur Be-Elect" | trans | raw }}</h1>
+            <h1>{{ "Tout le détail des : <span class=\"text-secondary\">élections</span> est sur Be-Elect" | trans | raw
+                }}</h1>
             <p>Un clic-clac, aussi appelé divan-lit au Canada1, est une sorte de canapé à structure métallique
                 transformable en lit en rabattant le dossier vers l'arrière, ce qui déplace l'assise vers l'avant pour
                 former un couchage deux places2. Son nom vient du mécanisme de la charnière reliant les deux parties.
             </p>
         </div>
         <div class="col-lg-4 d-flex align-self-center">
-            <img src="{{ asset('img/homepage/election.svg') }}" class="w-100 illustration" alt="{{ " illustration de vote" | trans }}" />
+            <img src="{{ asset('img/homepage/election.svg') }}" class="w-100 illustration" alt="{{ " illustration de
+                vote" | trans }}" />
         </div>
     </div>
 </section>
@@ -24,13 +26,12 @@
                 <img src="{{ asset('img/homepage/search_icon.svg') }}" alt="search icon" />
                 <h3 class="my-2">{{ "Je trouve mon parti politique en 1 clic :" | trans }}</h3>
                 <select type="text" placeholder="{{ " Cherchez ici le nom du parti politique (exemple : PS)" }}"
-                    class="form-control basicAutoSelect" id="searchParti"  autocomplete="off" 
-                    data-url="{{ path('partisJson') }}" ></select>
+                    class="form-control basicAutoSelect" id="searchParti" autocomplete="off"
+                    data-url="{{ path('partisJson') }}"></select>
             </div>
             <div class="col-lg-6 text-center py-3 random-part">
                 <h3>{{ "Un parti politique au hasard" | trans }}</h3>
-                {# TODO PARTIAL CARD PARTI #}
-                {% include 'parti/card.html.twig' with { 'randomParti': randomParti} %}
+                {% include 'parti/_card-random.html.twig' with { 'parti': randomParti} %}
             </div>
         </div>
     </div>
@@ -57,19 +58,27 @@
 <section class="container">
     <h2>TODO nom élection, {{ "découvrez la carte et le résultat des votes" | trans }}</h2>
     <div class="row">
-            <div id="map" class="bg-primary text-center col-lg-9">
-                map
-                <button id="closeMap">ok</button>
-            </div>
-            <div id="donut" class="text-right col-lg-3">
-                <button id="openMap">ko</button>
-                donut
-            </div>
+        <div id="map" class="bg-primary text-center col-lg-9">
+            map
+            <button id="closeMap">ok</button>
+        </div>
+        <div id="donut" class="text-right col-lg-3">
+            <button id="openMap">ko</button>
+            donut
+        </div>
     </div>
 </section>
 
-<section class="container">
+<section class="container mt-5">
     <h2>{{ "Zoom sur les 6 parties majeurs" | trans }}</h2>
+    <div class="row border-between gy-5">
+        {% for parti in partis %}
+        <div class="col col-12 col-md-6 col-lg-4">
+            {% include 'parti/_card.html.twig' %}
+        </div>
+        {% endfor %}
+
+    </div>
     {# TODO card parti #}
 </section>
 {% endblock %}

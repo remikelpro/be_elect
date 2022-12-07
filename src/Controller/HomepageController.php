@@ -18,7 +18,8 @@ class HomepageController extends AbstractController
         $randomParti = $partis[array_rand($partis)];
 
         return $this->render('homepage/index.html.twig', [
-            'randomParti' => $randomParti,
+            'randomParti'   => $randomParti,
+            'partis'        => $partis
         ]);
     }
 }

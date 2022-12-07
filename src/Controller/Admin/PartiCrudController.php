@@ -33,10 +33,11 @@ class PartiCrudController extends AbstractCrudController
                 ->setUploadedFileNamePattern('[slug].[extension]'),
             TextField::new('name'),
             ColorField::new('color'),
-            ColorField::new('colog_bg'),
+            ColorField::new('color_bg'),
             TextField::new('president'),
             TextEditorField::new('descriptionFr'),
             TextEditorField::new('descriptionNl'),
+            TextEditorField::new('descriptionEn'),
             SlugField::new('slug')->setTargetFieldName('name'),
         ];
     }

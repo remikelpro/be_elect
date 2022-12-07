@@ -27,7 +27,7 @@ class Parti implements JsonSerializable
     private ?string $color = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $colog_bg = null;
+    private ?string $color_bg = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $president = null;
@@ -37,6 +37,9 @@ class Parti implements JsonSerializable
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $descriptionNl = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $descriptionEn = null;
 
     #[ORM\OneToMany(mappedBy: 'idParty', targetEntity: Resultat::class)]
     private Collection $resultats;
@@ -95,14 +98,14 @@ class Parti implements JsonSerializable
         return $this;
     }
 
-    public function getCologBg(): ?string
+    public function getColorBg(): ?string
     {
-        return $this->colog_bg;
+        return $this->color_bg;
     }
 
-    public function setCologBg(?string $colog_bg): self
+    public function setColorBg(?string $color_bg): self
     {
-        $this->colog_bg = $colog_bg;
+        $this->color_bg = $color_bg;
 
         return $this;
     }
@@ -139,6 +142,19 @@ class Parti implements JsonSerializable
     public function setDescriptionNl(?string $descriptionNl): self
     {
         $this->descriptionNl = $descriptionNl;
+
+        return $this;
+    }
+
+
+    public function getDescriptionEn(): ?string
+    {
+        return $this->descriptionEn;
+    }
+
+    public function setDescriptionEn(?string $descriptionEn): self
+    {
+        $this->descriptionEn = $descriptionEn;
 
         return $this;
     }

@@ -28,6 +28,9 @@ class TypeElection
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $descriptionNl = null;
 
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $descriptionEn = null;
+
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $logo = null;
 
@@ -88,6 +91,18 @@ class TypeElection
     public function setDescriptionNl(?string $descriptionNl): self
     {
         $this->descriptionNl = $descriptionNl;
+
+        return $this;
+    }
+
+    public function getDescriptionEn(): ?string
+    {
+        return $this->descriptionEn;
+    }
+
+    public function setDescriptionEn(?string $descriptionEn): self
+    {
+        $this->descriptionEn = $descriptionEn;
 
         return $this;
     }
