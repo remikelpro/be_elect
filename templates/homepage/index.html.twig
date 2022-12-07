@@ -29,6 +29,7 @@
             <div class="col-lg-6 text-center py-3 random-part">
                 <h3>{{ "Un parti politique au hasard" | trans }}</h3>
                 {# TODO PARTIAL CARD PARTI #}
+                {% include 'parti/card.html.twig' with { 'randomParti': randomParti} %}
             </div>
         </div>
     </div>

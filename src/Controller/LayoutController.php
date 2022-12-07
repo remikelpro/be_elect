@@ -13,7 +13,7 @@ class LayoutController extends AbstractController
     {
         $this->partyRepository = $partyRepository;
     }
-    public function getPartis(int $max = 3): Response
+    public function getPartis(): Response
     {
         $partis = $this->partyRepository->findAll();
 

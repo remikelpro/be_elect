@@ -39,6 +39,7 @@ class PartiRepository extends ServiceEntityRepository
         }
     }
 
+
 //    /**
 //     * @return Parti[] Returns an array of Parti objects
 //     */

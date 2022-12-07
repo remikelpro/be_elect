@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\PartiRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,10 +13,13 @@ class HomepageController extends AbstractController
 {
 
     #[Route('/', name: 'homepage')]
-    public function index(TranslatorInterface $translator, Request $request): Response
+    public function index(PartiRepository $partiRepository): Response
     {
+        $partis = $partiRepository->findAll();
+        $randomParti = $partis[array_rand($partis)];
+
         return $this->render('homepage/index.html.twig', [
-            'controller_name' => 'HomepageController',
+            'randomParti' => $randomParti,
         ]);
     }
 }
