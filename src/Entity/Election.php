@@ -3,12 +3,15 @@
 namespace App\Entity;
 
 use App\Repository\ElectionRepository;
+use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Persistence\Event\LifecycleEventArgs;
 
 #[ORM\Entity(repositoryClass: ElectionRepository::class)]
+#[ORM\HasLifecycleCallbacks]
 class Election
 {
     #[ORM\Id]
@@ -148,5 +151,20 @@ class Election
         $this->slug = $slug;
 
         return $this;
+    }
+
+
+    #[ORM\PrePersist]
+    public function setCreatedAtValue(): void
+    {
+        $this->updatedAt = new \DateTimeImmutable();
+        $this->createdAt = new \DateTimeImmutable();
+    }
+
+
+    #[ORM\PreUpdate]
+    public function setUpdatedAtAutomatically()
+    {
+        $this->updatedAt = new \DateTimeImmutable();
     }
 }

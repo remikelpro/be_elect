@@ -1,0 +1,7 @@
+{% for typeElection in typeElections %}
+    {% set slug = {'fr': typeElection.slugFr, 'nl' : typeElection.slugNl, 'en': typeElection.slugEn} %}
+    {% set name = {'fr': typeElection.nameFr, 'nl' : typeElection.nameNl, 'en': typeElection.nameEn} %}
+    <li>
+        <a class="dropdown-item" href="{{path('typeElection', { slug: slug[app.request.getLocale()] })}}">{{ name[app.request.getLocale()] }}</a>
+    </li>
+{% endfor %}

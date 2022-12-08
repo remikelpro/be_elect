@@ -22,6 +22,9 @@ class TypeElection
     #[ORM\Column(length: 255)]
     private ?string $nameNl = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $nameEn = null;
+
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $descriptionFr = null;
 
@@ -33,6 +36,15 @@ class TypeElection
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $logo = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $slugFr = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $slugNl = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $slugEn = null;
 
     #[ORM\OneToMany(mappedBy: 'idTypeElection', targetEntity: Election::class)]
     private Collection $elections;
@@ -71,6 +83,18 @@ class TypeElection
         return $this;
     }
 
+    public function getNameEn(): ?string
+    {
+        return $this->nameEn;
+    }
+
+    public function setNameEn(string $nameEn): self
+    {
+        $this->nameEn = $nameEn;
+
+        return $this;
+    }
+
     public function getDescriptionFr(): ?string
     {
         return $this->descriptionFr;
@@ -103,6 +127,42 @@ class TypeElection
     public function setDescriptionEn(?string $descriptionEn): self
     {
         $this->descriptionEn = $descriptionEn;
+
+        return $this;
+    }
+
+    public function getSlugFr(): ?string
+    {
+        return $this->slugFr;
+    }
+
+    public function setSlugFr(string $slugFr): self
+    {
+        $this->slugFr = $slugFr;
+
+        return $this;
+    }
+
+    public function getSlugNl(): ?string
+    {
+        return $this->slugNl;
+    }
+
+    public function setSlugNl(?string $slugNl): self
+    {
+        $this->slugNl = $slugNl;
+
+        return $this;
+    }
+
+    public function getSlugEn(): ?string
+    {
+        return $this->slugEn;
+    }
+
+    public function setSlugEn(?string $slugEn): self
+    {
+        $this->slugEn = $slugEn;
 
         return $this;
     }
@@ -147,5 +207,10 @@ class TypeElection
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->nameFr;
     }
 }

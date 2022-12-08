@@ -15,19 +15,23 @@ $dropdown-dark-bg: $primary;
 @font-face {
     font-family: "MuseoModerno";
     src: url("../fonts/MuseoModerno-Regular.ttf");
+    font-display: swap;
 }
 @font-face {
     font-family: "MuseoModerno-Bold";
     src: url("../fonts/MuseoModerno-Bold.ttf");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "PT-Bold";
     src: url("../fonts/PTS75F.ttf");
+    font-display: swap;
 }
 @font-face {
     font-family: "PT";
     src: url("../fonts/PTS55F.ttf");
+    font-display: swap;
 }
 
 body {
