@@ -1,10 +1,9 @@
-{% set descriptions =  {'fr': parti.descriptionFr, 'nl' : parti.descriptionNl, 'en': parti.descriptionEn} %}
 <div class="card text-center parti-card">
     <img src="{{ asset('img/parti/' ~ parti.logo) }}" class="card-img-top mx-auto mt-3" alt="{{ "logo de %nom%" |
         trans({"%nom%": parti.name}) }}">
     <div class="card-body">
         <h4 class="card-title">{{ parti.name }}</h4>
-        <p class="card-text">{{ descriptions[app.request.getLocale()] | raw }}</p>
+        <p class="card-text">{{ parti.description | trans | raw }}</p>
         <a href="{{ path('parti', {slug : randomParti.slug })}}" class="btn"
             style="background-color:{{parti.colorBg}}; color:{{parti.color}}">
             {{ "A propos du parti" | trans }}</a>

@@ -6,3 +6,5 @@
 
 ## Ajouter CRUD dans l'admin
 ``symfony console make:admin:crud``
+
+bin/console doctrine:schema:update --force

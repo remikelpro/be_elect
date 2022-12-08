@@ -8,10 +8,14 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use JsonSerializable;
+use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
+use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
 
 #[ORM\Entity(repositoryClass: PartiRepository::class)]
-class Parti implements JsonSerializable
+class Parti implements TranslatableInterface, JsonSerializable
 {
+    use TranslatableTrait;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -31,15 +35,6 @@ class Parti implements JsonSerializable
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $president = null;
-
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $descriptionFr = null;
-
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $descriptionNl = null;
-
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $descriptionEn = null;
 
     #[ORM\OneToMany(mappedBy: 'idParty', targetEntity: Resultat::class)]
     private Collection $resultats;
@@ -122,43 +117,6 @@ class Parti implements JsonSerializable
         return $this;
     }
 
-    public function getDescriptionFr(): ?string
-    {
-        return $this->descriptionFr;
-    }
-
-    public function setDescriptionFr(?string $descriptionFr): self
-    {
-        $this->descriptionFr = $descriptionFr;
-
-        return $this;
-    }
-
-    public function getDescriptionNl(): ?string
-    {
-        return $this->descriptionNl;
-    }
-
-    public function setDescriptionNl(?string $descriptionNl): self
-    {
-        $this->descriptionNl = $descriptionNl;
-
-        return $this;
-    }
-
-
-    public function getDescriptionEn(): ?string
-    {
-        return $this->descriptionEn;
-    }
-
-    public function setDescriptionEn(?string $descriptionEn): self
-    {
-        $this->descriptionEn = $descriptionEn;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, Resultat>
      */
@@ -210,5 +168,16 @@ class Parti implements JsonSerializable
             'text' => $this->name,
             'slug'=> $this->slug,
         );
+    }
+
+    public function __call($method, $arguments)
+    {
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
+    }    
+    
+    public function __get($method)
+    {
+        $arguments=[];
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
     }
 }

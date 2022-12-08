@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Controller\Admin\Field\TranslationField;
 use App\Entity\Parti;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -10,6 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 class PartiCrudController extends AbstractCrudController
 {
@@ -35,9 +37,13 @@ class PartiCrudController extends AbstractCrudController
             ColorField::new('color'),
             ColorField::new('color_bg'),
             TextField::new('president'),
-            TextEditorField::new('descriptionFr'),
-            TextEditorField::new('descriptionNl'),
-            TextEditorField::new('descriptionEn'),
+            TextField::new('description', 'description')->hideOnForm(),
+            TranslationField::new('translations', 'translations', [
+                'description' => [
+                    'field_type' => CKEditorType::class,
+                    'required' => true,
+                ]
+            ])->hideOnIndex(),
             SlugField::new('slug')->setTargetFieldName('name'),
         ];
     }
