@@ -3,31 +3,20 @@
 namespace App\Entity;
 
 use App\Repository\ArticleRepository;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
-use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
+use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
-class Article
+#[ORM\HasLifecycleCallbacks]
+class Article implements TranslatableInterface
 {
+    use TranslatableTrait;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $titleFr = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $titleNl = null;
-
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $contentFr = null;
-
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $contentNl = null;
 
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
@@ -65,56 +54,28 @@ class Article
         return $this;
     }
 
-    public function getTitleFr(): ?string
+    #[ORM\PrePersist]
+    public function setCreatedAtValue(): void
     {
-        return $this->titleFr;
+        $this->updatedAt = new \DateTimeImmutable();
+        $this->createdAt = new \DateTimeImmutable();
     }
 
-    public function setTitleFr(?string $titleFr): self
-    {
-        $this->titleFr = $titleFr;
 
-        return $this;
+    #[ORM\PreUpdate]
+    public function setUpdatedAtAutomatically()
+    {
+        $this->updatedAt = new \DateTimeImmutable();
     }
 
-    public function getTitleNl(): ?string
+    public function __call($method, $arguments)
     {
-        return $this->titleNl;
-    }
-
-    public function setTitleNl(?string $titleNl): self
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
+    }    
+    
+    public function __get($method)
     {
-        $this->titleNl = $titleNl;
-
-        return $this;
-    }
-
-    public function getContentFr(): ?string
-    {
-        return $this->contentFr;
-    }
-
-    public function setContentFr(string $contentFr): self
-    {
-        $this->contentFr = $contentFr;
-
-        return $this;
-    }
-
-    public function getContentNl(): ?string
-    {
-        return $this->contentNl;
-    }
-
-    public function setContentNl(?string $contentNl): self
-    {
-        $this->contentNl = $contentNl;
-
-        return $this;
-    }
-
-    public function __toString()
-    {
-        return $this->titleFr . ' - ' . $this->titleNl;
+        $arguments=[];
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
     }
 }

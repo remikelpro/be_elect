@@ -9,4 +9,5 @@
 import './styles/app.scss';
 import 'bootstrap';
 import 'bootstrap-autocomplete';
+import 'ckeditor4';
 import './main';

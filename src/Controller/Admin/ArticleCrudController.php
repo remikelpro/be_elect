@@ -2,13 +2,13 @@
 
 namespace App\Controller\Admin;
 
+use App\Controller\Admin\Field\TranslationField;
 use App\Entity\Article;
-use Doctrine\DBAL\Types\DateType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ArticleCrudController extends AbstractCrudController
 {
@@ -19,28 +19,24 @@ class ArticleCrudController extends AbstractCrudController
 
     public function configureCrud(Crud $crud): Crud
     {
-        return $crud->setEntityLabelInSingular('Article')
-            ->setEntityLabelInPlural('Articles')
-            ->setSearchFields(['titleFr', 'titleNl', 'contentFr', 'contentNl'])
+        return $crud
             ->setDefaultSort(['createdAt' => 'DESC']);
     }
 
     public function configureFields(string $pageName): iterable
     {
-        yield TextField::new('titleFr');
-        yield TextField::new('titleNl');
-        yield TextEditorField::new('contentFr');
-        yield TextEditorField::new('contentNl');
-
-        $createdAt = DateTimeField::new('createdAt')->setFormTypeOptions([
-            'html5' => true,
-            'years' => range(date('Y'), date('Y') + 5),
-            'widget' => 'single_text',
-        ]);
-        if (Crud::PAGE_EDIT === $pageName) {
-            yield $createdAt->setFormTypeOption('disabled', true);
-        } else {
-            yield $createdAt;
-        }
+        yield TextField::new('title', 'title')->hideOnForm();
+        yield TextField::new('content', 'content')->hideOnForm();
+        yield TranslationField::new('translations', 'translations', [
+            'title' => [
+                'field_type' => TextType::class,
+                'required' => true,
+            ],
+            'content' => [
+                'field_type' => CKEditorType::class,
+                'required' => true,
+            ]
+        ])
+            ->hideOnIndex();
     }
 }
