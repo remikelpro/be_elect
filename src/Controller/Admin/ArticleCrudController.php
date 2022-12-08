@@ -19,9 +19,7 @@ class ArticleCrudController extends AbstractCrudController
 
     public function configureCrud(Crud $crud): Crud
     {
-        return $crud->setEntityLabelInSingular('Article')
-            ->setEntityLabelInPlural('Articles')
-            ->setSearchFields(['title', 'content'])
+        return $crud
             ->setDefaultSort(['createdAt' => 'DESC']);
     }
 
