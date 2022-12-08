@@ -3,6 +3,7 @@
     "@popperjs/core": "^2.11.6",
     "@symfony/webpack-encore": "^4.1.1",
     "bootstrap": "^5.2.2",
+    "file-loader": "^6.2.0",
     "jquery": "^3.6.1",
     "sass": "^1.56.0",
     "sass-loader": "^13.1.0",
@@ -12,6 +13,7 @@
     "encore": "encore"
   },
   "dependencies": {
-    "bootstrap-autocomplete": "^2.3.7"
+    "bootstrap-autocomplete": "^2.3.7",
+    "ckeditor4": "^4.20.1"
   }
 }
