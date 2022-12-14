@@ -20,6 +20,17 @@ class TypeElectionRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, TypeElection::class);
     }
+    
+    public function findOneBySlug($slug)
+    {
+        $qb = $this->createQueryBuilder('n')
+            ->select('n, t')
+            ->join('n.translations', 't')
+            ->where('t.slug = :slug')
+            ->setParameter('slug', $slug);
+
+        return $qb->getQuery()->getSingleResult();
+    }
 
     public function save(TypeElection $entity, bool $flush = false): void
     {

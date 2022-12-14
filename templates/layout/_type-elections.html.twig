@@ -1,7 +1,7 @@
 {% for typeElection in typeElections %}
-    {% set slug = {'fr': typeElection.slugFr, 'nl' : typeElection.slugNl, 'en': typeElection.slugEn} %}
-    {% set name = {'fr': typeElection.nameFr, 'nl' : typeElection.nameNl, 'en': typeElection.nameEn} %}
+{% if typeElection.name and typeElection.slug %}
     <li>
-        <a class="dropdown-item" href="{{path('typeElection', { slug: slug[app.request.getLocale()] })}}">{{ name[app.request.getLocale()] }}</a>
+        <a class="dropdown-item" href="{{path('typeElection', { slug: typeElection.slug })}}">{{ typeElection.slug }}</a>
     </li>
+    {% endif %}
 {% endfor %}

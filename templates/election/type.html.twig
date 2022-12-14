@@ -1,0 +1,11 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{ typeElection.name }}{% endblock %}
+
+{% block page_contents %}
+<div class="container">
+    <h1>{{ typeElection.name }}</h1>
+    <p>{{ typeElection.description }}</p>
+
+</div>
+{% endblock %}

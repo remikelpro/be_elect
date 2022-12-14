@@ -3,12 +3,19 @@
 namespace App\Controller;
 
 use App\Entity\TypeElection;
+use App\Repository\TypeElectionRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ElectionController extends AbstractController
 {
+    public function __construct(private TypeElectionRepository $typeElectionRepository)
+    {
+        
+    }
+    
     #[Route('/elections', name: 'elections')]
     public function index(): Response
     {
@@ -17,11 +24,14 @@ class ElectionController extends AbstractController
         ]);
     }
 
-    #[Route('/elections/{slugFr|slugEn|slugNl}', name: 'typeElection')]
-    public function typeElection(TypeElection $typeElection): Response
+    #[Route('/elections/{slug}', name: 'typeElection')]
+    public function typeElection($slug): Response
     {
-        return $this->render('election/index.html.twig', [
+        $typeElection = $this->typeElectionRepository->findOneBySlug($slug);
+
+        return $this->render('election/type.html.twig', [
             'controller_name' => 'ElectionController',
+            'typeElection' => $typeElection
         ]);
     }
 }
