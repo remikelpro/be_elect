@@ -95,10 +95,14 @@
 								</ul>
 							</span>
 						</li>
+
+						{{ render(controller(
+						'App\\Controller\\LayoutController::getPages', {'pathinfo':app.request.pathinfo}
+						)) }}
+
 						<li class="nav-item">
 							<a class="text-light nav-link {{ app.request.attributes.get('_route') == 'about' ? 'active' : ''}}"
 								href="{{path('about')}}">{{ "A propos" | trans }}</a>
-						</li>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="dropdown-toggle btn btn-light btn-sm mt-1" href="#" id="dropdown-language"

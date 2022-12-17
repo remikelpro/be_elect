@@ -1,0 +1,30 @@
+{% for page in pages %}
+{% if page.pages | length > 0 %}
+<li class="nav-item dropdown">
+    <span class="nav-link  {{ pathinfo starts with path('page', { slug: page.slug }) ? 'active' : ''}}">
+        <a class="text-light dropdown-toggle" href="#" id="navbar{{page.id}}" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            {{ page.title }} {{ path('page', { slug: page.slug }) == pathinfo }}
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbar{{page.id}}">
+            <li>
+                <a class="dropdown-item" href="{{path('page', { slug: page.slug })}}">{{ page.title }}</a>
+            </li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            {% for subpage in page.pages %}
+            <li>
+                <a class="dropdown-item" href="{{path('subpage', { parentslug: page.slug, slug: subpage.slug })}}">{{ subpage.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </span>
+</li>
+{% else %}
+<li class="nav-item">
+    <a class="text-light nav-link {{ pathinfo == path('page', { slug: page.slug }) ? 'active' : ''}}"
+    href="{{path('page', { slug: page.slug })}}">{{ page.title }}</a>
+</li>
+{% endif %}
+{% endfor %}

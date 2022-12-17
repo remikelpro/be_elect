@@ -1,8 +1,43 @@
-# Read the documentation: https://symfony.com/doc/current/bundles/FOSCKEditorBundle/index.html
-
 fos_ck_editor:
     configs:
-        nameOfYourConfig:
-            removeButtons: ~
-    base_path: "build/ckeditor"
-    js_path:   "build/ckeditor/ckeditor.js"
+        main_config:
+            toolbar:
+                - {
+                      name: "styles",
+                      items:
+                          [
+                              "Bold",
+                              "Italic",
+                              "Underline",
+                              "Strike",
+                              "Blockquote",
+                              "-",
+                              "Link",
+                              "-",
+                              "RemoveFormat",
+                              "-",
+                              "NumberedList",
+                              "BulletedList",
+                              "-",
+                              "Outdent",
+                              "Indent",
+                              "-",
+                              "-",
+                              "JustifyLeft",
+                              "JustifyCenter",
+                              "JustifyRight",
+                              "JustifyBlock",
+                              "-",
+                              "Image",
+                              "Table",
+                              "-",
+                              "Styles",
+                              "Format",
+                              "Font",
+                              "FontSize",
+                              "-",
+                              "TextColor",
+                              "BGColor",
+                              "Source",
+                          ],
+                  }

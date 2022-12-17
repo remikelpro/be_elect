@@ -23,7 +23,8 @@ class PartiCrudController extends AbstractCrudController
     {
         return $crud->setEntityLabelInSingular('Parti')
             ->setEntityLabelInPlural('Partis')
-            ->setSearchFields(['name', 'president']);
+            ->setSearchFields(['name', 'president'])
+            ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig');
     }
 
     public function configureFields(string $pageName): iterable

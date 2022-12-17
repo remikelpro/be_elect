@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Article;
 use App\Entity\Election;
+use App\Entity\Page;
 use App\Entity\Parti;
 use App\Entity\TypeElection;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -38,5 +39,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Parti', 'fas fa-list', Parti::class);
         yield MenuItem::linkToCrud('Type Election', 'fas fa-list', TypeElection::class);
         yield MenuItem::linkToCrud('Election', 'fas fa-list', Election::class);
+        yield MenuItem::linkToCrud('Page', 'fas fa-list', Page::class);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\TypeElection;
+use App\Trait\SlugRepositoryTrait;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -16,20 +17,11 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class TypeElectionRepository extends ServiceEntityRepository
 {
+    use SlugRepositoryTrait;
+    
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, TypeElection::class);
-    }
-    
-    public function findOneBySlug($slug)
-    {
-        $qb = $this->createQueryBuilder('n')
-            ->select('n, t')
-            ->join('n.translations', 't')
-            ->where('t.slug = :slug')
-            ->setParameter('slug', $slug);
-
-        return $qb->getQuery()->getSingleResult();
     }
 
     public function save(TypeElection $entity, bool $flush = false): void

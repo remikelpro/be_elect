@@ -1,7 +1,7 @@
 {% for typeElection in typeElections %}
 {% if typeElection.name and typeElection.slug %}
     <li>
-        <a class="dropdown-item" href="{{path('typeElection', { slug: typeElection.slug })}}">{{ typeElection.slug }}</a>
+        <a class="dropdown-item" href="{{path('electionType', { slug: typeElection.slug })}}">{{ typeElection.slug }}</a>
     </li>
     {% endif %}
 {% endfor %}

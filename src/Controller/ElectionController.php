@@ -24,13 +24,12 @@ class ElectionController extends AbstractController
         ]);
     }
 
-    #[Route('/elections/{slug}', name: 'typeElection')]
+    #[Route('/elections/{slug}', name: 'electionType')]
     public function typeElection($slug): Response
     {
         $typeElection = $this->typeElectionRepository->findOneBySlug($slug);
 
         return $this->render('election/type.html.twig', [
-            'controller_name' => 'ElectionController',
             'typeElection' => $typeElection
         ]);
     }

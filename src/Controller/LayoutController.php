@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use App\Repository\PageRepository;
 use App\Repository\PartiRepository;
 use App\Repository\TypeElectionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -8,13 +9,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class LayoutController extends AbstractController
 {
-    private PartiRepository $partyRepository;
-    private TypeElectionRepository $typeElectionRepository;
-
-    function __construct(PartiRepository $partyRepository, TypeElectionRepository $typeElectionRepository )
+    function __construct(private PartiRepository $partyRepository,
+    private TypeElectionRepository $typeElectionRepository,
+    private PageRepository $pageRepository )
     {
-        $this->partyRepository = $partyRepository;
-        $this->typeElectionRepository = $typeElectionRepository;
     }
 
     public function getPartis(): Response
@@ -32,6 +30,15 @@ class LayoutController extends AbstractController
 
         return $this->render('layout/_type-elections.html.twig', [
             'typeElections' => $typeElections
+        ]);
+    }
+
+    public function getPages($pathinfo = ''): Response
+    {
+        $pages = $this->pageRepository->findBy(['idParent'=> null, 'showInMenu' => true], ['position' => 'ASC']);
+        return $this->render('layout/_pages.html.twig', [
+            'pages' => $pages,
+            'pathinfo' => $pathinfo
         ]);
     }
 }

@@ -3,48 +3,54 @@
 namespace App\Controller\Admin;
 
 use App\Controller\Admin\Field\TranslationField;
-use App\Entity\TypeElection;
+use App\Entity\Page;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\SlugType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-class TypeElectionCrudController extends AbstractCrudController
+class PageCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return TypeElection::class;
+        return Page::class;
     }
 
     public function configureCrud(Crud $crud): Crud
     {
-        return $crud->setSearchFields(['name', 'description'])
-        ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig');
+        return $crud->setSearchFields(['title', 'position'])
+            ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig');
     }
 
     public function configureFields(string $pageName): iterable
     {
         return [
+            NumberField::new('position'),
+            AssociationField::new('idParent'),
+            BooleanField::new('showInMenu'),
+            TextField::new('title', 'title')->hideOnForm(),
+            TextField::new('content', 'content')->hideOnForm(),
             TextField::new('slug', 'slug')->hideOnForm(),
-            TextField::new('name', 'name')->hideOnForm(),
-            TextField::new('description', 'description')->hideOnForm(),
             TranslationField::new('translations', 'translations', [
-                'name' => [
+                'title' => [
                     'field_type' => TextType::class,
-                    'required' => true,
-                ],
-                'description' => [
-                    'field_type' => CKEditorType::class,
                     'required' => true,
                 ],
                 'slug' => [
                     'field_type' => SlugType::class,
                     'required' => true,
-                    'target' => 'name'
+                    'target' => 'title'
                 ],
-            ])->hideOnIndex(),
+                'content' => [
+                    'field_type' => CKEditorType::class,
+                    'required' => true,
+                ]
+            ])->hideOnIndex()
         ];
     }
 }

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ page.title }}</h1>
+    {{ page.content | raw }}
+
+    {% if page.pages | length > 0 %}
+    <h3>{{"En savoir plus" | trans }}</h3>
+    <ul>
+        {% for subpage in page.pages %}
+        <li>
+            <a href="{{ path('subpage', {parentslug: page.slug, slug: subpage.slug})}}">
+                {{ subpage.title }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+{% endblock %}
