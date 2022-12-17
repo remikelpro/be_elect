@@ -16,7 +16,7 @@ class HomepageController extends AbstractController
     {
         $partis = $partiRepository->findAll();
         $randomParti = $partis[array_rand($partis)];
-
+        
         return $this->render('homepage/index.html.twig', [
             'randomParti'   => $randomParti,
             'partis'        => $partis

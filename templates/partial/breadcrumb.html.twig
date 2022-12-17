@@ -1,0 +1,9 @@
+<div class="container">
+    {% for bread in breadcrumb %}
+        {% if loop.last %}
+            <span>{{ bread.name }}</span>
+        {% else %}
+            <a href="{{ bread.href }}">{{ bread.name }}</a> >
+        {% endif %}
+    {% endfor %}
+</div>

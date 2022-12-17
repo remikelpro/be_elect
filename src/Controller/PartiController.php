@@ -3,34 +3,41 @@
 namespace App\Controller;
 
 use App\Entity\Parti;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\PartiRepository;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
-class PartiController extends AbstractController
+class PartiController extends AbstractBeElectController
 {
-    private PartiRepository $partiRepository;
 
-    public function __construct(PartiRepository $partiRepository)
+    public function __construct(private PartiRepository $partiRepository, private TranslatorInterface $translator)
     {
-        $this->partiRepository = $partiRepository;
     }
 
     #[Route('/partis', name: 'partis')]
     public function index(): Response
     {
+        $breadcrumb = $this->getBreadcrumb([
+            ['name' => $this->translator->trans('Partis'), 'href' => $this->generateUrl('partis')]
+        ]);
+
         return $this->render('parti/index.html.twig', [
-            'controller_name' => 'PartiController',
+            'breadcrumb' => $breadcrumb
         ]);
     }
 
     #[Route('/parti/{slug}', name: 'parti')]
     public function parti(Parti $parti): Response
     {
+        $breadcrumb = $this->getBreadcrumb([
+            ['name' => $this->translator->trans('Partis'), 'href' => $this->generateUrl('partis')],
+            ['name' => $parti->getName(), 'href' => $this->generateUrl('parti', ['slug' => $parti->getSlug()])]
+        ]);
+
         return $this->render('parti/parti.html.twig', [
-            'controller_name' => 'PartiController',
+            'breadcrumb' => $breadcrumb
         ]);
     }
 
