@@ -7,6 +7,7 @@ use App\Entity\Election;
 use App\Entity\Page;
 use App\Entity\Parti;
 use App\Entity\TypeElection;
+use App\Entity\TypeResultat;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -35,10 +36,11 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToRoute('Back to the website', 'fa fa-home', 'homepage');
-        yield MenuItem::linkToCrud('Article', 'fas fa-list', Article::class);
-        yield MenuItem::linkToCrud('Parti', 'fas fa-list', Parti::class);
-        yield MenuItem::linkToCrud('Type Election', 'fas fa-list', TypeElection::class);
-        yield MenuItem::linkToCrud('Election', 'fas fa-list', Election::class);
-        yield MenuItem::linkToCrud('Page', 'fas fa-list', Page::class);
+        yield MenuItem::linkToCrud('Article', 'fas fa-newspaper', Article::class);
+        yield MenuItem::linkToCrud('Parti', 'fas fa-landmark', Parti::class);
+        yield MenuItem::linkToCrud('Type Election', 'fas fa-person-booth', TypeElection::class);
+        yield MenuItem::linkToCrud('Election', 'fas fa-person-booth', Election::class);
+        yield MenuItem::linkToCrud('Page', 'fa fa-file', Page::class);
+        yield MenuItem::linkToCrud('Type Resultat', 'fas fa-square-poll-vertical', TypeResultat::class);
     }
 }

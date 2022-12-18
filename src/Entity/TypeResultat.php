@@ -6,20 +6,17 @@ use App\Repository\TypeResultatRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
+use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
 
 #[ORM\Entity(repositoryClass: TypeResultatRepository::class)]
-class TypeResultat
+class TypeResultat implements TranslatableInterface
 {
+    use TranslatableTrait;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $nameFr = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $nameNl = null;
 
     #[ORM\OneToMany(mappedBy: 'idTypeResultat', targetEntity: Resultat::class)]
     private Collection $resultats;
@@ -86,5 +83,16 @@ class TypeResultat
         }
 
         return $this;
+    }
+    
+    public function __call($method, $arguments)
+    {
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
+    }    
+    
+    public function __get($method)
+    {
+        $arguments=[];
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
     }
 }
