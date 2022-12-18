@@ -7,19 +7,18 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
+use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
+
 #[ORM\Entity(repositoryClass: CantonRepository::class)]
-class Canton
+class Canton implements TranslatableInterface
 {
+    use TranslatableTrait;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $nameFr = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $nameNl = null;
 
     #[ORM\ManyToOne(inversedBy: 'cantons')]
     #[ORM\JoinColumn(nullable: false)]
@@ -40,30 +39,6 @@ class Canton
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getNameFr(): ?string
-    {
-        return $this->nameFr;
-    }
-
-    public function setNameFr(string $nameFr): self
-    {
-        $this->nameFr = $nameFr;
-
-        return $this;
-    }
-
-    public function getNameNl(): ?string
-    {
-        return $this->nameNl;
-    }
-
-    public function setNameNl(string $nameNl): self
-    {
-        $this->nameNl = $nameNl;
-
-        return $this;
     }
 
     public function getIdArrondissement(): ?Arrondissement
@@ -136,5 +111,16 @@ class Canton
         }
 
         return $this;
+    }
+    
+    public function __call($method, $arguments)
+    {
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
+    }    
+    
+    public function __get($method)
+    {
+        $arguments=[];
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
     }
 }

@@ -6,20 +6,18 @@ use App\Repository\RegionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Mapping\Table;
+use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
+use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
 
 #[ORM\Entity(repositoryClass: RegionRepository::class)]
-class Region
+class Region implements TranslatableInterface
 {
+    use TranslatableTrait;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-    #[ORM\Column(length: 255)]
-    private ?string $nameFr = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $nameNl = null;
 
     #[ORM\OneToMany(mappedBy: 'idRegion', targetEntity: Province::class, orphanRemoval: true)]
     private Collection $provinces;
@@ -36,30 +34,6 @@ class Region
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getNameFr(): ?string
-    {
-        return $this->nameFr;
-    }
-
-    public function setNameFr(string $nameFr): self
-    {
-        $this->nameFr = $nameFr;
-
-        return $this;
-    }
-
-    public function getNameNl(): ?string
-    {
-        return $this->nameNl;
-    }
-
-    public function setNameNl(string $nameNl): self
-    {
-        $this->nameNl = $nameNl;
-
-        return $this;
     }
 
     /**
@@ -120,5 +94,16 @@ class Region
         }
 
         return $this;
+    }
+    
+    public function __call($method, $arguments)
+    {
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
+    }    
+    
+    public function __get($method)
+    {
+        $arguments=[];
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
     }
 }

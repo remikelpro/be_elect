@@ -7,19 +7,18 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
+use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
+
 #[ORM\Entity(repositoryClass: CommuneRepository::class)]
-class Commune
+class Commune implements TranslatableInterface
 {
+    use TranslatableTrait;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $nameFr = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $nameNl = null;
 
     #[ORM\ManyToOne(inversedBy: 'communes')]
     #[ORM\JoinColumn(nullable: false)]
@@ -36,30 +35,6 @@ class Commune
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getNameFr(): ?string
-    {
-        return $this->nameFr;
-    }
-
-    public function setNameFr(string $nameFr): self
-    {
-        $this->nameFr = $nameFr;
-
-        return $this;
-    }
-
-    public function getNameNl(): ?string
-    {
-        return $this->nameNl;
-    }
-
-    public function setNameNl(string $nameNl): self
-    {
-        $this->nameNl = $nameNl;
-
-        return $this;
     }
 
     public function getIdCanton(): ?Canton
@@ -102,5 +77,16 @@ class Commune
         }
 
         return $this;
+    }
+    
+    public function __call($method, $arguments)
+    {
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
+    }    
+    
+    public function __get($method)
+    {
+        $arguments=[];
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
     }
 }
