@@ -6,24 +6,18 @@ use App\Repository\ArrondissementRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Knp\DoctrineBehaviors\Contract\Entity\TranslationInterface;
-use Knp\DoctrineBehaviors\Model\Translatable\TranslationTrait;
+use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
+use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
 
 #[ORM\Entity(repositoryClass: ArrondissementRepository::class)]
-class Arrondissement implements TranslationInterface
+class Arrondissement implements TranslatableInterface
 {
-    use TranslationTrait;
+    use TranslatableTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $nameFr = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $nameNl = null;
 
     #[ORM\ManyToOne(inversedBy: 'arrondissements')]
     #[ORM\JoinColumn(nullable: false)]
@@ -44,30 +38,6 @@ class Arrondissement implements TranslationInterface
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getNameFr(): ?string
-    {
-        return $this->nameFr;
-    }
-
-    public function setNameFr(string $nameFr): self
-    {
-        $this->nameFr = $nameFr;
-
-        return $this;
-    }
-
-    public function getNameNl(): ?string
-    {
-        return $this->nameNl;
-    }
-
-    public function setNameNl(string $nameNl): self
-    {
-        $this->nameNl = $nameNl;
-
-        return $this;
     }
 
     public function getIdProvince(): ?Province
