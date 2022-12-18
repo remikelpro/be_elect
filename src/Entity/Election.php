@@ -167,4 +167,8 @@ class Election
     {
         $this->updatedAt = new \DateTimeImmutable();
     }
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }

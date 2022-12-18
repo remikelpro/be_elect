@@ -106,4 +106,8 @@ class Region implements TranslatableInterface
         $arguments=[];
         return $this->proxyCurrentLocaleTranslation($method, $arguments);
     }
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }

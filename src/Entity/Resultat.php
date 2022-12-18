@@ -6,6 +6,7 @@ use App\Repository\ResultatRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ResultatRepository::class)]
+#[ORM\HasLifecycleCallbacks]
 class Resultat
 {
     #[ORM\Id]
@@ -203,7 +204,6 @@ class Resultat
 
         return $this;
     }
-
     public function getCreatedAt(): ?\DateTimeImmutable
     {
         return $this->createdAt;
@@ -226,5 +226,19 @@ class Resultat
         $this->updatedAt = $updatedAt;
 
         return $this;
+    }
+
+    #[ORM\PrePersist]
+    public function setCreatedAtValue(): void
+    {
+        $this->updatedAt = new \DateTimeImmutable();
+        $this->createdAt = new \DateTimeImmutable();
+    }
+
+
+    #[ORM\PreUpdate]
+    public function setUpdatedAtAutomatically()
+    {
+        $this->updatedAt = new \DateTimeImmutable();
     }
 }

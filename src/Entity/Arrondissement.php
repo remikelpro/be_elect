@@ -111,4 +111,18 @@ class Arrondissement implements TranslatableInterface
 
         return $this;
     }
+    public function __call($method, $arguments)
+    {
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
+    }    
+    
+    public function __get($method)
+    {
+        $arguments=[];
+        return $this->proxyCurrentLocaleTranslation($method, $arguments);
+    }
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }
