@@ -8,10 +8,7 @@
         <div class="col-lg-8">
             <h1>{{ "Tout le détail des : <span class=\"text-secondary\">élections</span> est sur Be-Elect" | trans | raw
                 }}</h1>
-            <p>Un clic-clac, aussi appelé divan-lit au Canada1, est une sorte de canapé à structure métallique
-                transformable en lit en rabattant le dossier vers l'arrière, ce qui déplace l'assise vers l'avant pour
-                former un couchage deux places2. Son nom vient du mécanisme de la charnière reliant les deux parties.
-            </p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt sunt ipsam, enim repudiandae, dicta, saepe hic sapiente ducimus esse necessitatibus nam velit tenetur ullam fuga! Vitae recusandae aspernatur illo officia?</p>
         </div>
         <div class="col-lg-4 d-flex align-self-center">
             <img src="{{ asset('img/homepage/election.svg') }}" class="w-100 illustration" alt="{{ " illustration de
@@ -22,14 +19,14 @@
 <section class="section-2">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 text-center py-3 text-light search-part">
+            <div class="col-lg-7 text-center py-5 text-light search-part">
                 <img src="{{ asset('img/homepage/search_icon.svg') }}" alt="search icon" />
                 <h3 class="my-2">{{ "Je trouve mon parti politique en 1 clic :" | trans }}</h3>
                 <select type="text" placeholder="{{ " Cherchez ici le nom du parti politique (exemple : PS)" }}"
                     class="form-control basicAutoSelect" id="searchParti" autocomplete="off"
                     data-url="{{ path('partisJson') }}"></select>
             </div>
-            <div class="col-lg-6 text-center py-3 random-part">
+            <div class="col-lg-5 text-center py-3 random-part">
                 <h3>{{ "Un parti politique au hasard" | trans }}</h3>
                 {% include 'parti/_card-random.html.twig' with { 'parti': randomParti} %}
             </div>
