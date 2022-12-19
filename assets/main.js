@@ -16,3 +16,8 @@ $('.basicAutoSelect').autoComplete();
 $('.basicAutoSelect').on('autocomplete.select', function (e,item) {
     window.location.href = 'parti/' + item.slug;
 });
+
+
+$('.page > p').wrap('<div class="paragraph"><div class="container"></div></div>');
+$('.paragraph:odd').addClass('odd-paragraph');
+$('.paragraph:even').addClass('even-paragraph');

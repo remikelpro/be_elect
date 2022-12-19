@@ -40,6 +40,13 @@ body {
 }
 
 @media only screen and (min-width: 990px) {
+    .nav-link:after{
+        position: relative;
+        top: 19px;
+        display: block;
+        content: "";
+        border-bottom: solid 8px transparent;
+    }
     .nav-link.active:after,
     .nav-link:not(.active):hover:after {
         position: relative;
@@ -218,5 +225,20 @@ h1 {
         .col:nth-child(3) {
             border: none;
         }
+    }
+}
+.paragraph {
+    padding: 1rem 0;
+}
+.odd-paragraph{
+    background-color: $grey;
+    text-align: end;
+    .container{
+        padding-left: 10rem;
+    }
+}
+.even-paragraph{
+    .container{
+        padding-right: 10rem;
     }
 }

@@ -1,15 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-<div class="container">
-    <h1>{{ page.title }}</h1>
+<div class="page">
+    <h1 class="container">{{ page.title }}</h1>
     {% if breadcrumb is defined %}
-        {% include 'partial/breadcrumb.html.twig' with { breadcrumb } %}
+    {% include 'partial/breadcrumb.html.twig' with { breadcrumb } %}
     {% endif %}
 
     {{ page.content | raw }}
 
     {% if page.pages | length > 0 %}
+    <div class="container">
     <h3>{{"En savoir plus" | trans }}</h3>
     <ul>
         {% for subpage in page.pages %}
@@ -21,5 +22,8 @@
         {% endfor %}
     </ul>
     {% endif %}
+    </div>
 </div>
+<script>
+</script>
 {% endblock %}
