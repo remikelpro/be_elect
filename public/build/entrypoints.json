@@ -9,6 +9,13 @@
       "css": [
         "/build/app.css"
       ]
+    },
+    "map": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vendors-node_modules_core-js_modules_es_array_map_js-node_modules_core-js_modules_es_object_t-e7f4fa.js",
+        "/build/map.js"
+      ]
     }
   }
 }

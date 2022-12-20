@@ -8,7 +8,9 @@
         <div class="col-lg-8">
             <h1>{{ "Tout le détail des : <span class=\"text-secondary\">élections</span> est sur Be-Elect" | trans | raw
                 }}</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt sunt ipsam, enim repudiandae, dicta, saepe hic sapiente ducimus esse necessitatibus nam velit tenetur ullam fuga! Vitae recusandae aspernatur illo officia?</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt sunt ipsam, enim repudiandae, dicta,
+                saepe hic sapiente ducimus esse necessitatibus nam velit tenetur ullam fuga! Vitae recusandae aspernatur
+                illo officia?</p>
         </div>
         <div class="col-lg-4 d-flex align-self-center">
             <img src="{{ asset('img/homepage/election.svg') }}" class="w-100 illustration" alt="{{ " illustration de
@@ -55,8 +57,10 @@
 <section class="container">
     <h2>TODO nom élection, {{ "découvrez la carte et le résultat des votes" | trans }}</h2>
     <div class="row">
-        <div id="map" class="bg-primary text-center col-lg-9">
-            map
+        <div id="map" class="bg-primary text-center col-lg-9 p-3">
+
+
+            <canvas id="canvas"></canvas>
             <button id="closeMap">ok</button>
         </div>
         <div id="donut" class="text-right col-lg-3">
@@ -77,4 +81,8 @@
 
     </div>
 </section>
+{% endblock %}
+{% block javascripts %}
+{{ encore_entry_script_tags('app') }}
+{{ encore_entry_script_tags('map') }}
 {% endblock %}
