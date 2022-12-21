@@ -21,6 +21,7 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/app.js')
+    .addEntry('map', './assets/map.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
@@ -85,5 +86,10 @@ Encore
         {from: './node_modules/ckeditor4/vendor', to: 'ckeditor/vendor/[path][name].[ext]'}
     ])
 ;
+const config = Encore.getWebpackConfig();
 
-module.exports = Encore.getWebpackConfig();
+config.experiments = {
+  topLevelAwait: true,
+}
+
+module.exports = config;
