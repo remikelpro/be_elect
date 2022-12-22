@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\SlugType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 
 class TypeElectionCrudController extends AbstractCrudController
 {
@@ -20,12 +21,20 @@ class TypeElectionCrudController extends AbstractCrudController
 
     public function configureCrud(Crud $crud): Crud
     {
-        return $crud->setSearchFields(['name', 'description'])
-        ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig');
+        return $crud
+            ->setFormThemes(
+                [
+                    '@A2lixTranslationForm/bootstrap_5_layout.html.twig',
+                    '@EasyAdmin/crud/form_theme.html.twig',
+                    '@FOSCKEditor/Form/ckeditor_widget.html.twig',
+                ]
+            );
     }
 
     public function configureFields(string $pageName): iterable
     {
+        yield NumberField::new('id', 'id')->hideOnForm();
+        yield TextField::new('name', 'name')->hideOnForm();
         return [
             TextField::new('slug', 'slug')->hideOnForm(),
             TextField::new('name', 'name')->hideOnForm(),

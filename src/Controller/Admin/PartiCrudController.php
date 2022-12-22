@@ -11,6 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 
 class PartiCrudController extends AbstractCrudController
 {
@@ -21,14 +22,20 @@ class PartiCrudController extends AbstractCrudController
 
     public function configureCrud(Crud $crud): Crud
     {
-        return $crud->setEntityLabelInSingular('Parti')
-            ->setEntityLabelInPlural('Partis')
-            ->setSearchFields(['name', 'president'])
-            ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig');
+        return $crud
+        ->setFormThemes(
+            [
+                '@A2lixTranslationForm/bootstrap_5_layout.html.twig',
+                '@EasyAdmin/crud/form_theme.html.twig',
+                '@FOSCKEditor/Form/ckeditor_widget.html.twig',
+            ]
+        );
     }
 
-    public function configureFields(string $pageName): iterable
+        public function configureFields(string $pageName): iterable
     {
+        yield NumberField::new('id', 'id')->hideOnForm();
+        yield TextField::new('name', 'name')->hideOnForm();
         return [
             ImageField::new('logo')->setBasePath('img/parti/')
                 ->setUploadDir('public/img/parti/')

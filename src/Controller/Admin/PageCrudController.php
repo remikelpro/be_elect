@@ -23,12 +23,20 @@ class PageCrudController extends AbstractCrudController
 
     public function configureCrud(Crud $crud): Crud
     {
-        return $crud->setSearchFields(['title', 'position'])
-            ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig');
+        return $crud
+        ->setFormThemes(
+            [
+                '@A2lixTranslationForm/bootstrap_5_layout.html.twig',
+                '@EasyAdmin/crud/form_theme.html.twig',
+                '@FOSCKEditor/Form/ckeditor_widget.html.twig',
+            ]
+        );
     }
 
-    public function configureFields(string $pageName): iterable
+        public function configureFields(string $pageName): iterable
     {
+        yield NumberField::new('id', 'id')->hideOnForm();
+        yield TextField::new('title', 'title')->hideOnForm();
         return [
             NumberField::new('position'),
             AssociationField::new('idParent'),
