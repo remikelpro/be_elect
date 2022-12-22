@@ -19,6 +19,10 @@ class LocaleSubscriber implements EventSubscriberInterface
     public function onKernelRequest(RequestEvent $event)
     {
         $request = $event->getRequest();
+        if ($request->headers->has("Accept-Language")) {
+            $locale = $request->headers->get('Accept-Language');
+            $request->setLocale($locale);
+        }
         if (!$request->hasPreviousSession()) {
             return;
         }

@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Contract\Entity\TranslationInterface;
 use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
 use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CommuneRepository::class)]
 class Commune implements TranslatableInterface
@@ -19,7 +20,11 @@ class Commune implements TranslatableInterface
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['read'])]
     private ?int $id = null;
+
+    #[Groups(['read'])]
+    private ?string $name = null;
 
     #[ORM\ManyToOne(inversedBy: 'communes')]
     #[ORM\JoinColumn(nullable: false)]

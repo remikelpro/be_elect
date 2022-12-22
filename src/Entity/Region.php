@@ -14,7 +14,6 @@ use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\MaxDepth;
 
 #[ORM\Entity(repositoryClass: RegionRepository::class)]
-#[ApiResource(normalizationContext: ['groups' => ['read']])]
 class Region implements TranslatableInterface
 {
     use TranslatableTrait;

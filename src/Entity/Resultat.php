@@ -2,58 +2,84 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Metadata\ApiFilter;
+use ApiPlatform\Metadata\ApiResource;
 use App\Repository\ResultatRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
 
 #[ORM\Entity(repositoryClass: ResultatRepository::class)]
 #[ORM\HasLifecycleCallbacks]
+#[ApiFilter(SearchFilter::class, properties: ['idElection.id' => 'exact', 'idElection.idTypeElection' => 'exact'])]
+#[ApiResource(normalizationContext: ['groups' => ['read']],operations: [
+    new Get(),
+    new GetCollection()
+])]
 class Resultat
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['read'])]
     private ?int $id = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(['read'])]
     private ?int $numberBallot = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(['read'])]
     private ?float $percent = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(['read'])]
     private ?int $numberSubscriber = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(['read'])]
     private ?int $numberSeat = null;
 
     #[ORM\ManyToOne(inversedBy: 'resultats')]
+    #[Groups(['read'])]
     private ?Parti $idParty = null;
 
     #[ORM\ManyToOne(inversedBy: 'resultats')]
+    #[Groups(['read'])]
     private ?Election $idElection = null;
 
     #[ORM\ManyToOne(inversedBy: 'resultats')]
+    #[Groups(['read'])]
     private ?Commune $idCommune = null;
 
     #[ORM\ManyToOne(inversedBy: 'resultats')]
+    #[Groups(['read'])]
     private ?Canton $idCanton = null;
 
     #[ORM\ManyToOne(inversedBy: 'resultats')]
+    #[Groups(['read'])]
     private ?Arrondissement $idArrondissement = null;
 
     #[ORM\ManyToOne(inversedBy: 'resultats')]
+    #[Groups(['read'])]
     private ?Province $idProvince = null;
 
     #[ORM\ManyToOne(inversedBy: 'resultats')]
+    #[Groups(['read'])]
     private ?Region $idRegion = null;
 
     #[ORM\ManyToOne(inversedBy: 'resultats')]
+    #[Groups(['read'])]
     private ?TypeResultat $idTypeResultat = null;
 
     #[ORM\Column]
+    #[Groups(['read'])]
     private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\Column]
+    #[Groups(['read'])]
     private ?\DateTimeImmutable $updatedAt = null;
 
     public function getId(): ?int
@@ -240,5 +266,9 @@ class Resultat
     public function setUpdatedAtAutomatically()
     {
         $this->updatedAt = new \DateTimeImmutable();
+    }
+    public function __toString()
+    {
+        return 'Result #' .$this->getId();
     }
 }

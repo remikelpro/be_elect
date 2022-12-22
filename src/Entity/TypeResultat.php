@@ -32,30 +32,6 @@ class TypeResultat implements TranslatableInterface
         return $this->id;
     }
 
-    public function getNameFr(): ?string
-    {
-        return $this->nameFr;
-    }
-
-    public function setNameFr(string $nameFr): self
-    {
-        $this->nameFr = $nameFr;
-
-        return $this;
-    }
-
-    public function getNameNl(): ?string
-    {
-        return $this->nameNl;
-    }
-
-    public function setNameNl(string $nameNl): self
-    {
-        $this->nameNl = $nameNl;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, Resultat>
      */
