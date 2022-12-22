@@ -35,9 +35,8 @@ class PageCrudController extends AbstractCrudController
 
         public function configureFields(string $pageName): iterable
     {
-        yield NumberField::new('id', 'id')->hideOnForm();
-        yield TextField::new('title', 'title')->hideOnForm();
         return [
+            NumberField::new('id', 'id')->hideOnForm(),
             NumberField::new('position'),
             AssociationField::new('idParent'),
             BooleanField::new('showInMenu'),

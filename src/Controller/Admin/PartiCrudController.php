@@ -34,9 +34,8 @@ class PartiCrudController extends AbstractCrudController
 
         public function configureFields(string $pageName): iterable
     {
-        yield NumberField::new('id', 'id')->hideOnForm();
-        yield TextField::new('name', 'name')->hideOnForm();
         return [
+            NumberField::new('id', 'id')->hideOnForm(),
             ImageField::new('logo')->setBasePath('img/parti/')
                 ->setUploadDir('public/img/parti/')
                 ->setUploadedFileNamePattern('[slug].[extension]'),

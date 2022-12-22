@@ -31,9 +31,8 @@ class CantonCrudController extends AbstractCrudController
     }
         public function configureFields(string $pageName): iterable
     {
-        yield NumberField::new('id', 'id')->hideOnForm();
-        yield TextField::new('name', 'name')->hideOnForm();
         return [
+            NumberField::new('id', 'id')->hideOnForm(),
             TextField::new('name', 'name')->hideOnForm(),
             TranslationField::new('translations', 'translations', [
                 'name' => [
