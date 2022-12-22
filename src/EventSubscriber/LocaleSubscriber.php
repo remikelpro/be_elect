@@ -25,7 +25,7 @@ class LocaleSubscriber implements EventSubscriberInterface
         if ($locale = $request->attributes->get('_locale')) {
             $request->getSession()->set('_locale', $locale);
         } else if (!$locale = $request->getSession()->get('_locale')){
-            $request->setLocale($request->getSession()->get('_locale', $$this->defaultLocale));
+            $request->setLocale($request->getSession()->get('_locale', $this->defaultLocale));
         }
         if ($request->getPathInfo() === "/") {
             $response = new RedirectResponse($locale);

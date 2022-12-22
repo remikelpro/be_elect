@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Contract\Entity\TranslationInterface;
 use Knp\DoctrineBehaviors\Model\Translatable\TranslationTrait;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity]
 class ProvinceTranslation implements TranslationInterface
@@ -17,6 +18,7 @@ class ProvinceTranslation implements TranslationInterface
     private $id;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['region'])]
     private ?string $name = null;
 
     public function getId(): ?int
