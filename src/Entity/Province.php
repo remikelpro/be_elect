@@ -6,8 +6,10 @@ use App\Repository\ProvinceRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Contract\Entity\TranslationInterface;
 use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
 use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: ProvinceRepository::class)]
 class Province implements TranslatableInterface
@@ -17,16 +19,23 @@ class Province implements TranslatableInterface
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['read'])]
     private ?int $id = null;
+
+    #[Groups(['read'])]
+    private ?string $name = null;
 
     #[ORM\ManyToOne(inversedBy: 'provinces')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['province'])]
     private ?Region $idRegion = null;
 
     #[ORM\OneToMany(mappedBy: 'idProvince', targetEntity: Arrondissement::class, orphanRemoval: true)]
+    #[Groups(['read'])]
     private Collection $arrondissements;
 
     #[ORM\OneToMany(mappedBy: 'idProvince', targetEntity: Resultat::class)]
+    #[Groups(['province'])]
     private Collection $resultats;
 
     public function __construct()

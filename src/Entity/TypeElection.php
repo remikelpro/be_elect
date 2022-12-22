@@ -6,6 +6,7 @@ use App\Repository\TypeElectionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Contract\Entity\TranslationInterface;
 use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
 use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
 
@@ -85,5 +86,9 @@ class TypeElection implements TranslatableInterface
     {
         $arguments=[];
         return $this->proxyCurrentLocaleTranslation($method, $arguments);
+    }
+    public function __toString()
+    {
+        return $this->getName();
     }
 }

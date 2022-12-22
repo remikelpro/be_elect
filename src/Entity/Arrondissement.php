@@ -6,8 +6,10 @@ use App\Repository\ArrondissementRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Contract\Entity\TranslationInterface;
 use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
 use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: ArrondissementRepository::class)]
 class Arrondissement implements TranslatableInterface
@@ -17,7 +19,11 @@ class Arrondissement implements TranslatableInterface
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['read'])]
     private ?int $id = null;
+
+    #[Groups(['read'])]
+    private ?string $name = null;
 
     #[ORM\ManyToOne(inversedBy: 'arrondissements')]
     #[ORM\JoinColumn(nullable: false)]

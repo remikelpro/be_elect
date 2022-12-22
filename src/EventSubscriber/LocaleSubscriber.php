@@ -19,13 +19,17 @@ class LocaleSubscriber implements EventSubscriberInterface
     public function onKernelRequest(RequestEvent $event)
     {
         $request = $event->getRequest();
+        if ($request->headers->has("Accept-Language")) {
+            $locale = $request->headers->get('Accept-Language');
+            $request->setLocale($locale);
+        }
         if (!$request->hasPreviousSession()) {
             return;
         }
         if ($locale = $request->attributes->get('_locale')) {
             $request->getSession()->set('_locale', $locale);
         } else if (!$locale = $request->getSession()->get('_locale')){
-            $request->setLocale($request->getSession()->get('_locale', $$this->defaultLocale));
+            $request->setLocale($request->getSession()->get('_locale', $this->defaultLocale));
         }
         if ($request->getPathInfo() === "/") {
             $response = new RedirectResponse($locale);

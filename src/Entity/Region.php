@@ -2,12 +2,16 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
 use App\Repository\RegionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Contract\Entity\TranslationInterface;
 use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
 use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Serializer\Annotation\MaxDepth;
 
 #[ORM\Entity(repositoryClass: RegionRepository::class)]
 class Region implements TranslatableInterface
@@ -17,12 +21,19 @@ class Region implements TranslatableInterface
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['read'])]
     private ?int $id = null;
 
+    #[Groups(['read'])]
+    private ?string $name = null;
+
     #[ORM\OneToMany(mappedBy: 'idRegion', targetEntity: Province::class, orphanRemoval: true)]
+    #[Groups(['read'])]
+    #[MaxDepth(1)]
     private Collection $provinces;
 
     #[ORM\OneToMany(mappedBy: 'idRegion', targetEntity: Resultat::class)]
+    #[Groups(['read'])]
     private Collection $resultats;
 
     public function __construct()
