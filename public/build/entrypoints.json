@@ -3,10 +3,11 @@
     "app": {
       "js": [
         "/build/runtime.js",
-        "/build/vendors-node_modules_bootstrap-autocomplete_dist_latest_bootstrap-autocomplete_js-node_module-ef4803.js",
+        "/build/vendors-node_modules_bootstrap-autocomplete_dist_latest_bootstrap-autocomplete_js-node_module-1bb6f4.js",
         "/build/app.js"
       ],
       "css": [
+        "/build/vendors-node_modules_bootstrap-autocomplete_dist_latest_bootstrap-autocomplete_js-node_module-1bb6f4.css",
         "/build/app.css"
       ]
     },

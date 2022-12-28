@@ -11,3 +11,4 @@ import 'bootstrap';
 import 'bootstrap-autocomplete';
 import 'ckeditor4';
 import './main';
+import './table';
