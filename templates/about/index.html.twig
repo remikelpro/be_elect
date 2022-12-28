@@ -16,18 +16,22 @@
 		data-show-export="true"
 		data-show-pagination-switch="true"
 		data-pagination="true"
-		data-page-list="[10, 25, 50, 100, all]"
+		data-page-size="30"
+		data-page-list="[10, 50, 100, 300, all]"
 		data-toggle="table" data-height="700" 
 		data-ajax="ajaxRequest"
-		data-search="true"
+		data-sortable="true"
 		data-side-pagination="server"
-		data-query-params="queryParams"
 		data-pagination="true">
 			<thead>
 				<tr>
-					<th data-field="id">ID</th>
-					<th data-field="numberBallot">{{ "Nombre votes" | trans }}</th>
+					<th data-sortable="true" data-field="id">ID</th>
+					<th data-sortable="true" data-field="numberBallot">{{ "Nombre votes" | trans }}</th>
+					<th data-sortable="true" data-field="percent">{{ "Pourcentage" | trans }}</th>
+					<th data-field="idElection.name">{{ "Election" | trans }}</th>
 					<th data-field="idParty.name">{{ "Parti" | trans }}</th>
+					<th data-field="idRegion.name">{{ "Region" | trans }}</th>
+					<th data-field="idArrondissement.name">{{ "Arrondissement" | trans }}</th>
 				</tr>
 			</thead>
 		</table>

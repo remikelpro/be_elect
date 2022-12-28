@@ -33,7 +33,6 @@ class Region implements TranslatableInterface
     private Collection $provinces;
 
     #[ORM\OneToMany(mappedBy: 'idRegion', targetEntity: Resultat::class)]
-    #[Groups(['read'])]
     private Collection $resultats;
 
     public function __construct()
