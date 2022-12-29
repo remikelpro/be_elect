@@ -16,8 +16,8 @@ use ApiPlatform\Metadata\GetCollection;
 #[ORM\HasLifecycleCallbacks]
 #[ApiFilter(SearchFilter::class, properties: [
     'idElection.idTypeElection' => 'exact',
-    'idParty.name' => 'exact',
-    'idElection.name' => 'exact',
+    'idParty.id' => 'exact',
+    'idElection.id' => 'exact',
     'idCommune.name' => 'exact',
     'idCanton.name' => 'exact',
     'idArrondissement.name' => 'exact',

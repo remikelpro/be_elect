@@ -2,6 +2,9 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Metadata\ApiFilter;
+use ApiPlatform\Metadata\ApiResource;
 use App\Repository\ElectionRepository;
 use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -10,9 +13,18 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Persistence\Event\LifecycleEventArgs;
 use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
 
 #[ORM\Entity(repositoryClass: ElectionRepository::class)]
 #[ORM\HasLifecycleCallbacks]
+#[ApiResource(normalizationContext: ['groups' => ['read']], operations: [
+    new Get(),
+    new GetCollection()
+])]
+#[ApiFilter(SearchFilter::class, properties: [
+    'name' => 'exact',
+])]
 class Election
 {
     #[ORM\Id]

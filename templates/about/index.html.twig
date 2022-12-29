@@ -5,37 +5,6 @@
 
 {% block page_contents %}
 <div class="container">
-
-	<div>
-		<table
-		data-show-refresh="true"
-		data-show-toggle="true"
-		data-show-fullscreen="true"
-		data-show-columns="true"
-		data-show-columns-toggle-all="true"
-		data-show-export="true"
-		data-show-pagination-switch="true"
-		data-pagination="true"
-		data-page-size="30"
-		data-page-list="[10, 50, 100, 300, all]"
-		data-toggle="table" data-height="700" 
-		data-ajax="ajaxRequest"
-		data-sortable="true"
-		data-side-pagination="server"
-		data-pagination="true">
-			<thead>
-				<tr>
-					<th data-sortable="true" data-field="id">ID</th>
-					<th data-sortable="true" data-field="numberBallot">{{ "Nombre votes" | trans }}</th>
-					<th data-sortable="true" data-field="percent">{{ "Pourcentage" | trans }}</th>
-					<th data-field="idElection.name">{{ "Election" | trans }}</th>
-					<th data-field="idParty.name">{{ "Parti" | trans }}</th>
-					<th data-field="idRegion.name">{{ "Region" | trans }}</th>
-					<th data-field="idArrondissement.name">{{ "Arrondissement" | trans }}</th>
-				</tr>
-			</thead>
-		</table>
-	</div> 
 	<h1>BE-ELECT</h1>
 	<i>Ce site sera bientôt disponible !</i>
 	<h2>À propos / Qui sommes-nous ?
