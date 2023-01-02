@@ -11,8 +11,19 @@ use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
 use Knp\DoctrineBehaviors\Contract\Entity\TranslationInterface;
 use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
 use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Metadata\ApiFilter;
 
 #[ORM\Entity(repositoryClass: CantonRepository::class)]
+#[ApiResource(normalizationContext: ['groups' => ['read']], operations: [
+    new Get(),
+    new GetCollection()
+])]
+#[ApiFilter(SearchFilter::class, properties: [
+    'name' => 'partial',
+])]
 class Canton implements TranslatableInterface
 {
     use TranslatableTrait;

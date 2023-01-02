@@ -4,13 +4,13 @@ import 'bootstrap-table/dist/bootstrap-table.min.css';
 import 'bootstrap-table';
 import 'bootstrap-table/dist/extensions/export/bootstrap-table-export';
 
-$("select").select2({
+$(".filterSelect").select2({
     theme: "bootstrap-5",
 });
-$('#selectParti').select2({
-    placeholder: "Select a parti",
+$('.filterSelect').on('change',refreshTable)
+
+let apiCall = {
     ajax: {
-        url: '/api/partis',
         delay: 1000,
         data: function (params) {
             var query = {
@@ -21,6 +21,7 @@ $('#selectParti').select2({
             return query;
         },
         processResults: function (data) {
+            console.log(data);
             let results = data["hydra:member"].map((item) => {
                 return {
                     "id": item.id,
@@ -35,18 +36,47 @@ $('#selectParti').select2({
             };
         }
     }
-});
-$('#selectParti').on('change',(e)=>{
-    $('#table').bootstrapTable('refresh')
-})
+}
 
+let apiParti = apiCall;
+apiParti.ajax.url = '/api/partis';
+apiParti.placeholder = "Select a parti";
+$('#selectParti').select2(apiParti);
+
+let apiRegion = apiCall;
+apiRegion.ajax.url = '/api/regions';
+apiRegion.placeholder = "Select a region";
+$('#selectRegion').select2(apiRegion);
+
+let apiProvince = apiCall;
+apiProvince.ajax.url = '/api/provinces';
+apiProvince.placeholder = "Select a province";
+$('#selectProvince').select2(apiProvince);
+
+let apiArrondissement = apiCall;
+apiArrondissement.ajax.url = '/api/arrondissements';
+apiArrondissement.placeholder = "Select a arrondissement";
+$('#selectArrondissement').select2(apiArrondissement);
+
+let apiCanton = apiCall;
+apiCanton.ajax.url = '/api/cantons';
+apiCanton.placeholder = "Select a canton";
+$('#selectCanton').select2(apiCanton);
+
+let apiCommune = apiCall;
+apiCommune.ajax.url = '/api/communes';
+apiCommune.placeholder = "Select a commune";
+$('#selectCommune').select2(apiCommune);
+
+function refreshTable(){
+    $('#table').bootstrapTable('refresh')
+}
 window.queryParams = function (params) {
     console.log('queryParams', params)
     return params;
 }
 
 window.ajaxRequest = function (params) {
-    console.log('ajax', params);
     let parameters = {};
     if (params.data.limit) {
         parameters.itemsPerPage = params.data.limit;
@@ -60,6 +90,21 @@ window.ajaxRequest = function (params) {
     }
     if ($($('#selectParti')[0]).val().length > 0){
         parameters['idParty.id'] = $($('#selectParti')[0]).val();
+    }
+    if ($($('#selectRegion')[0]).val().length > 0){
+        parameters['idRegion.id'] = $($('#selectRegion')[0]).val();
+    }
+    if ($($('#selectProvince')[0]).val().length > 0){
+        parameters['idProvince.id'] = $($('#selectProvince')[0]).val();
+    }
+    if ($($('#selectArrondissement')[0]).val().length > 0){
+        parameters['idArrondissement.id'] = $($('#selectArrondissement')[0]).val();
+    }
+    if ($($('#selectCanton')[0]).val().length > 0){
+        parameters['idCanton.id'] = $($('#selectCanton')[0]).val();
+    }
+    if ($($('#selectCommune')[0]).val().length > 0){
+        parameters['idCommune.id'] = $($('#selectCommune')[0]).val();
     }
 
     var url = '/api/resultats';

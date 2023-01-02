@@ -18,12 +18,12 @@ use ApiPlatform\Metadata\GetCollection;
     'idElection.idTypeElection' => 'exact',
     'idParty.id' => 'exact',
     'idElection.id' => 'exact',
-    'idCommune.name' => 'exact',
-    'idCanton.name' => 'exact',
-    'idArrondissement.name' => 'exact',
-    'idProvince.name' => 'exact',
-    'idRegion.name' => 'exact',
-    'idTypeResultat.name' => 'exact'
+    'idCommune.id' => 'exact',
+    'idCanton.id' => 'exact',
+    'idArrondissement.id' => 'exact',
+    'idProvince.id' => 'exact',
+    'idRegion.id' => 'exact',
+    'idTypeResultat.id' => 'exact'
 ])]
 #[ApiFilter(
     OrderFilter::class,
