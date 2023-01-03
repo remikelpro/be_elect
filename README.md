@@ -7,11 +7,11 @@
 ## Ajouter CRUD dans l'admin
 ``symfony console make:admin:crud``
 
-
+## Entity avec traduction
 Mettre les champs dans EntityNameTranslation.php
 rajouter les traits et implements
 Ajouter dans Entity.php
-    public function __call($method, $arguments)
+``    public function __call($method, $arguments)
     {
         return $this->proxyCurrentLocaleTranslation($method, $arguments);
     }    
@@ -21,5 +21,6 @@ Ajouter dans Entity.php
         $arguments=[];
         return $this->proxyCurrentLocaleTranslation($method, $arguments);
     }
+``
 
-bin/console doctrine:schema:update --force
+``bin/console doctrine:schema:update --force``

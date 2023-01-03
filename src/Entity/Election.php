@@ -23,7 +23,7 @@ use ApiPlatform\Metadata\GetCollection;
     new GetCollection()
 ])]
 #[ApiFilter(SearchFilter::class, properties: [
-    'name' => 'exact',
+    'name' => 'partial',
 ])]
 class Election
 {
