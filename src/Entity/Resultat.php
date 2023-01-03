@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Doctrine\Orm\Filter\OrderFilter;
 use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Metadata\ApiFilter;
 use ApiPlatform\Metadata\ApiResource;
@@ -13,8 +14,37 @@ use ApiPlatform\Metadata\GetCollection;
 
 #[ORM\Entity(repositoryClass: ResultatRepository::class)]
 #[ORM\HasLifecycleCallbacks]
-#[ApiFilter(SearchFilter::class, properties: ['idElection.id' => 'exact', 'idElection.idTypeElection' => 'exact'])]
-#[ApiResource(normalizationContext: ['groups' => ['read']],operations: [
+#[ApiFilter(SearchFilter::class, properties: [
+    'idElection.idTypeElection' => 'exact',
+    'idParty.id' => 'exact',
+    'idElection.id' => 'exact',
+    'idCommune.id' => 'exact',
+    'idCanton.id' => 'exact',
+    'idArrondissement.id' => 'exact',
+    'idProvince.id' => 'exact',
+    'idRegion.id' => 'exact',
+    'idTypeResultat.id' => 'exact'
+])]
+#[ApiFilter(
+    OrderFilter::class,
+    properties: [
+        'id',
+        'numberBallot',
+        'percent',
+        'numberSubscriber',
+        'numberSeat',
+        'idParty.name',
+        'idElection.name',
+        'idCommune.name',
+        'idCanton.name',
+        'idArrondissement.name',
+        'idProvince.name',
+        'idRegion.name',
+        'idTypeResultat.name'
+    ],
+    arguments: ['orderParameterName' => 'order']
+)]
+#[ApiResource(normalizationContext: ['groups' => ['read']], operations: [
     new Get(),
     new GetCollection()
 ])]
@@ -269,6 +299,6 @@ class Resultat
     }
     public function __toString()
     {
-        return 'Result #' .$this->getId();
+        return 'Result #' . $this->getId();
     }
 }

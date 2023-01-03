@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use App\Repository\RegionRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Contract\Entity\TranslationInterface;
 use Knp\DoctrineBehaviors\Model\Translatable\TranslationTrait;
