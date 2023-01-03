@@ -68,6 +68,11 @@ apiCommune.ajax.url = '/api/communes';
 apiCommune.placeholder = "Select a commune";
 $('#selectCommune').select2(apiCommune);
 
+let apiElection = apiCall;
+apiElection.ajax.url = '/api/elections';
+apiElection.placeholder = "Select a election";
+$('#selectElection').select2(apiElection);
+
 function refreshTable(){
     $('#table').bootstrapTable('refresh')
 }
@@ -105,6 +110,10 @@ window.ajaxRequest = function (params) {
     }
     if ($($('#selectCommune')[0]).val().length > 0){
         parameters['idCommune.id'] = $($('#selectCommune')[0]).val();
+    }
+
+    if ($($('#selectElection')[0]).val().length > 0){
+        parameters['idElection.id'] = $($('#selectElection')[0]).val();
     }
 
     var url = '/api/resultats';
