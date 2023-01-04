@@ -102,7 +102,9 @@ footer {
     height: 2em;
     margin-left: 1em;
 }
-
+.bg-primary {
+    color:$white;
+}
 h1,
 h2,
 h3,
@@ -166,11 +168,15 @@ h1 {
     display: flex;
     min-height: 20vh;
     position: relative;
+    max-height: 60vh;
 }
 #map,
 #donut {
-    height: 100%;
+    // height: 100%;
     width: 70%;
+}
+.canvas-container{
+    height:100%;
 }
 #switcherMap {
     height: 100%;

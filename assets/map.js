@@ -6,9 +6,18 @@ const belgium = await fetch('/map/belgium-map.json').then(r => {
 }).catch(e =>
     console.log(e));
 
+// const result = await fetch("http://localhost:8000/api/resultats?pagination=false&idElection.id%5B%5D=17").then(data => {
+//     return data.json();
+// })
+
+// let cities = [];
+// for (const element of result['hydra:member']) {
+//     cities[element.idCommune.name] = element.numberBallot
+// }
+
 const municipalities = ChartGeo.topojson.feature(belgium, belgium.objects.municipalities).features;
 var projection = ChartGeo.geoMercator()
-new ChoroplethChart(document.getElementById('canvas').getContext('2d'),
+new ChoroplethChart(document.getElementById('mapMap').getContext('2d'),
     {
         type: 'choropleth',
         data: {
@@ -20,7 +29,7 @@ new ChoroplethChart(document.getElementById('canvas').getContext('2d'),
                     data: municipalities.map((d) => (
                         {
                             feature: d,
-                            value: d.properties.population ? d.properties.population : 10,
+                            value: d.properties.name_fr ? d.properties.population : 10,
                         })),
                 },
             ],
@@ -39,3 +48,40 @@ new ChoroplethChart(document.getElementById('canvas').getContext('2d'),
             }
         }
     });
+
+
+// DONUT
+const data = {
+    responsive: true,
+    labels: [
+        'Red',
+        'Blue',
+        'Yellow'
+    ],
+    datasets: [{
+        label: 'My First Dataset',
+        data: [300, 50, 100],
+        backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 205, 86)'
+        ],
+        hoverOffset: 1
+    }]
+};
+const config = {
+    type: 'doughnut',
+    data: data,
+    options: {
+      rotation: -90,
+      circumference: 180,
+  }
+};
+let donut = new Chart(document.getElementById('donutGraph').getContext('2d'), config)
+
+window.addEventListener('before', () => {
+    donut.resize(600, 600);
+});
+window.addEventListener('afterprint', () => {
+    donut.resize();
+});

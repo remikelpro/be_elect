@@ -58,17 +58,20 @@
     <h2>TODO nom élection, {{ "découvrez la carte et le résultat des votes" | trans }}</h2>
     <div class="outer">
         <div class="inner">
-            <div id="map" class="bg-primary">
-                <canvas id="canvas"></canvas>
+            <div id="map" class="bg-primary text-end pe-5">
+                <h3>{{ "Carte" | trans }}</h3>
+                <canvas id="mapMap"></canvas>
             </div>
             <div class="switcher-bg">
                 <div id="switcherMap" class="d-flex align-items-center justify-content-center">
                     <img src="{{ asset('img/homepage/arrow.svg') }}" />
                 </div>
             </div>
-            <div id="donut" class="bg-grey">
-                <div>
-                    pouet
+            <div id="donut" class="bg-grey ps-5">
+                <h3>{{ "Graphique" | trans }}</h3>
+                <div class="canvas-container d-flex align-items-center justify-content-center">
+                    <canvas id="donutGraph">
+                    </canvas>    
                 </div>
             </div>
         </div>
