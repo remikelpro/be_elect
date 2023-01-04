@@ -1,14 +1,17 @@
-$("#closeMap").on( 'click', () => {
-    $('#map').removeClass('col-lg-9')
-    $('#map').addClass('col-lg-3')
-    $('#donut').addClass('col-lg-9')
-    $('#donut').removeClass('col-lg-3')
+$("#switcherMap").on( 'click', () => {
+    if ($('.inner').hasClass('left')){
+        $('.inner').removeClass('left');
+        $('.inner').animate({right: '0%'});  
+    } else {
+        $('.inner').addClass('left');
+        $('.inner').animate({right: '50%'});    
+    }
 });
 $("#openMap").on( 'click', () => {
-    $('#map').addClass('col-lg-9')
-    $('#map').removeClass('col-lg-3')
-    $('#donut').removeClass('col-lg-9')
-    $('#donut').addClass('col-lg-3')
+    $('#map').addClass('top')
+    $('#map').removeClass('under')
+    $('#donut').removeClass('top')
+    $('#donut').addClass('under')
 });
 $('.bootstrap-autocomplete.dropdown-menu').show();
 

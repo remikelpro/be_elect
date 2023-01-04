@@ -12,7 +12,7 @@ $dropdown-dark-bg: $primary;
 
 @import "~bootstrap/scss/bootstrap";
 @import "~bootstrap-icons/font/bootstrap-icons.css";
-@import"select2/dist/css/select2.min.css";
+@import "select2/dist/css/select2.min.css";
 @import "select2-bootstrap-5-theme/dist/select2-bootstrap-5-theme.min.css";
 
 @font-face {
@@ -60,7 +60,9 @@ body {
         animation: border_anim 0.1s linear forwards;
     }
 }
-
+.bg-grey {
+    background-color: $grey;
+}
 @keyframes border_anim {
     0% {
         width: 0%;
@@ -143,7 +145,7 @@ h1 {
 .search-part {
     background-color: $primary;
     @include media-breakpoint-up(lg) {
-        padding-right:5em;
+        padding-right: 5em;
         border-radius: 300rem;
     }
 }
@@ -156,25 +158,62 @@ h1 {
     font-family: "PT-Bold";
 }
 
-.overlay-container {
-    // display: grid;
+.outer {
+    overflow: hidden;
 }
-
-// #map{
-//     // grid-area: 1 / 1;
-//     width: 80%;
-// }
-
-#donut {
-    background-color: $grey;
+.inner {
+    width: 150%;
+    display: flex;
+    min-height: 20vh;
+    position: relative;
 }
 #map,
 #donut {
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    height: 100%;
+    width: 70%;
 }
+#switcherMap {
+    height: 100%;
+    background-color: $primary;
+    transform: translate(-1px);
+    clip-path: polygon(0 0, 0 0, 100% 50%, 0 100%, 0 100%);
+    img {
+        width: 70%;
+        transition: transform 1s;
+    }
+}
+.switcher-bg {
+    background-color: $grey;
+}
+.left {
+    .switcher-bg {
+        background-color: $primary;
+    }
+    #switcherMap {
+        background-color: $grey;
+        clip-path: polygon(100% 0, 0 50%, 100% 100%, 100% 0);
+        transform: translate(1px);
+        img {
+            background: $primary;
+            border-radius: 50%;
+            transform: rotate(180deg);
+        }
+    }
+}
+// for transition maybe
+// @keyframes switch {
+//     0% {
+//         background-color: $primary;
+//         clip-path: polygon(0 0, 0 0, 100% 50%, 0 100%, 0 100%);
+//     }
+//     20% {
+//         clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 0 100%);
+//     }
+//     100% {
+//         background-color: $grey;
+//         clip-path: polygon(100% 0, 100% 0, 0 50%, 100% 100%, 100% 100%);
+//     }
+// }
 
 @media only screen and (min-width: 768px) {
     .parti-card-random {
@@ -249,6 +288,6 @@ h1 {
     }
 }
 #canvas {
-    height:700px;
-    width:600px;
+    height: 700px;
+    width: 600px;
 }
