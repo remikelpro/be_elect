@@ -80,7 +80,7 @@ const config = {
 let donut = new Chart(document.getElementById('donutGraph').getContext('2d'), config)
 
 window.addEventListener('before', () => {
-    donut.resize(600, 600);
+    donut.resize(500, 500);
 });
 window.addEventListener('afterprint', () => {
     donut.resize();

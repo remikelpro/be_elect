@@ -6,6 +6,7 @@ use App\Controller\Admin\Field\TranslationField;
 use App\Entity\Parti;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ColorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
@@ -40,6 +41,7 @@ class PartiCrudController extends AbstractCrudController
                 ->setUploadDir('public/img/parti/')
                 ->setUploadedFileNamePattern('[slug].[extension]'),
             TextField::new('name'),
+            BooleanField::new('main'),
             ColorField::new('color'),
             ColorField::new('color_bg'),
             TextField::new('president'),

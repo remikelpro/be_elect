@@ -64,6 +64,9 @@ class Parti implements TranslatableInterface, JsonSerializable
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
 
+    #[ORM\Column]
+    private ?bool $main = false;
+
     public function __construct()
     {
         $this->resultats = new ArrayCollection();
@@ -201,5 +204,17 @@ class Parti implements TranslatableInterface, JsonSerializable
     {
         $arguments=[];
         return $this->proxyCurrentLocaleTranslation($method, $arguments);
+    }
+
+    public function isMain(): ?bool
+    {
+        return $this->main;
+    }
+
+    public function setMain(bool $main): self
+    {
+        $this->main = $main;
+
+        return $this;
     }
 }

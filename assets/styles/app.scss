@@ -150,6 +150,10 @@ h1 {
         padding-right: 5em;
         border-radius: 300rem;
     }
+    img {
+        max-width:5rem;
+        margin-bottom:1rem;
+    }
 }
 .random-part {
     background-color: $grey;
@@ -168,7 +172,12 @@ h1 {
     display: flex;
     min-height: 20vh;
     position: relative;
-    max-height: 60vh;
+    max-height: 80vh;
+    h3 {
+        text-decoration: underline;
+        text-decoration-color: $secondary;
+        font-size: 0.95em;
+    }
 }
 #map,
 #donut {
@@ -186,6 +195,7 @@ h1 {
     clip-path: polygon(0 0, 0 0, 100% 50%, 0 100%, 0 100%);
     img {
         width: 70%;
+        animation: pulse 1s linear infinite;
         transition: transform 1s;
     }
 }
@@ -207,20 +217,21 @@ h1 {
         }
     }
 }
-// for transition maybe
-// @keyframes switch {
-//     0% {
-//         background-color: $primary;
-//         clip-path: polygon(0 0, 0 0, 100% 50%, 0 100%, 0 100%);
-//     }
-//     20% {
-//         clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 0 100%);
-//     }
-//     100% {
-//         background-color: $grey;
-//         clip-path: polygon(100% 0, 100% 0, 0 50%, 100% 100%, 100% 100%);
-//     }
-// }
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    50% {
+       -webkit-transform: scale(0.9);
+       transform: scale(0.9);
+    }
+    100% {
+        -webkit-transform: scale(1.1);
+       transform: scale(1.1);
+    }
+    }
 
 @media only screen and (min-width: 768px) {
     .parti-card-random {
