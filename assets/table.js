@@ -21,7 +21,6 @@ let apiCall = {
             return query;
         },
         processResults: function (data) {
-            console.log(data);
             let results = data["hydra:member"].map((item) => {
                 return {
                     "id": item.id,
@@ -40,7 +39,7 @@ let apiCall = {
 
 let apiParti = apiCall;
 apiParti.ajax.url = '/api/partis';
-apiParti.placeholder = "Select a parti";
+apiParti.placeholder = $('#placeholderSelectParti').html() ?? "Select a parti";
 $('#selectParti').select2(apiParti);
 
 let apiRegion = apiCall;

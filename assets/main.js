@@ -16,11 +16,8 @@ $("#switcherMap").on( 'click', () => {
     }
 });
 
-$('.bootstrap-autocomplete.dropdown-menu').show();
-
-$('.basicAutoSelect').autoComplete();
-$('.basicAutoSelect').on('autocomplete.select', function (e,item) {
-    window.location.href = 'parti/' + item.slug;
+$('.parti-search').on('change', function (e) {
+    window.location.href = 'parti/' + $(this).val();
 });
 
 

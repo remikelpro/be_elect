@@ -24,9 +24,9 @@
             <div class="col-lg-7 text-center py-5 text-light search-part">
                 <img src="{{ asset('img/homepage/search_icon.svg') }}" alt="search icon" />
                 <h3 class="my-2">{{ "Je trouve mon parti politique en 1 clic :" | trans }}</h3>
-                <select type="text" placeholder="{{ " Cherchez ici le nom du parti politique (exemple : PS)" }}"
-                    class="form-control basicAutoSelect" id="searchParti" autocomplete="off"
-                    data-url="{{ path('partisJson') }}"></select>
+                <select id="selectParti" class="form-select filterSelect parti-search">
+                </select>
+                <span hidden id="placeholderSelectParti">{{ " Cherchez ici le nom du parti politique (exemple : PS)" }}</span>
             </div>
             <div class="col-lg-5 text-center py-3 random-part">
                 <h3>{{ "Un parti politique au hasard" | trans }}</h3>

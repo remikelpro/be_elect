@@ -309,3 +309,12 @@ h1 {
     height: 700px;
     width: 600px;
 }
+
+.navbar {
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+.select2-container--default .select2-selection--single {
+    border-radius:90px;
+}

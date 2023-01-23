@@ -28,7 +28,9 @@ class PartiController extends AbstractBeElectController
         ]);
     }
 
-    #[Route('/parti/{slug}', name: 'parti')]
+    /**
+     * @Route("/parti/{slug}", name="parti", requirements={"slug" : "[a-zA-Z-]+"})
+     */
     public function parti(Parti $parti): Response
     {
         $breadcrumb = $this->getBreadcrumb([
@@ -39,6 +41,14 @@ class PartiController extends AbstractBeElectController
         return $this->render('parti/parti.html.twig', [
             'breadcrumb' => $breadcrumb
         ]);
+    }
+
+    /**
+     * @Route("/parti/{id}", name="parti_id", requirements={"id" : "\d+"})
+     */
+    public function partiIdRedirect(Parti $parti)
+    {
+        return $this->redirectToRoute('parti', ['slug' => $parti->getSlug()]);
     }
 
     #[Route('/partisJson', name: 'partisJson')]
