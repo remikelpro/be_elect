@@ -2,22 +2,22 @@
   "entrypoints": {
     "app": {
       "js": [
-        "/build/runtime.6b8958e8.js",
-        "/build/249.0e4f9050.js",
-        "/build/469.f9e2a9b5.js",
-        "/build/app.84a29733.js"
+        "/build/runtime.js",
+        "/build/vendors-node_modules_core-js_modules_es_array_map_js.js",
+        "/build/vendors-node_modules_bootstrap-autocomplete_dist_latest_bootstrap-autocomplete_js-node_module-f644b2.js",
+        "/build/app.js"
       ],
       "css": [
-        "/build/469.9be1b4fe.css",
-        "/build/app.f6d02620.css"
+        "/build/vendors-node_modules_bootstrap-autocomplete_dist_latest_bootstrap-autocomplete_js-node_module-f644b2.css",
+        "/build/app.css"
       ]
     },
     "map": {
       "js": [
-        "/build/runtime.6b8958e8.js",
-        "/build/249.0e4f9050.js",
-        "/build/917.480f64f1.js",
-        "/build/map.a2fb954a.js"
+        "/build/runtime.js",
+        "/build/vendors-node_modules_core-js_modules_es_array_map_js.js",
+        "/build/vendors-node_modules_core-js_modules_es_object_to-string_js-node_modules_core-js_modules_es_p-831a47.js",
+        "/build/map.js"
       ]
     }
   }
