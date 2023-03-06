@@ -1,0 +1,80 @@
+# Documentation on how to configure the bundle can be found at: https://symfony.com/doc/current/bundles/LiipImagineBundle/basic-usage.html
+liip_imagine:
+    # valid drivers options include "gd" or "gmagick" or "imagick"
+    driver: "gd"
+    default_filter_set_settings:
+        format: webp
+    webp:
+        generate:    true
+        quality:     80
+
+    # configure resolvers
+    resolvers:
+
+        # setup the default resolver
+        default:
+
+            # use the default web path
+            web_path: ~
+
+    # your filter sets are defined here
+    filter_sets:
+
+        # use the default cache configuration
+        cache: ~
+
+        image_50:
+            quality: 80
+            filters:
+                relative_resize:
+                    widen: 50
+        image_100:
+            quality: 80
+            filters:
+                relative_resize:
+                    widen: 100
+        image_300:
+            quality: 80
+            filters:
+                relative_resize:
+                    widen: 300
+        image_600:
+            quality: 80
+            filters:
+                relative_resize:
+                    widen: 600
+        image_800:
+            quality: 80
+            filters:
+                relative_resize:
+                    widen: 800
+        image_1000:
+            quality: 80
+            filters:
+                relative_resize:
+                    widen: 1000
+        image_1200:
+            quality: 80
+            filters:
+                relative_resize:
+                    widen: 1200
+        image_1400:
+            quality: 80
+            filters:
+                relative_resize:
+                    widen: 1400
+        image_1800:
+            quality: 60
+            filters:
+                relative_resize:
+                    widen: 1800
+        image_2200:
+            quality: 50
+            filters:
+                relative_resize:
+                    widen: 2200
+        image_2600:
+            quality: 40
+            filters:
+                relative_resize:
+                    widen: 2600

@@ -2,7 +2,10 @@
     <div class="row g-0">
         <div class="col-md-3 d-flex align-items-center justify-content-center">
             <div class="logo-parti mt-2 mt-md-0">
-                <img src="{{ asset('img/parti/' ~ randomParti.logo) }}" class="w-100" alt="{{ "logo de %nom%" | trans({"%nom%": randomParti.name}) }}">
+                {% include 'global/image.html.twig' with { 'src': 'img/parti/' ~ parti.logo,
+                'alt': "logo de %nom%" | trans({"%nom%": randomParti.name}) ,
+                'class': 'w-100',
+                'sizes': '(max-width: 768px) 33vw, (max-width: 992px) 20vw, 16vw'} %}
             </div>
         </div>
         <div class="col-md-9">
@@ -10,7 +13,8 @@
                 <h4 class="card-title">{{ randomParti.name }}</h4>
                 <hr>
                 <p class="card-text">{{ "Président : " | trans }}{{ randomParti.president }}</p>
-                <a href="{{ path('parti', {slug : randomParti.slug })}}" class="btn btn-secondary">{{ "Découvrir son activité" | trans }}</a>
+                <a href="{{ path('parti', {slug : randomParti.slug })}}" class="btn btn-secondary">{{ "Découvrir son
+                    activité" | trans }}</a>
             </div>
         </div>
     </div>

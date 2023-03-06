@@ -1,0 +1,15 @@
+{% set srcsets = [100,300,600,800,1000,1200,1400,1800,2200, 2600] %}
+<img src="{{ asset(src)| imagine_filter('image_80') }}"
+srcset="{{ asset(src)| imagine_filter('image_50') }} 50w,
+{{ asset(src)| imagine_filter('image_100') }} 100w,
+{{ asset(src)| imagine_filter('image_300') }} 300w,
+{{ asset(src)| imagine_filter('image_600') }} 600w,
+{{ asset(src)| imagine_filter('image_800') }} 800w,
+{{ asset(src)| imagine_filter('image_1000') }} 1000w,
+{{ asset(src)| imagine_filter('image_1200') }} 1200w,
+{{ asset(src)| imagine_filter('image_1400') }} 1400w,
+{{ asset(src)| imagine_filter('image_1800') }} 1800w,
+{{ asset(src)| imagine_filter('image_2200') }} 2200w,
+{{ asset(src)| imagine_filter('image_2600') }} 2600w"
+sizes="{{ sizes }}"
+class="{{ class }}" alt="{{ alt }}">
