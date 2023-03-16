@@ -4,8 +4,8 @@
             <div class="logo-parti mt-2 mt-md-0">
                 {% include 'global/image.html.twig' with { 'src': 'img/parti/' ~ parti.logo,
                 'alt': "logo de %nom%" | trans({"%nom%": randomParti.name}) ,
-                'class': 'w-100',
-                'sizes': '(max-width: 768px) 33vw, (max-width: 992px) 20vw, 16vw'} %}
+                'class': 'logo-random-card',
+                'sizes': '(max-width: 768px) 16vw, (max-width: 992px) 15vw, 10vw'} %}
             </div>
         </div>
         <div class="col-md-9">

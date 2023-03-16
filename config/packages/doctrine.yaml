@@ -25,6 +25,7 @@ when@test:
 when@prod:
     doctrine:
         orm:
+            metadata_cache_driver: apc
             auto_generate_proxy_classes: false
             query_cache_driver:
                 type: pool

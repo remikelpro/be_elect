@@ -2,7 +2,7 @@
     {% include 'global/image.html.twig' with { 'src': 'img/parti/' ~ parti.logo, 
     'alt': "logo de %nom%" | trans({"%nom%": parti.name}), 
     'class': 'card-img-top mx-auto mt-3',
-    'sizes': '(max-width: 768px) 33vw, (max-width: 992px) 20vw, 16vw'} %} 
+    'sizes': '(max-width: 768px) 16vw, (max-width: 992px) 15vw, 10vw'} %} 
     <div class="card-body">
         <h4 class="card-title">{{ parti.name }}</h4>
         <p class="card-text">{{ parti.description | trans | raw }}</p>
