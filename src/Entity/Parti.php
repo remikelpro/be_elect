@@ -10,9 +10,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use JsonSerializable;
-use Knp\DoctrineBehaviors\Contract\Entity\TranslationInterface;
-use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
-use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
 use Symfony\Component\Serializer\Annotation\Groups;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
@@ -25,9 +22,8 @@ use ApiPlatform\Metadata\GetCollection;
 #[ApiFilter(SearchFilter::class, properties: [
     'name' => 'partial',
 ])]
-class Parti implements TranslatableInterface, JsonSerializable
+class Parti extends AbstractTranslation implements JsonSerializable
 {
-    use TranslatableTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -67,9 +63,13 @@ class Parti implements TranslatableInterface, JsonSerializable
     #[ORM\Column]
     private ?bool $main = false;
 
+    #[ORM\OneToMany(mappedBy: 'idParti', targetEntity: Resource::class)]
+    private Collection $resources;
+
     public function __construct()
     {
         $this->resultats = new ArrayCollection();
+        $this->resources = new ArrayCollection();
     }
 
     public function __toString()
@@ -195,17 +195,6 @@ class Parti implements TranslatableInterface, JsonSerializable
         );
     }
 
-    public function __call($method, $arguments)
-    {
-        return $this->proxyCurrentLocaleTranslation($method, $arguments);
-    }    
-    
-    public function __get($method)
-    {
-        $arguments=[];
-        return $this->proxyCurrentLocaleTranslation($method, $arguments);
-    }
-
     public function isMain(): ?bool
     {
         return $this->main;
@@ -214,6 +203,36 @@ class Parti implements TranslatableInterface, JsonSerializable
     public function setMain(bool $main): self
     {
         $this->main = $main;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Resource>
+     */
+    public function getResources(): Collection
+    {
+        return $this->resources;
+    }
+
+    public function addResource(Resource $resource): self
+    {
+        if (!$this->resources->contains($resource)) {
+            $this->resources->add($resource);
+            $resource->setIdParti($this);
+        }
+
+        return $this;
+    }
+
+    public function removeResource(Resource $resource): self
+    {
+        if ($this->resources->removeElement($resource)) {
+            // set the owning side to null (unless already changed)
+            if ($resource->getIdParti() === $this) {
+                $resource->setIdParti(null);
+            }
+        }
 
         return $this;
     }

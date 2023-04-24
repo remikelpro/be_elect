@@ -5,6 +5,7 @@ use App\Repository\PageRepository;
 use App\Repository\PartiRepository;
 use App\Repository\TypeElectionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class LayoutController extends AbstractController

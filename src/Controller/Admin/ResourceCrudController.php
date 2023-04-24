@@ -3,22 +3,24 @@
 namespace App\Controller\Admin;
 
 use App\Controller\Admin\Field\TranslationField;
-use App\Entity\Page;
+use App\Entity\Resource;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\SlugType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-class PageCrudController extends AbstractCrudController
+class ResourceCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Page::class;
+        return Resource::class;
     }
 
     public function configureCrud(Crud $crud): Crud
@@ -32,28 +34,32 @@ class PageCrudController extends AbstractCrudController
             ]
         );
     }
-
     public function configureFields(string $pageName): iterable
     {
         return [
             NumberField::new('id', 'id')->hideOnForm(),
-            NumberField::new('position'),
-            AssociationField::new('idParent')->autocomplete(),
-            BooleanField::new('showInMenu'),
-            TextField::new('title', 'title')->hideOnForm(),
-            TextField::new('content', 'content')->hideOnForm(),
+
+            ImageField::new('file')->setBasePath('img/resource/')
+                ->setUploadDir('public/img/resource/')
+                ->setUploadedFileNamePattern('[slug].[extension]'),
+            DateField::new('date'),
+            AssociationField::new('idParti'),
+            AssociationField::new('idElection'),
+            ChoiceField::new('type')->setChoices(Resource::$resourceType),
+            TextField::new('name', 'name')->hideOnForm(),
+            TextField::new('description', 'description')->hideOnForm(),
             TextField::new('slug', 'slug')->hideOnForm(),
             TranslationField::new('translations', 'translations', [
-                'title' => [
+                'name' => [
                     'field_type' => TextType::class,
                     'required' => true,
                 ],
                 'slug' => [
                     'field_type' => SlugType::class,
                     'required' => true,
-                    'target' => 'title'
+                    'target' => 'name'
                 ],
-                'content' => [
+                'description' => [
                     'field_type' => CKEditorType::class,
                     'required' => true,
                 ]

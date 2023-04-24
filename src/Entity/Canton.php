@@ -7,9 +7,6 @@ use App\Repository\CantonRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
-use Knp\DoctrineBehaviors\Contract\Entity\TranslationInterface;
-use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
 use Symfony\Component\Serializer\Annotation\Groups;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
@@ -24,9 +21,8 @@ use ApiPlatform\Metadata\ApiFilter;
 #[ApiFilter(SearchFilter::class, properties: [
     'name' => 'partial',
 ])]
-class Canton implements TranslatableInterface
+class Canton extends AbstractTranslation
 {
-    use TranslatableTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -128,17 +124,6 @@ class Canton implements TranslatableInterface
         }
 
         return $this;
-    }
-    
-    public function __call($method, $arguments)
-    {
-        return $this->proxyCurrentLocaleTranslation($method, $arguments);
-    }    
-    
-    public function __get($method)
-    {
-        $arguments=[];
-        return $this->proxyCurrentLocaleTranslation($method, $arguments);
     }
     public function __toString()
     {

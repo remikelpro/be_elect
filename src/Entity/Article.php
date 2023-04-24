@@ -2,18 +2,13 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Metadata\ApiResource;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Knp\DoctrineBehaviors\Contract\Entity\TranslationInterface;
-use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
-use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 #[ORM\HasLifecycleCallbacks]
-class Article implements TranslatableInterface
+class Article extends AbstractTranslation
 {
-    use TranslatableTrait;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -68,16 +63,5 @@ class Article implements TranslatableInterface
     public function setUpdatedAtAutomatically()
     {
         $this->updatedAt = new \DateTimeImmutable();
-    }
-
-    public function __call($method, $arguments)
-    {
-        return $this->proxyCurrentLocaleTranslation($method, $arguments);
-    }    
-    
-    public function __get($method)
-    {
-        $arguments=[];
-        return $this->proxyCurrentLocaleTranslation($method, $arguments);
     }
 }

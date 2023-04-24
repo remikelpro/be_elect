@@ -12,9 +12,8 @@ use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
 
 #[ORM\Entity(repositoryClass: PageRepository::class)]
 #[ORM\HasLifecycleCallbacks]
-class Page implements TranslatableInterface
+class Page extends AbstractTranslation
 {
-    use TranslatableTrait;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -140,19 +139,8 @@ class Page implements TranslatableInterface
         $this->updatedAt = new \DateTimeImmutable();
     }
     
-    public function __call($method, $arguments)
-    {
-        return $this->proxyCurrentLocaleTranslation($method, $arguments);
-    }    
-    
-    public function __get($method)
-    {
-        $arguments=[];
-        return $this->proxyCurrentLocaleTranslation($method, $arguments);
-    }
     public function __toString()
     {
-        $arguments=[];
         return $this->proxyCurrentLocaleTranslation('__toString');
     }
 

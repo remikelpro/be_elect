@@ -1,0 +1,23 @@
+<li class="nav-item dropdown">
+    <a class="dropdown-toggle btn btn-light btn-sm mt-1" href="#" id="dropdown-language"
+        role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{ app.request.locale|locale_name(app.request.locale)| u.title }}
+    </a>
+    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-language">
+        <li>
+            <a class="dropdown-item"
+                href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({_locale: 'nl'})) }}">{{'Nederland'
+                | trans }}</a>
+        </li>
+        <li>
+            <a class="dropdown-item"
+                href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({_locale: 'fr'})) }}">{{
+                'Français' | trans }}</a>
+        </li>
+        <li>
+            <a class="dropdown-item"
+                href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({_locale: 'en'})) }}">{{
+                'English' | trans }}</a>
+        </li>
+    </ul>
+</li>

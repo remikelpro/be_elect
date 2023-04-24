@@ -103,17 +103,17 @@
 							<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-language">
 								<li>
 									<a class="dropdown-item"
-										href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({_locale: 'nl'})) }}">{{'Nederland'
+										href="{{ path('homepage', []|merge({'_locale':'nl'})) }}">{{'Nederland'
 										| trans }}</a>
 								</li>
 								<li>
 									<a class="dropdown-item"
-										href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({_locale: 'fr'})) }}">{{
+										href="{{ path('homepage', []|merge({'_locale':'fr'})) }}">{{
 										'Français' | trans }}</a>
 								</li>
 								<li>
 									<a class="dropdown-item"
-										href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({_locale: 'en'})) }}">{{
+										href="{{ path('homepage', []|merge({'_locale':'en'})) }}">{{
 										'English' | trans }}</a>
 								</li>
 							</ul>
@@ -142,20 +142,20 @@
 						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-language">
 							<li>
 								<a class="dropdown-item"
-									href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({_locale: 'nl'})) }}">{{'Nederland'
+									href="{{ path('homepage', []|merge({'_locale':'nl'})) }}">{{'Nederland'
 									| trans }}</a>
 							</li>
 							<li>
 								<a class="dropdown-item"
-									href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({_locale: 'fr'})) }}">{{
+									href="{{ path('homepage', []|merge({'_locale':'fr'})) }}">{{
 									'Français' | trans }}</a>
 							</li>
 							<li>
 								<a class="dropdown-item"
-									href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({_locale: 'en'})) }}">{{
+									href="{{ path('homepage', []|merge({'_locale':'en'})) }}">{{
 									'English' | trans }}</a>
 							</li>
-						</ul>
+					</ul>
 					</div>
 				</div>
 				<div class="col-md-6 d-flex align-items-center row">

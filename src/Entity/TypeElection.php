@@ -6,14 +6,10 @@ use App\Repository\TypeElectionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Knp\DoctrineBehaviors\Contract\Entity\TranslationInterface;
-use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
-use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
 
 #[ORM\Entity(repositoryClass: TypeElectionRepository::class)]
-class TypeElection implements TranslatableInterface
+class TypeElection extends AbstractTranslation
 {
-    use TranslatableTrait;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -77,16 +73,6 @@ class TypeElection implements TranslatableInterface
         return $this;
     }
 
-    public function __call($method, $arguments)
-    {
-        return $this->proxyCurrentLocaleTranslation($method, $arguments);
-    }    
-    
-    public function __get($method)
-    {
-        $arguments=[];
-        return $this->proxyCurrentLocaleTranslation($method, $arguments);
-    }
     public function __toString()
     {
         return $this->getName();

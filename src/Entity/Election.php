@@ -61,9 +61,13 @@ class Election
     #[Groups(['read'])]
     private ?string $slug = null;
 
+    #[ORM\OneToMany(mappedBy: 'idElection', targetEntity: Resource::class)]
+    private Collection $resources;
+
     public function __construct()
     {
         $this->resultats = new ArrayCollection();
+        $this->resources = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -190,5 +194,35 @@ class Election
     public function __toString()
     {
         return $this->getName();
+    }
+
+    /**
+     * @return Collection<int, Resource>
+     */
+    public function getResources(): Collection
+    {
+        return $this->resources;
+    }
+
+    public function addResource(Resource $resource): self
+    {
+        if (!$this->resources->contains($resource)) {
+            $this->resources->add($resource);
+            $resource->setIdElection($this);
+        }
+
+        return $this;
+    }
+
+    public function removeResource(Resource $resource): self
+    {
+        if ($this->resources->removeElement($resource)) {
+            // set the owning side to null (unless already changed)
+            if ($resource->getIdElection() === $this) {
+                $resource->setIdElection(null);
+            }
+        }
+
+        return $this;
     }
 }
