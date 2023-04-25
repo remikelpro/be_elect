@@ -48,6 +48,9 @@ class Leader
     #[ORM\Column(type: Types::SMALLINT, nullable: true)]
     private ?int $reason_end = null;
 
+    #[ORM\ManyToOne(inversedBy: 'leaders')]
+    private ?Parti $parti = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -133,6 +136,18 @@ class Leader
     public function setReasonEnd(?int $reason_end): self
     {
         $this->reason_end = $reason_end;
+
+        return $this;
+    }
+
+    public function getParti(): ?Parti
+    {
+        return $this->parti;
+    }
+
+    public function setParti(?Parti $parti): self
+    {
+        $this->parti = $parti;
 
         return $this;
     }

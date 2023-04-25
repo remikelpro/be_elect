@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Leader;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
@@ -20,13 +21,14 @@ class LeaderCrudController extends AbstractCrudController
     {
         return [
             NumberField::new('id', 'id')->hideOnForm(),
+            AssociationField::new('parti'),
             TextField::new('name'),
             ChoiceField::new('selection')->setChoices(Leader::$selectionType),
             NumberField::new('score'),
             NumberField::new('n_candidate'),
             DateField::new('mandat_start'),
             DateField::new('mandat_end'),
-            ChoiceField::new('reason_end')->setChoices(Leader::$reasonType)
+            ChoiceField::new('reason_end')->setChoices(Leader::$reasonType),
         ];
     }
 }

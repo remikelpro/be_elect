@@ -47,13 +47,6 @@ class Parti extends AbstractTranslation implements JsonSerializable
     #[Groups(['read'])]
     private ?string $color_bg = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    #[Groups(['read'])]
-    private ?string $president = null;
-
-    #[Groups(['read'])]
-    private ?string $description = null;
-
     #[ORM\OneToMany(mappedBy: 'idParty', targetEntity: Resultat::class)]
     private Collection $resultats;
 
@@ -66,10 +59,26 @@ class Parti extends AbstractTranslation implements JsonSerializable
     #[ORM\OneToMany(mappedBy: 'idParti', targetEntity: Resource::class)]
     private Collection $resources;
 
+    #[ORM\OneToMany(mappedBy: 'parti', targetEntity: Member::class, orphanRemoval: true)]
+    private Collection $members;
+
+    #[ORM\OneToMany(mappedBy: 'parti', targetEntity: Leader::class)]
+    private Collection $leaders;
+
+    #[ORM\OneToMany(mappedBy: 'parti', targetEntity: PartiName::class)]
+    private Collection $partiNames;
+
+    #[ORM\OneToMany(mappedBy: 'parti', targetEntity: PartiHistory::class)]
+    private Collection $partiHistories;
+
     public function __construct()
     {
         $this->resultats = new ArrayCollection();
         $this->resources = new ArrayCollection();
+        $this->members = new ArrayCollection();
+        $this->leaders = new ArrayCollection();
+        $this->partiNames = new ArrayCollection();
+        $this->partiHistories = new ArrayCollection();
     }
 
     public function __toString()
@@ -126,18 +135,6 @@ class Parti extends AbstractTranslation implements JsonSerializable
     public function setColorBg(?string $color_bg): self
     {
         $this->color_bg = $color_bg;
-
-        return $this;
-    }
-
-    public function getPresident(): ?string
-    {
-        return $this->president;
-    }
-
-    public function setPresident(?string $president): self
-    {
-        $this->president = $president;
 
         return $this;
     }
@@ -231,6 +228,126 @@ class Parti extends AbstractTranslation implements JsonSerializable
             // set the owning side to null (unless already changed)
             if ($resource->getIdParti() === $this) {
                 $resource->setIdParti(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Member>
+     */
+    public function getMembers(): Collection
+    {
+        return $this->members;
+    }
+
+    public function addMember(Member $member): self
+    {
+        if (!$this->members->contains($member)) {
+            $this->members->add($member);
+            $member->setParti($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMember(Member $member): self
+    {
+        if ($this->members->removeElement($member)) {
+            // set the owning side to null (unless already changed)
+            if ($member->getParti() === $this) {
+                $member->setParti(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Leader>
+     */
+    public function getLeaders(): Collection
+    {
+        return $this->leaders;
+    }
+
+    public function addLeader(Leader $leader): self
+    {
+        if (!$this->leaders->contains($leader)) {
+            $this->leaders->add($leader);
+            $leader->setParti($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLeader(Leader $leader): self
+    {
+        if ($this->leaders->removeElement($leader)) {
+            // set the owning side to null (unless already changed)
+            if ($leader->getParti() === $this) {
+                $leader->setParti(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, PartiName>
+     */
+    public function getPartiNames(): Collection
+    {
+        return $this->partiNames;
+    }
+
+    public function addPartiName(PartiName $partiName): self
+    {
+        if (!$this->partiNames->contains($partiName)) {
+            $this->partiNames->add($partiName);
+            $partiName->setParti($this);
+        }
+
+        return $this;
+    }
+
+    public function removePartiName(PartiName $partiName): self
+    {
+        if ($this->partiNames->removeElement($partiName)) {
+            // set the owning side to null (unless already changed)
+            if ($partiName->getParti() === $this) {
+                $partiName->setParti(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, PartiHistory>
+     */
+    public function getPartiHistories(): Collection
+    {
+        return $this->partiHistories;
+    }
+
+    public function addPartiHistory(PartiHistory $partiHistory): self
+    {
+        if (!$this->partiHistories->contains($partiHistory)) {
+            $this->partiHistories->add($partiHistory);
+            $partiHistory->setParti($this);
+        }
+
+        return $this;
+    }
+
+    public function removePartiHistory(PartiHistory $partiHistory): self
+    {
+        if ($this->partiHistories->removeElement($partiHistory)) {
+            // set the owning side to null (unless already changed)
+            if ($partiHistory->getParti() === $this) {
+                $partiHistory->setParti(null);
             }
         }
 

@@ -2,14 +2,12 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Metadata\ApiResource;
-use App\Repository\MemberRepository;
+use App\Repository\PartiHistoryRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: MemberRepository::class)]
-#[ORM\Table(name: '`member`')]
-#[ApiResource]
-class Member
+#[ORM\Entity(repositoryClass: PartiHistoryRepository::class)]
+class PartiHistory extends AbstractTranslation
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -19,11 +17,10 @@ class Member
     #[ORM\Column(nullable: true)]
     private ?int $year = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?int $number = null;
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $description = null;
 
-    #[ORM\ManyToOne(inversedBy: 'members')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\ManyToOne(inversedBy: 'partiHistories')]
     private ?Parti $parti = null;
 
     public function getId(): ?int
@@ -43,14 +40,14 @@ class Member
         return $this;
     }
 
-    public function getNumber(): ?int
+    public function getDescription(): ?string
     {
-        return $this->number;
+        return $this->description;
     }
 
-    public function setNumber(?int $number): self
+    public function setDescription(?string $description): self
     {
-        $this->number = $number;
+        $this->description = $description;
 
         return $this;
     }

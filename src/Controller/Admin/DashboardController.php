@@ -11,6 +11,8 @@ use App\Entity\Leader;
 use App\Entity\Member;
 use App\Entity\Page;
 use App\Entity\Parti;
+use App\Entity\PartiHistory;
+use App\Entity\PartiName;
 use App\Entity\Province;
 use App\Entity\Region;
 use App\Entity\Resource;
@@ -47,6 +49,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToRoute('Back to the website', 'fa fa-home', 'homepage');
         // yield MenuItem::linkToCrud('Article', 'fas fa-newspaper', Article::class);
         yield MenuItem::linkToCrud('Parti', 'fas fa-landmark', Parti::class);
+        yield MenuItem::linkToCrud('PartiHistory', 'fas fa-landmark', PartiHistory::class);
+        yield MenuItem::linkToCrud('PartiName', 'fas fa-landmark', PartiName::class);
         yield MenuItem::linkToCrud('Leader', 'fas fa-user-tie', Leader::class);
         yield MenuItem::linkToCrud('Member', 'fas fa-people-group', Member::class);
         yield MenuItem::linkToCrud('Type Election', 'fas fa-person-booth', TypeElection::class);

@@ -3,23 +3,22 @@
 namespace App\Controller\Admin;
 
 use App\Controller\Admin\Field\TranslationField;
-use App\Entity\Parti;
+use App\Entity\PartiHistory;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ColorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
-use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 
-class PartiCrudController extends AbstractCrudController
+class PartiHistoryCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Parti::class;
+        return PartiHistory::class;
     }
+
 
     public function configureCrud(Crud $crud): Crud
     {
@@ -37,13 +36,7 @@ class PartiCrudController extends AbstractCrudController
     {
         return [
             NumberField::new('id', 'id')->hideOnForm(),
-            ImageField::new('logo')->setBasePath('img/parti/')
-                ->setUploadDir('public/img/parti/')
-                ->setUploadedFileNamePattern('[slug].[extension]'),
-            TextField::new('name'),
-            BooleanField::new('main'),
-            ColorField::new('color'),
-            ColorField::new('color_bg'),
+            NumberField::new('year'),
             TextField::new('description', 'description')->hideOnForm(),
             TranslationField::new('translations', 'translations', [
                 'description' => [
@@ -51,7 +44,7 @@ class PartiCrudController extends AbstractCrudController
                     'required' => true,
                 ]
             ])->hideOnIndex(),
-            SlugField::new('slug')->setTargetFieldName('name'),
+            AssociationField::new('parti')
         ];
     }
 }
