@@ -3,7 +3,8 @@ composer 2
 PHP 8.1
 
 ## Assets
-``npm run encore dev --watch``
+``npm run encore -- dev --watch``
+
 
 ## translate
 ``bin/console translation:extract nl --force``

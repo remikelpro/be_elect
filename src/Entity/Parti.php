@@ -353,4 +353,12 @@ class Parti extends AbstractTranslation implements JsonSerializable
 
         return $this;
     }
+
+
+    public function getLeaderName(): ?string
+    {
+        if ($this->leaders->isEmpty())
+            return null;
+        return $this->leaders?->last()?->getName();
+    }
 }
