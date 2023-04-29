@@ -7,6 +7,8 @@ use App\Entity\Article;
 use App\Entity\Canton;
 use App\Entity\Commune;
 use App\Entity\Election;
+use App\Entity\Government;
+use App\Entity\GovernmentParti;
 use App\Entity\Leader;
 use App\Entity\Member;
 use App\Entity\Page;
@@ -48,13 +50,15 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToRoute('Back to the website', 'fa fa-home', 'homepage');
         // yield MenuItem::linkToCrud('Article', 'fas fa-newspaper', Article::class);
-        yield MenuItem::linkToCrud('Parti', 'fas fa-landmark', Parti::class);
-        yield MenuItem::linkToCrud('PartiHistory', 'fas fa-landmark', PartiHistory::class);
-        yield MenuItem::linkToCrud('PartiName', 'fas fa-landmark', PartiName::class);
+        yield MenuItem::linkToCrud('Parti', 'fas fa-bullhorn', Parti::class);
+        yield MenuItem::linkToCrud('PartiHistory', 'fas fa-bullhorn', PartiHistory::class);
+        yield MenuItem::linkToCrud('PartiName', 'fas fa-bullhorn', PartiName::class);
         yield MenuItem::linkToCrud('Leader', 'fas fa-user-tie', Leader::class);
         yield MenuItem::linkToCrud('Member', 'fas fa-people-group', Member::class);
         yield MenuItem::linkToCrud('Type Election', 'fas fa-person-booth', TypeElection::class);
         yield MenuItem::linkToCrud('Election', 'fas fa-person-booth', Election::class);
+        yield MenuItem::linkToCrud('Government', 'fa fa-landmark', Government::class);
+        yield MenuItem::linkToCrud('GovernmentParti', 'fa fa-landmark', GovernmentParti::class);
         yield MenuItem::linkToCrud('Page', 'fa fa-file', Page::class);
         yield MenuItem::linkToCrud('Type Resultat', 'fas fa-square-poll-vertical', TypeResultat::class);
         yield MenuItem::linkToCrud('Resultat', 'fas fa-square-poll-vertical', Resultat::class);

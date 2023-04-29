@@ -11,6 +11,12 @@ use Doctrine\ORM\Mapping as ORM;
 #[ApiResource]
 class Government
 {
+    public static array $genderType = [
+        "male" => 0,
+        "female" => 1,
+        "other" => 2
+    ];
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -239,5 +245,10 @@ class Government
         $this->governmentParti = $governmentParti;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->governmentName;
     }
 }
