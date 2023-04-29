@@ -18,7 +18,7 @@
 		{% endblock %}
 	</title>
 	{% block stylesheets %}
-		{{ encore_entry_link_tags('app') }}
+	{{ encore_entry_link_tags('app') }}
 	{% endblock %}
 </head>
 
@@ -124,7 +124,7 @@
 		</nav>
 	</header>
 	<main id="content" class=" my-3">
-	{% block content %}{% endblock %}
+		{% block content %}{% endblock %}
 	</main>{% endblock %}
 	<footer class="text-bg-secondary py-3">
 		<div class="container">
@@ -146,16 +146,14 @@
 									| trans }}</a>
 							</li>
 							<li>
-								<a class="dropdown-item"
-									href="{{ path('homepage', []|merge({'_locale':'fr'})) }}">{{
+								<a class="dropdown-item" href="{{ path('homepage', []|merge({'_locale':'fr'})) }}">{{
 									'Français' | trans }}</a>
 							</li>
 							<li>
-								<a class="dropdown-item"
-									href="{{ path('homepage', []|merge({'_locale':'en'})) }}">{{
+								<a class="dropdown-item" href="{{ path('homepage', []|merge({'_locale':'en'})) }}">{{
 									'English' | trans }}</a>
 							</li>
-					</ul>
+						</ul>
 					</div>
 				</div>
 				<div class="col-md-6 d-flex align-items-center row">
@@ -174,6 +172,8 @@
 							alt="logo facebook" /></a>
 					<a href="#"><img class="social-logo" src="{{ asset('img/social/twitter.svg') }}"
 							alt="logo twitter" /></a>
+					<a href="https://github.com/remikelpro/be_elect"><img class="social-logo" src="{{ asset('img/social/github.svg') }}"
+							alt="logo github" /></a>
 					<h6 class="mt-3">Nous contacter :</h6>
 					<p>beelect[at]ulb.be</p>
 				</div>
