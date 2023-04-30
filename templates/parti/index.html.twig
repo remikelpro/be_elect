@@ -1,9 +1,116 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Hello PartiController!{% endblock %}
+{% block title %}Be Elect - {{'Les partis politiques en Belgique' | trans }}{% endblock %}
 
 {% block page_contents %}
 {% if breadcrumb is defined %}
-    {% include 'partial/breadcrumb.html.twig' with { breadcrumb } %}
+{% include 'partial/breadcrumb.html.twig' with { breadcrumb } %}
 {% endif %}
+
+<div id="partis">
+    <section class="my-2 container">
+        <div class="row">
+            <div class="col-lg-7">
+                <h1>{{ "Les <span class=\"text-secondary\">partis politiques</span> en Belgique" | trans | raw }}</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt sunt ipsam, enim repudiandae,
+                    dicta,
+                    saepe hic sapiente ducimus esse necessitatibus nam velit tenetur ullam fuga! Vitae recusandae
+                    aspernatur
+                    illo officia?</p>
+
+                <div class="text-center mt-5 p-5 text-light search-part">
+                    <img src="{{ asset('img/homepage/search_icon.svg') }}" alt="search icon" />
+                    <h3 class="my-2">{{ "Je trouve mon parti politique en 1 clic :" | trans }}</h3>
+                    <select id="selectParti" class="form-select filterSelect parti-search">
+                    </select>
+                    <span hidden id="placeholderSelectParti">{{ " Cherchez ici le nom du parti politique (exemple : PS)"
+                        }}</span>
+                </div>
+            </div>
+            <div class="col-lg-5 d-flex align-self-center">
+                <img src="{{ asset('img/partis/tous-partis-illu.svg') }}" class="w-100 illustration" alt="{{ "
+                    illustration de vote" | trans }}" />
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-grey p-2">
+        <div class="container">
+            <h2>{{"Les partis politiques représentés au parlement fédéral" | trans }}</h2>
+            <p class="subtitle text-center">Cliquez sur le parti qui vous intéresse pour en savoir plus</p>
+            <div class="row">
+                <div class="col-lg-3 px-5">
+                    <h3>{{ "Les partis politiques en Flandre" | trans }}</h3>
+                    <hr>
+                    {% for parti in partisFlandre %}
+                    <div class="mb-2">
+                        {% include 'parti/_card.html.twig' with {short: true} %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="col-lg-3 px-5">
+                    <h3>{{ "Les partis politiques à Bruxelles" | trans }}</h3>
+                    <hr>
+                    {% for parti in partisBrussel %}
+                    <div class="mb-2">
+                        {% include 'parti/_card.html.twig' with {short: true} %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="col-lg-3 px-5">
+                    <h3>{{ "Les partis politiques en Wallonie" | trans }}</h3>
+                    <hr>
+                    {% for parti in partisWallonie %}
+                    <div class="mb-2">
+                        {% include 'parti/_card.html.twig' with {short: true} %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="col-lg-3 px-5">
+                    <h3>{{ "Les partis politiques en communauté germanophone" | trans }}</h3>
+                    <hr>
+                    {% for parti in partisGermanophone %}
+                    <div class="mb-2">
+                        {% include 'parti/_card.html.twig' with {short: true} %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="non-federal isDark p-2">
+        <div class="container">
+            <h2>{{"Les partis politiques non-représentés au parlement fédéral" | trans }}</h2>
+            <div class="row">
+                {% for parti in partisNonFederal %}
+                <div class="col-lg-2 {{ loop.index > 6 ? 'federal-hidden': '' }}">
+                    <div class=" parti-item">
+                        <a href="{{ path('parti', {slug : parti.slug })}}">{{ parti.name }}</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="text-center mb-2 pb-4">
+                <a class="btn btn-secondary" id="showNonFederal">{{ "Afficher plus" | trans }}</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="p-2 container">
+        <h2>{{"Les partis politiques disparus" | trans }}</h2>
+        <div class="row">
+            {% for parti in partisDisappeared %}
+            <div class="col-lg-2 {{ loop.index > 6 ? 'disappeared-hidden': '' }}">
+                <div class=" parti-item">
+                    <a href="{{ path('parti', {slug : parti.slug })}}">{{ parti.name }}</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center">
+            <a class="btn btn-secondary" id="showDisappeared">{{ "Afficher plus" | trans }}</a>
+        </div>
+    </section>
+</div>
 {% endblock %}

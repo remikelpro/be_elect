@@ -19,17 +19,29 @@ class PartiController extends AbstractBeElectController
     #[Route('/partis', name: 'partis')]
     public function index(): Response
     {
+        $partisFlandre = $this->partiRepository->findBy(['federal' => Parti::$federalType['federal'], 'place' => Parti::$placeType['flandre']]);
+        $partisBrussel = $this->partiRepository->findBy(['federal' => Parti::$federalType['federal'], 'place' => Parti::$placeType['brussel']]);
+        $partisWallonie = $this->partiRepository->findBy(['federal' => Parti::$federalType['federal'], 'place' => Parti::$placeType['wallonie']]);
+        $partisGermanophone = $this->partiRepository->findBy(['federal' => Parti::$federalType['federal'], 'place' => Parti::$placeType['germanophone']]);
+        $partisNonFederal = $this->partiRepository->findBy(['federal' => Parti::$federalType['non-federal']]);
+        $partisDisappeared = $this->partiRepository->findBy(['federal' => Parti::$federalType['disappeared']]);
         $breadcrumb = $this->getBreadcrumb([
             ['name' => $this->translator->trans('Partis'), 'href' => $this->generateUrl('partis')]
         ]);
 
         return $this->render('parti/index.html.twig', [
-            'breadcrumb' => $breadcrumb
+            'breadcrumb' => $breadcrumb,
+            'partisFlandre' => $partisFlandre,
+            'partisBrussel' => $partisBrussel,
+            'partisWallonie' => $partisWallonie,
+            'partisGermanophone' => $partisGermanophone,
+            'partisNonFederal' => $partisNonFederal,
+            'partisDisappeared' => $partisDisappeared,
         ]);
     }
 
     /**
-     * @Route("/parti/{slug}", name="parti", requirements={"slug" : "[a-zA-Z-]+"})
+     * @Route("/parti/{slug}", name="parti", requirements={"slug" : "[a-zA-Z-0-9]+"})
      */
     public function parti(Parti $parti): Response
     {

@@ -18,7 +18,7 @@
         </div>
     </div>
 </section>
-<section class="section-2">
+<section class="section-2 mt-5">
     <div class="container">
         <div class="row">
             <div class="col-lg-7 text-center py-5 text-light search-part">
@@ -64,7 +64,7 @@
             </div>
             <div class="switcher-bg">
                 <div id="switcherMap" class="d-flex align-items-center justify-content-center">
-                    <img src="{{ asset('img/homepage/arrow.svg') }}" />
+                    <img src="{{ asset('../img/homepage/arrow.svg') }}" />
                 </div>
             </div>
             <div id="donut" class="bg-grey ps-5">
@@ -80,7 +80,7 @@
 
 <section class="container mt-5">
     <h2>{{ "Zoom sur les 6 parties majeurs" | trans }}</h2>
-    <div class="row border-between gy-5">
+    <div class="row gy-5">
         {% for parti in partis %}
         <div class="col col-12 col-md-6 col-lg-4">
             {% include 'parti/_card.html.twig' %}

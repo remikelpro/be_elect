@@ -31,7 +31,7 @@ class Parti extends AbstractTranslation implements JsonSerializable
         'disappeared' => 2
     ];
     public static array $placeType = [
-        'flandres' => 0,
+        'flandre' => 0,
         'brussel' => 1,
         'wallonie' => 2,
         'germanophone' => 3
