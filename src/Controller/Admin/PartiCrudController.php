@@ -7,6 +7,7 @@ use App\Entity\Parti;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ColorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
@@ -41,7 +42,8 @@ class PartiCrudController extends AbstractCrudController
                 ->setUploadDir('public/img/parti/')
                 ->setUploadedFileNamePattern('[slug].[extension]'),
             TextField::new('name'),
-            BooleanField::new('main'),
+            ChoiceField::new('federal')->setChoices(Parti::$federalType),
+            ChoiceField::new('place')->setChoices(Parti::$placeType),
             ColorField::new('color'),
             ColorField::new('color_bg'),
             TextField::new('description', 'description')->hideOnForm(),
@@ -51,6 +53,10 @@ class PartiCrudController extends AbstractCrudController
                     'required' => true,
                 ]
             ])->hideOnIndex(),
+            TextField::new('twitter'),
+            TextField::new('facebook'),
+            TextField::new('instagram'),
+            TextField::new('website'),
             SlugField::new('slug')->setTargetFieldName('name'),
         ];
     }

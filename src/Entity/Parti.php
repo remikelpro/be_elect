@@ -8,6 +8,7 @@ use ApiPlatform\Metadata\ApiResource;
 use App\Repository\PartiRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use JsonSerializable;
 use Symfony\Component\Serializer\Annotation\Groups;
@@ -24,6 +25,17 @@ use ApiPlatform\Metadata\GetCollection;
 ])]
 class Parti extends AbstractTranslation implements JsonSerializable
 {
+    public static array $federalType = [
+        'non-federal' => 0,
+        'federal' => 1,
+        'disappeared' => 2
+    ];
+    public static array $placeType = [
+        'flandres' => 0,
+        'brussel' => 1,
+        'wallonie' => 2,
+        'germanophone' => 3
+    ];
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -53,9 +65,6 @@ class Parti extends AbstractTranslation implements JsonSerializable
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
 
-    #[ORM\Column]
-    private ?bool $main = false;
-
     #[ORM\OneToMany(mappedBy: 'idParti', targetEntity: Resource::class)]
     private Collection $resources;
 
@@ -70,6 +79,27 @@ class Parti extends AbstractTranslation implements JsonSerializable
 
     #[ORM\OneToMany(mappedBy: 'parti', targetEntity: PartiHistory::class)]
     private Collection $partiHistories;
+
+    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
+    private ?int $federal = null;
+
+    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
+    private ?int $place = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $twitter = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $facebook = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $instagram = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $website = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $about = null;
 
     public function __construct()
     {
@@ -190,18 +220,6 @@ class Parti extends AbstractTranslation implements JsonSerializable
             'text' => $this->name,
             'slug'=> $this->slug,
         );
-    }
-
-    public function isMain(): ?bool
-    {
-        return $this->main;
-    }
-
-    public function setMain(bool $main): self
-    {
-        $this->main = $main;
-
-        return $this;
     }
 
     /**
@@ -360,5 +378,89 @@ class Parti extends AbstractTranslation implements JsonSerializable
         if ($this->leaders->isEmpty())
             return null;
         return $this->leaders?->last()?->getName();
+    }
+
+    public function getFederal(): ?int
+    {
+        return $this->federal;
+    }
+
+    public function setFederal(?int $federal): self
+    {
+        $this->federal = $federal;
+
+        return $this;
+    }
+
+    public function getPlace(): ?int
+    {
+        return $this->place;
+    }
+
+    public function setPlace(int $place): self
+    {
+        $this->place = $place;
+
+        return $this;
+    }
+
+    public function getTwitter(): ?string
+    {
+        return $this->twitter;
+    }
+
+    public function setTwitter(?string $twitter): self
+    {
+        $this->twitter = $twitter;
+
+        return $this;
+    }
+
+    public function getFacebook(): ?string
+    {
+        return $this->facebook;
+    }
+
+    public function setFacebook(?string $facebook): self
+    {
+        $this->facebook = $facebook;
+
+        return $this;
+    }
+
+    public function getInstagram(): ?string
+    {
+        return $this->instagram;
+    }
+
+    public function setInstagram(?string $instagram): self
+    {
+        $this->instagram = $instagram;
+
+        return $this;
+    }
+
+    public function getWebsite(): ?string
+    {
+        return $this->website;
+    }
+
+    public function setWebsite(?string $website): self
+    {
+        $this->website = $website;
+
+        return $this;
+    }
+
+    public function getAbout(): ?string
+    {
+        return $this->about;
+    }
+
+    public function setAbout(?string $about): self
+    {
+        $this->about = $about;
+
+        return $this;
     }
 }

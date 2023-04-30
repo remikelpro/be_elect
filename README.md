@@ -30,9 +30,11 @@ Ajouter dans Entity.php
 
 ``bin/console doctrine:schema:update --force``
 
+## Etapes lors de l'ajout de nouvelles entity
+
 1/ php bin/console make:entity
-2/ ajouter tous les champs qui ne sont pas traduisible
-3/ Creer EntityNameTranslation.php et rajouter les champs traduisible
+2/ ajouter tous les champs qui ne sont pas traduisibles
+3/ Creer EntityNameTranslation.php et rajouter les champs traduisibles
 4/ Extends EntityName avec AbstractTranslation
 5/ symfony console make:admin:crud
 6/ Modifier EntityCrudController pour ajouter le theme et les champs traduisible

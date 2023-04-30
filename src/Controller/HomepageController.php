@@ -14,7 +14,7 @@ class HomepageController extends AbstractController
     #[Route('/', name: 'homepage')]
     public function index(PartiRepository $partiRepository): Response
     {
-        $partis = $partiRepository->findBy(['main' => true],['id'=> 'ASC'],6);
+        $partis = $partiRepository->findBy(['federal' => 1],['id'=> 'ASC'],6);
         $randomParti = $partis[array_rand($partis)];
         
         return $this->render('homepage/index.html.twig', [
