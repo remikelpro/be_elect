@@ -1,10 +1,29 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Hello PartiController!{% endblock %}
+{% block title %}Be Elect - {{ parti.name }}{% endblock %}
 
 {% block page_contents %}
 
 {% if breadcrumb is defined %}
 {% include 'partial/breadcrumb.html.twig' with { breadcrumb } %}
 {% endif %}
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h1>{{ parti.name }}</h1>
+                <h2>{{ "Présentation détaillée" | trans }}</h2>
+                <div>{{ parti.description | raw }}</div>
+
+                {% include 'database/index.html.twig' with {parti: parti} %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('parti') }}
 {% endblock %}

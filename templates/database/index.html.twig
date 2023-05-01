@@ -1,10 +1,6 @@
-{% extends 'layout.html.twig' %}
-
-{% block title %}{{"Base de données intéractive" | trans }}{% endblock %}
-
-{% block page_contents %}
-
+{% set notParti = parti is not defined or parti == false %}
 <div class="container">
+    {% if notParti %}
     <div class="row">
         <div class="col-lg-6">
             <select id="selectParti" class="form-select filterSelect" multiple>
@@ -35,6 +31,9 @@
             </select>
         </div>
     </div>
+    {% else %}
+    <input id="partiId" value="{{ parti.id }}" hidden>
+    {% endif %}
     <table id="table" data-show-fullscreen="true" data-show-columns="true"
         data-show-columns-toggle-all="true" data-show-export="true"
         data-page-size="30" data-page-list="[10, 50, 100, 300, all]" data-toggle="table"
@@ -42,18 +41,24 @@
         data-pagination="true">
         <thead>
             <tr>
-                <th data-sortable="true" data-field="id">ID</th>
+                <th data-sortable="true" data-field="id" data-visible="{{ notParti }}">ID</th>
                 <th data-sortable="true" data-field="numberBallot">{{ "Nombre votes" | trans }}</th>
                 <th data-sortable="true" data-field="percent">{{ "Pourcentage" | trans }}</th>
                 <th data-field="idElection.name">{{ "Election" | trans }}</th>
-                <th data-field="idParty.name">{{ "Parti" | trans }}</th>
+                <th data-field="idParty.name" data-visible="{{ notParti }}">{{ "Parti" | trans }}</th>
                 <th data-field="idRegion.name">{{ "Region" | trans }}</th>
-                <th data-field="idProvince.name">{{ "Province" | trans }}</th>
-                <th data-field="idArrondissement.name">{{ "Arrondissement" | trans }}</th>
-                <th data-field="idCanton.name">{{ "Canton" | trans }}</th>
-                <th data-field="idCommune.name">{{ "Commune" | trans }}</th>
+                <th data-field="idProvince.name" data-visible="{{ notParti }}">{{ "Province" | trans }}</th>
+                <th data-field="idArrondissement.name" data-visible="{{ notParti }}">{{ "Arrondissement" | trans }}</th>
+                <th data-field="idCanton.name" data-visible="{{ notParti }}">{{ "Canton" | trans }}</th>
+                <th data-field="idCommune.name" data-visible="{{ notParti }}">{{ "Commune" | trans }}</th>
             </tr>
         </thead>
     </table>
 </div>
+
+
+{% block javascripts %}
+
+{{ encore_entry_script_tags('app') }}
+    {{ encore_entry_script_tags('table') }}
 {% endblock %}

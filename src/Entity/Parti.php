@@ -22,6 +22,7 @@ use ApiPlatform\Metadata\GetCollection;
 ])]
 #[ApiFilter(SearchFilter::class, properties: [
     'acronym' => 'partial',
+    'name' => 'partial',
 ])]
 class Parti extends AbstractTranslation implements JsonSerializable
 {

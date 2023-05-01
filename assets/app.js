@@ -12,4 +12,3 @@ import 'bootstrap-autocomplete';
 import 'ckeditor4';
 import 'select2';
 import './main';
-import './table';

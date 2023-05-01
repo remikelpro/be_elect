@@ -1,13 +1,12 @@
 import Chart from 'chart.js/auto'
 import { ChoroplethChart } from 'chartjs-chart-geo';
 import * as ChartGeo from 'chartjs-chart-geo';
-$(document).ready(async ()=>{
-    console.log('asd');
+$(document).ready(async () => {
     const belgium = await fetch('/map/belgium-map.json').then(r => {
         return r.json();
     }).catch(e =>
         console.log(e));
-    
+
     const municipalities = ChartGeo.topojson.feature(belgium, belgium.objects.municipalities).features;
     var projection = ChartGeo.geoMercator()
     new ChoroplethChart(document.getElementById('mapMap').getContext('2d'),
@@ -41,8 +40,8 @@ $(document).ready(async ()=>{
                 }
             }
         });
-    
-    
+
+
     // DONUT
     const data = {
         responsive: true,
@@ -66,12 +65,12 @@ $(document).ready(async ()=>{
         type: 'doughnut',
         data: data,
         options: {
-          rotation: -90,
-          circumference: 180,
-      }
+            rotation: -90,
+            circumference: 180,
+        }
     };
     let donut = new Chart(document.getElementById('donutGraph').getContext('2d'), config)
-    
+
     window.addEventListener('before', () => {
         donut.resize(500, 500);
     });

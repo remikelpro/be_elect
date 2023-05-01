@@ -24,7 +24,7 @@ let apiCall = {
             let results = data["hydra:member"].map((item) => {
                 return {
                     "id": item.id,
-                    "text": item.name
+                    "text": item.name ?? item.acronym
                 }
             })
             return {
@@ -116,7 +116,6 @@ window.ajaxRequest = function (params) {
     }
 
     var url = '/api/resultats';
-    console.log(parameters, $.param(parameters));
     $.get(url + '?' + $.param(parameters)).then(function (res) {
         let result = res['hydra:member'];
         result.total = res['hydra:totalItems'];

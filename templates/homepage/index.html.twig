@@ -26,7 +26,7 @@
                 <h3 class="my-2">{{ "Je trouve mon parti politique en 1 clic :" | trans }}</h3>
                 <select id="selectParti" class="form-select filterSelect parti-search">
                 </select>
-                <span hidden id="placeholderSelectParti">{{ " Cherchez ici le nom du parti politique (exemple : PS)" }}</span>
+                <span hidden id="placeholderSelectParti">{{ " Cherchez ici l'acronyme du parti politique (exemple : PS)" }}</span>
             </div>
             <div class="col-lg-5 text-center py-3 random-part">
                 <h3>{{ "Un parti politique au hasard" | trans }}</h3>
@@ -91,6 +91,6 @@
 </section>
 {% endblock %}
 {% block javascripts %}
-{{ encore_entry_script_tags('app') }}
-{{ encore_entry_script_tags('map') }}
+    {{ parent() }}
+    {{ encore_entry_script_tags('home') }}
 {% endblock %}
