@@ -41,7 +41,7 @@ class PartiCrudController extends AbstractCrudController
             ImageField::new('logo')->setBasePath('img/parti/')
                 ->setUploadDir('public/img/parti/')
                 ->setUploadedFileNamePattern('[slug].[extension]'),
-            TextField::new('name'),
+            TextField::new('acronym'),
             ChoiceField::new('federal')->setChoices(Parti::$federalType),
             ChoiceField::new('place')->setChoices(Parti::$placeType),
             ColorField::new('color'),
@@ -57,7 +57,7 @@ class PartiCrudController extends AbstractCrudController
             TextField::new('facebook'),
             TextField::new('instagram'),
             TextField::new('website'),
-            SlugField::new('slug')->setTargetFieldName('name'),
+            SlugField::new('slug')->setTargetFieldName('acronym'),
         ];
     }
 }

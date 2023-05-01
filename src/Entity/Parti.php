@@ -21,7 +21,7 @@ use ApiPlatform\Metadata\GetCollection;
     new GetCollection()
 ])]
 #[ApiFilter(SearchFilter::class, properties: [
-    'name' => 'partial',
+    'acronym' => 'partial',
 ])]
 class Parti extends AbstractTranslation implements JsonSerializable
 {
@@ -45,7 +45,7 @@ class Parti extends AbstractTranslation implements JsonSerializable
 
     #[ORM\Column(length: 255)]
     #[Groups(['read'])]
-    private ?string $name = null;
+    private ?string $acronym = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     #[Groups(['read'])]
@@ -113,7 +113,7 @@ class Parti extends AbstractTranslation implements JsonSerializable
 
     public function __toString()
     {
-        return $this->name;
+        return $this->acronym;
     }
 
     public function getId(): ?int
@@ -121,14 +121,14 @@ class Parti extends AbstractTranslation implements JsonSerializable
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getAcronym(): ?string
     {
-        return $this->name;
+        return $this->acronym;
     }
 
-    public function setName(string $name): self
+    public function setAcronym(string $acronym): self
     {
-        $this->name = $name;
+        $this->acronym = $acronym;
 
         return $this;
     }
@@ -216,8 +216,8 @@ class Parti extends AbstractTranslation implements JsonSerializable
         return array(
             'id' => $this->id,
             'value' => $this->id,
-            'name' => $this->name,
-            'text' => $this->name,
+            'acronym' => $this->acronym,
+            'text' => $this->acronym,
             'slug'=> $this->slug,
         );
     }
@@ -310,6 +310,16 @@ class Parti extends AbstractTranslation implements JsonSerializable
         }
 
         return $this;
+    }
+
+    public function getName(): string
+    {
+        $partiNames = $this->getPartiNames();
+        $partiName = null;
+        if ($partiNames->count() > 0){
+            $partiName = $partiNames->filter(function($el) {return $el->isMain();})->first() ?: $partiNames->last();
+        }
+        return $partiName ? $partiName->getName() : $this->acronym;
     }
 
     /**

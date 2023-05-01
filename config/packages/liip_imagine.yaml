@@ -8,6 +8,8 @@ liip_imagine:
         generate:    true
         quality:     80
 
+    twig:
+        mode:   lazy
     # configure resolvers
     resolvers:
 
