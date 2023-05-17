@@ -29,7 +29,7 @@ use ApiPlatform\Metadata\GetCollection;
     OrderFilter::class,
     properties: [
         'id',
-        'numberBallot',
+        'totalVote',
         'percent',
         'numberSubscriber',
         'numberSeat',
@@ -58,7 +58,7 @@ class Resultat
 
     #[ORM\Column(nullable: true)]
     #[Groups(['read'])]
-    private ?int $numberBallot = null;
+    private ?int $totalVote = null;
 
     #[ORM\Column(nullable: true)]
     #[Groups(['read'])]
@@ -112,19 +112,34 @@ class Resultat
     #[Groups(['read'])]
     private ?\DateTimeImmutable $updatedAt = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $headVote = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $titularVote = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $alternateVote = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $blankVote = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $eligibleVoters = null;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNumberBallot(): ?int
+    public function getTotalVote(): ?int
     {
-        return $this->numberBallot;
+        return $this->totalVote;
     }
 
-    public function setNumberBallot(?int $numberBallot): self
+    public function setTotalVote(?int $totalVote): self
     {
-        $this->numberBallot = $numberBallot;
+        $this->totalVote = $totalVote;
 
         return $this;
     }
@@ -300,5 +315,65 @@ class Resultat
     public function __toString()
     {
         return 'Result #' . $this->getId();
+    }
+
+    public function getHeadVote(): ?int
+    {
+        return $this->headVote;
+    }
+
+    public function setHeadVote(?int $headVote): self
+    {
+        $this->headVote = $headVote;
+
+        return $this;
+    }
+
+    public function getTitularVote(): ?int
+    {
+        return $this->titularVote;
+    }
+
+    public function setTitularVote(?int $titularVote): self
+    {
+        $this->titularVote = $titularVote;
+
+        return $this;
+    }
+
+    public function getAlternateVote(): ?int
+    {
+        return $this->alternateVote;
+    }
+
+    public function setAlternateVote(?int $alternateVote): self
+    {
+        $this->alternateVote = $alternateVote;
+
+        return $this;
+    }
+
+    public function getBlankVote(): ?int
+    {
+        return $this->blankVote;
+    }
+
+    public function setBlankVote(?int $blankVote): self
+    {
+        $this->blankVote = $blankVote;
+
+        return $this;
+    }
+
+    public function getEligibleVoters(): ?int
+    {
+        return $this->eligibleVoters;
+    }
+
+    public function setEligibleVoters(?int $eligibleVoters): self
+    {
+        $this->eligibleVoters = $eligibleVoters;
+
+        return $this;
     }
 }

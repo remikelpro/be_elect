@@ -30,7 +30,7 @@ class ResultatCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         yield NumberField::new('id', 'id')->hideOnForm();
-        yield NumberField::new('numberBallot');
+        yield NumberField::new('totalVote');
         yield NumberField::new('percent');
         yield NumberField::new('numberSubscriber');
         yield NumberField::new('numberSeat');

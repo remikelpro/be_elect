@@ -9,14 +9,24 @@
 {% endif %}
 
 <section>
-    <div class="container">
+    <div>
         <div class="row">
             <div class="col-lg-6">
-                <h1>{{ parti.name }}</h1>
-                <h2>{{ "Présentation détaillée" | trans }}</h2>
-                <div>{{ parti.description | raw }}</div>
+                    <section>
+                        <h1>{{ parti.name }}</h1>
+                        <h2>{{ "Présentation détaillée" | trans }}</h2>
+                        <div>{{ parti.description | raw }}</div>
+                    </section>
 
-                {% include 'database/index.html.twig' with {parti: parti} %}
+                    <section>
+                        <h2>{{ "Résultats électoraux du parti" | trans }}</h2>
+                        {% include 'database/index.html.twig' with {parti: parti} %}
+                    </section>
+
+                    <section>
+                        <h2>{{ "Participations gouvernementales pour les différents niveaux de pouvoir" | trans }}</h2>
+                        <span class="indice">{{ "Les dates non cliquables représentent les législatures pour lesquelles le parti %partiName% n’était pas au gouvernement." | trans({'%partiName%' : parti.name}) }}</span>
+                    </div>
             </div>
         </div>
     </div>

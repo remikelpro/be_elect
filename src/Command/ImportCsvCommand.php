@@ -345,7 +345,7 @@ class ImportCsvCommand extends Command
             if ($row) {
                 $resultat = new Resultat;
                 if ($row[1] != "NULL")
-                    $resultat->setNumberBallot($row[1]);
+                    $resultat->setTotalVote($row[1]);
                 if ($row[2] != "NULL")
                     $resultat->setPercent($row[2]);
                 if ($row[3] != "NULL")
