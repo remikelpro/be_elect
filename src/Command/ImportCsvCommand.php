@@ -34,7 +34,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\String\Slugger\AsciiSlugger;
 
 #[AsCommand(
-    name: 'import-csv',
+    name: 'app:import-csv',
     description: 'import a CSV file to database, first argument is the file, and the second the entity',
 )]
 class ImportCsvCommand extends Command
