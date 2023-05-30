@@ -93,7 +93,7 @@ window.ajaxRequest = function (params) {
         parameters['order[' + params.data.sort + ']'] = params.data.order;
     }
     if ($($('#selectParti')[0]).val().length > 0){
-        parameters['idParty.id'] = $($('#selectParti')[0]).val();
+        parameters['parti.id'] = $($('#selectParti')[0]).val();
     }
     if ($($('#selectRegion')[0]).val().length > 0){
         parameters['idRegion.id'] = $($('#selectRegion')[0]).val();

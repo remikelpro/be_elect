@@ -60,9 +60,6 @@ class Parti extends AbstractTranslation implements JsonSerializable
     #[Groups(['read'])]
     private ?string $color_bg = null;
 
-    #[ORM\OneToMany(mappedBy: 'idParty', targetEntity: Resultat::class)]
-    private Collection $resultats;
-
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
 
@@ -102,6 +99,9 @@ class Parti extends AbstractTranslation implements JsonSerializable
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $about = null;
 
+    #[ORM\ManyToMany(targetEntity: Resultat::class, mappedBy: 'parti')]
+    private Collection $resultats;
+
     public function __construct()
     {
         $this->resultats = new ArrayCollection();
@@ -110,6 +110,7 @@ class Parti extends AbstractTranslation implements JsonSerializable
         $this->leaders = new ArrayCollection();
         $this->partiNames = new ArrayCollection();
         $this->partiHistories = new ArrayCollection();
+        $this->resultats = new ArrayCollection();
     }
 
     public function __toString()
@@ -170,35 +171,6 @@ class Parti extends AbstractTranslation implements JsonSerializable
         return $this;
     }
 
-    /**
-     * @return Collection<int, Resultat>
-     */
-    public function getResultats(): Collection
-    {
-        return $this->resultats;
-    }
-
-    public function addResultat(Resultat $resultat): self
-    {
-        if (!$this->resultats->contains($resultat)) {
-            $this->resultats->add($resultat);
-            $resultat->setIdParty($this);
-        }
-
-        return $this;
-    }
-
-    public function removeResultat(Resultat $resultat): self
-    {
-        if ($this->resultats->removeElement($resultat)) {
-            // set the owning side to null (unless already changed)
-            if ($resultat->getIdParty() === $this) {
-                $resultat->setIdParty(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getSlug(): ?string
     {
@@ -471,6 +443,33 @@ class Parti extends AbstractTranslation implements JsonSerializable
     public function setAbout(?string $about): self
     {
         $this->about = $about;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Resultat>
+     */
+    public function getResultats(): Collection
+    {
+        return $this->resultats;
+    }
+
+    public function addResultat(Resultat $resultat): self
+    {
+        if (!$this->resultats->contains($resultat)) {
+            $this->resultats->add($resultat);
+            $resultat->addParti($this);
+        }
+
+        return $this;
+    }
+
+    public function removeResultat(Resultat $resultat): self
+    {
+        if ($this->resultats->removeElement($resultat)) {
+            $resultat->removeParti($this);
+        }
 
         return $this;
     }

@@ -28,7 +28,7 @@ window.ajaxRequest = function (params) {
     if (params.data.sort) {
         parameters['order[' + params.data.sort + ']'] = params.data.order;
     }
-    parameters['idParty.id'] = $('#partiId').val();
+    parameters['parti.id'] = $('#partiId').val();
 
     var url = '/api/resultats';
     console.log(parameters);

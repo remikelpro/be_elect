@@ -11,12 +11,13 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
+use Doctrine\Common\Collections\Collection;
 
 #[ORM\Entity(repositoryClass: ResultatRepository::class)]
 #[ORM\HasLifecycleCallbacks]
 #[ApiFilter(SearchFilter::class, properties: [
     'idElection.idTypeElection' => 'exact',
-    'idParty.id' => 'exact',
+    'parti.id' => 'exact',
     'idElection.id' => 'exact',
     'idCommune.id' => 'exact',
     'idCanton.id' => 'exact',
@@ -33,7 +34,7 @@ use ApiPlatform\Metadata\GetCollection;
         'percent',
         'numberSubscriber',
         'numberSeat',
-        'idParty.name',
+        'parti.name',
         'idElection.name',
         'idCommune.name',
         'idCanton.name',
@@ -72,9 +73,9 @@ class Resultat
     #[Groups(['read'])]
     private ?int $numberSeat = null;
 
-    #[ORM\ManyToOne(inversedBy: 'resultats')]
-    #[Groups(['read'])]
-    private ?Parti $idParty = null;
+    #[ORM\ManyToMany(targetEntity: Parti::class, inversedBy: 'resultats')]
+    #[Groups(['read'])]   
+    private Collection $parti;
 
     #[ORM\ManyToOne(inversedBy: 'resultats')]
     #[Groups(['read'])]
@@ -180,14 +181,26 @@ class Resultat
         return $this;
     }
 
-    public function getIdParty(): ?Parti
+    /**
+     * @return Collection<int, Parti>
+     */
+    public function getParti(): Collection
     {
-        return $this->idParty;
+        return $this->parti;
     }
 
-    public function setIdParty(?Parti $idParty): self
+    public function addParti(Parti $parti): self
     {
-        $this->idParty = $idParty;
+        if (!$this->parti->contains($parti)) {
+            $this->parti->add($parti);
+        }
+
+        return $this;
+    }
+
+    public function removeParti(Parti $parti): self
+    {
+        $this->parti->removeElement($parti);
 
         return $this;
     }

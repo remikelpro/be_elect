@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DatabaseController extends AbstractController
 {
-    function __construct(private PartiRepository $partyRepository,
+    function __construct(private PartiRepository $partiRepository,
     private TypeElectionRepository $typeElectionRepository)
     {
     }

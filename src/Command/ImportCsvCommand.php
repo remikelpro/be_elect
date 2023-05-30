@@ -355,7 +355,7 @@ class ImportCsvCommand extends Command
 
                 $parti = $this->partiRepository->findOneBy(['id' => $row[5]]);
                 if ($parti) {
-                    $resultat->setIdParty($parti);
+                    $resultat->setIdParti($parti);
                 }
                 $election = $this->electionRepository->findOneBy(['id' => $row[5]]);
                 if ($election) {

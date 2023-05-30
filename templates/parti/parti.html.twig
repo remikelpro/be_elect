@@ -9,24 +9,32 @@
 {% endif %}
 
 <section>
-    <div>
-        <div class="row">
+    <div class="container">
+        <div class="row mt-3">
             <div class="col-lg-6">
-                    <section>
-                        <h1>{{ parti.name }}</h1>
-                        <h2>{{ "Présentation détaillée" | trans }}</h2>
-                        <div>{{ parti.description | raw }}</div>
-                    </section>
+                <section>
+                    <h1>{{ parti.name }}</h1>
+                    <h2>{{ "Présentation détaillée" | trans }}</h2>
+                    <div>{{ parti.description | raw }}</div>
+                </section>
 
-                    <section>
-                        <h2>{{ "Résultats électoraux du parti" | trans }}</h2>
-                        {% include 'database/index.html.twig' with {parti: parti} %}
-                    </section>
+                <section>
+                    <h2>{{ "Résultats électoraux du parti" | trans }}</h2>
+                    {% include 'database/index.html.twig' with {parti: parti} %}
+                </section>
 
-                    <section>
+                <section class="bg-grey py-3">
+                    <div class="container">
                         <h2>{{ "Participations gouvernementales pour les différents niveaux de pouvoir" | trans }}</h2>
-                        <span class="indice">{{ "Les dates non cliquables représentent les législatures pour lesquelles le parti %partiName% n’était pas au gouvernement." | trans({'%partiName%' : parti.name}) }}</span>
+                        <span class="indice">{{ "Les dates non cliquables représentent les législatures pour lesquelles
+                            le parti %partiName% n’était pas au gouvernement." | trans({'%partiName%' : parti.name})
+                            }}</span>
+
+                        <div class="border">
+                            <img src="{{ asset('img/partis/communautaire.svg') }}"/>
+                        </div>
                     </div>
+                </section>
             </div>
         </div>
     </div>
@@ -34,6 +42,6 @@
 {% endblock %}
 
 {% block javascripts %}
-    {{ parent() }}
-    {{ encore_entry_script_tags('parti') }}
+{{ parent() }}
+{{ encore_entry_script_tags('parti') }}
 {% endblock %}
