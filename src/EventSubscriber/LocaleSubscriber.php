@@ -25,7 +25,12 @@ class LocaleSubscriber implements EventSubscriberInterface
             $locale = $request->getSession()->get('_locale');
         }
         if (!$locale){
-            $locale = $request->headers->get('Accept-Language');
+            $acceptLanguage = $request->headers->get('Accept-Language');
+            if ($acceptLanguage) {
+                $locale = substr($acceptLanguage, 0, 2);
+            } else {
+                $locale = $request->headers->get('Accept-Language');
+            }
         }
         if (!$locale){
             $locale = $this->defaultLocale;

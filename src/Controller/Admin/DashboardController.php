@@ -3,7 +3,6 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Arrondissement;
-use App\Entity\Article;
 use App\Entity\Canton;
 use App\Entity\Commune;
 use App\Entity\Election;
@@ -35,7 +34,7 @@ class DashboardController extends AbstractDashboardController
     {
 
         $routeBuilder = $this->container->get(AdminUrlGenerator::class);
-        $url = $routeBuilder->setController(ArticleCrudController::class)->generateUrl();
+        $url = $routeBuilder->setController(PartiCrudController::class)->generateUrl();
 
         return $this->redirect($url);
     }
