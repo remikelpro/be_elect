@@ -18,7 +18,7 @@ class LayoutController extends AbstractController
 
     public function getPartis(): Response
     {
-        $partis = $this->partiRepository->findBy(['federal' => 1],['id'=> 'ASC'],10);
+        $partis = $this->partiRepository->findBy(['main' => 1],['id'=> 'ASC'],10);
 
         return $this->render('layout/_partis.html.twig', [
             'partis' => $partis

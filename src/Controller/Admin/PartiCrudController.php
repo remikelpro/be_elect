@@ -38,6 +38,7 @@ class PartiCrudController extends AbstractCrudController
     {
         return [
             NumberField::new('id', 'id')->hideOnForm(),
+            BooleanField::new('main'),
             ImageField::new('logo')->setBasePath('img/parti/')
                 ->setUploadDir('public/img/parti/')
                 ->setUploadedFileNamePattern('[slug].[extension]'),
@@ -53,10 +54,10 @@ class PartiCrudController extends AbstractCrudController
                     'required' => true,
                 ]
             ])->hideOnIndex(),
-            TextField::new('twitter'),
-            TextField::new('facebook'),
-            TextField::new('instagram'),
-            TextField::new('website'),
+            TextField::new('twitter')->hideOnIndex(),
+            TextField::new('facebook')->hideOnIndex(),
+            TextField::new('instagram')->hideOnIndex(),
+            TextField::new('website')->hideOnIndex(),
             SlugField::new('slug')->setTargetFieldName('acronym'),
         ];
     }

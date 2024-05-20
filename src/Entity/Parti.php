@@ -63,6 +63,9 @@ class Parti extends AbstractTranslation implements JsonSerializable
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?bool $main = null;
+
     #[ORM\OneToMany(mappedBy: 'idParti', targetEntity: Resource::class)]
     private Collection $resources;
 
@@ -470,6 +473,26 @@ class Parti extends AbstractTranslation implements JsonSerializable
         if ($this->resultats->removeElement($resultat)) {
             $resultat->removeParti($this);
         }
+
+        return $this;
+    }
+
+    /**
+     * Get the value of main
+     */ 
+    public function getMain()
+    {
+        return $this->main;
+    }
+
+    /**
+     * Set the value of main
+     *
+     * @return  self
+     */ 
+    public function setMain($main)
+    {
+        $this->main = $main;
 
         return $this;
     }
