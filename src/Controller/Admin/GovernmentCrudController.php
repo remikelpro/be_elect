@@ -30,6 +30,7 @@ class GovernmentCrudController extends AbstractCrudController
         yield NumberField::new('positionRec');
         yield ChoiceField::new('gender')->setChoices(Government::$genderType);
         yield TextField::new('primeMinister');
+        yield ChoiceField::new('type')->setChoices(Government::$governmentType);
         yield TextField::new('governmentName');
         yield NumberField::new('legislatureYear');
         yield NumberField::new('governmentYear');

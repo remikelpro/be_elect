@@ -17,6 +17,15 @@ class Government
         "other" => 2
     ];
 
+    public static array $governmentType = [
+        "federal" => 0,
+        "brussels" => 1,
+        "walloon" => 2,
+        "flemish" => 3,
+        "german-speaking" => 4,
+        "wallonia-brussels" => 5
+    ];
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -63,6 +72,9 @@ class Government
 
     #[ORM\OneToOne(mappedBy: 'government', cascade: ['persist', 'remove'])]
     private ?GovernmentParti $governmentParti = null;
+
+    #[ORM\Column(type: Types::SMALLINT, nullable: true)]
+    private ?int $type = null;
 
     public function getId(): ?int
     {
@@ -250,5 +262,25 @@ class Government
     public function __toString()
     {
         return $this->governmentName;
+    }
+
+    /**
+     * Get the value of type
+     */ 
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set the value of type
+     *
+     * @return  self
+     */ 
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
     }
 }
