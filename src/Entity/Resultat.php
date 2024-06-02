@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 #[ORM\Entity(repositoryClass: ResultatRepository::class)]
@@ -127,6 +128,11 @@ class Resultat
 
     #[ORM\Column(nullable: true)]
     private ?int $eligibleVoters = null;
+
+    public function __construct()
+    {
+        $this->parti = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -288,6 +294,7 @@ class Resultat
 
         return $this;
     }
+    
     public function getCreatedAt(): ?\DateTimeImmutable
     {
         return $this->createdAt;
@@ -318,7 +325,6 @@ class Resultat
         $this->updatedAt = new \DateTimeImmutable();
         $this->createdAt = new \DateTimeImmutable();
     }
-
 
     #[ORM\PreUpdate]
     public function setUpdatedAtAutomatically()

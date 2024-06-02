@@ -35,12 +35,12 @@ class ResultatCrudController extends AbstractCrudController
         yield NumberField::new('numberSubscriber');
         yield NumberField::new('numberSeat');
         yield AssociationField::new('idTypeResultat');
-        yield AssociationField::new('idParti');
+        // yield AssociationField::new('idParti');
         yield AssociationField::new('idElection');
         yield AssociationField::new('idCommune');
-        yield AssociationField::new('idCanton');
-        yield AssociationField::new('idArrondissement');
-        yield AssociationField::new('idProvince');
-        yield AssociationField::new('idRegion');
+        // yield AssociationField::new('idCanton');
+        // yield AssociationField::new('idArrondissement');
+        // yield AssociationField::new('idProvince');
+        // yield AssociationField::new('idRegion');
     }
 }

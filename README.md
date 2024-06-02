@@ -41,3 +41,9 @@ Ajouter dans Entity.php
 6/ ajouter dans le Dashboard admin src/Controller/Admin/DashboardController
 6/ bin/console doctrine:schema:update --force
 
+# Récupérer base de données du site
+1/ export .sql depuis le site
+2/ mysql -u admin -p -e "DROP DATABASE be_elect; CREATE DATABASE be_elect;"
+3/ modifier import.sql pour mettre le bon fichier dans SOURCE
+4/ mysql -u admin -p be_elect < import.sql
+5/ récupérer les images dans public/img/parti
