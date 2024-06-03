@@ -82,11 +82,13 @@ class Resultat
     #[Groups(['read'])]
     private ?Election $idElection = null;
 
-    #[ORM\ManyToOne(inversedBy: 'resultats')]
+    #[ORM\ManyToOne(targetEntity: Commune::class, inversedBy: 'resultats')]
+    #[ORM\JoinColumn(nullable: true)]
     #[Groups(['read'])]
     private ?Commune $idCommune = null;
 
-    #[ORM\ManyToOne(inversedBy: 'resultats')]
+    #[ORM\ManyToOne(targetEntity: Canton::class, inversedBy: 'resultats')]
+    #[ORM\JoinColumn(nullable: true)]
     #[Groups(['read'])]
     private ?Canton $idCanton = null;
 

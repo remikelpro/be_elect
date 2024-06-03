@@ -25,40 +25,40 @@ class PartiCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-        ->setFormThemes(
-            [
-                '@A2lixTranslationForm/bootstrap_5_layout.html.twig',
-                '@EasyAdmin/crud/form_theme.html.twig',
-                '@FOSCKEditor/Form/ckeditor_widget.html.twig',
-            ]
-        );
+            ->setFormThemes(
+                [
+                    '@A2lixTranslationForm/bootstrap_5_layout.html.twig',
+                    '@EasyAdmin/crud/form_theme.html.twig',
+                    '@FOSCKEditor/Form/ckeditor_widget.html.twig',
+                ]
+            );
     }
 
-        public function configureFields(string $pageName): iterable
+    public function configureFields(string $pageName): iterable
     {
-        return [
-            NumberField::new('id', 'id')->hideOnForm(),
-            BooleanField::new('main'),
-            ImageField::new('logo')->setBasePath('img/parti/')
-                ->setUploadDir('public/img/parti/')
-                ->setUploadedFileNamePattern('[slug].[extension]'),
-            TextField::new('acronym'),
-            ChoiceField::new('federal')->setChoices(Parti::$federalType),
-            ChoiceField::new('place')->setChoices(Parti::$placeType),
-            ColorField::new('color'),
-            ColorField::new('color_bg'),
-            TextField::new('description', 'description')->hideOnForm(),
-            TranslationField::new('translations', 'translations', [
+        yield NumberField::new('id', 'id')->hideOnForm();
+        yield BooleanField::new('main');
+        yield ImageField::new('logo')->setBasePath('img/parti/')
+            ->setUploadDir('public/img/parti/')
+            ->setUploadedFileNamePattern('[slug].[extension]');
+        yield TextField::new('acronym');
+        yield ChoiceField::new('federal')->setChoices(Parti::$federalType);
+        yield ChoiceField::new('place')->setChoices(Parti::$placeType);
+        yield ColorField::new('color');
+        yield ColorField::new('color_bg');
+        yield TextField::new('description', 'description')->hideOnForm();
+        if (Crud::PAGE_DETAIL !== $pageName) {
+            yield TranslationField::new('translations', 'translations', [
                 'description' => [
                     'field_type' => CKEditorType::class,
                     'required' => true,
                 ]
-            ])->hideOnIndex(),
-            TextField::new('twitter')->hideOnIndex(),
-            TextField::new('facebook')->hideOnIndex(),
-            TextField::new('instagram')->hideOnIndex(),
-            TextField::new('website')->hideOnIndex(),
-            SlugField::new('slug')->setTargetFieldName('acronym'),
-        ];
+            ])->hideOnIndex();
+        }
+        yield TextField::new('twitter')->hideOnIndex();
+        yield TextField::new('facebook')->hideOnIndex();
+        yield TextField::new('instagram')->hideOnIndex();
+        yield TextField::new('website')->hideOnIndex();
+        yield SlugField::new('slug')->setTargetFieldName('acronym');
     }
 }

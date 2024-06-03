@@ -23,4 +23,16 @@ final class TranslationField implements FieldInterface
                 'fields' => $fieldsConfig,
             ]);
     }
+    public static function detail(string $propertyName, ?string $label = null, array $fieldsConfig = []): self
+    {
+        die('asd');
+        return (new self())
+            ->setProperty($propertyName)
+            ->setLabel($label)
+            ->setFormType(TranslationsType::class)
+            ->setFormTypeOptions([
+                'default_locale' => 'fr',
+                'fields' => $fieldsConfig,
+            ]);
+    }
 }

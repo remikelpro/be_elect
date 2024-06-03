@@ -33,12 +33,13 @@ class TypeElectionCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        return [
-            NumberField::new('id', 'id')->hideOnForm(),
-            TextField::new('slug', 'slug')->hideOnForm(),
-            TextField::new('name', 'name')->hideOnForm(),
-            TextField::new('description', 'description')->hideOnForm(),
-            TranslationField::new('translations', 'translations', [
+        yield NumberField::new('id', 'id')->hideOnForm();
+        yield TextField::new('slug', 'slug')->hideOnForm();
+        yield TextField::new('name', 'name')->hideOnForm();
+        yield TextField::new('description', 'description')->hideOnForm();
+
+        if (Crud::PAGE_DETAIL !== $pageName) {
+            yield TranslationField::new('translations', 'translations', [
                 'name' => [
                     'field_type' => TextType::class,
                     'required' => true,
@@ -52,7 +53,9 @@ class TypeElectionCrudController extends AbstractCrudController
                     'required' => true,
                     'target' => 'name'
                 ],
-            ])->hideOnIndex(),
-        ];
+            ])
+                ->hideOnIndex();
+        }
     }
+
 }

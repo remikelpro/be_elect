@@ -21,27 +21,28 @@ class CommuneCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-        ->setFormThemes(
-            [
-                '@A2lixTranslationForm/bootstrap_5_layout.html.twig',
-                '@EasyAdmin/crud/form_theme.html.twig',
-                '@FOSCKEditor/Form/ckeditor_widget.html.twig',
-            ]
-        );
+            ->setFormThemes(
+                [
+                    '@A2lixTranslationForm/bootstrap_5_layout.html.twig',
+                    '@EasyAdmin/crud/form_theme.html.twig',
+                    '@FOSCKEditor/Form/ckeditor_widget.html.twig',
+                ]
+            );
     }
 
     public function configureFields(string $pageName): iterable
     {
-        return [
-            NumberField::new('id', 'id')->hideOnForm(),
-            TextField::new('name', 'name')->hideOnForm(),
-            TranslationField::new('translations', 'translations', [
+        yield NumberField::new('id', 'id')->hideOnForm();
+        yield TextField::new('name', 'name')->hideOnForm();
+
+        if (Crud::PAGE_DETAIL !== $pageName) {
+            yield TranslationField::new('translations', 'translations', [
                 'name' => [
                     'field_type' => TextType::class,
                     'required' => true,
                 ],
-            ])->hideOnIndex(),
-            AssociationField::new('idCanton')
-        ];
+            ])->hideOnIndex();
+        }
+        yield AssociationField::new('idCanton');
     }
 }

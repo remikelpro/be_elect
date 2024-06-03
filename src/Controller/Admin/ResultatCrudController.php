@@ -6,6 +6,7 @@ use App\Entity\Resultat;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 
 class ResultatCrudController extends AbstractCrudController
@@ -29,18 +30,19 @@ class ResultatCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
+
         yield NumberField::new('id', 'id')->hideOnForm();
         yield NumberField::new('totalVote');
         yield NumberField::new('percent');
         yield NumberField::new('numberSubscriber');
         yield NumberField::new('numberSeat');
         yield AssociationField::new('idTypeResultat');
-        // yield AssociationField::new('idParti');
+        yield CollectionField::new('parti');
         yield AssociationField::new('idElection');
         yield AssociationField::new('idCommune');
-        // yield AssociationField::new('idCanton');
-        // yield AssociationField::new('idArrondissement');
-        // yield AssociationField::new('idProvince');
-        // yield AssociationField::new('idRegion');
+        yield AssociationField::new('idCanton');
+        yield AssociationField::new('idArrondissement');
+        yield AssociationField::new('idProvince');
+        yield AssociationField::new('idRegion');
     }
 }

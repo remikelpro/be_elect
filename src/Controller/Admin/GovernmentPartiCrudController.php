@@ -19,13 +19,12 @@ class GovernmentPartiCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        return [
-            IdField::new('id')->hideOnForm(),
-            DateField::new('startDate'),
-            DateField::new('endDate'),
-            BooleanField::new('main'),
-            AssociationField::new('parti'),
-            AssociationField::new('government')
-        ];
+        yield IdField::new('id')->hideOnForm();
+        yield DateField::new('startDate');
+        yield DateField::new('endDate');
+        yield BooleanField::new('main');
+        yield AssociationField::new('parti');
+        yield AssociationField::new('government');
     }
+    
 }

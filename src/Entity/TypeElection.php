@@ -15,6 +15,10 @@ class TypeElection extends AbstractTranslation
     #[ORM\Column]
     private ?int $id = null;
 
+    private ?string $name = null;
+
+    private ?string $description = null;
+
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $logo = null;
 

@@ -32,19 +32,22 @@ class PartiHistoryCrudController extends AbstractCrudController
         );
     }
 
-        public function configureFields(string $pageName): iterable
+    public function configureFields(string $pageName): iterable
     {
-        return [
-            NumberField::new('id', 'id')->hideOnForm(),
-            NumberField::new('year'),
-            TextField::new('description', 'description')->hideOnForm(),
-            TranslationField::new('translations', 'translations', [
+        yield NumberField::new('id', 'id')->hideOnForm();
+        yield NumberField::new('year');
+        yield TextField::new('description', 'description')->hideOnForm();
+    
+        if (Crud::PAGE_DETAIL !== $pageName) {
+            yield TranslationField::new('translations', 'translations', [
                 'description' => [
                     'field_type' => CKEditorType::class,
                     'required' => true,
                 ]
-            ])->hideOnIndex(),
-            AssociationField::new('parti')
-        ];
+            ])->hideOnIndex();
+        }
+        
+        yield AssociationField::new('parti');
     }
+    
 }

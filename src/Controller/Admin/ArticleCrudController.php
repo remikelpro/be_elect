@@ -21,31 +21,34 @@ class ArticleCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-        ->setSearchFields(['name'])
-        ->setFormThemes(
-            [
-                '@A2lixTranslationForm/bootstrap_5_layout.html.twig',
-                '@EasyAdmin/crud/form_theme.html.twig',
-                '@FOSCKEditor/Form/ckeditor_widget.html.twig',
-            ]
-        );
+            ->setSearchFields(['name'])
+            ->setFormThemes(
+                [
+                    '@A2lixTranslationForm/bootstrap_5_layout.html.twig',
+                    '@EasyAdmin/crud/form_theme.html.twig',
+                    '@FOSCKEditor/Form/ckeditor_widget.html.twig',
+                ]
+            );
     }
 
-        public function configureFields(string $pageName): iterable
+    public function configureFields(string $pageName): iterable
     {
         yield NumberField::new('id', 'id')->hideOnForm();
         yield TextField::new('title', 'title')->hideOnForm();
         yield TextField::new('content', 'content')->hideOnForm();
-        yield TranslationField::new('translations', 'translations', [
-            'title' => [
-                'field_type' => TextType::class,
-                'required' => true,
-            ],
-            'content' => [
-                'field_type' => CKEditorType::class,
-                'required' => true,
-            ]
-        ])
-            ->hideOnIndex();
+
+        if (Crud::PAGE_DETAIL !== $pageName) {
+            yield TranslationField::new('translations', 'translations', [
+                'title' => [
+                    'field_type' => TextType::class,
+                    'required' => true,
+                ],
+                'content' => [
+                    'field_type' => CKEditorType::class,
+                    'required' => true,
+                ]
+            ])
+                ->hideOnIndex();
+        }
     }
 }

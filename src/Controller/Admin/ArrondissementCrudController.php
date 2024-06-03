@@ -32,16 +32,16 @@ class ArrondissementCrudController extends AbstractCrudController
 
         public function configureFields(string $pageName): iterable
     {
-        return [
-            NumberField::new('id', 'id')->hideOnForm(),
-            TextField::new('name', 'name')->hideOnForm(),
-            TranslationField::new('translations', 'translations', [
-                'name' => [
-                    'field_type' => TextType::class,
-                    'required' => true,
-                ],
-            ])->hideOnIndex(),
-            AssociationField::new('idProvince')
-        ];    
+            yield NumberField::new('id', 'id')->hideOnForm();
+            yield TextField::new('name', 'name')->hideOnForm();
+            if (Crud::PAGE_DETAIL !== $pageName) {
+                yield TranslationField::new('translations', 'translations', [
+                    'name' => [
+                        'field_type' => TextType::class,
+                        'required' => true,
+                    ],
+                ])->hideOnIndex();
+            }
+            yield AssociationField::new('idProvince');
     }
 }

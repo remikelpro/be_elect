@@ -19,16 +19,15 @@ class LeaderCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        return [
-            NumberField::new('id', 'id')->hideOnForm(),
-            AssociationField::new('parti'),
-            TextField::new('name'),
-            ChoiceField::new('selection')->setChoices(Leader::$selectionType),
-            NumberField::new('score'),
-            NumberField::new('n_candidate'),
-            DateField::new('mandat_start'),
-            DateField::new('mandat_end'),
-            ChoiceField::new('reason_end')->setChoices(Leader::$reasonType),
-        ];
+        yield NumberField::new('id', 'id')->hideOnForm();
+        yield AssociationField::new('parti');
+        yield TextField::new('name');
+        yield ChoiceField::new('selection')->setChoices(Leader::$selectionType);
+        yield NumberField::new('score');
+        yield NumberField::new('n_candidate');
+        yield DateField::new('mandat_start');
+        yield DateField::new('mandat_end');
+        yield ChoiceField::new('reason_end')->setChoices(Leader::$reasonType);
     }
+    
 }

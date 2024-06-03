@@ -35,15 +35,16 @@ class PageCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        return [
-            NumberField::new('id', 'id')->hideOnForm(),
-            NumberField::new('position'),
-            AssociationField::new('idParent')->autocomplete(),
-            BooleanField::new('showInMenu'),
-            TextField::new('title', 'title')->hideOnForm(),
-            TextField::new('content', 'content')->hideOnForm(),
-            TextField::new('slug', 'slug')->hideOnForm(),
-            TranslationField::new('translations', 'translations', [
+        yield NumberField::new('id', 'id')->hideOnForm();
+        yield NumberField::new('position');
+        yield AssociationField::new('idParent')->autocomplete();
+        yield BooleanField::new('showInMenu');
+        yield TextField::new('title', 'title')->hideOnForm();
+        yield TextField::new('content', 'content')->hideOnForm();
+        yield TextField::new('slug', 'slug')->hideOnForm();
+        
+        if (Crud::PAGE_DETAIL !== $pageName) {
+            yield TranslationField::new('translations', 'translations', [
                 'title' => [
                     'field_type' => TextType::class,
                     'required' => true,
@@ -57,7 +58,8 @@ class PageCrudController extends AbstractCrudController
                     'field_type' => CKEditorType::class,
                     'required' => true,
                 ]
-            ])->hideOnIndex()
-        ];
+            ])->hideOnIndex();
+        }
     }
+    
 }

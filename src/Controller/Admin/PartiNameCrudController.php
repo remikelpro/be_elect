@@ -33,18 +33,21 @@ class PartiNameCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        return [
-            IdField::new('id')->hideOnForm(),
-            TranslationField::new('translations', 'translations', [
+        yield IdField::new('id')->hideOnForm();
+        
+        if (Crud::PAGE_DETAIL !== $pageName) {
+            yield TranslationField::new('translations', 'translations', [
                 'name' => [
                     'field_type' => TextType::class,
                     'required' => true,
                 ]
-            ])->hideOnIndex(),
-            BooleanField::new('main'),
-            DateField::new('startDate'),
-            DateField::new('endDate'),
-            AssociationField::new('parti')
-        ];
+            ])->hideOnIndex();
+        }
+        
+        yield BooleanField::new('main');
+        yield DateField::new('startDate');
+        yield DateField::new('endDate');
+        yield AssociationField::new('parti');
     }
+    
 }

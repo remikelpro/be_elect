@@ -40,17 +40,13 @@ class PartiController extends AbstractBeElectController
         ]);
     }
 
-    /**
-     * @Route("/parti/{id}", name="parti_id", requirements={"id" : "\d+"})
-     */
+    #[Route('/parti/{id}', name:'parti_id', requirements: ['id' => '\d+'])]
     public function partiIdRedirect(Parti $parti)
     {
         return $this->redirectToRoute('parti', ['slug' => $parti->getSlug()]);
     }
 
-    /**
-     * @Route("/parti/{slug}", name="parti", requirements={"slug" : "[a-zA-Z-0-9]+"})
-     */
+    #[Route('/parti/{slug}', name:'parti', requirements: ['slug' => '[a-zA-Z-0-9]+'])]
     public function parti(Parti $parti): Response
     {
         $breadcrumb = $this->getBreadcrumb([

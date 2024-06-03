@@ -11,3 +11,8 @@ easy_admin:
                             fields:
                                 content: 
                                     field_type: 'EasyCorp\Bundle\EasyAdminBundle\Form\Type\TextEditorType'
+        Parti:
+            class: App\Entity\Parti
+            list:
+                fields:
+                    - { property: 'partiName', type: 'association', template: 'admin/fields/parti_name.html.twig' }

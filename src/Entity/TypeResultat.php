@@ -15,6 +15,8 @@ class TypeResultat extends AbstractTranslation
     #[ORM\Column]
     private ?int $id = null;
 
+    private ?string $name = null;
+
     #[ORM\OneToMany(mappedBy: 'idTypeResultat', targetEntity: Resultat::class)]
     private Collection $resultats;
 

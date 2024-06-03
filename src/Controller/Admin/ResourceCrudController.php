@@ -36,20 +36,19 @@ class ResourceCrudController extends AbstractCrudController
     }
     public function configureFields(string $pageName): iterable
     {
-        return [
-            NumberField::new('id', 'id')->hideOnForm(),
-
-            ImageField::new('file')->setBasePath('img/resource/')
-                ->setUploadDir('public/img/resource/')
-                ->setUploadedFileNamePattern('[slug].[extension]'),
-            DateField::new('date'),
-            AssociationField::new('idParti'),
-            AssociationField::new('idElection'),
-            ChoiceField::new('type')->setChoices(Resource::$resourceType),
-            TextField::new('name', 'name')->hideOnForm(),
-            TextField::new('description', 'description')->hideOnForm(),
-            TextField::new('slug', 'slug')->hideOnForm(),
-            TranslationField::new('translations', 'translations', [
+        yield NumberField::new('id', 'id')->hideOnForm();
+        yield ImageField::new('file')->setBasePath('img/resource/')
+            ->setUploadDir('public/img/resource/')
+            ->setUploadedFileNamePattern('[slug].[extension]');
+        yield DateField::new('date');
+        yield AssociationField::new('idParti');
+        yield AssociationField::new('idElection');
+        yield ChoiceField::new('type')->setChoices(Resource::$resourceType);
+        yield TextField::new('name', 'name')->hideOnForm();
+        yield TextField::new('description', 'description')->hideOnForm();
+        yield TextField::new('slug', 'slug')->hideOnForm();
+        if (Crud::PAGE_DETAIL !== $pageName) {
+            yield TranslationField::new('translations', 'translations', [
                 'name' => [
                     'field_type' => TextType::class,
                     'required' => true,
@@ -63,7 +62,7 @@ class ResourceCrudController extends AbstractCrudController
                     'field_type' => CKEditorType::class,
                     'required' => true,
                 ]
-            ])->hideOnIndex()
-        ];
+            ])->hideOnIndex();
+        }
     }
 }
