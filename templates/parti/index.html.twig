@@ -38,7 +38,7 @@
         <div class="container">
             <h2>{{"Les partis politiques représentés au parlement fédéral" | trans }}</h2>
             <p class="subtitle text-center">Cliquez sur le parti qui vous intéresse pour en savoir plus</p>
-            <div class="row">
+            {# <div class="row">
                 <div class="col-lg-3 px-5">
                     <h3>{{ "Les partis politiques en Flandre" | trans }}</h3>
                     <hr>
@@ -75,6 +75,13 @@
                     </div>
                     {% endfor %}
                 </div>
+            </div> #}
+            <div class="row">
+                    {% for parti in partis %}
+                    <div class="col-lg-3 px-5 mb-2">
+                        {% include 'parti/_card.html.twig' with {short: true} %}
+                    </div>
+                    {% endfor %}
             </div>
         </div>
     </section>

@@ -30,7 +30,6 @@ class Region extends AbstractTranslation
     #[Groups(['read'])]
     private ?int $id = null;
 
-    #[Groups(['read'])]
     private ?string $name = null;
 
     #[ORM\OneToMany(mappedBy: 'idRegion', targetEntity: Province::class, orphanRemoval: true)]

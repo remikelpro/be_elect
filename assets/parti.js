@@ -31,12 +31,10 @@ window.ajaxRequest = function (params) {
     parameters['parti.id'] = $('#partiId').val();
 
     var url = '/api/resultats';
-    console.log(parameters);
 
     $.get(url + '?' + $.param(parameters)).then(function (res) {
         let result = res['hydra:member'];
         result.total = res['hydra:totalItems'];
-        console.log(result.total);
         params.success(result)
     })
 }

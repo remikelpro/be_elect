@@ -157,6 +157,10 @@ class Resultat
     {
         return $this->percent;
     }
+    public function getNormalizePercent(): ?string
+    {
+        return round($this->percent *100, 2) . '%';
+    }
 
     public function setPercent(?float $percent): self
     {

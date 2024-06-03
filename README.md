@@ -47,3 +47,21 @@ Ajouter dans Entity.php
 3/ modifier import.sql pour mettre le bon fichier dans SOURCE
 4/ mysql -u admin -p be_elect < import.sql
 5/ récupérer les images dans public/img/parti
+
+# Particularité
+Easyadmin ne gère pas très bien les traductions, j'ai donc crée src/Controller/Admin/Field/TranslationField.php
+Pour que les pages crudAction d'easyadmin ne plante pas, il faut exclure ainsi par exemple :
+        if (Crud::PAGE_DETAIL !== $pageName) {
+            yield TranslationField::new('translations', 'translations', [
+                'title' => [
+                    'field_type' => TextType::class,
+                    'required' => true,
+                ],
+                'content' => [
+                    'field_type' => CKEditorType::class,
+                    'required' => true,
+                ]
+            ])
+                ->hideOnIndex();
+        }
+

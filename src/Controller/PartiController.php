@@ -19,10 +19,11 @@ class PartiController extends AbstractBeElectController
     #[Route('/partis', name: 'partis')]
     public function index(): Response
     {
-        $partisFlandre = $this->partiRepository->findBy(['federal' => Parti::$federalType['federal'], 'place' => Parti::$placeType['flandre']]);
-        $partisBrussel = $this->partiRepository->findBy(['federal' => Parti::$federalType['federal'], 'place' => Parti::$placeType['brussel']]);
-        $partisWallonie = $this->partiRepository->findBy(['federal' => Parti::$federalType['federal'], 'place' => Parti::$placeType['wallonie']]);
-        $partisGermanophone = $this->partiRepository->findBy(['federal' => Parti::$federalType['federal'], 'place' => Parti::$placeType['germanophone']]);
+        // $partisFlandre = $this->partiRepository->findBy(['federal' => Parti::$federalType['federal'], 'place' => Parti::$placeType['flandre']]);
+        // $partisBrussel = $this->partiRepository->findBy(['federal' => Parti::$federalType['federal'], 'place' => Parti::$placeType['brussel']]);
+        // $partisWallonie = $this->partiRepository->findBy(['federal' => Parti::$federalType['federal'], 'place' => Parti::$placeType['wallonie']]);
+        // $partisGermanophone = $this->partiRepository->findBy(['federal' => Parti::$federalType['federal'], 'place' => Parti::$placeType['germanophone']]);
+        $partis = $this->partiRepository->findBy(['federal' => Parti::$federalType['federal']]);
         $partisNonFederal = $this->partiRepository->findBy(['federal' => Parti::$federalType['non-federal']]);
         $partisDisappeared = $this->partiRepository->findBy(['federal' => Parti::$federalType['disappeared']]);
         $breadcrumb = $this->getBreadcrumb([
@@ -31,10 +32,11 @@ class PartiController extends AbstractBeElectController
 
         return $this->render('parti/index.html.twig', [
             'breadcrumb' => $breadcrumb,
-            'partisFlandre' => $partisFlandre,
-            'partisBrussel' => $partisBrussel,
-            'partisWallonie' => $partisWallonie,
-            'partisGermanophone' => $partisGermanophone,
+            'partis' => $partis,
+            // 'partisFlandre' => $partisFlandre,
+            // 'partisBrussel' => $partisBrussel,
+            // 'partisWallonie' => $partisWallonie,
+            // 'partisGermanophone' => $partisGermanophone,
             'partisNonFederal' => $partisNonFederal,
             'partisDisappeared' => $partisDisappeared,
         ]);
