@@ -55,10 +55,12 @@ class PartiController extends AbstractBeElectController
             ['name' => $this->translator->trans('Partis'), 'href' => $this->generateUrl('partis')],
             ['name' => $parti->getName(), 'href' => $this->generateUrl('parti', ['slug' => $parti->getSlug()])]
         ]);
-
+        // TODO get Governemnts by years
+        $governments = [];
         return $this->render('parti/parti.html.twig', [
             'breadcrumb'    => $breadcrumb,
-            'parti'         => $parti
+            'parti'         => $parti,
+            'governments'   => $governments
         ]);
     }
 

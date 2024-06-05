@@ -10,6 +10,10 @@
             <select id="selectElection" class="form-select filterSelect" multiple>
             </select>
         </div>
+        <div class="col-lg-6">
+            <select id="selectElectionDate" class="form-select filterSelect" multiple>
+            </select>
+        </div>
         <div class="col-lg-4">
             <select id="selectRegion" class="form-select filterSelect" multiple>
             </select>
@@ -44,9 +48,10 @@
                 <th data-sortable="true" data-field="id" data-visible="{{ notParti }}">ID</th>
                 <th data-sortable="true" data-field="totalVote">{{ "Nombre votes" | trans }}</th>
                 <th data-sortable="true" data-field="percent">{{ "Pourcentage" | trans }}</th>
-                <th data-field="idElection.name">{{ "Election" | trans }}</th>
+                <th data-field="idElection.name" data-sortable="true" >{{ "Election" | trans }}</th>
+                <th data-field="idElection.date" data-sortable="true" >{{ "Election date" | trans }}</th>
                 <th data-field="idParty.name" data-visible="{{ notParti }}">{{ "Parti" | trans }}</th>
-                <th data-field="idRegion.name">{{ "Region" | trans }}</th>
+                <th data-field="idRegion.name" data-visible="{{ notParti }}">{{ "Region" | trans }}</th>
                 <th data-field="idProvince.name" data-visible="{{ notParti }}">{{ "Province" | trans }}</th>
                 <th data-field="idArrondissement.name" data-visible="{{ notParti }}">{{ "Arrondissement" | trans }}</th>
                 <th data-field="idCanton.name" data-visible="{{ notParti }}">{{ "Canton" | trans }}</th>

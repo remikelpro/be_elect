@@ -18,20 +18,21 @@
                     <div>{{ parti.description | raw }}</div>
                 </section>
 
-                <section>
+                <section class="py-3">
                     <h2>{{ "Résultats électoraux du parti" | trans }}</h2>
                     {% include 'database/index.html.twig' with {parti: parti} %}
                 </section>
 
-                <section class="bg-grey py-3">
-                    <div class="container">
+                <section class="bg-grey py-3 my-5">
+                    <div class="container px-5">
                         <h2>{{ "Participations gouvernementales pour les différents niveaux de pouvoir" | trans }}</h2>
-                        <span class="indice">{{ "Les dates non cliquables représentent les législatures pour lesquelles
-                            le parti %partiName% n’était pas au gouvernement." | trans({'%partiName%' : parti.name})
-                            }}</span>
-
-                        <div class="border">
+                        <span class="indice">{{ "Les dates non cliquables représentent les législatures pour lesquelles le parti %partiName% n’était pas au gouvernement." | trans({'%partiName%' : parti.name})}}</span>
+                        {# // TODO LES GOUVERNEMENTS BY PARTIS #}
+                        <div class="border-blue text-center p-2 m-2">
+                            {% for government in governments %}
                             <img src="{{ asset('img/partis/communautaire.svg') }}"/>
+                            <h3>{{"Niveau %governmentType%" | trans(({'%governmentType%' : government.name}) }}</h3>
+                            {% endfor %}
                         </div>
                     </div>
                 </section>

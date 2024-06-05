@@ -37,6 +37,7 @@ use Doctrine\Common\Collections\Collection;
         'numberSeat',
         'parti.name',
         'idElection.name',
+        'idElection.date',
         'idCommune.name',
         'idCanton.name',
         'idArrondissement.name',
