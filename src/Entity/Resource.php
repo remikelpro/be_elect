@@ -158,6 +158,6 @@ class Resource extends AbstractTranslation
     public function __toString()
     {
         $arguments=[];
-        return $this->proxyCurrentLocaleTranslation('__toString');
+        return $this->proxyCurrentLocaleTranslation('__toString') ?: $this->id;
     }
 }
