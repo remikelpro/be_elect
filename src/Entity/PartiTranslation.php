@@ -22,6 +22,9 @@ class PartiTranslation implements TranslationInterface
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $about = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -43,6 +46,25 @@ class PartiTranslation implements TranslationInterface
     public function setDescription($description)
     {
         $this->description = $description;
+
+        return $this;
+    }
+    /**
+     * Get the value of about
+     */ 
+    public function getAbout()
+    {
+        return $this->about;
+    }
+
+    /**
+     * Set the value of about
+     *
+     * @return  self
+     */ 
+    public function setAbout($about)
+    {
+        $this->about = $about;
 
         return $this;
     }

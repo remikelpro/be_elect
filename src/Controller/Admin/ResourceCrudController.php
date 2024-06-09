@@ -12,6 +12,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Form\Type\FileUploadType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\SlugType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
@@ -37,9 +38,15 @@ class ResourceCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         yield NumberField::new('id', 'id')->hideOnForm();
-        yield ImageField::new('file')->setBasePath('img/resource/')
-            ->setUploadDir('public/img/resource/')
-            ->setUploadedFileNamePattern('[slug].[extension]');
+        yield ImageField::new('file')
+                ->setFormType(FileUploadType::class)
+                ->setUploadDir('public/img/resource/')
+                ->hideOnIndex()
+                ->setFormTypeOptions(['attr' => [
+                        'accept' => 'application/pdf'
+                    ]
+                ])
+                ->setFileConstraints([]);
         yield DateField::new('date');
         yield AssociationField::new('idParti');
         yield AssociationField::new('idElection');

@@ -46,10 +46,19 @@ class PartiCrudController extends AbstractCrudController
         yield ChoiceField::new('place')->setChoices(Parti::$placeType);
         yield ColorField::new('color');
         yield ColorField::new('color_bg');
-        yield TextField::new('description', 'description')->hideOnForm();
+        yield TextField::new('description', 'description')->hideOnForm()->hideOnIndex();
         if (Crud::PAGE_DETAIL !== $pageName) {
             yield TranslationField::new('translations', 'translations', [
                 'description' => [
+                    'field_type' => CKEditorType::class,
+                    'required' => true,
+                ]
+            ])->hideOnIndex();
+        }
+        yield TextField::new('about', 'about')->hideOnForm()->hideOnIndex();
+        if (Crud::PAGE_DETAIL !== $pageName) {
+            yield TranslationField::new('translations', 'translations', [
+                'about' => [
                     'field_type' => CKEditorType::class,
                     'required' => true,
                 ]
@@ -59,6 +68,7 @@ class PartiCrudController extends AbstractCrudController
         yield TextField::new('facebook')->hideOnIndex();
         yield TextField::new('instagram')->hideOnIndex();
         yield TextField::new('website')->hideOnIndex();
+        yield TextField::new('tiktok')->hideOnIndex();
         yield SlugField::new('slug')->setTargetFieldName('acronym');
     }
 }

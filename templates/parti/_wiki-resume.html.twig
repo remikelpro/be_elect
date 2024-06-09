@@ -1,0 +1,97 @@
+
+<div class="container wiki-card">
+    <div class="text-center logo-header" style="background-color:{{parti.colorBg}}; color:{{parti.color}}">
+        <h3>{{ parti.name }}</h3>
+    </div>
+    <div class="card card-image">
+        <div class="card-body text-center mx-5">
+            {% include 'global/image.html.twig' with { 'src': 'img/parti/' ~ parti.logo, 
+            'alt': "logo de %nom%" | trans({"%nom%": parti.name}), 
+            'class': 'card-img-top mx-auto mt-3',
+            'sizes': '(max-width: 768px) 16vw, (max-width: 992px) 15vw, 10vw'} %}
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="card-header text-center bg-primary text-white">
+            <span class="wiki-subtitle">A propos</span>
+        </div>
+        <div class="card-body text-center">
+            {{ parti.about }}
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="card-header text-center bg-primary text-white">
+            <span class="wiki-subtitle">Le parti en 2023</span>
+        </div>
+        <div class="card-body">
+            <p><strong>Leader :</strong> {{ currentLeader.name }}</p>
+            <p><strong>Nombre d'adhérents :</strong> {{ currentMember.number |number_format(0, ',', ' ') }}</p>
+            {# TODO ajouter un champ dans governmentParti
+            <p><strong>Nombre de sièges dans les parlements :</strong> XX XX</p> #}
+        </div>
+    </div>
+    
+    {# TODO creer une Entity membre
+    <div class="card">
+        <div class="card-header text-center bg-primary text-white">
+            <span class="wiki-subtitle">Participation au gouvernement actuel</span>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <h3>Niveau Fédéral</h3>
+                    <p>Nom prénom - Ministre de la Justice</p>
+                    <p>Nom prénom - Ministre de la Justice</p>
+                    <p>Nom prénom - Ministre de la Justice</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h3>Niveau Régional</h3>
+                    <p>Nom prénom - Ministre de la Justice</p>
+                    <p>Nom prénom - Ministre de la Justice</p>
+                    <p>Nom prénom - Ministre de la Justice</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h3>Niveau Communautaire</h3>
+                    <p>Nom prénom - Ministre de la Justice</p>
+                    <p>Nom prénom - Ministre de la Justice</p>
+                    <p>Nom prénom - Ministre de la Justice</p>
+                </div>
+            </div>
+        </div>
+    </div> #}
+    
+    <div class="card history">
+        <div class="card-header text-center bg-primary text-white">
+            <span class="wiki-subtitle">Histoire du parti</span>
+        </div>
+        <div class="card-body">
+            <ul>
+                {% for history in parti.partiHistories %}
+                <li><strong class="text-secondary">{{ history.year }}</strong> - {{ history.description }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="card-header text-center bg-primary text-white">
+            <span class="wiki-subtitle">Réseaux sociaux du parti</span>
+        </div>
+        <div class="card-body text-center d-flex justify-content-evenly">
+            {% if parti.facebook %}
+                <a  class="social" href="{{ parti.facebook }}"><img src="{{ asset('img/social/facebook.svg') }}" alt="Facebook"></a>
+            {% endif %}
+            {% if parti.twitter %}
+                <a  class="social" href="{{ parti.twitter }}"><img src="{{ asset('img/social/twitter.svg') }}" alt="Twitter"></a>
+            {% endif %}
+            {% if parti.instagram %}
+                <a  class="social" href="{{ parti.instagram }}"><img src="{{ asset('img/social/instagram.svg') }}" alt="Instagram"></a>
+            {% endif %}
+            {% if parti.tiktok %}
+                <a  class="social" href="{{ parti.tiktok }}"><img src="{{ asset('img/social/tiktok.svg') }}" alt="TikTok"></a>
+            {% endif %}
+        </div>
+    </div>
+</div>

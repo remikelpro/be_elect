@@ -3,6 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Parti;
+use App\Repository\GovernmentPartiRepository;
+use App\Repository\GovernmentRepository;
+use App\Repository\LeaderRepository;
+use App\Repository\MemberRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\PartiRepository;
@@ -12,7 +16,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class PartiController extends AbstractBeElectController
 {
 
-    public function __construct(private PartiRepository $partiRepository, private TranslatorInterface $translator)
+    public function __construct(private PartiRepository $partiRepository, 
+    private TranslatorInterface $translator)
     {
     }
 
@@ -49,18 +54,26 @@ class PartiController extends AbstractBeElectController
     }
 
     #[Route('/parti/{slug}', name:'parti', requirements: ['slug' => '[a-zA-Z-0-9]+'])]
-    public function parti(Parti $parti): Response
+    public function parti(Parti $parti, GovernmentPartiRepository $governmentPartiRepository, LeaderRepository $leaderRepository): Response
     {
         $breadcrumb = $this->getBreadcrumb([
             ['name' => $this->translator->trans('Partis'), 'href' => $this->generateUrl('partis')],
             ['name' => $parti->getName(), 'href' => $this->generateUrl('parti', ['slug' => $parti->getSlug()])]
         ]);
         // TODO get Governemnts by years
-        $governments = [];
+        $governmentPartis = $governmentPartiRepository->findAll(['parti' => $parti]);
+
+        // $currentMember = $parti->getMembers()[0];
+
+        $currentMember = $parti->getMembers()[0];
+        // dd($currentMember);
+        $currentLeader = $leaderRepository->getCurrentLeaderParti($parti);
         return $this->render('parti/parti.html.twig', [
             'breadcrumb'    => $breadcrumb,
             'parti'         => $parti,
-            'governments'   => $governments
+            'governments'   => $governmentPartis,
+            'currentLeader' => $currentLeader,
+            'currentMember' => $currentMember
         ]);
     }
 

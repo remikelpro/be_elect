@@ -113,8 +113,8 @@ footer {
 
 .social-logo {
     height: 2em;
-    margin-left: 1em;
-    color: $white;
+    margin-left: 1em; 
+    filter: invert(100%) sepia(16%) saturate(0%) hue-rotate(287deg) brightness(112%) contrast(100%);
 }
 .bg-primary {
     color: $white;
@@ -408,4 +408,47 @@ h1 {
 .border-blue{
     border-color:#004c93;
     border-width: 2px;
+}
+
+.wiki-card {
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    .card {
+        margin-bottom: 20px;
+        border: none;
+    }
+    .card-header, .card-header:first-child {
+        padding: 0.5rem 1rem;
+        border-radius: 7px;
+    }
+    .history ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    .history ul li {
+        margin-bottom: 10px;
+    }
+    .logo-header {
+        position: relative;
+        top: -50px;
+        padding: 10px;
+        border-radius: 8px;
+        border: 2px solid black;
+    }
+    .card-image{
+        margin-top: -50px;
+    }
+    .wiki-subtitle{
+        font-family: "MuseoModerno-Bold";
+    }
+    .social:hover {
+        border-radius: 5rem;
+        background: $secondary;
+        img{
+            filter: invert(100%) sepia(16%) saturate(0%) hue-rotate(287deg) brightness(112%) contrast(100%);
+        }
+        
+    }
 }

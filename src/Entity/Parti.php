@@ -35,7 +35,8 @@ class Parti extends AbstractTranslation implements JsonSerializable
         'flandre' => 0,
         'brussel' => 1,
         'wallonie' => 2,
-        'germanophone' => 3
+        'germanophone' => 3,
+        'none' => 4
     ];
 
     #[ORM\Id]
@@ -70,6 +71,7 @@ class Parti extends AbstractTranslation implements JsonSerializable
     private Collection $resources;
 
     #[ORM\OneToMany(mappedBy: 'parti', targetEntity: Member::class, orphanRemoval: true)]
+    #[ORM\OrderBy(['year' => 'DESC'])]
     private Collection $members;
 
     #[ORM\OneToMany(mappedBy: 'parti', targetEntity: Leader::class)]
@@ -79,6 +81,7 @@ class Parti extends AbstractTranslation implements JsonSerializable
     private Collection $partiNames;
 
     #[ORM\OneToMany(mappedBy: 'parti', targetEntity: PartiHistory::class)]
+    #[ORM\OrderBy(['year' => 'ASC'])]
     private Collection $partiHistories;
 
     #[ORM\Column(type: Types::SMALLINT, nullable: true)]
@@ -99,8 +102,8 @@ class Parti extends AbstractTranslation implements JsonSerializable
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $website = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $about = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $tiktok = null;
 
     #[ORM\ManyToMany(targetEntity: Resultat::class, mappedBy: 'parti')]
     private Collection $resultats;
@@ -434,6 +437,18 @@ class Parti extends AbstractTranslation implements JsonSerializable
     public function setWebsite(?string $website): self
     {
         $this->website = $website;
+
+        return $this;
+    }
+
+    public function getTiktok(): ?string
+    {
+        return $this->tiktok;
+    }
+
+    public function setTiktok(?string $tiktok): self
+    {
+        $this->tiktok = $tiktok;
 
         return $this;
     }

@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Leader;
+use App\Entity\Parti;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -38,6 +39,18 @@ class LeaderRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
+
+    public function getCurrentLeaderParti(Parti $parti): ?Leader
+    {
+        return $this->createQueryBuilder('l')
+            ->andWhere('l.parti = :parti')
+            ->setParameter('parti', $parti)
+            ->andWhere('l.mandat_end IS NULL')
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
 
 //    /**
 //     * @return Leader[] Returns an array of Leader objects
