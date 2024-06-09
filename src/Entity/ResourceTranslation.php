@@ -95,6 +95,6 @@ class ResourceTranslation implements TranslationInterface
 
     public function __toString()
     {
-        return $this->name?: $this->id;
+        return $this->name?: 'unnamed resource';
     }
 }
