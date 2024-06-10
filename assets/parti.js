@@ -66,15 +66,14 @@ $(".pdf-link").on("click", function (event) {
   $("#pdfModal").modal("show"); // Affiche la modale
 });
 
-
 const config = {
   type: "bar",
   options: {
     scales: {
       x: {
-        min:dataset[0].year
-      }
-    }
+        min: dataset[0].year,
+      },
+    },
   },
   data: {
     labels: dataset.map(function (item) {
@@ -82,10 +81,13 @@ const config = {
     }),
     datasets: [
       {
-        label: "Nombre d'adhérents",
+        label: labelBarChart,
         data: dataset.map(function (item) {
           return item.number;
         }),
+        backgroundColor: "#a4d0fa",
+        borderColor: "#004c93",
+        borderWidth: 1,
       },
     ],
   },

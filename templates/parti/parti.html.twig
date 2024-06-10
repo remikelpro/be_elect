@@ -59,7 +59,8 @@
 
 {% block javascripts %}
 <script>
-var dataset = {{membersJson|raw}};
+const dataset = {{membersJson|raw}};
+const labelBarChart = '{{"Nombre adhérents"|trans}}';
 </script>
 {{ parent() }}
 {{ encore_entry_script_tags('parti') }}
