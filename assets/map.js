@@ -1,4 +1,4 @@
-import Chart from 'chart.js/auto'
+import Chart from 'chart.js/auto';
 import { ChoroplethChart } from 'chartjs-chart-geo';
 import * as ChartGeo from 'chartjs-chart-geo';
 $(document).ready(async () => {

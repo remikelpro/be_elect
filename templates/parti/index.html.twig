@@ -92,7 +92,7 @@
             <div class="row">
                 {% for parti in partisNonFederal %}
                 <div class="col-lg-2 {{ loop.index > 6 ? 'federal-hidden': '' }}">
-                    <div class=" parti-item">
+                    <div class="parti-item">
                         <a href="{{ path('parti', {slug : parti.slug })}}">{{ parti.name }}</a>
                     </div>
                 </div>

@@ -64,16 +64,25 @@ class PartiController extends AbstractBeElectController
         $governmentPartis = $governmentPartiRepository->findAll(['parti' => $parti]);
 
         // $currentMember = $parti->getMembers()[0];
-
-        $currentMember = $parti->getMembers()[0];
+        $members = $parti->getMembers();
         // dd($currentMember);
         $currentLeader = $leaderRepository->getCurrentLeaderParti($parti);
+
+        $membersSimple = [];
+        foreach($members as $member){
+            $membersSimple[] = [
+                'number' => $member->getNumber(),
+                'year' => $member->getYear()
+            ];
+            $currentMember = $member;
+        }
         return $this->render('parti/parti.html.twig', [
             'breadcrumb'    => $breadcrumb,
             'parti'         => $parti,
             'governments'   => $governmentPartis,
             'currentLeader' => $currentLeader,
-            'currentMember' => $currentMember
+            'currentMember' => $currentMember,
+            'membersJson'   => json_encode($membersSimple)
         ]);
     }
 

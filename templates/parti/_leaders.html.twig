@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <div class="row text-center justify-content-center mb-5">
+        <div class="col-xl-6 col-lg-8">
+            <h2>Historique des Leaders</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="timeline-steps aos-init aos-animate" data-aos="fade-up">
+                {% for leader in parti.leaders %}
+                <div class="timeline-step">
+                    <span class="timeline-date">{{ leader.MandatStart | date('Y') }} - {%if leader.MandatEnd %}{{ leader.MandatEnd | date('Y') }}{%else%}{{'En cours'|trans}}{% endif %}</span>
+                    <div class="timeline-content" data-toggle="popover" data-trigger="hover" data-placement="top"
+                        title="" data-content="And here's some amazing content. It's very engaging. Right?"
+                        data-original-title="2003">
+                        <div class="inner-circle"></div>
+                        <p class="timeline-title">{{ leader.name }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>

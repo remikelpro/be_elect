@@ -26,11 +26,13 @@
                 <section class="bg-grey py-3 my-5">
                     <div class="container px-5">
                         <h2>{{ "Participations gouvernementales pour les différents niveaux de pouvoir" | trans }}</h2>
-                        <span class="indice">{{ "Les dates non cliquables représentent les législatures pour lesquelles le parti %partiName% n’était pas au gouvernement." | trans({'%partiName%' : parti.name})}}</span>
+                        <span class="indice">{{ "Les dates non cliquables représentent les législatures pour lesquelles
+                            le parti %partiName% n’était pas au gouvernement." | trans({'%partiName%' :
+                            parti.name})}}</span>
                         {# // TODO LES GOUVERNEMENTS BY PARTIS #}
                         <div class="border-blue text-center p-2 m-2">
                             {% for government in governments %}
-                            <img src="{{ asset('img/partis/communautaire.svg') }}"/>
+                            <img src="{{ asset('img/partis/communautaire.svg') }}" />
                             <h3>{{"Niveau %governmentType%" | trans({'%governmentType%' : government.name}) }}</h3>
                             {% endfor %}
                         </div>
@@ -43,9 +45,22 @@
         </div>
     </div>
 </section>
+<section>
+    {% include 'parti/_resources.html.twig' with { parti } %}
+</section>
+<section>
+    {% include 'parti/_leaders.html.twig' with { parti } %}
+</section>
+<section>
+    {% include 'parti/_members.html.twig' with { parti } %}
+</section>
+
 {% endblock %}
 
 {% block javascripts %}
+<script>
+var dataset = {{membersJson|raw}};
+</script>
 {{ parent() }}
 {{ encore_entry_script_tags('parti') }}
 {% endblock %}

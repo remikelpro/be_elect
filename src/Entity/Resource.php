@@ -105,6 +105,11 @@ class Resource extends AbstractTranslation
         $this->type = $type;
 
         return $this;
+    }    
+    
+    public function isProgram(): bool
+    {
+        return $this->type == self::$resourceType['Program'];
     }
 
     public function getCreatedAt(): ?\DateTimeImmutable

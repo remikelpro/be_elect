@@ -1,0 +1,66 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6 bg-primary isDark text-center p-1 border-end border-3 border-white">
+            <h2 class="mt-4">{{ 'Archive des programmes politiques' | trans }}</h2>
+            <div class="d-flex flex-wrap justify-content-around">
+                {% set i = 0 %}
+                {% for resource in parti.resources %}
+                {% if resource.isProgram %}
+                {% set i = i + 1 %}
+                <div class="parti-item resource-program {% if i > 8 %}hidden{% endif %}" 
+                    {% if i> 8 %}style="display:none"{% endif %} id="program-{{ i }}">
+                    <a class="pdf-link" href="{{ asset('img/resource/'~resource.file) }}"> 
+                        <img src="{{ asset('img/download.svg') }}" alt="icon-download" class="icon-download">
+                        {{ resource.date|date('Y') }}
+                    </a>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+
+            {% if i > 8 %}
+            <button class="btn btn-secondary m-3" id="show-more-program">{{ 'Afficher plus' | trans }}</button>
+            {% endif %}
+        </div>
+        <div class="col-lg-6 bg-secondary isDark text-center p-1 border-start border-3 border-white">
+            <h2 class="mt-4">{{ 'Archive des status politiques' | trans }}</h2>
+            <div class="d-flex flex-wrap justify-content-around">
+                {% set i = 0 %}
+                {% for resource in parti.resources %}
+                {% if not resource.isProgram %}
+                {% set i = i + 1 %}
+                <div class="parti-item resource-status {% if i > 8 %}hidden{% endif %}" 
+                    {% if i> 8 %}style="display:none"{% endif %} id="status-{{ i }}">
+                    <a class="pdf-link" href="{{ asset('img/resource/'~resource.file) }}"> 
+                        <img src="{{ asset('img/download.svg') }}" alt="icon-download" class="icon-download">
+                        {{ resource.date|date('Y') }}
+                    </a>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+
+            {% if i > 8 %}
+            <button class="btn btn-status m-3" id="show-more-status">{{ 'Afficher plus' | trans }}</button>
+            {% endif %}
+        </div>
+    </div>
+<!-- Modale PDF Viewer -->
+<div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="pdfModalLabel">{{'Aperçu' | trans }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <iframe id="pdfIframe" src="" style="width:100%; height:500px;" frameborder="0"></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{
+                    'Fermer' | trans }}</button>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

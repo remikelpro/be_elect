@@ -71,7 +71,7 @@ class Parti extends AbstractTranslation implements JsonSerializable
     private Collection $resources;
 
     #[ORM\OneToMany(mappedBy: 'parti', targetEntity: Member::class, orphanRemoval: true)]
-    #[ORM\OrderBy(['year' => 'DESC'])]
+    #[ORM\OrderBy(['year' => 'ASC'])]
     private Collection $members;
 
     #[ORM\OneToMany(mappedBy: 'parti', targetEntity: Leader::class)]
