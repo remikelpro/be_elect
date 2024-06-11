@@ -22,7 +22,7 @@ use ApiPlatform\Metadata\GetCollection;
 ])]
 #[ApiFilter(SearchFilter::class, properties: [
     'acronym' => 'partial',
-    'name' => 'partial',
+    'logo' => 'partial',
 ])]
 class Parti extends AbstractTranslation implements JsonSerializable
 {
@@ -52,6 +52,9 @@ class Parti extends AbstractTranslation implements JsonSerializable
     #[ORM\Column(length: 255, nullable: true)]
     #[Groups(['read'])]
     private ?string $logo = null;
+
+    #[Groups(['read'])]
+    private ?string $name = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     #[Groups(['read'])]

@@ -63,9 +63,7 @@ class PartiController extends AbstractBeElectController
         // TODO get Governemnts by years
         $governmentPartis = $governmentPartiRepository->findAll(['parti' => $parti]);
 
-        // $currentMember = $parti->getMembers()[0];
         $members = $parti->getMembers();
-        // dd($currentMember);
         $currentLeader = $leaderRepository->getCurrentLeaderParti($parti);
 
         $membersSimple = [];

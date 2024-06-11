@@ -540,3 +540,38 @@ h1 {
     justify-content: center;
     background-color: $secondary
 }
+
+
+
+// RESOURCE
+
+.resource-item {
+    text-align: center;
+    margin: 2em;
+    padding: 0.5em;
+    .status{
+        border: 2px solid $primary;
+        a{
+            color: $primary;
+        }
+    }
+    .program{
+        border: 2px solid $secondary;
+        a{
+            color: $secondary;
+        }
+    }
+    a {
+        font-family: "MuseoModerno-Bold";
+        font-weight: bold;
+        img{
+            filter: invert(100%) sepia(16%) saturate(0%) hue-rotate(287deg) brightness(112%) contrast(100%);
+        }
+    }
+    &:hover {
+        background-color: $primary;
+        a {
+            color: $white;
+        }
+    }
+}

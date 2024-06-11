@@ -13,7 +13,7 @@ let apiCall = {
             var query = {
                 itemsPerPage: 30,
                 page: params.page || 1,
-                name: params.term
+                logo: params.term
             }
             return query;
         },

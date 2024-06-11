@@ -1,20 +1,67 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Hello Ressource !{% endblock %}
+{% block title %}{{ 'Ressources' | trans }} !{% endblock %}
+
 
 {% block page_contents %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% if breadcrumb is defined %}
+{% include 'partial/breadcrumb.html.twig' with { breadcrumb } %}
+{% endif %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<div id="resources" class="container">
+    <h1>{{ "Toutes les <span class=\"text-secondary\">resources</span>" | trans | raw }}</h1>
+    <section class="my-2 container">
+        <div class="mb-3">
+            <input type="text" id="searchInput" class="form-control" placeholder="{{ 'Rechercher' | trans }}">
+        </div>
+        <script>
+            function filterResources() {
+                const searchInput = document.getElementById('searchInput');
+                const resourceItems = document.querySelectorAll('.parti-item');
+                const searchTerm = searchInput.value.toLowerCase();
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/remikel/workspace/be_elect/src/Controller/RessourceController.php'|file_link(0) }}">src/Controller/RessourceController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/remikel/workspace/be_elect/templates/ressource/index.html.twig'|file_link(0) }}">templates/ressource/index.html.twig</a></code></li>
-    </ul>
+                resourceItems.forEach(item => {
+                    const resourceName = item.querySelector('a').textContent.toLowerCase();
+                    if (resourceName.includes(searchTerm)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+
+            document.getElementById('searchInput').addEventListener('keyup', filterResources);
+        </script>
+        <div class="d-flex flex-wrap justify-content-between">
+            {% for resource in resources %}
+            <div class="resource-item {{ resource.isProgram ?'program' : 'status' }}">
+                <a class="pdf-link" href="{{ asset('img/resource/'~resource.file) }}">
+                    <img src="{{ asset('img/download.svg') }}" alt="icon-download" class="icon-download">
+                    {{ resource.name }}
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+
+<!-- Modale PDF Viewer -->
+<div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="pdfModalLabel">{{'Aperçu' | trans }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <iframe id="pdfIframe" src="" style="width:100%; height:500px;" frameborder="0"></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{
+                    'Fermer' | trans }}</button>
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
