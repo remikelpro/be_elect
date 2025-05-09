@@ -14,7 +14,7 @@
         "doctrine/doctrine-migrations-bundle": "^3.3",
         "doctrine/orm": "^3.0",
         "easycorp/easyadmin-bundle": "^4.10",
-        "friendsofsymfony/ckeditor-bundle": "*",
+        "friendsofsymfony/ckeditor-bundle": "^2.6",
         "knplabs/doctrine-behaviors": "dev-sf7.0 as 2.6.3",
         "liip/imagine-bundle": "^2.10",
         "nelmio/cors-bundle": "^2.2",

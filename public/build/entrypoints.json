@@ -2,46 +2,46 @@
   "entrypoints": {
     "app": {
       "js": [
-        "/build/runtime.js",
-        "/build/vendors-node_modules_jquery_dist_jquery_js.js",
-        "/build/vendors-node_modules_bootstrap-autocomplete_dist_latest_bootstrap-autocomplete_js-node_module-4aa02f.js",
-        "/build/app.js"
+        "/build/runtime.ced75ccf.js",
+        "/build/692.95bd3996.js",
+        "/build/915.c45fbb19.js",
+        "/build/app.87e684e5.js"
       ],
       "css": [
-        "/build/vendors-node_modules_bootstrap-autocomplete_dist_latest_bootstrap-autocomplete_js-node_module-4aa02f.css",
-        "/build/app.css"
+        "/build/915.9be1b4fe.css",
+        "/build/app.49ffeed0.css"
       ]
     },
     "home": {
       "js": [
-        "/build/runtime.js",
-        "/build/vendors-node_modules_jquery_dist_jquery_js.js",
-        "/build/vendors-node_modules_core-js_internals_array-method-is-strict_js-node_modules_core-js_interna-a257e2.js",
-        "/build/vendors-node_modules_chart_js_auto_auto_js.js",
-        "/build/vendors-node_modules_core-js_modules_es_array_for-each_js-node_modules_core-js_modules_es_arr-d9685c.js",
-        "/build/home.js"
+        "/build/runtime.ced75ccf.js",
+        "/build/692.95bd3996.js",
+        "/build/281.dbf1e9e0.js",
+        "/build/154.8b54353c.js",
+        "/build/857.c7a37b0e.js",
+        "/build/home.cc35e634.js"
       ]
     },
     "parti": {
       "js": [
-        "/build/runtime.js",
-        "/build/vendors-node_modules_jquery_dist_jquery_js.js",
-        "/build/vendors-node_modules_core-js_internals_array-method-is-strict_js-node_modules_core-js_interna-a257e2.js",
-        "/build/vendors-node_modules_chart_js_auto_auto_js.js",
-        "/build/vendors-node_modules_bootstrap-table_dist_bootstrap-table_min_js-node_modules_bootstrap-table-51d94c.js",
-        "/build/parti.js"
+        "/build/runtime.ced75ccf.js",
+        "/build/692.95bd3996.js",
+        "/build/281.dbf1e9e0.js",
+        "/build/154.8b54353c.js",
+        "/build/409.b37d0cce.js",
+        "/build/parti.0d201608.js"
       ]
     },
     "table": {
       "js": [
-        "/build/runtime.js",
-        "/build/vendors-node_modules_jquery_dist_jquery_js.js",
-        "/build/vendors-node_modules_core-js_internals_array-method-is-strict_js-node_modules_core-js_interna-a257e2.js",
-        "/build/vendors-node_modules_bootstrap-table_dist_bootstrap-table_min_js-node_modules_bootstrap-table-51d94c.js",
-        "/build/table.js"
+        "/build/runtime.ced75ccf.js",
+        "/build/692.95bd3996.js",
+        "/build/281.dbf1e9e0.js",
+        "/build/409.b37d0cce.js",
+        "/build/table.e96f84fb.js"
       ],
       "css": [
-        "/build/table.css"
+        "/build/table.1ddcb887.css"
       ]
     }
   }
