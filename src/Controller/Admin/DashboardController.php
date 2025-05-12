@@ -20,6 +20,7 @@ use App\Entity\Resource;
 use App\Entity\TypeElection;
 use App\Entity\TypeResultat;
 use App\Entity\Resultat;
+use App\Entity\Task;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -67,5 +68,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Arrondissement', 'fas fa-mountain-city', Arrondissement::class);
         yield MenuItem::linkToCrud('Canton', 'fas fa-tree-city', Canton::class);
         yield MenuItem::linkToCrud('Commune', 'fas fa-city', Commune::class);
+        yield MenuItem::linkToCrud('To-do-list', 'fas fa-tasks', Task::class);
     }
 }
