@@ -1,0 +1,16 @@
+$tbw-cell-vertical-padding: 4px;
+$tbw-cell-horizontal-padding: 8px;
+$tbw-cell-line-height: 1.5em;
+
+table {
+    margin-bottom: $tbw-cell-line-height;
+    border-collapse: collapse;
+
+    th,
+    td {
+        height: calc($tbw-cell-vertical-padding * 2 + $tbw-cell-line-height);
+        min-width: calc($tbw-cell-horizontal-padding * 2);
+        padding: $tbw-cell-vertical-padding $tbw-cell-horizontal-padding;
+        border: 1px solid #e7eaec;
+    }
+}

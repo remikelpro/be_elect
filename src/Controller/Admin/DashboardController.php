@@ -70,10 +70,11 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Commune', 'fas fa-city', Commune::class);
     }
 
- public function configureAssets(): Assets
-{
-    return parent::configureAssets()
-        ->addWebpackEncoreEntry('trumbowyg');
-}
+    public function configureAssets(): Assets
+    {
+        return parent::configureAssets()
+            ->addWebpackEncoreEntry('trumbowyg')
+            ->addCssFile('build/trumbowyg-style.css');
+    }
 
 }

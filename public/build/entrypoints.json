@@ -2,43 +2,43 @@
   "entrypoints": {
     "app": {
       "js": [
-        "/build/runtime.js",
-        "/build/vendors-node_modules_jquery_dist_jquery_js.js",
-        "/build/vendors-node_modules_bootstrap-autocomplete_dist_latest_bootstrap-autocomplete_js-node_module-816b6d.js",
-        "/build/app.js"
+        "/build/runtime.3cfbb063.js",
+        "/build/755.1af907cb.js",
+        "/build/471.7ea42d3c.js",
+        "/build/app.52187cff.js"
       ],
       "css": [
-        "/build/vendors-node_modules_bootstrap-autocomplete_dist_latest_bootstrap-autocomplete_js-node_module-816b6d.css",
-        "/build/app.css"
+        "/build/471.9be1b4fe.css",
+        "/build/app.49ffeed0.css"
       ]
     },
     "home": {
       "js": [
-        "/build/runtime.ced75ccf.js",
-        "/build/692.95bd3996.js",
-        "/build/281.dbf1e9e0.js",
-        "/build/154.8b54353c.js",
-        "/build/857.c7a37b0e.js",
-        "/build/home.cc35e634.js"
+        "/build/runtime.3cfbb063.js",
+        "/build/755.1af907cb.js",
+        "/build/380.13909d02.js",
+        "/build/85.a0bd5a70.js",
+        "/build/817.8a314a19.js",
+        "/build/home.9531327c.js"
       ]
     },
     "parti": {
       "js": [
-        "/build/runtime.ced75ccf.js",
-        "/build/692.95bd3996.js",
-        "/build/281.dbf1e9e0.js",
-        "/build/154.8b54353c.js",
-        "/build/409.b37d0cce.js",
-        "/build/parti.0d201608.js"
+        "/build/runtime.3cfbb063.js",
+        "/build/755.1af907cb.js",
+        "/build/380.13909d02.js",
+        "/build/85.a0bd5a70.js",
+        "/build/175.d89ab825.js",
+        "/build/parti.d3c6024f.js"
       ]
     },
     "table": {
       "js": [
-        "/build/runtime.ced75ccf.js",
-        "/build/692.95bd3996.js",
-        "/build/281.dbf1e9e0.js",
-        "/build/409.b37d0cce.js",
-        "/build/table.e96f84fb.js"
+        "/build/runtime.3cfbb063.js",
+        "/build/755.1af907cb.js",
+        "/build/380.13909d02.js",
+        "/build/175.d89ab825.js",
+        "/build/table.82682054.js"
       ],
       "css": [
         "/build/table.1ddcb887.css"
@@ -46,13 +46,21 @@
     },
     "trumbowyg": {
       "js": [
-        "/build/runtime.js",
-        "/build/vendors-node_modules_jquery_dist_jquery_js.js",
-        "/build/vendors-node_modules_trumbowyg_dist_ui_trumbowyg_min_css-node_modules_trumbowyg_dist_langs_fr-eb17bd.js",
-        "/build/trumbowyg.js"
+        "/build/runtime.3cfbb063.js",
+        "/build/755.1af907cb.js",
+        "/build/trumbowyg.2c597ad3.js"
       ],
       "css": [
-        "/build/vendors-node_modules_trumbowyg_dist_ui_trumbowyg_min_css-node_modules_trumbowyg_dist_langs_fr-eb17bd.css"
+        "/build/904.37a35d24.css"
+      ]
+    },
+    "trumbowyg-style": {
+      "js": [
+        "/build/runtime.3cfbb063.js",
+        "/build/trumbowyg-style.bb54538b.js"
+      ],
+      "css": [
+        "/build/trumbowyg-style.0c4698fd.css"
       ]
     }
   }
