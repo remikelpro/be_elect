@@ -8,9 +8,9 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\SlugType;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class TypeElectionCrudController extends AbstractCrudController
 {
@@ -26,7 +26,6 @@ class TypeElectionCrudController extends AbstractCrudController
                 [
                     '@A2lixTranslationForm/bootstrap_5_layout.html.twig',
                     '@EasyAdmin/crud/form_theme.html.twig',
-                    '@FOSCKEditor/Form/ckeditor_widget.html.twig',
                 ]
             );
     }
@@ -45,8 +44,11 @@ class TypeElectionCrudController extends AbstractCrudController
                     'required' => true,
                 ],
                 'description' => [
-                    'field_type' => CKEditorType::class,
+                    'field_type' => TextareaType::class,
                     'required' => true,
+                    'attr' => [
+                        'class' => 'use-trumbowyg'
+                    ]
                 ],
                 'slug' => [
                     'field_type' => SlugType::class,
@@ -57,5 +59,4 @@ class TypeElectionCrudController extends AbstractCrudController
                 ->hideOnIndex();
         }
     }
-
 }
