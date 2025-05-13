@@ -25,16 +25,15 @@ class CantonCrudController extends AbstractCrudController
                 [
                     '@A2lixTranslationForm/bootstrap_5_layout.html.twig',
                     '@EasyAdmin/crud/form_theme.html.twig',
-                    '@FOSCKEditor/Form/ckeditor_widget.html.twig',
                 ]
             );
     }
-    
+
     public function configureFields(string $pageName): iterable
     {
         yield NumberField::new('id', 'id')->hideOnForm();
         yield TextField::new('name', 'name')->hideOnForm();
-    
+
         if (Crud::PAGE_DETAIL !== $pageName) {
             yield TranslationField::new('translations', 'translations', [
                 'name' => [
@@ -43,8 +42,7 @@ class CantonCrudController extends AbstractCrudController
                 ],
             ])->hideOnIndex();
         }
-    
+
         yield AssociationField::new('idArrondissement');
     }
-    
 }

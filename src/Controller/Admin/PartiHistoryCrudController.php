@@ -10,7 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class PartiHistoryCrudController extends AbstractCrudController
 {
@@ -23,13 +23,12 @@ class PartiHistoryCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-        ->setFormThemes(
-            [
-                '@A2lixTranslationForm/bootstrap_5_layout.html.twig',
-                '@EasyAdmin/crud/form_theme.html.twig',
-                '@FOSCKEditor/Form/ckeditor_widget.html.twig',
-            ]
-        );
+            ->setFormThemes(
+                [
+                    '@A2lixTranslationForm/bootstrap_5_layout.html.twig',
+                    '@EasyAdmin/crud/form_theme.html.twig',
+                ]
+            );
     }
 
     public function configureFields(string $pageName): iterable
@@ -37,17 +36,19 @@ class PartiHistoryCrudController extends AbstractCrudController
         yield NumberField::new('id', 'id')->hideOnForm();
         yield NumberField::new('year');
         yield TextField::new('description', 'description')->hideOnForm();
-    
+
         if (Crud::PAGE_DETAIL !== $pageName) {
             yield TranslationField::new('translations', 'translations', [
                 'description' => [
-                    'field_type' => CKEditorType::class,
+                    'field_type' => TextareaType::class,
                     'required' => true,
+                    'attr' => [
+                        'class' => 'use-trumbowyg'
+                    ]
                 ]
             ])->hideOnIndex();
         }
-        
+
         yield AssociationField::new('parti');
     }
-    
 }

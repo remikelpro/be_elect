@@ -24,6 +24,9 @@ Encore
     .addEntry('home', './assets/home.js')
     .addEntry('parti', './assets/parti.js')
     .addEntry('table', './assets/table.js')
+    .addEntry('trumbowyg', './assets/trumbowyg-init.js')
+
+
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
@@ -79,14 +82,7 @@ Encore
         type: 'asset',
         //maxSize: 4 * 1024
     })
-    .copyFiles([
-        {from: './node_modules/ckeditor4/', to: 'ckeditor/[path][name].[ext]', pattern: /\.(js|css)$/, includeSubdirectories: false},
-        {from: './node_modules/ckeditor4/adapters', to: 'ckeditor/adapters/[path][name].[ext]'},
-        {from: './node_modules/ckeditor4/lang', to: 'ckeditor/lang/[path][name].[ext]'},
-        {from: './node_modules/ckeditor4/plugins', to: 'ckeditor/plugins/[path][name].[ext]'},
-        {from: './node_modules/ckeditor4/skins', to: 'ckeditor/skins/[path][name].[ext]'},
-        {from: './node_modules/ckeditor4/vendor', to: 'ckeditor/vendor/[path][name].[ext]'}
-    ])
+    
 ;
 const config = Encore.getWebpackConfig();
 

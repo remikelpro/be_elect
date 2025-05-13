@@ -4,11 +4,11 @@
       "js": [
         "/build/runtime.js",
         "/build/vendors-node_modules_jquery_dist_jquery_js.js",
-        "/build/vendors-node_modules_bootstrap-autocomplete_dist_latest_bootstrap-autocomplete_js-node_module-4aa02f.js",
+        "/build/vendors-node_modules_bootstrap-autocomplete_dist_latest_bootstrap-autocomplete_js-node_module-816b6d.js",
         "/build/app.js"
       ],
       "css": [
-        "/build/vendors-node_modules_bootstrap-autocomplete_dist_latest_bootstrap-autocomplete_js-node_module-4aa02f.css",
+        "/build/vendors-node_modules_bootstrap-autocomplete_dist_latest_bootstrap-autocomplete_js-node_module-816b6d.css",
         "/build/app.css"
       ]
     },
@@ -42,6 +42,17 @@
       ],
       "css": [
         "/build/table.css"
+      ]
+    },
+    "trumbowyg": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vendors-node_modules_jquery_dist_jquery_js.js",
+        "/build/vendors-node_modules_trumbowyg_dist_ui_trumbowyg_min_css-node_modules_trumbowyg_dist_langs_fr-eb17bd.js",
+        "/build/trumbowyg.js"
+      ],
+      "css": [
+        "/build/vendors-node_modules_trumbowyg_dist_ui_trumbowyg_min_css-node_modules_trumbowyg_dist_langs_fr-eb17bd.css"
       ]
     }
   }

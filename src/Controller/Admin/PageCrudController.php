@@ -11,8 +11,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\SlugType;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class PageCrudController extends AbstractCrudController
 {
@@ -24,13 +24,12 @@ class PageCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-        ->setFormThemes(
-            [
-                '@A2lixTranslationForm/bootstrap_5_layout.html.twig',
-                '@EasyAdmin/crud/form_theme.html.twig',
-                '@FOSCKEditor/Form/ckeditor_widget.html.twig',
-            ]
-        );
+            ->setFormThemes(
+                [
+                    '@A2lixTranslationForm/bootstrap_5_layout.html.twig',
+                    '@EasyAdmin/crud/form_theme.html.twig'
+                ]
+            );
     }
 
     public function configureFields(string $pageName): iterable
@@ -42,7 +41,7 @@ class PageCrudController extends AbstractCrudController
         yield TextField::new('title', 'title')->hideOnForm();
         yield TextField::new('content', 'content')->hideOnForm();
         yield TextField::new('slug', 'slug')->hideOnForm();
-        
+
         if (Crud::PAGE_DETAIL !== $pageName) {
             yield TranslationField::new('translations', 'translations', [
                 'title' => [
@@ -55,11 +54,14 @@ class PageCrudController extends AbstractCrudController
                     'target' => 'title'
                 ],
                 'content' => [
-                    'field_type' => CKEditorType::class,
+                    'field_type' => TextareaType::class,
                     'required' => true,
+                    'attr' => [
+                        'class' => 'use-trumbowyg'
+                    ]
                 ]
+
             ])->hideOnIndex();
         }
     }
-    
 }

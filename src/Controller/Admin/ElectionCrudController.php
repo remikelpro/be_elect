@@ -27,7 +27,6 @@ class ElectionCrudController extends AbstractCrudController
                 [
                     '@A2lixTranslationForm/bootstrap_5_layout.html.twig',
                     '@EasyAdmin/crud/form_theme.html.twig',
-                    '@FOSCKEditor/Form/ckeditor_widget.html.twig',
                 ]
             );
     }
