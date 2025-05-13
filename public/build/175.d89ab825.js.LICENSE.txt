@@ -1,0 +1,21 @@
+/**
+  * bootstrap-table - An extended table to integration with some of the most widely used CSS frameworks. (Supports Bootstrap, Semantic UI, Bulma, Material Design, Foundation)
+  *
+  * @version v1.21.2
+  * @homepage https://bootstrap-table.com
+  * @author wenzhixin <wenzhixin2010@gmail.com> (http://wenzhixin.net.cn/)
+  * @license MIT
+  */
+
+/**
+ * @preserve tableExport.jquery.plugin
+ *
+ * Version 1.26.0
+ *
+ * Copyright (c) 2015-2022 hhurz,
+ *   https://github.com/hhurz/tableExport.jquery.plugin
+ *
+ * Based on https://github.com/kayalshri/tableExport.jquery.plugin
+ *
+ * Licensed under the MIT License
+ **/
