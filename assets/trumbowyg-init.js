@@ -32,6 +32,10 @@ function applyTrumbowyg() {
   $("textarea.use-trumbowyg").trumbowyg({
     lang: editorLang,
     autogrow: true,
+    tagClasses: {
+      table: "table",
+    },
+
     btns: [
       ["viewHTML"],
       ["undo", "redo"],
