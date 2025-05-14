@@ -69,7 +69,7 @@
         <div class="card-body">
             <ul>
                 {% for history in parti.partiHistories %}
-                <li><strong class="text-secondary">{{ history.year }}</strong> - {{ history.description }}</li>
+                <li><strong class="text-secondary">{{ history.year }}</strong> -&nbsp;{{ history.description | raw }}</li>
                 {% endfor %}
             </ul>
         </div>

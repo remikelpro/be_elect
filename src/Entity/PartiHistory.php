@@ -17,8 +17,6 @@ class PartiHistory extends AbstractTranslation
     #[ORM\Column(nullable: true)]
     private ?int $year = null;
 
-    private ?string $description = null;
-
     #[ORM\ManyToOne(inversedBy: 'partiHistories')]
     private ?Parti $parti = null;
 
