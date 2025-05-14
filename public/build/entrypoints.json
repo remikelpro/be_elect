@@ -16,29 +16,30 @@
       "js": [
         "/build/runtime.3cfbb063.js",
         "/build/755.1af907cb.js",
-        "/build/380.13909d02.js",
-        "/build/85.a0bd5a70.js",
-        "/build/817.8a314a19.js",
-        "/build/home.9531327c.js"
+        "/build/865.4367d039.js",
+        "/build/920.093c2efa.js",
+        "/build/676.8055c8bf.js",
+        "/build/201.fa351aff.js",
+        "/build/home.3197c42a.js"
       ]
     },
     "parti": {
       "js": [
         "/build/runtime.3cfbb063.js",
         "/build/755.1af907cb.js",
-        "/build/380.13909d02.js",
-        "/build/85.a0bd5a70.js",
+        "/build/865.4367d039.js",
+        "/build/920.093c2efa.js",
         "/build/175.d89ab825.js",
-        "/build/parti.d3c6024f.js"
+        "/build/parti.a5a882d8.js"
       ]
     },
     "table": {
       "js": [
         "/build/runtime.3cfbb063.js",
         "/build/755.1af907cb.js",
-        "/build/380.13909d02.js",
+        "/build/865.4367d039.js",
         "/build/175.d89ab825.js",
-        "/build/table.82682054.js"
+        "/build/table.957edfbd.js"
       ],
       "css": [
         "/build/table.1ddcb887.css"
@@ -48,7 +49,9 @@
       "js": [
         "/build/runtime.3cfbb063.js",
         "/build/755.1af907cb.js",
-        "/build/trumbowyg.2c597ad3.js"
+        "/build/865.4367d039.js",
+        "/build/676.8055c8bf.js",
+        "/build/trumbowyg.a000f073.js"
       ],
       "css": [
         "/build/904.37a35d24.css"
