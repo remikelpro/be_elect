@@ -6,6 +6,7 @@ $secondary: #9f3787;
 $grey: #eaeff2;
 $white: #ffffff;
 $black: #000000;
+$midnight-blue: #07111f;
 $dark: $primary;
 $btn-border-radius: 2em;
 $btn-border-radius-sm: 1em;
@@ -25,25 +26,25 @@ $dropdown-dark-bg: $primary;
 //#################
 
 @font-face {
-    font-family: "MuseoModerno";
-    src: url("../fonts/MuseoModerno-Regular.ttf");
-    font-display: swap;
+  font-family: "MuseoModerno";
+  src: url("../fonts/MuseoModerno-Regular.ttf");
+  font-display: swap;
 }
 @font-face {
-    font-family: "MuseoModerno-Bold";
-    src: url("../fonts/MuseoModerno-Bold.ttf");
-    font-display: swap;
+  font-family: "MuseoModerno-Bold";
+  src: url("../fonts/MuseoModerno-Bold.ttf");
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "PT-Bold";
-    src: url("../fonts/PTS75F.ttf");
-    font-display: swap;
+  font-family: "PT-Bold";
+  src: url("../fonts/PTS75F.ttf");
+  font-display: swap;
 }
 @font-face {
-    font-family: "PT";
-    src: url("../fonts/PTS55F.ttf");
-    font-display: swap;
+  font-family: "PT";
+  src: url("../fonts/PTS55F.ttf");
+  font-display: swap;
 }
 
 //##################
@@ -51,297 +52,307 @@ $dropdown-dark-bg: $primary;
 //##################
 
 body {
-    background-color: $white;
-    font-family: "PT";
+  background-color: $white;
+  font-family: "PT";
+  color: $midnight-blue;
 }
 
 @media only screen and (min-width: 990px) {
-    .nav-link:after {
-        position: relative;
-        top: 19px;
-        display: block;
-        content: "";
-        border-bottom: solid 8px transparent;
-    }
-    .nav-link.active:after,
-    .nav-link:not(.active):hover:after {
-        position: relative;
-        top: 19px;
-        display: block;
-        content: "";
-        border-bottom: solid 8px $secondary;
-        animation: border_anim 0.1s linear forwards;
-    }
+  .nav-link:after {
+    position: relative;
+    top: 19px;
+    display: block;
+    content: "";
+    border-bottom: solid 8px transparent;
+  }
+  .nav-link.active:after,
+  .nav-link:not(.active):hover:after {
+    position: relative;
+    top: 19px;
+    display: block;
+    content: "";
+    border-bottom: solid 8px $secondary;
+    animation: border_anim 0.1s linear forwards;
+  }
 }
 .bg-grey {
-    background-color: $grey;
+  background-color: $grey;
 }
 @keyframes border_anim {
-    0% {
-        width: 0%;
-    }
-    100% {
-        width: 100%;
-    }
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.bg-midnight-blue {
+  background-color: $midnight-blue;
+  color: $white;
+}
+
+.bg-blur {
+  opacity: 0.6;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 footer {
-    a {
-        color: $grey;
-    }
-    a:hover {
-        color: $white;
-        text-decoration: underline;
-    }
-    .logo {
-        max-height: 3em;
-        max-width: 90%;
-    }
+  a {
+    color: $grey;
+  }
+  a:hover {
+    color: $white;
+    text-decoration: underline;
+  }
+  .logo {
+    max-height: 3em;
+    max-width: 90%;
+  }
 }
 
 .nav-item {
-    margin-right: 1.5em;
+  margin-right: 1.5em;
 }
 
 .logo {
-    max-height: 2em;
+  max-height: 2em;
 }
 
 .social-logo {
-    height: 2em;
-    margin-left: 1em; 
-    filter: invert(100%) sepia(16%) saturate(0%) hue-rotate(287deg) brightness(112%) contrast(100%);
+  height: 2em;
+  margin-left: 1em;
+  filter: invert(100%) sepia(16%) saturate(0%) hue-rotate(287deg) brightness(112%) contrast(100%);
 }
 .bg-primary {
-    color: $white;
+  color: $white;
 }
 h1,
 h2,
 h3,
 h4 {
-    font-family: "MuseoModerno-Bold";
+  font-family: "MuseoModerno-Bold";
 }
-h2{
-    font-size: 1.7em;
-    margin: 1.5rem 0rem;
+h2 {
+  font-size: 1.7em;
+  margin: 1.5rem 0rem;
 }
-h3{
-    font-size: 1.1em;
+h3 {
+  font-size: 1.1em;
 }
 h1 {
-    font-size: calc(1.375rem + 2vw);
-    line-height: 1;
-    margin-bottom:.5em;
+  font-size: calc(1.375rem + 2vw);
+  line-height: 1;
+  margin-bottom: 0.5em;
 }
 
 .bootstrap-autocomplete.dropdown-menu {
-    display: block;
+  display: block;
 }
 .btn-secondary:hover {
-    background-color: $primary;
-    border-color: $primary;
-    color: $white;
+  background-color: $primary;
+  border-color: $primary;
+  color: $white;
 }
 
 @media only screen and (min-width: 990px) {
-    .section-2 {
-        background: linear-gradient(90deg, $primary 40%, $grey 40%);
-    }
+  .section-2 {
+    background: linear-gradient(90deg, $primary 40%, $grey 40%);
+  }
 }
 .section-2 {
-    .form-control {
-        background-color: $primary;
-        color: $white;
-    }
-    .form-control::placeholder {
-        color: $gray-500;
-    }
+  .form-control {
+    background-color: $primary;
+    color: $white;
+  }
+  .form-control::placeholder {
+    color: $gray-500;
+  }
 }
 .isDark {
-    color: $white;
+  color: $white;
 }
-.illustration{
-    padding:3rem;
+.illustration {
+  padding: 3rem;
 }
 //####################
 //##### HOMEPAGE #####
 //####################
 .search-part {
-    background-color: $primary;
-    @include media-breakpoint-up(lg) {
-        padding-right: 5em;
-        border-radius: 300rem;
-    }
-    img {
-        max-width: 5rem;
-        margin-bottom: 1rem;
-    }
+  background-color: $primary;
+  @include media-breakpoint-up(lg) {
+    padding-right: 5em;
+    border-radius: 300rem;
+  }
+  img {
+    max-width: 5rem;
+    margin-bottom: 1rem;
+  }
 }
 .random-part {
-    background-color: $grey;
+  background-color: $grey;
 }
 .logo-random-card {
-    width: 7rem;
+  width: 7rem;
 }
 
 .btn {
-    letter-spacing: 0.1rem;
-    font-family: "PT-Bold";
+  letter-spacing: 0.1rem;
+  font-family: "PT-Bold";
 }
 
 .outer {
-    overflow: hidden;
+  overflow: hidden;
 }
 .inner {
-    width: 150%;
-    display: flex;
-    min-height: 20vh;
-    position: relative;
-    max-height: 80vh;
-    h3 {
-        text-decoration: underline;
-        text-decoration-color: $secondary;
-        font-size: 1.5em;
-    }
+  width: 150%;
+  display: flex;
+  min-height: 20vh;
+  position: relative;
+  max-height: 80vh;
+  h3 {
+    text-decoration: underline;
+    text-decoration-color: $secondary;
+    font-size: 1.5em;
+  }
 }
 #map,
 #donut {
-    // height: 100%;
-    width: 70%;
+  // height: 100%;
+  width: 70%;
 }
 .canvas-container {
-    height: 100%;
+  height: 100%;
 }
 #switcherMap {
-    cursor: pointer;
-    height: 100%;
-    background-color: $primary;
-    transform: translate(-1px);
-    clip-path: polygon(0 0, 0 0, 100% 50%, 0 100%, 0 100%);
-    img {
-        width: 70%;
-        animation: pulse 1s linear infinite;
-        transition: transform 1s;
-    }
+  cursor: pointer;
+  height: 100%;
+  background-color: $primary;
+  transform: translate(-1px);
+  clip-path: polygon(0 0, 0 0, 100% 50%, 0 100%, 0 100%);
+  img {
+    width: 70%;
+    animation: pulse 1s linear infinite;
+    transition: transform 1s;
+  }
 }
 .switcher-bg {
-    background-color: $grey;
+  background-color: $grey;
 }
 .left {
-    .switcher-bg {
-        background-color: $primary;
+  .switcher-bg {
+    background-color: $primary;
+  }
+  #switcherMap {
+    background-color: $grey;
+    clip-path: polygon(100% 0, 0 50%, 100% 100%, 100% 0);
+    transform: translate(1px);
+    img {
+      background: $primary;
+      border-radius: 50%;
+      transform: rotate(180deg);
     }
-    #switcherMap {
-        background-color: $grey;
-        clip-path: polygon(100% 0, 0 50%, 100% 100%, 100% 0);
-        transform: translate(1px);
-        img {
-            background: $primary;
-            border-radius: 50%;
-            transform: rotate(180deg);
-        }
-    }
+  }
 }
 
 @-webkit-keyframes pulse {
-    0% {
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
-    }
-    50% {
-        -webkit-transform: scale(0.9);
-        transform: scale(0.9);
-    }
-    100% {
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
-    }
+  0% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  50% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  100% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
 }
 
 @media only screen and (min-width: 768px) {
-    .parti-card-random {
-        margin-left: 10vw;
-        .logo-parti {
-            position: relative;
-            transform: translate(-50%, 0px);
-        }
-        .card-body {
-            position: relative;
-            transform: translate(-10%, 0px);
-            width: 110%;
-        }
+  .parti-card-random {
+    margin-left: 10vw;
+    .logo-parti {
+      position: relative;
+      transform: translate(-50%, 0px);
     }
+    .card-body {
+      position: relative;
+      transform: translate(-10%, 0px);
+      width: 110%;
+    }
+  }
 }
 .parti-card-random {
-    text-align: left;
-    hr {
-        border: 3px solid $secondary;
-        width: 30%;
-        opacity: 1;
-    }
+  text-align: left;
+  hr {
+    border: 3px solid $secondary;
+    width: 30%;
+    opacity: 1;
+  }
 }
 
 .parti-card {
-    border: 1px solid $grey;
-    background-color: transparent;
-    img {
-        max-width: 40%;
-    }
-    .btn:hover {
-        filter: invert(0.2);
-    }
+  border: 1px solid $grey;
+  background-color: transparent;
+  img {
+    max-width: 40%;
+  }
+  .btn:hover {
+    filter: invert(0.2);
+  }
 }
 .border-between {
-    .col {
-        border: none;
-    }
+  .col {
+    border: none;
+  }
 
-    @include media-breakpoint-up(md) {
-        .col:last-child {
-            border: none;
-        }
-        .col {
-            border-right: 2px solid $grey;
-        }
-        .col:nth-child(2) {
-            border: none;
-        }
+  @include media-breakpoint-up(md) {
+    .col:last-child {
+      border: none;
     }
-    @include media-breakpoint-up(lg) {
-        .col:nth-child(2) {
-            border-right: 2px solid $grey;
-        }
-        .col:nth-child(3) {
-            border: none;
-        }
+    .col {
+      border-right: 2px solid $grey;
     }
+    .col:nth-child(2) {
+      border: none;
+    }
+  }
+  @include media-breakpoint-up(lg) {
+    .col:nth-child(2) {
+      border-right: 2px solid $grey;
+    }
+    .col:nth-child(3) {
+      border: none;
+    }
+  }
 }
 .paragraph {
-    padding: 1rem 0;
+  padding: 1rem 0;
 }
 .odd-paragraph {
-    background-color: $grey;
-    text-align: end;
-    .container {
-        padding-left: 10rem;
-    }
+  background-color: $grey;
+  text-align: end;
+  .container {
+    padding-left: 10rem;
+  }
 }
 .even-paragraph {
-    .container {
-        padding-right: 10rem;
-    }
+  .container {
+    padding-right: 10rem;
+  }
 }
 #canvas {
-    height: 700px;
-    width: 600px;
+  height: 700px;
+  width: 600px;
 }
 
 .select2-container--default .select2-selection--single {
-    border-radius: 90px;
+  border-radius: 90px;
 }
 
 //##################
@@ -349,229 +360,271 @@ h1 {
 //##################
 
 #partis {
-    .search-part {
-        border-radius: 5px;
-    }
-    .subtitle {
-        color: $secondary;
-        font-weight: bold;
-        font-size: 0.9rem;
-    }
-    .parti-card {
-        border: 2px solid $white;
-        border-radius: 0;
-    }
-    h2,
-    h3 {
-        text-align: center;
-    }
-    hr {
-        border-width: 5px;
-        color: $secondary;
-    }
-    .non-federal {
-        background-image: url("../img/bg/non-federal-bg.png");
-    }
-    .federal-hidden,
-    .disappeared-hidden {
-        display: none;
-    }
+  .search-part {
+    border-radius: 5px;
+  }
+  .subtitle {
+    color: $secondary;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+  .parti-card {
+    border: 2px solid $white;
+    border-radius: 0;
+  }
+  h2,
+  h3 {
+    text-align: center;
+  }
+  hr {
+    border-width: 5px;
+    color: $secondary;
+  }
+  .non-federal {
+    background-image: url("../img/bg/non-federal-bg.png");
+  }
+  .federal-hidden,
+  .disappeared-hidden {
+    display: none;
+  }
 }
 
 .isDark {
-    .parti-item {
-        border: 2px solid $white;
-        a {
-            color: $white;
-        }
-        &:hover {
-            background-color: $white;
-            a {
-                color: $black;
-            }
-            img{
-                filter: invert(100%) sepia(16%) saturate(0%) hue-rotate(287deg) brightness(112%) contrast(100%);
-            }
-        }
-    }
-}
-.parti-item {
-    text-align: center;
-    border: 2px solid $black;
-    margin: 2em;
-    padding: 0.5em;
+  .parti-item {
+    border: 2px solid $white;
     a {
-        font-family: "MuseoModerno-Bold";
-        color: $black;
-        font-weight: bold;
+      color: $white;
     }
     &:hover {
-        background-color: $black;
-        a {
-            color: $white;
-        }
-        img{
-            filter: invert(100%) sepia(16%) saturate(0%) hue-rotate(287deg) brightness(112%) contrast(100%);
-        }
+      background-color: $white;
+      a {
+        color: $black;
+      }
+      img {
+        filter: invert(100%) sepia(16%) saturate(0%) hue-rotate(287deg) brightness(112%) contrast(100%);
+      }
     }
+  }
+}
+.parti-item {
+  text-align: center;
+  border: 2px solid $black;
+  margin: 2em;
+  padding: 0.5em;
+  a {
+    font-family: "MuseoModerno-Bold";
+    color: $black;
+    font-weight: bold;
+  }
+  &:hover {
+    background-color: $black;
+    a {
+      color: $white;
+    }
+    img {
+      filter: invert(100%) sepia(16%) saturate(0%) hue-rotate(287deg) brightness(112%) contrast(100%);
+    }
+  }
 }
 
 //##################
 //##### PARTI ######
 //##################
 .indice {
-    font-weight: bold;
-    color: $secondary;
+  font-weight: bold;
+  color: $secondary;
 }
-.border-blue{
-    border-color:#004c93;
-    border-width: 2px;
+.border-blue {
+  border-color: #004c93;
+  border-width: 2px;
 }
-.icon-download{
-    width: 1rem;
+.icon-download {
+  width: 1rem;
 }
 
 .wiki-card {
-    border: 2px solid black;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  .card {
+    margin-bottom: 20px;
+    border: none;
+  }
+  .card-header,
+  .card-header:first-child {
+    padding: 0.5rem 1rem;
+    border-radius: 7px;
+  }
+  .history ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  .history ul li {
+    margin-bottom: 10px;
+  }
+  .logo-header {
+    position: relative;
+    top: -50px;
+    padding: 10px;
     border-radius: 8px;
-    padding: 20px;
-    margin-top: 20px;
-    .card {
-        margin-bottom: 20px;
-        border: none;
+    border: 2px solid black;
+  }
+  .card-image {
+    margin-top: -50px;
+  }
+  .wiki-subtitle {
+    font-family: "MuseoModerno-Bold";
+  }
+  .social:hover {
+    border-radius: 5rem;
+    background: $secondary;
+    img {
+      filter: invert(100%) sepia(16%) saturate(0%) hue-rotate(287deg) brightness(112%) contrast(100%);
     }
-    .card-header, .card-header:first-child {
-        padding: 0.5rem 1rem;
-        border-radius: 7px;
-    }
-    .history ul {
-        list-style-type: none;
-        padding-left: 0;
-    }
-    .history ul li {
-        margin-bottom: 10px;
-    }
-    .logo-header {
-        position: relative;
-        top: -50px;
-        padding: 10px;
-        border-radius: 8px;
-        border: 2px solid black;
-    }
-    .card-image{
-        margin-top: -50px;
-    }
-    .wiki-subtitle{
-        font-family: "MuseoModerno-Bold";
-    }
-    .social:hover {
-        border-radius: 5rem;
-        background: $secondary;
-        img{
-            filter: invert(100%) sepia(16%) saturate(0%) hue-rotate(287deg) brightness(112%) contrast(100%);
-        }
-        
-    }
+  }
 }
-.btn-status{
-    background-color: $white;
-    color:$black;
-    &:hover{
-        background-color: $black;
-        color:$white;
-    }
+.btn-status {
+  background-color: $white;
+  color: $black;
+  &:hover {
+    background-color: $black;
+    color: $white;
+  }
 }
 // TIMELINE
 .timeline-steps {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  .timeline-step {
+    align-items: center;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    .timeline-step {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        margin: 1rem;
-        &:hover{
-            .timeline-title{
-                font-size: 1.2rem;
-                transition: all 0.1s ease-in-out 0.1s;
-            }
-        }
-        .timeline-date {
-            margin-top:-1.5rem;
-            font-weight: bold;
-        }
+    flex-direction: column;
+    position: relative;
+    margin: 1rem;
+    &:hover {
+      .timeline-title {
+        font-size: 1.2rem;
+        transition: all 0.1s ease-in-out 0.1s;
+      }
     }
+    .timeline-date {
+      margin-top: -1.5rem;
+      font-weight: bold;
+    }
+  }
 }
 
-@media (min-width:768px) {
-    .timeline-steps .timeline-step:not(:last-child):after {
-        content: "";
-        display: block;
-        border-top: .25rem dotted $secondary;
-        width: 5.3rem;
-        position: absolute;
-        left: 5.5rem;
-        top: .5rem
-    }
-    .timeline-steps .timeline-step:not(:first-child):before {
-        content: "";
-        display: block;
-        border-top: .25rem dotted $secondary;
-        width: 5.5rem;
-        position: absolute;
-        right: 5.5rem;
-        top: .5rem
-    }
+@media (min-width: 768px) {
+  .timeline-steps .timeline-step:not(:last-child):after {
+    content: "";
+    display: block;
+    border-top: 0.25rem dotted $secondary;
+    width: 5.3rem;
+    position: absolute;
+    left: 5.5rem;
+    top: 0.5rem;
+  }
+  .timeline-steps .timeline-step:not(:first-child):before {
+    content: "";
+    display: block;
+    border-top: 0.25rem dotted $secondary;
+    width: 5.5rem;
+    position: absolute;
+    right: 5.5rem;
+    top: 0.5rem;
+  }
 }
 
 .timeline-steps .timeline-content {
-    width: 10rem;
-    text-align: center
+  width: 10rem;
+  text-align: center;
 }
 
 .timeline-steps .timeline-content .inner-circle {
-    border-radius: 1.5rem;
-    height: 1rem;
-    width: 1rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: $secondary
+  border-radius: 1.5rem;
+  height: 1rem;
+  width: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $secondary;
 }
-
-
 
 // RESOURCE
 
 .resource-item {
-    text-align: center;
-    margin: 2em;
-    padding: 0.5em;
-    .status{
-        border: 2px solid $primary;
-        a{
-            color: $primary;
-        }
-    }
-    .program{
-        border: 2px solid $secondary;
-        a{
-            color: $secondary;
-        }
-    }
+  text-align: center;
+  margin: 2em;
+  padding: 0.5em;
+  .status {
+    border: 2px solid $primary;
     a {
-        font-family: "MuseoModerno-Bold";
-        font-weight: bold;
-        img{
-            filter: invert(100%) sepia(16%) saturate(0%) hue-rotate(287deg) brightness(112%) contrast(100%);
-        }
+      color: $primary;
     }
-    &:hover {
-        background-color: $primary;
-        a {
-            color: $white;
-        }
+  }
+  .program {
+    border: 2px solid $secondary;
+    a {
+      color: $secondary;
     }
+  }
+  a {
+    font-family: "MuseoModerno-Bold";
+    font-weight: bold;
+    img {
+      filter: invert(100%) sepia(16%) saturate(0%) hue-rotate(287deg) brightness(112%) contrast(100%);
+    }
+  }
+  &:hover {
+    background-color: $primary;
+    a {
+      color: $white;
+    }
+  }
+}
+
+//##################
+//### ELECTIONS ####
+//##################
+
+#elections {
+  .legislatives-infos {
+    background-image: url("../img/bg/legislatives-infos-bg.png");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+
+    .card {
+      border-radius: 10px;
+    }
+  }
+
+  .other-elections {
+    .img-container {
+      flex-shrink: 0;
+      width: 20%;
+      z-index: 1000;
+    }
+
+    .text-container {
+      position: relative;
+      flex-grow: 1;
+      z-index: 200;
+
+      padding: 2rem;
+
+      &.bg-grey::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -15%;
+        width: 110vw;
+        height: 100%;
+        background-color: $grey;
+        z-index: -100;
+      }
+    }
+  }
 }
