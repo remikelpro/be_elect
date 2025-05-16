@@ -1,124 +1,145 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Be Elect - {{'Les résultats des élections en Belgique' | trans }}{% endblock %}
+{% block title %}
+  Be Elect - {{ 'Les résultats des élections en Belgique'|trans }}
+{% endblock %}
 
 {% block page_contents %}
-{% if breadcrumb is defined %}
-{% include 'partial/breadcrumb.html.twig' with { breadcrumb } %}
-{% endif %}
+  {% if breadcrumb is defined %}
+    {% include 'partial/breadcrumb.html.twig' with {
+      breadcrumb: breadcrumb
+    } %}
+  {% endif %}
 
-<div id="elections">
-  <section class="my-2 container">
-    <div class="row">
+  <div id="elections">
+    <section class="my-2 container">
+      <div class="row">
         <div class="col-lg-7">
-          <h1>{{ "Les <span class=\"text-secondary\">résultats</span> des élections en Belgique" | trans | raw }}</h1>
-          <p>Exsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus
-          sint anteponendi, ut equis vetulis teneros anteponere solemus. Indigna homine dubitatio! </p>
+          <h1>{{ 'Les <span class="text-secondary">résultats</span> des élections en Belgique'|trans|raw }}</h1>
+          <p>
+            Exsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus
+            sint anteponendi, ut equis vetulis teneros anteponere solemus. Indigna homine dubitatio!
+          </p>
 
           <div class="text-center mt-5 p-5 text-light search-election">
-              <img src="{{ asset('img/homepage/search_icon.svg') }}" alt="search icon" />
-              <h3 class="my-2">{{ "Chercher une élection législative par date :" | trans }}</h3>
-              <select id="selectElection" class="form-select filterSelect election-search">
-              </select>
-              <span hidden id="placeholderSelectElection">
-                  {{ "Cherchez ici la date d’une élection (exemple : 1990, 1996…)" | trans }}
-              </span>
+            <img src="{{ asset('img/homepage/search_icon.svg') }}" alt="search icon" />
+            <h3 class="my-2">{{ 'Chercher une élection législative par date :'|trans }}</h3>
+            <select id="selectElection" class="form-select filterSelect election-search"></select>
+            <span hidden id="placeholderSelectElection">
+              {{ 'Cherchez ici la date d’une élection (exemple : 1990, 1996…)'|trans }}
+            </span>
           </div>
         </div>
         <div class="col-lg-5 d-flex align-self-center">
-            <img src="{{ asset('img/elections/toutes-elections-illu-header.svg') }}" class="w-100 illustration" alt="{{ "
-                illustration de parlement" | trans }}" />
+          <img
+            src="{{ asset('img/elections/toutes-elections-illu-header.svg') }}"
+            class="w-100 illustration"
+            alt="{{ '
+                  illustration de parlement'|trans }}"
+          />
         </div>
-    </div>
-  </section>
-
-    <section class="container-fluid bg-midnight-blue py-5">
-        <div class="container">
-            <h2 class="mb-4 text-start">Les prochaines élections en Belgique</h2>
-            <p>
-            Exsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus sint anteponendi,
-            ut equis vetulis teneros anteponere solemus. Indigna homine dubitatio! Non enim debent esse amicitiarum sicut aliarum rerum
-            satietates; veterrima quaeque, ut ea vina, quae vetustatem ferunt. Exsistit autem hoc loco quaedam quaestio subdifficilis...
-            </p>
-        </div>
+      </div>
     </section>
 
-   <section class="elections-grid py-5">
-  <div class="container">
-    <h2 class="text-center">Les dernières élections en Belgique</h2>
+    <section class="container-fluid bg-midnight-blue py-5">
+      <div class="container">
+        <h2 class="mb-4 text-start">Les prochaines élections en Belgique</h2>
+        <p>
+          Exsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus sint
+          anteponendi, ut equis vetulis teneros anteponere solemus. Indigna homine dubitatio! Non enim debent esse
+          amicitiarum sicut aliarum rerum satietates; veterrima quaeque, ut ea vina, quae vetustatem ferunt. Exsistit
+          autem hoc loco quaedam quaestio subdifficilis...
+        </p>
+      </div>
+    </section>
 
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
-      {# {% for election in elections %} #}
-        <div class="col">
-          {# {% include 'election/_card.html.twig' with { election: election } %} #}
-            {% include 'election/_card.html.twig'%}
+    <section class="elections-grid py-5">
+      <div class="container">
+        <h2 class="text-center">Les dernières élections en Belgique</h2>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
+          {# {% for election in elections %} #}
+          <div class="col mt-15">
+            {# {% include 'election/_card.html.twig' with { election: election } %} #}
+            {% include 'election/_card.html.twig' %}
+          </div>
+          {# {% endfor %} #}
         </div>
-      {# {% endfor %} #}
-    </div>
+      </div>
+    </section>
+
+    <section class="other-elections">
+      <h2 class="my-5 text-center">Les autres élections en Belgique</h2>
+
+      <div class="container my-2 d-flex flex-column flex-lg-row">
+        <div class="img-container">
+          <img
+            src="{{ asset('img/elections/european-parliament.svg') }}"
+            alt="{{ 'Illustration du parlement européen et son drapeau'|trans }}"
+          />
+        </div>
+        <div class="text-container bg-grey">
+          <h3>Elections européennes Belgique</h3>
+          <p>
+            Exsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus
+            sint anteponendi, ut equis vetulis teneros anteponere solemus. Indigna homine dubitatio! Non enim debent
+            esse amicitiarum
+          </p>
+          <a href="#" class="btn btn-secondary d-block d-md-inline mx-auto mx-md-0 text-center text-md-start">
+            Voir toutes les élections européennes
+          </a>
+        </div>
+      </div>
+
+      <div class="container my-2 d-flex">
+        <div class="img-container">
+          <img
+            src="{{ asset('img/elections/belgium-adminitrative.svg') }}"
+            alt="{{ 'Carte administrative des communes, provinces et régions belges'|trans }}"
+          />
+        </div>
+        <div class="text-container">
+          <h3>Les élections communales et provinciales en Belgique</h3>
+          <p>
+            Exsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus
+            sint anteponendi, ut equis vetulis teneros anteponere solemus. Indigna homine dubitatio! Non enim debent
+            esse amicitiarum
+          </p>
+          <a href="#" class="btn btn-secondary">Voir toutes les élections communales</a>
+        </div>
+      </div>
+      <div class="container my-2 d-flex">
+        <div class="img-container">
+          <img
+            src="{{ asset('img/elections/german-speaking-community-flag.svg') }}"
+            alt="{{ 'Drapeau de la Communauté germanophone de Belgique,'|trans }}"
+          />
+        </div>
+        <div class="text-container bg-grey">
+          <h3>Elections régionales et communautaires en Belgique</h3>
+          <p>
+            Exsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus
+            sint anteponendi, ut equis vetulis teneros anteponere solemus. Indigna homine dubitatio! Non enim debent
+            esse amicitiarum
+          </p>
+          <a href="#" class="btn btn-secondary">Voir toutes les élections régionales</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="elections-infos py-5">
+      <div class="container">
+        <div class="card bg-blur p-4 card-large">
+          <h2>{{ 'Comment se déroulent les élections en Belgique'|trans }}</h2>
+
+          <p>
+            Exsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus
+            sint anteponendi, ut equis vetulis teneros anteponere solemus. Indigna homine dubitatio! Non enim debent
+            esse loem ip amicitiarum sicut aliarum rerum satietates; veterrima quaeque, ut ea vina, quae vetustatem
+            ferunt, esse debet lorem suavissima; verumque illu Indigna homine dubitatio! Non enim debent esse loem ip
+          </p>
+        </div>
+      </div>
+    </section>
   </div>
-</section>
- 
-
- 
-    
-
-
-<section class="other-elections">
-  <h2 class="my-5 text-center">Les autres élections en Belgique</h2>
-
- <div class="container my-2 d-flex flex-column flex-lg-row">
-    <div class="img-container">
-      <img src="{{ asset('img/elections/european-parliament.svg') }}" 
-            alt="{{ "Illustration du parlement européen et son drapeau" | trans }}">
-    </div>
-    <div class="text-container bg-grey">
-      <h3>Elections européennes Belgique</h3>
-        <p>Exsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus sint 
-        anteponendi, ut equis vetulis teneros anteponere solemus. Indigna homine dubitatio! Non enim debent esse amicitiarum </p>
-     <a href="#" class="btn btn-secondary d-block d-md-inline mx-auto mx-md-0 text-center text-md-start">
-  Voir toutes les élections européennes
-</a>
-
-    </div>
-  </div>
-
-  <div class="container my-2 d-flex">
-    <div class="img-container">
-      <img src="{{ asset('img/elections/belgium-adminitrative.svg') }}"
-           alt="{{ "Carte administrative des communes, provinces et régions belges" | trans }}">
-    </div>
-    <div class="text-container">
-      <h3>Les élections communales et provinciales en Belgique</h3>
-      <p>Exsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus sint 
-        anteponendi, ut equis vetulis teneros anteponere solemus. Indigna homine dubitatio! Non enim debent esse amicitiarum </p>
-      <a href="#" class="btn btn-secondary">Voir toutes les élections communales</a>
-    </div>
-  </div>
-  <div class="container my-2 d-flex">
-    <div class="img-container">
-     <img src="{{ asset('img/elections/german-speaking-community-flag.svg') }}" 
-          alt="{{ "Drapeau de la Communauté germanophone de Belgique," | trans }}">
-    </div>
-    <div class="text-container bg-grey">
-      <h3>Elections régionales et communautaires en Belgique</h3>
-      <p>Exsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus sint 
-        anteponendi, ut equis vetulis teneros anteponere solemus. Indigna homine dubitatio! Non enim debent esse amicitiarum </p>
-      <a href="#" class="btn btn-secondary">Voir toutes les élections régionales</a>
-    </div>
-  </div>
-</section>
-
-<section class="elections-infos py-5">
-  <div class="container">
- <div class="card bg-blur p-4 card-large">
-     <h2>{{"Comment se déroulent les élections en Belgique" | trans }}</h2>
-
-      <p>Exsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus sint 
-      anteponendi, ut equis vetulis teneros anteponere solemus. Indigna homine dubitatio! Non enim debent esse loem ip 
-      amicitiarum sicut aliarum rerum satietates; veterrima quaeque, ut ea vina, quae vetustatem ferunt, esse debet lorem 
-      suavissima; verumque illu Indigna homine dubitatio! Non enim debent esse loem ip</p>
-  </div>
-</section>
-
-</div>
 {% endblock %}

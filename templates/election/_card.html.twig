@@ -1,5 +1,5 @@
 {# <div class="card election-card p-3 text-center"> #}
-  {# <h3 class="card-title">{{ election.title }}</h3>
+{# <h3 class="card-title">{{ election.title }}</h3>
   <div class="icon mb-2">
     <img src="{{ asset(election.icon) }}" alt="" width="40" height="40">
   </div>
@@ -8,23 +8,13 @@
     En savoir plus
   </a> #}
 
-
-<div class="election-card-wrapper">
+<article class="election-card-wrapper">
   <div class="election-card-shadow"></div>
-  
   <div class="election-card text-center">
     <h3 class="label-date">Juin 2019</h3>
-
-    <h4 class="mt-2">Elections Communuales</h4>
-    <div class="icon mb-2">
-      <img src="{{ asset('img/elections/belgium-adminitrative.svg') }}" />
-    </div>
+    <h4 class="mt-5">Elections Communuales</h4>
+    <div class="icon mb-2"><img src="{{ asset('img/elections/belgium-adminitrative.svg') }}" /></div>
     <p>Remporté par le Parti Défi Démocrate</p>
-    <a href="#" class="btn btn-sm btn-secondary">
-      En savoir plus
-    </a>
+    <a href="#" class="btn btn-sm btn-secondary">En savoir plus</a>
   </div>
-</div>
-
-
-
+</article>
