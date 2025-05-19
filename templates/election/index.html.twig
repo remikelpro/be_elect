@@ -58,12 +58,13 @@
         <h2 class="text-center">Les dernières élections en Belgique</h2>
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
-          {# {% for election in elections %} #}
-          <div class="col mt-15">
-            {# {% include 'election/_card.html.twig' with { election: election } %} #}
-            {% include 'election/_card.html.twig' %}
-          </div>
-          {# {% endfor %} #}
+          {% for election in elections %}
+            <div class="col mt-15">
+              {% include 'election/_card.html.twig' with {
+                election: election
+              } %}
+            </div>
+          {% endfor %}
         </div>
       </div>
     </section>

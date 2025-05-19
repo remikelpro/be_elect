@@ -1,20 +1,16 @@
-{# <div class="card election-card p-3 text-center"> #}
-{# <h3 class="card-title">{{ election.title }}</h3>
-  <div class="icon mb-2">
-    <img src="{{ asset(election.icon) }}" alt="" width="40" height="40">
-  </div>
-  <p class="winner">{{ election.winner }}</p>
-  <a href="{{ path('election_show', { id: election.id }) }}" class="btn btn-sm btn-primary">
-    En savoir plus
-  </a> #}
-
 <article class="election-card-wrapper">
   <div class="election-card-shadow"></div>
   <div class="election-card text-center">
-    <h3 class="label-date">Juin 2019</h3>
-    <h4 class="mt-5">Elections Communuales</h4>
-    <div class="icon mb-2"><img src="{{ asset('img/elections/belgium-adminitrative.svg') }}" /></div>
-    <p>Remporté par le Parti Défi Démocrate</p>
-    <a href="#" class="btn btn-sm btn-secondary">En savoir plus</a>
+    <h3 class="label-date">{{ election.date|date('F Y') }}</h3>
+    <h4 class="mt-5">{{ election.name }}</h4>
+    <div class="icon mb-2">
+      <img src="{{ asset('img/election/' ~ election.idTypeElection.logo) }}" class="img-fluid" />
+    </div>
+    <p>Remporté par le {{ election.winner }}</p>
+    {# prettier-ignore-start #}
+    <a href="{{ path('electionType', { slug: election.slug }) }}" class="btn btn-sm btn-secondary">
+      En savoir plus
+    </a>
+    {# prettier-ignore-end #}
   </div>
 </article>

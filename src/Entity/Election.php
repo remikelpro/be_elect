@@ -64,6 +64,9 @@ class Election
     #[ORM\OneToMany(mappedBy: 'idElection', targetEntity: Resource::class)]
     private Collection $resources;
 
+    #[ORM\ManyToOne(inversedBy: 'elections')]
+    private ?Parti $winner = null;
+
     public function __construct()
     {
         $this->resultats = new ArrayCollection();
@@ -222,6 +225,18 @@ class Election
                 $resource->setIdElection(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getWinner(): ?Parti
+    {
+        return $this->winner;
+    }
+
+    public function setWinner(?Parti $winner): static
+    {
+        $this->winner = $winner;
 
         return $this;
     }

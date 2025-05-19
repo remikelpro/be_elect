@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\ElectionRepository;
 use App\Repository\TypeElectionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,7 +13,8 @@ class ElectionController extends AbstractBeElectController
 {
     public function __construct(
         private TypeElectionRepository $typeElectionRepository,
-        private TranslatorInterface $translator
+        private TranslatorInterface $translator,
+        private ElectionRepository $electionRepository
     ) {}
 
     #[Route('/elections', name: 'elections')]
@@ -23,8 +25,12 @@ class ElectionController extends AbstractBeElectController
             ['name' => $this->translator->trans('Elections'), 'href' => $this->generateUrl('elections')]
         ]);
 
+        $latestElections = $this->electionRepository->findLastElections();
+        // dd($latestElections);
+
         return $this->render('election/index.html.twig', [
             'breadcrumb' => $breadcrumb,
+            'elections' => $latestElections
         ]);
     }
 

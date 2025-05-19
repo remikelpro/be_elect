@@ -38,5 +38,6 @@ class ElectionCrudController extends AbstractCrudController
         yield DateField::new('date');
         yield AssociationField::new('idTypeElection');
         yield SlugField::new('slug')->setTargetFieldName('name');
+        yield AssociationField::new('winner');
     }
 }

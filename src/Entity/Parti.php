@@ -111,6 +111,12 @@ class Parti extends AbstractTranslation implements JsonSerializable
     #[ORM\ManyToMany(targetEntity: Resultat::class, mappedBy: 'parti')]
     private Collection $resultats;
 
+    /**
+     * @var Collection<int, Election>
+     */
+    #[ORM\OneToMany(targetEntity: Election::class, mappedBy: 'winner')]
+    private Collection $elections;
+
     public function __construct()
     {
         $this->resultats = new ArrayCollection();
@@ -120,6 +126,7 @@ class Parti extends AbstractTranslation implements JsonSerializable
         $this->partiNames = new ArrayCollection();
         $this->partiHistories = new ArrayCollection();
         $this->resultats = new ArrayCollection();
+        $this->elections = new ArrayCollection();
     }
 
     public function __toString()
@@ -511,6 +518,36 @@ class Parti extends AbstractTranslation implements JsonSerializable
     public function setMain($main)
     {
         $this->main = $main;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Election>
+     */
+    public function getElections(): Collection
+    {
+        return $this->elections;
+    }
+
+    public function addElection(Election $election): static
+    {
+        if (!$this->elections->contains($election)) {
+            $this->elections->add($election);
+            $election->setWinner($this);
+        }
+
+        return $this;
+    }
+
+    public function removeElection(Election $election): static
+    {
+        if ($this->elections->removeElement($election)) {
+            // set the owning side to null (unless already changed)
+            if ($election->getWinner() === $this) {
+                $election->setWinner(null);
+            }
+        }
 
         return $this;
     }
