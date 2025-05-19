@@ -14,7 +14,8 @@ class ElectionController extends AbstractBeElectController
     public function __construct(
         private TypeElectionRepository $typeElectionRepository,
         private TranslatorInterface $translator,
-        private ElectionRepository $electionRepository
+        private ElectionRepository $electionRepository,
+        private TypeElectionRepository $TypeElectionRepository
     ) {}
 
     #[Route('/elections', name: 'elections')]
@@ -26,11 +27,12 @@ class ElectionController extends AbstractBeElectController
         ]);
 
         $latestElections = $this->electionRepository->findLastElections();
-        // dd($latestElections);
+        $allElections = $this->typeElectionRepository->findAllElections();
 
         return $this->render('election/index.html.twig', [
             'breadcrumb' => $breadcrumb,
-            'elections' => $latestElections
+            'latest_elections' => $latestElections,
+            'all_elections' => $allElections
         ]);
     }
 
@@ -38,9 +40,12 @@ class ElectionController extends AbstractBeElectController
     public function typeElection($slug): Response
     {
         $typeElection = $this->typeElectionRepository->findOneBySlug($slug);
+        $allElections = $this->typeElectionRepository->findAllElections();
+        // dd($allElections);
 
         return $this->render('election/type.html.twig', [
-            'typeElection' => $typeElection
+            'typeElection' => $typeElection,
+            'all_elections' => $allElections
         ]);
     }
 }

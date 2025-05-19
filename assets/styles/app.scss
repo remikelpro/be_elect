@@ -643,6 +643,57 @@ h1 {
   }
 }
 
+// ALL ELECTIONS
+.all-elections {
+  .container {
+    @include respond-to-mobile-and-tablet {
+      align-items: center;
+    }
+  }
+  .img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 18%;
+    z-index: 1000;
+    @include respond-to-mobile-and-tablet {
+      margin-bottom: -3rem;
+      width: 100%;
+    }
+
+    img {
+      max-height: 150px;
+    }
+  }
+
+  .text-container {
+    position: relative;
+    flex-grow: 1;
+    z-index: 200;
+    padding: 2rem 2rem 2rem 4rem;
+
+    @include respond-to-mobile-and-tablet {
+      padding-top: 4rem;
+    }
+
+    &.bg-grey::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -10%;
+      width: 110vw;
+      height: 100%;
+      background-color: $grey;
+      z-index: -100;
+
+      @include respond-to-mobile-and-tablet {
+        content: none;
+      }
+    }
+  }
+}
+
 // CARD
 
 .election-card-wrapper {
@@ -652,6 +703,9 @@ h1 {
 }
 
 .election-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: relative;
   background-color: transparent;
   border: 3px solid $black;
@@ -687,8 +741,8 @@ h1 {
 //### ELECTIONS  TYPE####
 //##################
 
-#elections {
-  .legislatives-infos {
+#election {
+  .election-infos {
     background-image: url("../img/bg/legislatives-infos-bg.png");
     background-repeat: no-repeat;
     background-size: 100% auto;
@@ -696,49 +750,6 @@ h1 {
 
     .card {
       border-radius: 10px;
-    }
-  }
-
-  .other-elections {
-    .container {
-      @include respond-to-mobile-and-tablet {
-        align-items: center;
-      }
-    }
-    .img-container {
-      flex-shrink: 0;
-      width: 18%;
-      z-index: 1000;
-      @include respond-to-mobile-and-tablet {
-        margin-bottom: -4rem;
-        width: auto;
-      }
-    }
-
-    .text-container {
-      position: relative;
-      flex-grow: 1;
-      z-index: 200;
-      padding: 2rem 2rem 2rem 4rem;
-
-      @include respond-to-mobile-and-tablet {
-        padding-top: 4rem;
-      }
-
-      &.bg-grey::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -10%;
-        width: 110vw;
-        height: 100%;
-        background-color: $grey;
-        z-index: -100;
-
-        @include respond-to-mobile-and-tablet {
-          content: none;
-        }
-      }
     }
   }
 }

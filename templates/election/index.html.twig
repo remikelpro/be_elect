@@ -56,10 +56,9 @@
     <section class="elections-grid py-5">
       <div class="container">
         <h2 class="text-center">Les dernières élections en Belgique</h2>
-
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
-          {% for election in elections %}
-            <div class="col mt-15">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-5">
+          {% for election in latest_elections %}
+            <div class="col d-flex">
               {% include 'election/_card.html.twig' with {
                 election: election
               } %}
@@ -69,63 +68,13 @@
       </div>
     </section>
 
-    <section class="other-elections">
-      <h2 class="my-5 text-center">Les autres élections en Belgique</h2>
-
-      <div class="container my-2 d-flex flex-column flex-lg-row">
-        <div class="img-container">
-          <img
-            src="{{ asset('img/elections/european-parliament.svg') }}"
-            alt="{{ 'Illustration du parlement européen et son drapeau'|trans }}"
-          />
-        </div>
-        <div class="text-container bg-grey">
-          <h3>Elections européennes Belgique</h3>
-          <p>
-            Exsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus
-            sint anteponendi, ut equis vetulis teneros anteponere solemus. Indigna homine dubitatio! Non enim debent
-            esse amicitiarum
-          </p>
-          <a href="#" class="btn btn-secondary d-block d-md-inline mx-auto mx-md-0 text-center text-md-start">
-            Voir toutes les élections européennes
-          </a>
-        </div>
-      </div>
-
-      <div class="container my-2 d-flex">
-        <div class="img-container">
-          <img
-            src="{{ asset('img/elections/belgium-adminitrative.svg') }}"
-            alt="{{ 'Carte administrative des communes, provinces et régions belges'|trans }}"
-          />
-        </div>
-        <div class="text-container">
-          <h3>Les élections communales et provinciales en Belgique</h3>
-          <p>
-            Exsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus
-            sint anteponendi, ut equis vetulis teneros anteponere solemus. Indigna homine dubitatio! Non enim debent
-            esse amicitiarum
-          </p>
-          <a href="#" class="btn btn-secondary">Voir toutes les élections communales</a>
-        </div>
-      </div>
-      <div class="container my-2 d-flex">
-        <div class="img-container">
-          <img
-            src="{{ asset('img/elections/german-speaking-community-flag.svg') }}"
-            alt="{{ 'Drapeau de la Communauté germanophone de Belgique,'|trans }}"
-          />
-        </div>
-        <div class="text-container bg-grey">
-          <h3>Elections régionales et communautaires en Belgique</h3>
-          <p>
-            Exsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus
-            sint anteponendi, ut equis vetulis teneros anteponere solemus. Indigna homine dubitatio! Non enim debent
-            esse amicitiarum
-          </p>
-          <a href="#" class="btn btn-secondary">Voir toutes les élections régionales</a>
-        </div>
-      </div>
+    <section class="all-elections">
+      <h2 class="my-5 text-center">Toutes les élections en Belgique</h2>
+      {% for election in all_elections %}
+        {% include 'election/_all-elections.html.twig' with {
+          election: election
+        } %}
+      {% endfor %}
     </section>
 
     <section class="elections-infos py-5">

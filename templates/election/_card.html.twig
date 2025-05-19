@@ -1,10 +1,10 @@
 <article class="election-card-wrapper">
   <div class="election-card-shadow"></div>
-  <div class="election-card text-center">
+  <div class="election-card text-center h-100">
     <h3 class="label-date">{{ election.date|date('F Y') }}</h3>
     <h4 class="mt-5">{{ election.name }}</h4>
-    <div class="icon mb-2">
-      <img src="{{ asset('img/election/' ~ election.idTypeElection.logo) }}" class="img-fluid" />
+    <div class="icon mb-2 p-4">
+      <img src="{{ asset('img/election/' ~ election.idTypeElection.logo) }}" class="img-fluid object-fit-contain" />
     </div>
     <p>Remporté par le {{ election.winner }}</p>
     {# prettier-ignore-start #}

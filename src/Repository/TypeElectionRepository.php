@@ -18,7 +18,7 @@ use Doctrine\Persistence\ManagerRegistry;
 class TypeElectionRepository extends ServiceEntityRepository
 {
     use SlugRepositoryTrait;
-    
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, TypeElection::class);
@@ -42,28 +42,41 @@ class TypeElectionRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return TypeElection[] Returns an array of TypeElection objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('t')
-//            ->andWhere('t.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('t.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
 
-//    public function findOneBySomeField($value): ?TypeElection
-//    {
-//        return $this->createQueryBuilder('t')
-//            ->andWhere('t.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+
+
+    public function findAllElections(): array
+    {
+        return $this->createQueryBuilder('te')
+            ->leftJoin('te.translations', 'tt')
+            ->addSelect('tt')
+            ->getQuery()
+            ->getResult();
+    }
+
+
+    //    /**
+    //     * @return TypeElection[] Returns an array of TypeElection objects
+    //     */
+    //    public function findByExampleField($value): array
+    //    {
+    //        return $this->createQueryBuilder('t')
+    //            ->andWhere('t.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->orderBy('t.id', 'ASC')
+    //            ->setMaxResults(10)
+    //            ->getQuery()
+    //            ->getResult()
+    //        ;
+    //    }
+
+    //    public function findOneBySomeField($value): ?TypeElection
+    //    {
+    //        return $this->createQueryBuilder('t')
+    //            ->andWhere('t.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
 }

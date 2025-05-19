@@ -1,11 +1,133 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}{{ typeElection.name }}{% endblock %}
+{% block title %}
+  {{ typeElection.name }}
+{% endblock %}
 
 {% block page_contents %}
-<div class="container">
-    <h1>{{ typeElection.name }}</h1>
-    <p>{{ typeElection.description | raw }}</p>
+  <div id="election">
+    <section class="my-2 container">
+      <div class="row">
+        <div class="col-lg-7">
+          <h1>{{ typeElection.name|trans|raw }}</h1>
+          <p>{{ typeElection.description|raw }}</p>
+          <div class="text-center mt-5 p-5 text-light search-election">
+            <img src="{{ asset('img/homepage/search_icon.svg') }}" alt="search icon" />
+            <h3 class="my-2">{{ 'Chercher une élection législative par date :'|trans }}</h3>
+            <select id="selectElection" class="form-select filterSelect election-search"></select>
+            <span hidden id="placeholderSelectElection">
+              {{ 'Cherchez ici la date d’une élection (exemple : 1990, 1996…)'|trans }}
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-5 d-flex align-self-center">
+          <img
+            src="{{ asset('img/elections/type-election-illu-header.svg') }}"
+            class="w-100 illustration"
+            alt="{{ '
+                illustration de parlement'|trans }}"
+          />
+        </div>
+      </div>
+    </section>
 
-</div>
+    <section class="container-fluid bg-midnight-blue py-5">
+      <div class="container">
+        <h2 class="mb-4 text-start">Prochaines élections du {{ typeElection.name|trans|raw }} de 2024 en Belgique</h2>
+        <p>
+          Exsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus sint
+          anteponendi, ut equis vetulis teneros anteponere solemus. Indigna homine dubitatio! Non enim debent esse
+          amicitiarum sicut aliarum rerum satietates; veterrima quaeque, ut ea vina, quae vetustatem ferunt. Exsistit
+          autem hoc loco quaedam quaestio subdifficilis...
+        </p>
+      </div>
+    </section>
+
+    <section class="container-fluid bg-light py-5">
+      <h2 class="mb-4 ps-4 text-center">L'historique des élections législatives en Belgique</h2>
+
+      <table class="table table-striped text-center">
+        <tbody>
+          <tr>
+            <td>Élections législatives belges de 2019</td>
+            <td class="text-end"><a href="#" class="btn btn-secondary">Plus d'infos sur cette élection</a></td>
+          </tr>
+          <tr>
+            <td>Élections législatives belges de 2014</td>
+            <td class="text-end"><a href="#" class="btn btn-secondary">Plus d'infos sur cette élection</a></td>
+          </tr>
+          <tr>
+            <td>Élections législatives belges de 2010</td>
+            <td class="text-end"><a href="#" class="btn btn-secondary">Plus d'infos sur cette élection</a></td>
+          </tr>
+          <tr>
+            <td>Élections législatives belges de 2007</td>
+            <td class="text-end"><a href="#" class="btn btn-secondary">Plus d'infos sur cette élection</a></td>
+          </tr>
+          <tr>
+            <td>Élections législatives belges de 2003</td>
+            <td class="text-end"><a href="#" class="btn btn-secondary">Plus d'infos sur cette élection</a></td>
+          </tr>
+          <tr>
+            <td>Élections législatives belges de 1999</td>
+            <td class="text-end"><a href="#" class="btn btn-secondary">Plus d'infos sur cette élection</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="election-infos py-5">
+      <div class="container">
+        <div class="card bg-blur p-4">
+          <h2>{{ 'Tout savoir sur les les législatives en Belgique'|trans }}</h2>
+
+          <p>
+            Exsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus
+            sint anteponendi, ut equis vetulis teneros anteponere solemus. Indigna homine dubitatio! Non enim debent
+            esse loem ip amicitiarum sicut aliarum rerum satietates; veterrima quaeque, ut ea vina, quae vetustatem
+            ferunt, esse debet lorem suavissima; verumque illu Indigna homine dubitatio! Non enim debent esse loem ip
+          </p>
+
+          <h3 class="mt-4">Les dates du scrutin législatif</h3>
+          <p>
+            vina, quae vetustatem ferunt, esse debet lorem suavissima; verumque illu Indigna homine dubitatio! Non enim
+            debent esse loem ip amicitiarum sicut aliarum rerum satietates; veterrima quaeque, ut ea vina, quae
+            vetustatem ferunt, esse debet lorem suavissima; verumque illu
+          </p>
+
+          <h3 class="mt-4">Voter aux législatives</h3>
+          <p>
+            vina, quae vetustatem ferunt, esse debet lorem suavissima; verumque illu Indigna homine dubitatio! Non enim
+            debent esse loem ip amicitiarum sicut aliarum rerum satietates; veterrima quaeque, ut ea vina, quae
+            vetustatem ferunt, esse debet lorem suavissima; verumque illu
+          </p>
+
+          <h3 class="mt-4">Les circonscriptions électorales</h3>
+          <p>
+            vina, quae vetustatem ferunt, esse debet lorem suavissima; verumque illu Indigna homine dubitatio! Non enim
+            debent esse loem ip amicitiarum sicut aliarum rerum satietates; veterrima quaeque, ut ea vina, quae
+            vetustatem ferunt, esse debet lorem suavissima; verumque illu
+          </p>
+
+          <h3 class="mt-4">Être candidat aux législatives</h3>
+          <p>
+            vina, quae vetustatem ferunt, esse debet lorem suavissima; verumque illu Indigna homine dubitatio! Non enim
+            debent esse loem ip amicitiarum sicut aliarum rerum satietates; veterrima quaeque, ut ea vina, quae
+            vetustatem ferunt, esse debet lorem .
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="all-elections">
+      <h2 class="my-5 text-center">Les autres élections en Belgique</h2>
+      {% for election in all_elections %}
+        {% if election.name != typeElection.name %}
+          {% include 'election/_all-elections.html.twig' with {
+            election: election
+          } %}
+        {% endif %}
+      {% endfor %}
+    </section>
+  </div>
 {% endblock %}
