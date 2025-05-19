@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\SlugType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class TypeElectionCrudController extends AbstractCrudController
@@ -36,6 +37,9 @@ class TypeElectionCrudController extends AbstractCrudController
         yield TextField::new('slug', 'slug')->hideOnForm();
         yield TextField::new('name', 'name')->hideOnForm();
         yield TextField::new('description', 'description')->hideOnForm();
+        yield ImageField::new('logo')->setBasePath('img/election/')
+            ->setUploadDir('public/img/election/')
+            ->setUploadedFileNamePattern('[slug].[extension]');
 
         if (Crud::PAGE_DETAIL !== $pageName) {
             yield TranslationField::new('translations', 'translations', [
