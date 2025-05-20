@@ -5,11 +5,18 @@
 {% endblock %}
 
 {% block page_contents %}
+  {% if breadcrumb is defined %}
+    {% include 'partial/breadcrumb.html.twig' with {
+      breadcrumb: breadcrumb
+    } %}
+  {% endif %}
   <div id="election">
     <section class="my-2 container">
       <div class="row">
         <div class="col-lg-7">
-          <h1>{{ typeElection.name|trans|raw }}</h1>
+          {# <h1>{{ typeElection.name|trans|raw }}</h1> #}
+          <h1>{{ ('type_election.main_title.' ~ typeElection.id)|trans }} {{ 'en Belgique'|trans }}</h1>
+
           <p>{{ typeElection.description|raw }}</p>
           <div class="text-center mt-5 p-5 text-light search-election">
             <img src="{{ asset('img/homepage/search_icon.svg') }}" alt="search icon" />
@@ -43,43 +50,37 @@
       </div>
     </section>
 
-    <section class="container-fluid bg-light py-5">
+    <section class="history container-fluid bg-light py-5">
       <h2 class="mb-4 ps-4 text-center">L'historique des élections législatives en Belgique</h2>
-
       <table class="table table-striped text-center">
-        <tbody>
-          <tr>
-            <td>Élections législatives belges de 2019</td>
-            <td class="text-end"><a href="#" class="btn btn-secondary">Plus d'infos sur cette élection</a></td>
-          </tr>
-          <tr>
-            <td>Élections législatives belges de 2014</td>
-            <td class="text-end"><a href="#" class="btn btn-secondary">Plus d'infos sur cette élection</a></td>
-          </tr>
-          <tr>
-            <td>Élections législatives belges de 2010</td>
-            <td class="text-end"><a href="#" class="btn btn-secondary">Plus d'infos sur cette élection</a></td>
-          </tr>
-          <tr>
-            <td>Élections législatives belges de 2007</td>
-            <td class="text-end"><a href="#" class="btn btn-secondary">Plus d'infos sur cette élection</a></td>
-          </tr>
-          <tr>
-            <td>Élections législatives belges de 2003</td>
-            <td class="text-end"><a href="#" class="btn btn-secondary">Plus d'infos sur cette élection</a></td>
-          </tr>
-          <tr>
-            <td>Élections législatives belges de 1999</td>
-            <td class="text-end"><a href="#" class="btn btn-secondary">Plus d'infos sur cette élection</a></td>
-          </tr>
+        <tbody id="election-rows">
+          {% for election in all_elections_date %}
+            <tr class="election-row {{ loop.index > 5 ? 'd-none' : '' }}" data-index="{{ loop.index }}">
+              <td class="left">Élections du {{ typeElection.name|trans|raw }} de {{ election.date|date('Y') }}</td>
+              <td class="right">
+                <a href="#" class="btn btn-secondary btn-sm">{{ "Plus d'infos sur cette élection"|trans }}</a>
+              </td>
+            </tr>
+          {% endfor %}
         </tbody>
       </table>
+      <div class="text-center">
+        <button
+          id="show-more"
+          class="btn btn-secondary"
+          data-show-more="{{ 'Afficher plus'|trans }}"
+          data-show-less="{{ 'Afficher moins'|trans }}"
+        >
+          {{ 'Afficher plus'|trans }}
+        </button>
+      </div>
     </section>
 
     <section class="election-infos py-5">
       <div class="container">
         <div class="card bg-blur p-4">
-          <h2>{{ 'Tout savoir sur les les législatives en Belgique'|trans }}</h2>
+          {# <h2>{{ 'Tout savoir sur les les législatives en Belgique'|trans }}</h2> #}
+          <h2>{{ ('type_election.infos.title.' ~ typeElection.id)|trans }}</h2>
 
           <p>
             Exsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus
@@ -120,8 +121,8 @@
     </section>
 
     <section class="all-elections">
-      <h2 class="my-5 text-center">Les autres élections en Belgique</h2>
-      {% for election in all_elections %}
+      <h2 class="my-5 text-center">{{ 'Les autres élections en Belgique'|trans }}</h2>
+      {% for election in all_elections_type %}
         {% if election.name != typeElection.name %}
           {% include 'election/_all-elections.html.twig' with {
             election: election

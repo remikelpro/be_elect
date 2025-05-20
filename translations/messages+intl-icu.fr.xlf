@@ -226,6 +226,39 @@
         <target>Découvrir son
                     activité</target>
       </trans-unit>
+      <trans-unit id="type_election.main_title.2">
+        <source>type_election.main_title.2</source>
+        <target>Les élections sénatoriales</target>
+      </trans-unit>
+      <trans-unit id="type_election.infos.title.2">
+        <source>type_election.infos.title.2</source>
+        <target>Tout savoir sur les élections sénatoriales en Belgique</target>
+      </trans-unit>
+      <trans-unit id="type_election.infos.title.3">
+        <source>type_election.infos.title.3</source>
+        <target>Tout savoir sur les élections législatives fédérales en Belgique</target>
+      </trans-unit>
+      <trans-unit id="type_election.infos.title.4">
+        <source>type_election.infos.title.4</source>
+        <target>Tout savoir sur les élections provinciales en Belgiques </target>
+      </trans-unit>
+      <trans-unit id="type_election.infos.title.5">
+        <source>type_election.infos.title.5</source>
+        <target>Tout savoir sur les élections européennes en Belgique</target>
+      </trans-unit>
+      <trans-unit id="type_election.infos.title.6">
+        <source>type_election.infos.title.6</source>
+        <target>Tout savoir sur les élections en Wallonie</target>
+      </trans-unit>
+      <trans-unit id="type_election.infos.title.7">
+        <source>type_election.infos.title.7</source>
+        <target>Tout savoir sur les élections en Flandre</target>
+      </trans-unit>
+      <trans-unit id="type_election.infos.title.8">
+        <source>type_election.infos.title.8</source>
+        <target>Tout savoir sur les élections de la Communuauté Germanophone</target>
+      </trans-unit>
+    
     </body>
   </file>
 </xliff>

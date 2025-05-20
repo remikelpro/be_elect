@@ -39,21 +39,41 @@ class ElectionController extends AbstractBeElectController
     #[Route('/elections/{slug}', name: 'electionType')]
     public function typeElection($slug): Response
     {
+
+
         $typeElection = $this->typeElectionRepository->findOneBySlug($slug);
-        $allElections = $this->typeElectionRepository->findAll();
+        // dd($typeElection);
+
+        $electionsByType = $this->typeElectionRepository->findAll();
         $imagePath = $this->getImagePathForElection($typeElection->getName());
+        $electionsByDate = $this->electionRepository->findBy(
+            ['idTypeElection' => $typeElection],
+            ['date' => 'DESC']
+        );
+
+        // dd($electionsByDate);
+
+
+
+
+        $breadcrumb = $this->getBreadcrumb([
+            ['name' => $this->translator->trans('Elections'), 'href' => $this->generateUrl('elections')],
+            ['name' => $typeElection->getName()]
+        ]);
 
         return $this->render('election/type.html.twig', [
             'typeElection' => $typeElection,
-            'all_elections' => $allElections,
-            'image_path' => $imagePath
+            'all_elections_type' => $electionsByType,
+            'image_path' => $imagePath,
+            'breadcrumb' => $breadcrumb,
+            'all_elections_date' =>   $electionsByDate
         ]);
     }
 
     private function getImagePathForElection(string $name): string
     {
         return match ($name) {
-            'Sénat', 'Chambre de représentants' => 'img/election/icon-legislatives.svg',
+            'Sénat', 'Chambre des représentants' => 'img/election/icon-legislatives.svg',
             'Parlement européen' => 'img/election/icon-europeennes.svg',
             'Province', 'Flandre', 'Wallonie', 'Communauté germanophone' => 'img/election/icon-regionales.svg',
             default => 'img/election/icon-default.svg',

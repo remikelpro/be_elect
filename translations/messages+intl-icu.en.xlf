@@ -5,216 +5,324 @@
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
-      <trans-unit id="UzFhc1Y" resname="Accueil">
+      <trans-unit id="3PMa7CE" resname="Accueil">
         <source>Accueil</source>
         <target>Home</target>
       </trans-unit>
-      <trans-unit id="8VwSl1I" resname="Ressources">
+      <trans-unit id="67NtgU5" resname="Ressources">
         <source>Ressources</source>
         <target>Resources</target>
       </trans-unit>
-      <trans-unit id="Im_ICbt" resname="Partis">
+      <trans-unit id="s_U_2b1" resname="Partis">
         <source>Partis</source>
         <target>Parties</target>
       </trans-unit>
-      <trans-unit id="VqySVuN" resname="Elections">
+      <trans-unit id="oUqIpaD" resname="Elections">
         <source>Elections</source>
         <target>Elections</target>
       </trans-unit>
-      <trans-unit id="0YTG1lJ" resname="A propose">
+      <trans-unit id="Zm.6Z_8" resname="A propose">
         <source>A propose</source>
         <target>About</target>
       </trans-unit>
-      <trans-unit id="ioads.p" resname="Nederland">
+      <trans-unit id="k9PTIQy" resname="Nederland">
         <source>Nederland</source>
         <target>Nederland</target>
       </trans-unit>
-      <trans-unit id="5JXVO5Z" resname="Français">
+      <trans-unit id="X.UQqCk" resname="Français">
         <source>Français</source>
         <target>French</target>
       </trans-unit>
-      <trans-unit id="uhGL9.y" resname="English">
+      <trans-unit id="NR2RdXC" resname="English">
         <source>English</source>
         <target>English</target>
       </trans-unit>
-      <trans-unit id="wNjyyCk" resname="logo be elect">
+      <trans-unit id="UPP7D2R" resname="logo be elect">
         <source>logo be elect</source>
         <target>Be-Elect logo</target>
       </trans-unit>
-      <trans-unit id="qatj.qK" resname="logo université">
+      <trans-unit id="Pm7.Tor" resname="logo université">
         <source>logo université</source>
         <target>University logo</target>
       </trans-unit>
-      <trans-unit id="SCNZEaQ" resname="Tous les partis">
+      <trans-unit id="xSzC86K" resname="Tous les partis">
         <source>Tous les partis</source>
         <target>All parties</target>
       </trans-unit>
-      <trans-unit id="JlrweUH" resname="Toutes les élections">
+      <trans-unit id="TQ9_raZ" resname="Toutes les élections">
         <source>Toutes les élections</source>
         <target>All elections</target>
       </trans-unit>
-      <trans-unit id="ZyFT62v" resname="A propos">
+      <trans-unit id="tFQv1LR" resname="A propos">
         <source>A propos</source>
         <target>About</target>
       </trans-unit>
-      <trans-unit id="9oNCIXM" resname="Tout le détail des : &lt;span class=&quot;text-secondary&quot;&gt;élections&lt;/span&gt; est sur Be-Elect">
+      <trans-unit id="9t9eJJH" resname="Tout le détail des : &lt;span class=&quot;text-secondary&quot;&gt;élections&lt;/span&gt; est sur Be-Elect">
         <source>Tout le détail des : &lt;span class="text-secondary"&gt;élections&lt;/span&gt; est sur Be-Elect</source>
         <target><![CDATA[All the details of: <span class="text-secondary">elections</span> are on Be-Elect]]></target>
       </trans-unit>
-      <trans-unit id="YP.gGjv" resname="illustration de vote">
+      <trans-unit id="i7qcfbT" resname="illustration de vote">
         <source>illustration de vote</source>
         <target>Voting illustration</target>
       </trans-unit>
-      <trans-unit id="qUQLOLR" resname="Je trouve mon parti politique en 1 clic :">
+      <trans-unit id="p_rBevU" resname="Je trouve mon parti politique en 1 clic :">
         <source>Je trouve mon parti politique en 1 clic :</source>
         <target>Find my political party in 1 click:</target>
       </trans-unit>
-      <trans-unit id="mEWuGxa" resname="Un parti politique au hasard">
+      <trans-unit id="WRzoYbH" resname="Un parti politique au hasard">
         <source>Un parti politique au hasard</source>
         <target>A random political party</target>
       </trans-unit>
-      <trans-unit id=".EDxbIF" resname="Découvrir les élections passées">
+      <trans-unit id="ISD4lK3" resname="Découvrir les élections passées">
         <source>Découvrir les élections passées</source>
         <target>Discover past elections</target>
       </trans-unit>
-      <trans-unit id="dX4277Z" resname="Voir toutes les élections">
+      <trans-unit id="h2jn.m9" resname="Voir toutes les élections">
         <source>Voir toutes les élections</source>
         <target>See all elections</target>
       </trans-unit>
-      <trans-unit id="aIL2A1D" resname="découvrez la carte et le résultat des votes">
+      <trans-unit id="iz0KF7j" resname="découvrez la carte et le résultat des votes">
         <source>découvrez la carte et le résultat des votes</source>
         <target>discover the map and voting results</target>
       </trans-unit>
-      <trans-unit id="tNVfI5q" resname="Zoom sur les 6 parties majeurs">
+      <trans-unit id="Jz76uwV" resname="Zoom sur les 6 parties majeurs">
         <source>Zoom sur les 6 parties majeurs</source>
         <target>Focus on the 6 major parties</target>
       </trans-unit>
-      <trans-unit id="mC9.H1I" resname="Nombre votes">
+      <trans-unit id="TQtqg8E" resname="Nombre votes">
         <source>Nombre votes</source>
         <target>Number of votes</target>
       </trans-unit>
-      <trans-unit id="ABdzHhR" resname="Pourcentage">
+      <trans-unit id="T7mjvPf" resname="Pourcentage">
         <source>Pourcentage</source>
         <target>Percentage</target>
       </trans-unit>
-      <trans-unit id="TlyAXUF" resname="Election">
+      <trans-unit id="wlv7ICD" resname="Election">
         <source>Election</source>
         <target>Election</target>
       </trans-unit>
-      <trans-unit id="B4nEPvK" resname="Parti">
+      <trans-unit id="TDF.ilj" resname="Parti">
         <source>Parti</source>
         <target>Party</target>
       </trans-unit>
-      <trans-unit id="06AI7xM" resname="Region">
+      <trans-unit id="Wj6YhLG" resname="Region">
         <source>Region</source>
         <target>Region</target>
       </trans-unit>
-      <trans-unit id="q.zs_r6" resname="Province">
+      <trans-unit id="P.Z4kj7" resname="Province">
         <source>Province</source>
         <target>Province</target>
       </trans-unit>
-      <trans-unit id="sxeDk9N" resname="Arrondissement">
+      <trans-unit id="fHF3Tw1" resname="Arrondissement">
         <source>Arrondissement</source>
         <target>District</target>
       </trans-unit>
-      <trans-unit id="ysSvRK0" resname="Canton">
+      <trans-unit id="o2BhAZx" resname="Canton">
         <source>Canton</source>
         <target>Canton</target>
       </trans-unit>
-      <trans-unit id="6vDcKkM" resname="Commune">
+      <trans-unit id="FhZ4vBV" resname="Commune">
         <source>Commune</source>
         <target>Municipality</target>
       </trans-unit>
-      <trans-unit id="3TrjMlD" resname="En savoir plus">
+      <trans-unit id="qCPNyry" resname="En savoir plus">
         <source>En savoir plus</source>
         <target>Learn more</target>
       </trans-unit>
-      <trans-unit id="5bNFpGR" resname="illustration de&#10;                vote">
+      <trans-unit id="tnNaUex" resname="illustration de&#10;                vote">
         <source>illustration de
                 vote</source>
         <target>Voting illustration</target>
       </trans-unit>
-      <trans-unit id="iuUlMwO" resname="Carte">
+      <trans-unit id="pRnZx0K" resname="Carte">
         <source>Carte</source>
         <target>Map</target>
       </trans-unit>
-      <trans-unit id="7wBpkf1" resname="Graphique">
+      <trans-unit id="47cgSor" resname="Graphique">
         <source>Graphique</source>
         <target>Graph</target>
       </trans-unit>
-      <trans-unit id="59YmJz4" resname="Les partis politiques en Belgique">
+      <trans-unit id="I.z_7dD" resname="Les partis politiques en Belgique">
         <source>Les partis politiques en Belgique</source>
         <target>Political parties in Belgium</target>
       </trans-unit>
-      <trans-unit id="TXJgzmr" resname="Les &lt;span class=&quot;text-secondary&quot;&gt;partis politiques&lt;/span&gt; en Belgique">
+      <trans-unit id="dzj1opY" resname="Les &lt;span class=&quot;text-secondary&quot;&gt;partis politiques&lt;/span&gt; en Belgique">
         <source>Les &lt;span class="text-secondary"&gt;partis politiques&lt;/span&gt; en Belgique</source>
         <target><![CDATA[The <span class="text-secondary">political parties</span> in Belgium]]></target>
       </trans-unit>
-      <trans-unit id="4BxSY4l" resname="Les partis politiques représentés au parlement fédéral">
+      <trans-unit id="PQa9ZvH" resname="Les partis politiques représentés au parlement fédéral">
         <source>Les partis politiques représentés au parlement fédéral</source>
         <target>Political parties represented in the federal parliament</target>
       </trans-unit>
-      <trans-unit id="b7R.hyC" resname="Les partis politiques en Flandre">
+      <trans-unit id="8wQ46tG" resname="Les partis politiques en Flandre">
         <source>Les partis politiques en Flandre</source>
         <target>Political parties in Flanders</target>
       </trans-unit>
-      <trans-unit id="1vFVxLg" resname="Les partis politiques à Bruxelles">
+      <trans-unit id="0x6B97A" resname="Les partis politiques à Bruxelles">
         <source>Les partis politiques à Bruxelles</source>
         <target>Political parties in Brussels</target>
       </trans-unit>
-      <trans-unit id="1PEUV4p" resname="Les partis politiques en Wallonie">
+      <trans-unit id="YXeIsOR" resname="Les partis politiques en Wallonie">
         <source>Les partis politiques en Wallonie</source>
         <target>Political parties in Wallonia</target>
       </trans-unit>
-      <trans-unit id="cy_gILu" resname="Les partis politiques en communauté germanophone">
+      <trans-unit id="NVg1rpi" resname="Les partis politiques en communauté germanophone">
         <source>Les partis politiques en communauté germanophone</source>
         <target>Political parties in the German-speaking community</target>
       </trans-unit>
-      <trans-unit id="Z3df5Gg" resname="Les partis politiques non-représentés au parlement fédéral">
+      <trans-unit id="pUK3xaS" resname="Les partis politiques non-représentés au parlement fédéral">
         <source>Les partis politiques non-représentés au parlement fédéral</source>
         <target>Political parties not represented in the federal parliament</target>
       </trans-unit>
-      <trans-unit id="5l53fij" resname="Afficher plus">
+      <trans-unit id="H6LP9HA" resname="Afficher plus">
         <source>Afficher plus</source>
         <target>Show more</target>
       </trans-unit>
-      <trans-unit id="DCIvF.v" resname="Les partis politiques disparus">
+      <trans-unit id="sCcroxr" resname="Les partis politiques disparus">
         <source>Les partis politiques disparus</source>
         <target>Defunct political parties</target>
       </trans-unit>
-      <trans-unit id="LCzmtFB" resname="logo de %nom%">
+      <trans-unit id="cF35bcE" resname="logo de %nom%">
         <source>logo de %nom%</source>
         <target>logo of %nom%</target>
       </trans-unit>
-      <trans-unit id="dkfqbqJ" resname="A propos du parti">
+      <trans-unit id="TrE0xkl" resname="A propos du parti">
         <source>A propos du parti</source>
         <target>About the party</target>
       </trans-unit>
-      <trans-unit id="FED0_IS" resname="Présentation détaillée">
+      <trans-unit id="IuGOG59" resname="Présentation détaillée">
         <source>Présentation détaillée</source>
         <target>Detailed presentation</target>
       </trans-unit>
-      <trans-unit id="S.fi5zw" resname="Résultats électoraux du parti">
+      <trans-unit id="IPSJ8Sx" resname="Résultats électoraux du parti">
         <source>Résultats électoraux du parti</source>
         <target>Electoral results of the party</target>
       </trans-unit>
-      <trans-unit id="4yaI4_4" resname="Participations gouvernementales pour les différents niveaux de pouvoir">
+      <trans-unit id="bIPN2bE" resname="Participations gouvernementales pour les différents niveaux de pouvoir">
         <source>Participations gouvernementales pour les différents niveaux de pouvoir</source>
         <target>Government participation at different levels of power</target>
       </trans-unit>
-      <trans-unit id="gzVBwog" resname="Les dates non cliquables représentent les législatures pour lesquelles&#10;                            le parti %partiName% n’était pas au gouvernement.">
+      <trans-unit id="uMxxyWT" resname="Les dates non cliquables représentent les législatures pour lesquelles&#10;                            le parti %partiName% n’était pas au gouvernement.">
         <source>Les dates non cliquables représentent les législatures pour lesquelles
                             le parti %partiName% n’était pas au gouvernement.</source>
         <target>Non-clickable dates represent the legislatures for which the party %partiName% was not in the government.</target>
       </trans-unit>
-      <trans-unit id="uJih_CU" resname="Président :">
+      <trans-unit id="XlrdQzt" resname="Président :">
         <source>Président :</source>
         <target>President:</target>
       </trans-unit>
-      <trans-unit id="jfGHMNY" resname="Découvrir son&#10;                    activité">
+      <trans-unit id="OYZqllT" resname="Découvrir son&#10;                    activité">
         <source>Découvrir son
                     activité</source>
         <target>Discover its activity</target>
+      </trans-unit>
+      <trans-unit id="pSlm.P." resname="Election date">
+        <source>Election date</source>
+        <target>__Election date</target>
+      </trans-unit>
+      <trans-unit id="QuAayZw" resname="Les résultats des élections en Belgique">
+        <source>Les résultats des élections en Belgique</source>
+        <target>__Les résultats des élections en Belgique</target>
+      </trans-unit>
+      <trans-unit id="vKoKmj1" resname="Les &lt;span class=&quot;text-secondary&quot;&gt;résultats&lt;/span&gt; des élections en Belgique">
+        <source>Les &lt;span class="text-secondary"&gt;résultats&lt;/span&gt; des élections en Belgique</source>
+        <target><![CDATA[__Les <span class="text-secondary">résultats</span> des élections en Belgique]]></target>
+      </trans-unit>
+      <trans-unit id="yR002Nv" resname="Chercher une élection législative par date :">
+        <source>Chercher une élection législative par date :</source>
+        <target>__Chercher une élection législative par date :</target>
+      </trans-unit>
+      <trans-unit id="zg3tl3P" resname="Cherchez ici la date d’une élection (exemple : 1990, 1996…)">
+        <source>Cherchez ici la date d’une élection (exemple : 1990, 1996…)</source>
+        <target>__Cherchez ici la date d’une élection (exemple : 1990, 1996…)</target>
+      </trans-unit>
+      <trans-unit id="wnC8tli" resname="illustration de parlement">
+        <source>illustration de parlement</source>
+        <target>__illustration de parlement</target>
+      </trans-unit>
+      <trans-unit id="SJOrsxi" resname="Comment se déroulent les élections en Belgique">
+        <source>Comment se déroulent les élections en Belgique</source>
+        <target>__Comment se déroulent les élections en Belgique</target>
+      </trans-unit>
+      <trans-unit id="iCMGihY" resname="Les élections legislatives en Belgique">
+        <source>Les élections legislatives en Belgique</source>
+        <target>__Les élections legislatives en Belgique</target>
+      </trans-unit>
+      <trans-unit id="fIF9l4W" resname="Les élections &lt;span class=&quot;text-secondary&quot;&gt;legislatives&lt;/span&gt; en Belgique">
+        <source>Les élections &lt;span class="text-secondary"&gt;legislatives&lt;/span&gt; en Belgique</source>
+        <target><![CDATA[__Les élections <span class="text-secondary">legislatives</span> en Belgique]]></target>
+      </trans-unit>
+      <trans-unit id="OGxFByQ" resname="Tout savoir sur les les législatives en Belgique">
+        <source>Tout savoir sur les les législatives en Belgique</source>
+        <target>__Tout savoir sur les les législatives en Belgique</target>
+      </trans-unit>
+      <trans-unit id="LS8KQ1L" resname="Illustration du parlement européen et son drapeau">
+        <source>Illustration du parlement européen et son drapeau</source>
+        <target>__Illustration du parlement européen et son drapeau</target>
+      </trans-unit>
+      <trans-unit id="XGbb7Sl" resname="Carte administrative des communes, provinces et régions belges">
+        <source>Carte administrative des communes, provinces et régions belges</source>
+        <target>__Carte administrative des communes, provinces et régions belges</target>
+      </trans-unit>
+      <trans-unit id="Nb1dJB9" resname="Drapeau de la Communauté germanophone de Belgique,">
+        <source>Drapeau de la Communauté germanophone de Belgique,</source>
+        <target>__Drapeau de la Communauté germanophone de Belgique,</target>
+      </trans-unit>
+      <trans-unit id="jhvzlfk" resname="en Belgique">
+        <source>en Belgique</source>
+        <target>in Belgium</target>
+      </trans-unit>
+      <trans-unit id="UlOGHkJ" resname="Afficher moins">
+        <source>Afficher moins</source>
+        <target>Show Less</target>
+      </trans-unit>
+      <trans-unit id="2b8wRma" resname="type_election.main_title.2">
+        <source>type_election.main_title.2</source>
+        <target>Senate Elections</target>
+      </trans-unit>
+      <trans-unit id="uSrpKIu" resname="Niveau %governmentType%">
+        <source>Niveau %governmentType%</source>
+        <target>__Niveau %governmentType%</target>
+      </trans-unit>
+      <trans-unit id="M4bT9DG" resname="Nombre adhérents">
+        <source>Nombre adhérents</source>
+        <target>__Nombre adhérents</target>
+      </trans-unit>
+      <trans-unit id="RcLit66" resname="En cours">
+        <source>En cours</source>
+        <target>__En cours</target>
+      </trans-unit>
+      <trans-unit id="ju6RZ8V" resname="Archive des programmes politiques">
+        <source>Archive des programmes politiques</source>
+        <target>__Archive des programmes politiques</target>
+      </trans-unit>
+      <trans-unit id="QEJhktS" resname="Archive des status politiques">
+        <source>Archive des status politiques</source>
+        <target>__Archive des status politiques</target>
+      </trans-unit>
+      <trans-unit id="4OmFXkm" resname="Aperçu">
+        <source>Aperçu</source>
+        <target>__Aperçu</target>
+      </trans-unit>
+      <trans-unit id="0jheip6" resname="Fermer">
+        <source>Fermer</source>
+        <target>__Fermer</target>
+      </trans-unit>
+      <trans-unit id="GQt16hk" resname="Toutes les &lt;span class=&quot;text-secondary&quot;&gt;resources&lt;/span&gt;">
+        <source>Toutes les &lt;span class="text-secondary"&gt;resources&lt;/span&gt;</source>
+        <target><![CDATA[__Toutes les <span class="text-secondary">resources</span>]]></target>
+      </trans-unit>
+      <trans-unit id="7.5qrxg" resname="Rechercher">
+        <source>Rechercher</source>
+        <target>__Rechercher</target>
+      </trans-unit>
+      <trans-unit id="WXyuov0" resname="Plus d'infos sur cette élection">
+        <source>Plus d'infos sur cette élection</source>
+        <target>More information about this election</target>
+      </trans-unit>
+      <trans-unit id="Ld1pzIu" resname="Les autres élections en Belgique">
+        <source>Les autres élections en Belgique</source>
+        <target>Other elections in Belgium</target>
       </trans-unit>
     </body>
   </file>

@@ -749,7 +749,22 @@ h1 {
     background-position: center;
 
     .card {
-      border-radius: 10px;
+      // border-radius: 10px;
+    }
+  }
+
+  .history table {
+    td.left {
+      padding-left: 10em;
+      @include respond-to-mobile-and-tablet {
+        padding-left: 0em;
+      }
+    }
+    td.right {
+      padding-right: 10em;
+      @include respond-to-mobile-and-tablet {
+        padding-right: 0em;
+      }
     }
   }
 }
