@@ -42,19 +42,6 @@ class TypeElectionRepository extends ServiceEntityRepository
         }
     }
 
-
-
-
-    public function findAllElections(): array
-    {
-        return $this->createQueryBuilder('te')
-            ->leftJoin('te.translations', 'tt')
-            ->addSelect('tt')
-            ->getQuery()
-            ->getResult();
-    }
-
-
     //    /**
     //     * @return TypeElection[] Returns an array of TypeElection objects
     //     */

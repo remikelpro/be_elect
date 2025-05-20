@@ -27,7 +27,7 @@ class ElectionController extends AbstractBeElectController
         ]);
 
         $latestElections = $this->electionRepository->findLastElections();
-        $allElections = $this->typeElectionRepository->findAllElections();
+        $allElections = $this->typeElectionRepository->findAll();;
 
         return $this->render('election/index.html.twig', [
             'breadcrumb' => $breadcrumb,
@@ -40,12 +40,23 @@ class ElectionController extends AbstractBeElectController
     public function typeElection($slug): Response
     {
         $typeElection = $this->typeElectionRepository->findOneBySlug($slug);
-        $allElections = $this->typeElectionRepository->findAllElections();
-        // dd($allElections);
+        $allElections = $this->typeElectionRepository->findAll();
+        $imagePath = $this->getImagePathForElection($typeElection->getName());
 
         return $this->render('election/type.html.twig', [
             'typeElection' => $typeElection,
-            'all_elections' => $allElections
+            'all_elections' => $allElections,
+            'image_path' => $imagePath
         ]);
+    }
+
+    private function getImagePathForElection(string $name): string
+    {
+        return match ($name) {
+            'Sénat', 'Chambre de représentants' => 'img/election/icon-legislatives.svg',
+            'Parlement européen' => 'img/election/icon-europeennes.svg',
+            'Province', 'Flandre', 'Wallonie', 'Communauté germanophone' => 'img/election/icon-regionales.svg',
+            default => 'img/election/icon-default.svg',
+        };
     }
 }
