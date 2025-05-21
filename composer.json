@@ -9,6 +9,7 @@
         "ext-iconv": "*",
         "a2lix/translation-form-bundle": "^3.2",
         "api-platform/core": "^3.0",
+        "beberlei/doctrineextensions": "^1.5",
         "doctrine/annotations": "^2.0",
         "doctrine/doctrine-bundle": "^2.7",
         "doctrine/doctrine-migrations-bundle": "^3.3",

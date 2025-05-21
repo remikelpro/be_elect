@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Election;
+use App\Entity\TypeElection;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -53,7 +54,16 @@ class ElectionRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-
+    public function findByTypeAndYear(TypeElection $typeElection, int $year): ?Election
+    {
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.idTypeElection = :type')
+            ->andWhere('YEAR(e.date) = :year')
+            ->setParameter('type', $typeElection)
+            ->setParameter('year', $year)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 
 
 

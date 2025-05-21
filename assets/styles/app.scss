@@ -95,6 +95,11 @@ body {
 .bg-grey {
   background-color: $grey;
 }
+
+.bg-blue {
+  background-color: $primary;
+  color: $white;
+}
 @keyframes border_anim {
   0% {
     width: 0%;
@@ -625,26 +630,8 @@ h1 {
 //### ELECTIONS ####
 //##################
 
-#elections {
-  .elections-infos {
-    background-image: url("../img/bg/elections-infos-bg.png");
-
-    .card {
-      border-radius: 10px;
-    }
-
-    .card-large {
-      width: 75%;
-
-      @include respond-to-mobile-and-tablet {
-        width: 100%;
-      }
-    }
-  }
-}
-
-// ALL ELECTIONS
-.all-elections {
+//LAYOUT
+.split-layout {
   .container {
     @include respond-to-mobile-and-tablet {
       align-items: center;
@@ -737,8 +724,28 @@ h1 {
   z-index: 0;
 }
 
+//Index
+
+#elections {
+  .elections-infos {
+    background-image: url("../img/bg/elections-infos-bg.png");
+
+    .card {
+      border-radius: 10px;
+    }
+
+    .card-large {
+      width: 75%;
+
+      @include respond-to-mobile-and-tablet {
+        width: 100%;
+      }
+    }
+  }
+}
+
 //##################
-//### ELECTIONS  TYPE####
+//## ELECTION TYPE##
 //##################
 
 #election {
@@ -766,5 +773,22 @@ h1 {
         padding-right: 0em;
       }
     }
+  }
+}
+
+//##################
+//## ELECTION DATE##
+//##################
+
+#election-date {
+  .results {
+    background-image: url("../img/bg/election-results-bg.png");
+  }
+
+  .date {
+    font-size: 5rem;
+    font-weight: 700;
+    font-family: "MuseoModerno", sans-serif;
+    color: $secondary;
   }
 }

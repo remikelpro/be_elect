@@ -1,5 +1,5 @@
 {
-  "build/app.css": "/build/app.06ae58c0.css",
+  "build/app.css": "/build/app.287f3b98.css",
   "build/app.js": "/build/app.3446eef3.js",
   "build/home.js": "/build/home.3197c42a.js",
   "build/parti.js": "/build/parti.a5a882d8.js",
@@ -23,6 +23,7 @@
   "build/fonts/PTS75F.ttf": "/build/fonts/PTS75F.67299b07.ttf",
   "build/fonts/PTS55F.ttf": "/build/fonts/PTS55F.6b198b59.ttf",
   "build/images/non-federal-bg.png": "/build/images/non-federal-bg.eeea4710.png",
+  "build/images/election-results-bg.png": "/build/images/election-results-bg.2f96ac8e.png",
   "build/fonts/bootstrap-icons.woff?": "/build/fonts/bootstrap-icons.6959d0d9.woff",
   "build/fonts/bootstrap-icons.woff2?": "/build/fonts/bootstrap-icons.b2e5aab6.woff2",
   "build/fonts/MuseoModerno-Regular.ttf": "/build/fonts/MuseoModerno-Regular.6019bae4.ttf",

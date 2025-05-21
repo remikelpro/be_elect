@@ -1,16 +1,14 @@
 <article class="container my-2 d-flex flex-column flex-lg-row w-100">
-  {# <article class="container"> #}
-    <div class="img-container"><img src="{{ asset('img/election/' ~ election.logo) }}" class="img-fluid" /></div>
-    <div class="text-container {{ is_odd ? 'bg-grey' }}">
-      <h3>{{ election.name }}</h3>
-      <p>{{ election.description|raw }}</p>
-      {# prettier-ignore-start #}
+  <div class="img-container"><img src="{{ asset('img/election/' ~ election.logo) }}" class="img-fluid" /></div>
+  <div class="text-container {{ is_odd ? 'bg-grey' }}">
+    <h3>{{ election.title }}</h3>
+    <p>{{ election.description|raw }}</p>
+    {# prettier-ignore-start #}
     <a 
     href="{{ path('electionType', { slug: election.slug }) }}" 
     class="btn btn-secondary d-block d-md-inline mx-auto mx-md-0 text-center text-md-start">
     {{'Voir toutes les élections'|trans}}
     </a>
     {# prettier-ignore-end #}
-    </div>
-  </article>
+  </div>
 </article>

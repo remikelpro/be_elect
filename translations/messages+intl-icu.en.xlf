@@ -322,7 +322,7 @@
       </trans-unit>
       <trans-unit id="QuAayZw" resname="Les résultats des élections en Belgique">
         <source>Les résultats des élections en Belgique</source>
-        <target>__Les résultats des élections en Belgique</target>
+        <target>Election Results in Belgium"</target>
       </trans-unit>
       <trans-unit id="3JMQc.v" resname="Les dernières élections en Belgique">
         <source>Les dernières élections en Belgique</source>

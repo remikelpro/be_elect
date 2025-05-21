@@ -41,7 +41,7 @@
       </div>
     </section>
 
-    <section class="container-fluid bg-midnight-blue py-5">
+    <section class="container-fluid bg-midnight-blue py-4">
       <div class="container">
         <h2 class="mb-4 text-start">{{ 'Les prochaines élections en Belgique'|trans }}</h2>
         <p>
@@ -53,7 +53,7 @@
       </div>
     </section>
 
-    <section class="elections-grid py-5">
+    <section class="elections-grid py-4">
       <div class="container">
         <h2 class="text-center">{{ 'Les dernières élections en Belgique'|trans }}</h2>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-5">
@@ -68,7 +68,7 @@
       </div>
     </section>
     {% set i = 0 %}
-    <section class="all-elections">
+    <section class="split-layout">
       <h2 class="my-5 text-center">{{ 'Toutes les élections en Belgique'|trans }}</h2>
       {% for election in all_elections %}
         {% set i = i + 1 %}

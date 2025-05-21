@@ -39,22 +39,16 @@ class ElectionController extends AbstractBeElectController
     #[Route('/elections/{slug}', name: 'electionType')]
     public function typeElection($slug): Response
     {
-
-
         $typeElection = $this->typeElectionRepository->findOneBySlug($slug);
-        // dd($typeElection);
 
         $electionsByType = $this->typeElectionRepository->findAll();
+
         $imagePath = $this->getImagePathForElection($typeElection->getName());
+
         $electionsByDate = $this->electionRepository->findBy(
             ['idTypeElection' => $typeElection],
             ['date' => 'DESC']
         );
-
-        // dd($electionsByDate);
-
-
-
 
         $breadcrumb = $this->getBreadcrumb([
             ['name' => $this->translator->trans('Elections'), 'href' => $this->generateUrl('elections')],
@@ -69,6 +63,31 @@ class ElectionController extends AbstractBeElectController
             'all_elections_date' =>   $electionsByDate
         ]);
     }
+
+    #[Route('/elections/{slug}/{year}', name: 'electionDate')]
+    public function electionByTypeAndYear(string $slug, int $year): Response
+    {
+
+
+        $typeElection = $this->typeElectionRepository->findOneBySlug($slug);
+
+        $electionByDate = $this->electionRepository->findByTypeAndYear($typeElection, $year);
+
+        $year = $electionByDate->getDate()->format('Y');
+
+
+        $breadcrumb = $this->getBreadcrumb([
+            ['name' => $this->translator->trans('Elections'), 'href' => $this->generateUrl('elections')],
+            ['name' => $typeElection->getName(), 'href' => $this->generateUrl('electionType', ['slug' => $typeElection->getSlug()])],
+            ['name' => $year]
+        ]);
+
+        return $this->render('election/date.html.twig', [
+            'breadcrumb' => $breadcrumb,
+            'election' => $electionByDate
+        ]);
+    }
+
 
     private function getImagePathForElection(string $name): string
     {

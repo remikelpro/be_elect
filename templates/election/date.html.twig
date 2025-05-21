@@ -1,0 +1,95 @@
+{% extends 'layout.html.twig' %}
+
+{# {% block title %}
+  {# {{ typeElection.name }} #}
+{# {% endblock %} #}
+
+{% block page_contents %}
+  {% if breadcrumb is defined %}
+    {% include 'partial/breadcrumb.html.twig' with {
+      breadcrumb: breadcrumb
+    } %}
+  {% endif %}
+  <div id="election-date">
+    <section class="my-2 container py-4"><h2 class="text-center">{{ "Candidats à l'élection"|trans }}</h2></section>
+
+    <section class="my-2 container"><h2 class="text-center">{{ 'Sondages'|trans }}</h2></section>
+    <section class="results isDark p-4">
+      <div class="container">
+        <h2 class="text-start">{{ 'Résultats'|trans }} {{ election.date|date('Y') }}</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit earum minus repellendus officiis sapiente
+          veniam, labore omnis eum nesciunt itaque, placeat iure quos voluptatibus hic excepturi! Iure doloremque vitae
+          assumenda!
+        </p>
+        <p>
+          Ea voluptatum veniam eligendi modi at corrupti expedita molestias! Aut, accusantium ad cumque earum unde
+          recusandae repudiandae fugiat ipsa, porro sapiente delectus! Dolorum exercitationem iure nesciunt, fugiat amet
+          voluptatem quis?
+        </p>
+        <p>
+          In accusamus facilis praesentium ipsam commodi voluptate eligendi amet aut quo excepturi ut dolore alias ex,
+          consequatur repellat quaerat. Commodi dolor, dignissimos recusandae molestias minima incidunt vitae eveniet
+          voluptatum fuga!
+        </p>
+      </div>
+    </section>
+    <section class="container py-4">
+      <div class="row align-items-center text-center text-md-start">
+        <div class="col-12 col-md-6">
+          <h3>{{ 'Résultats au niveau...'|trans }}</h3>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis doloremque sit possimus velit cum, rem minima
+            expedita qui commodi debitis!
+          </p>
+        </div>
+        <div class="col-12 col-md-6">
+          <p>Tableaux</p>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis doloremque sit possimus velit cum, rem minima
+            expedita qui commodi debitis!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container-fluid bg-blue py-4">
+      <div class="container">
+        <h2 class="text-start">{{ 'Composition du gouvernement'|trans }}</h2>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur expedita beatae cumque ut? Quaerat
+          asperiores, et culpa fugit consequatur soluta odit iure dolorem ex nisi. Exercitationem voluptates illum magni
+          quas vero explicabo quia, dignissimos vitae ex? Ab aperiam ratione quis?
+        </p>
+      </div>
+    </section>
+    <section class="split-layout py-4">
+      <h2 class="text-center">{{ "L'historique des élections..."|trans }}</h2>
+      <article class="container my-2 d-flex flex-column flex-lg-row w-100">
+        {# <article class="container"> #}
+        <div class="img-container"><span class="date">2014</span></div>
+        <div class="text-container bg-grey">
+          <h3>{{ election.name }}</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit labore voluptas quos ullam atque ut quam,
+            eaque itaque illo illum voluptates, debitis magnam dolore! Totam vero nemo reiciendis nostrum corrupti.
+          </p>
+          {# prettier-ignore-start #}
+            <a
+          href="{{ path('electionType', { slug: election.slug }) }}" 
+          class="btn btn-secondary d-block d-md-inline mx-auto mx-md-0 text-center text-md-start">
+          {{'En savoir + sur cette élection'|trans}}
+          </a>
+        </div>
+      </article>
+        <div class="container text-center">
+          <button 
+            href="{{ path('electionType', { slug: election.slug }) }}" 
+            class="btn btn-secondary d-block d-md-inline mx-auto mx-md-0 text-center text-md-start">
+            {{'Voir toutes les élections'|trans}}
+          </button>
+        </div>
+            {# prettier-ignore-end #}
+    </section>
+  </div>
+{% endblock %}
