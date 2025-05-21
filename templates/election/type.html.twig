@@ -28,12 +28,7 @@
           </div>
         </div>
         <div class="col-lg-5 d-flex align-self-center">
-          <img
-            src="{{ asset(image_path) }}"
-            class="w-100 illustration"
-            alt="{{ '
-                illustration de parlement'|trans }}"
-          />
+          <img src="{{ asset(image_path) }}" class="w-100 illustration" alt="" />
         </div>
       </div>
     </section>
@@ -51,7 +46,7 @@
     </section>
 
     <section class="history container-fluid bg-light py-5">
-      <h2 class="mb-4 ps-4 text-center">L'historique des élections législatives en Belgique</h2>
+      <h2 class="mb-4 ps-4 text-center">{{ "L'historique des élections législatives en Belgique"|trans }}</h2>
       <table class="table table-striped text-center">
         <tbody id="election-rows">
           {% for election in all_elections_date %}
@@ -119,13 +114,16 @@
         </div>
       </div>
     </section>
-
+    {% set i = 0 %}
     <section class="all-elections">
       <h2 class="my-5 text-center">{{ 'Les autres élections en Belgique'|trans }}</h2>
+
       {% for election in all_elections_type %}
         {% if election.name != typeElection.name %}
+          {% set i = i + 1 %}
           {% include 'election/_all-elections.html.twig' with {
-            election: election
+            election: election,
+            is_odd: i is odd
           } %}
         {% endif %}
       {% endfor %}

@@ -1,7 +1,7 @@
 <article class="container my-2 d-flex flex-column flex-lg-row w-100">
   {# <article class="container"> #}
     <div class="img-container"><img src="{{ asset('img/election/' ~ election.logo) }}" class="img-fluid" /></div>
-    <div class="text-container {{ loop.index is odd ? 'bg-grey' }}">
+    <div class="text-container {{ is_odd ? 'bg-grey' }}">
       <h3>{{ election.name }}</h3>
       <p>{{ election.description|raw }}</p>
       {# prettier-ignore-start #}

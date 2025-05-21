@@ -148,7 +148,7 @@
       </trans-unit>
       <trans-unit id="dzj1opY" resname="Les &lt;span class=&quot;text-secondary&quot;&gt;partis politiques&lt;/span&gt; en Belgique">
         <source>Les &lt;span class="text-secondary"&gt;partis politiques&lt;/span&gt; en Belgique</source>
-        <target><![CDATA[The <span class="text-secondary">political parties</span> in Belgium]]></target>
+        <target><![CDATA[<span class="text-secondary">Political Parties</span> in Belgium]]></target>
       </trans-unit>
       <trans-unit id="PQa9ZvH" resname="Les partis politiques représentés au parlement fédéral">
         <source>Les partis politiques représentés au parlement fédéral</source>
@@ -220,13 +220,9 @@
         <source>Election date</source>
         <target>__Election date</target>
       </trans-unit>
-      <trans-unit id="QuAayZw" resname="Les résultats des élections en Belgique">
-        <source>Les résultats des élections en Belgique</source>
-        <target>__Les résultats des élections en Belgique</target>
-      </trans-unit>
       <trans-unit id="vKoKmj1" resname="Les &lt;span class=&quot;text-secondary&quot;&gt;résultats&lt;/span&gt; des élections en Belgique">
         <source>Les &lt;span class="text-secondary"&gt;résultats&lt;/span&gt; des élections en Belgique</source>
-        <target><![CDATA[__Les <span class="text-secondary">résultats</span> des élections en Belgique]]></target>
+        <target><![CDATA[Election <span class="text-secondary">Results</span> in Belgium]]></target>
       </trans-unit>
       <trans-unit id="yR002Nv" resname="Chercher une élection législative par date :">
         <source>Chercher une élection législative par date :</source>
@@ -242,7 +238,7 @@
       </trans-unit>
       <trans-unit id="SJOrsxi" resname="Comment se déroulent les élections en Belgique">
         <source>Comment se déroulent les élections en Belgique</source>
-        <target>__Comment se déroulent les élections en Belgique</target>
+        <target>How do elections take place in Belgium?</target>
       </trans-unit>
       <trans-unit id="iCMGihY" resname="Les élections legislatives en Belgique">
         <source>Les élections legislatives en Belgique</source>
@@ -323,6 +319,22 @@
       <trans-unit id="Ld1pzIu" resname="Les autres élections en Belgique">
         <source>Les autres élections en Belgique</source>
         <target>Other elections in Belgium</target>
+      </trans-unit>
+      <trans-unit id="QuAayZw" resname="Les résultats des élections en Belgique">
+        <source>Les résultats des élections en Belgique</source>
+        <target>__Les résultats des élections en Belgique</target>
+      </trans-unit>
+      <trans-unit id="3JMQc.v" resname="Les dernières élections en Belgique">
+        <source>Les dernières élections en Belgique</source>
+        <target>The latest elections in Belgium</target>
+      </trans-unit>
+      <trans-unit id="wAkLhJG" resname="Les prochaines élections en Belgique">
+        <source>Les prochaines élections en Belgique</source>
+        <target>The next elections in Belgium</target>
+      </trans-unit>
+      <trans-unit id="kugCfoV" resname="Toutes les élections en Belgique">
+        <source>Toutes les élections en Belgique</source>
+        <target>All elections in Belgium</target>
       </trans-unit>
     </body>
   </file>
