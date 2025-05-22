@@ -11,7 +11,7 @@
     } %}
   {% endif %}
   <div id="election">
-    <section class="my-2 container">
+    <section class="my-2 container py-4">
       <div class="row">
         <div class="col-lg-7">
           <h1>{{ typeElection.title }}</h1>
@@ -31,7 +31,7 @@
       </div>
     </section>
 
-    <section class="container-fluid bg-midnight-blue py-5">
+    <section class="container-fluid bg-midnight-blue py-4">
       <div class="container">
         <h2 class="mb-4 text-start">Prochaines élections du {{ typeElection.name|trans|raw }} de 2024 en Belgique</h2>
         <p>
@@ -43,7 +43,7 @@
       </div>
     </section>
 
-    <section class="history container-fluid bg-light py-5">
+    <section class="history container-fluid bg-light py-4">
       <h2 class="mb-4 ps-4 text-center">{{ "L'historique des élections législatives en Belgique"|trans }}</h2>
       <table class="table table-striped text-center">
         <tbody id="election-rows">
@@ -83,7 +83,7 @@
       </div>
     </section>
 
-    <section class="election-infos py-5">
+    <section class="election-infos {{ typeElection.getCssClass }} py-4">
       <div class="container">
         <div class="card bg-blur p-4">
           <h2>{{ 'Tout savoir sur...'|trans }}</h2>
@@ -125,7 +125,7 @@
       </div>
     </section>
     {% set i = 0 %}
-    <section class="split-layout">
+    <section class="split-layout py-4">
       <h2 class="my-5 text-center">{{ 'Les autres élections en Belgique'|trans }}</h2>
 
       {% for election in all_elections_type %}

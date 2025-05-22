@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\TypeElection;
+use App\Entity\TypeElectionTranslation;
 use App\Repository\ElectionRepository;
 use App\Repository\TypeElectionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,7 +17,7 @@ class ElectionController extends AbstractBeElectController
         private TypeElectionRepository $typeElectionRepository,
         private TranslatorInterface $translator,
         private ElectionRepository $electionRepository,
-        private TypeElectionRepository $TypeElectionRepository
+        private TypeElectionRepository $TypeElectionRepository,
     ) {}
 
     #[Route('/elections', name: 'elections')]
@@ -43,7 +45,7 @@ class ElectionController extends AbstractBeElectController
 
         $electionsByType = $this->typeElectionRepository->findAll();
 
-        $imagePath = $this->getImagePathForElection($typeElection->getName());
+        $imagePath = $typeElection->getMainIcon();
 
         $electionsByDate = $this->electionRepository->findBy(
             ['idTypeElection' => $typeElection],
@@ -89,13 +91,13 @@ class ElectionController extends AbstractBeElectController
     }
 
 
-    private function getImagePathForElection(string $name): string
-    {
-        return match ($name) {
-            'Sénat', 'Chambre des représentants' => 'img/election/icon-legislatives.svg',
-            'Parlement européen' => 'img/election/icon-europeennes.svg',
-            'Province', 'Flandre', 'Wallonie', 'Communauté germanophone' => 'img/election/icon-regionales.svg',
-            default => 'img/election/icon-default.svg',
-        };
-    }
+    // private function getImagePathForElection(string $name): string
+    // {
+    //     return match ($name) {
+    //         'Sénat', 'Chambre des représentants' => 'img/election/icon-legislatives.svg',
+    //         'Parlement européen' => 'img/election/icon-europeennes.svg',
+    //         'Province', 'Flandre', 'Wallonie', 'Communauté germanophone' => 'img/election/icon-regionales.svg',
+    //         default => 'img/election/icon-default.svg',
+    //     };
+    // }
 }

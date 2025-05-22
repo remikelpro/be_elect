@@ -10,6 +10,11 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: TypeElectionRepository::class)]
 class TypeElection extends AbstractTranslation
 {
+
+    public const LEGISLATIVES_IDS = [2, 3];
+    public const EUROPEENNES_ID = 5;
+    public const REGIONALES_IDS = [4, 6, 7, 8];
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -47,6 +52,10 @@ class TypeElection extends AbstractTranslation
         return $this;
     }
 
+
+
+
+
     /**
      * @return Collection<int, Election>
      */
@@ -80,5 +89,25 @@ class TypeElection extends AbstractTranslation
     public function __toString()
     {
         return $this->getName();
+    }
+
+    public function getMainIcon(): string
+    {
+        return match (true) {
+            in_array($this->id, self::LEGISLATIVES_IDS) => 'img/election/icon-legislatives.svg',
+            $this->id === self::EUROPEENNES_ID           => 'img/election/icon-europeennes.svg',
+            in_array($this->id, self::REGIONALES_IDS)    => 'img/election/icon-regionales.svg',
+            default                                       => 'img/election/icon-default.svg',
+        };
+    }
+
+
+    public function getCssClass(): string
+    {
+        return match (true) {
+            in_array($this->id, self::LEGISLATIVES_IDS, self::EUROPEENNES_ID)  => 'bg-federal',
+            in_array($this->id, self::REGIONALES_IDS)  => 'bg-regional',
+            default => 'bg-federal',
+        };
     }
 }

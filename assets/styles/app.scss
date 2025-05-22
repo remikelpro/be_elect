@@ -51,15 +51,41 @@ $dropdown-dark-bg: $primary;
 //##### MIXINS #####
 //####################
 
-@mixin respond-to-tablet {
-  @media (min-width: 768px) {
+@mixin respond-to-mobile {
+  @media (max-width: 575.98px) {
     @content;
   }
 }
 
-@mixin respond-to-desktop {
-  @media (min-width: 990px) {
+@mixin respond-to-tablet {
+  @media (min-width: 576px) and (max-width: 991.98px) {
     @content;
+  }
+}
+
+@mixin respond-to-mobile-and-tablet {
+  @media (max-width: 990px) {
+    @content;
+  }
+}
+
+@mixin background-stretch($image-url, $blur: false) {
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url(#{$image-url});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+
+    @if $blur {
+      filter: blur(8px);
+    }
   }
 }
 
@@ -608,24 +634,6 @@ h1 {
   }
 }
 
-@mixin respond-to-mobile {
-  @media (max-width: 575.98px) {
-    @content;
-  }
-}
-
-@mixin respond-to-tablet {
-  @media (min-width: 576px) and (max-width: 991.98px) {
-    @content;
-  }
-}
-
-@mixin respond-to-mobile-and-tablet {
-  @media (max-width: 990px) {
-    @content;
-  }
-}
-
 //##################
 //### ELECTIONS ####
 //##################
@@ -724,11 +732,11 @@ h1 {
   z-index: 0;
 }
 
-//Index
+//Page index
 
 #elections {
   .elections-infos {
-    background-image: url("../img/bg/elections-infos-bg.png");
+    @include background-stretch("../img/bg/elections-infos-bg.png");
 
     .card {
       border-radius: 10px;
@@ -750,13 +758,15 @@ h1 {
 
 #election {
   .election-infos {
-    background-image: url("../img/bg/legislatives-infos-bg.png");
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    background-position: center;
+    &.bg-regional {
+      @include background-stretch("../img/bg/federal-infos-bg.png", true);
+    }
 
+    &.bg-federal {
+      @include background-stretch("../img/bg/legislatives-infos-bg.png", true);
+    }
     .card {
-      // border-radius: 10px;
+      border-radius: 10px;
     }
   }
 
