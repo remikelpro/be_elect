@@ -33,6 +33,9 @@ class TypeElectionTranslation implements TranslationInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $title = null;
 
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $all_about = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -106,6 +109,18 @@ class TypeElectionTranslation implements TranslationInterface
     public function setTitle(?string $title): static
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getAllAbout(): ?string
+    {
+        return $this->all_about;
+    }
+
+    public function setAllAbout(?string $all_about): static
+    {
+        $this->all_about = $all_about;
 
         return $this;
     }

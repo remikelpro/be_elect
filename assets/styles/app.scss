@@ -430,7 +430,7 @@ h1 {
     color: $secondary;
   }
   .non-federal {
-    background-image: url("../img/bg/non-federal-bg.png");
+    background-image: url("../img/bg/non-federal-bg.jpg");
   }
   .federal-hidden,
   .disappeared-hidden {
@@ -638,6 +638,10 @@ h1 {
 //### ELECTIONS ####
 //##################
 
+.election-row {
+  overflow: hidden; /* Assurez-vous que le contenu est masqué pendant l'animation */
+}
+
 //LAYOUT
 .split-layout {
   .container {
@@ -736,7 +740,7 @@ h1 {
 
 #elections {
   .elections-infos {
-    @include background-stretch("../img/bg/elections-infos-bg.png");
+    @include background-stretch("../img/bg/elections-infos-bg.jpg");
 
     .card {
       border-radius: 10px;
@@ -759,11 +763,11 @@ h1 {
 #election {
   .election-infos {
     &.bg-regional {
-      @include background-stretch("../img/bg/federal-infos-bg.png", true);
+      @include background-stretch("../img/bg/federal-infos-bg.jpg", true);
     }
 
     &.bg-federal {
-      @include background-stretch("../img/bg/legislatives-infos-bg.png", true);
+      @include background-stretch("../img/bg/legislatives-infos-bg.jpg", true);
     }
     .card {
       border-radius: 10px;
@@ -792,7 +796,7 @@ h1 {
 
 #election-date {
   .results {
-    background-image: url("../img/bg/election-results-bg.png");
+    background-image: url("../img/bg/election-results-bg.jpg");
   }
 
   .date {

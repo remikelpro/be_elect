@@ -11,6 +11,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
+use function PHPSTORM_META\type;
+
 class ElectionController extends AbstractBeElectController
 {
     public function __construct(
@@ -42,7 +44,7 @@ class ElectionController extends AbstractBeElectController
     public function typeElection($slug): Response
     {
         $typeElection = $this->typeElectionRepository->findOneBySlug($slug);
-
+        // dd($typeElection);
         $electionsByType = $this->typeElectionRepository->findAll();
 
         $imagePath = $typeElection->getMainIcon();

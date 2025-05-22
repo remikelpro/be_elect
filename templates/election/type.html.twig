@@ -84,45 +84,7 @@
     </section>
 
     <section class="election-infos {{ typeElection.getCssClass }} py-4">
-      <div class="container">
-        <div class="card bg-blur p-4">
-          <h2>{{ 'Tout savoir sur...'|trans }}</h2>
-          <p>
-            Exsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus
-            sint anteponendi, ut equis vetulis teneros anteponere solemus. Indigna homine dubitatio! Non enim debent
-            esse loem ip amicitiarum sicut aliarum rerum satietates; veterrima quaeque, ut ea vina, quae vetustatem
-            ferunt, esse debet lorem suavissima; verumque illu Indigna homine dubitatio! Non enim debent esse loem ip
-          </p>
-
-          <h3 class="mt-4">Les dates du scrutin législatif</h3>
-          <p>
-            vina, quae vetustatem ferunt, esse debet lorem suavissima; verumque illu Indigna homine dubitatio! Non enim
-            debent esse loem ip amicitiarum sicut aliarum rerum satietates; veterrima quaeque, ut ea vina, quae
-            vetustatem ferunt, esse debet lorem suavissima; verumque illu
-          </p>
-
-          <h3 class="mt-4">Voter aux législatives</h3>
-          <p>
-            vina, quae vetustatem ferunt, esse debet lorem suavissima; verumque illu Indigna homine dubitatio! Non enim
-            debent esse loem ip amicitiarum sicut aliarum rerum satietates; veterrima quaeque, ut ea vina, quae
-            vetustatem ferunt, esse debet lorem suavissima; verumque illu
-          </p>
-
-          <h3 class="mt-4">Les circonscriptions électorales</h3>
-          <p>
-            vina, quae vetustatem ferunt, esse debet lorem suavissima; verumque illu Indigna homine dubitatio! Non enim
-            debent esse loem ip amicitiarum sicut aliarum rerum satietates; veterrima quaeque, ut ea vina, quae
-            vetustatem ferunt, esse debet lorem suavissima; verumque illu
-          </p>
-
-          <h3 class="mt-4">Être candidat aux législatives</h3>
-          <p>
-            vina, quae vetustatem ferunt, esse debet lorem suavissima; verumque illu Indigna homine dubitatio! Non enim
-            debent esse loem ip amicitiarum sicut aliarum rerum satietates; veterrima quaeque, ut ea vina, quae
-            vetustatem ferunt, esse debet lorem .
-          </p>
-        </div>
-      </div>
+      <div class="container"><div class="card bg-blur p-4">{{ typeElection.allAbout|raw }}</div></div>
     </section>
     {% set i = 0 %}
     <section class="split-layout py-4">
