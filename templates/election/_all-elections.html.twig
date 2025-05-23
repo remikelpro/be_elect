@@ -1,5 +1,7 @@
 <article class="container my-2 d-flex flex-column flex-lg-row w-100">
-  <div class="img-container"><img src="{{ asset('img/election/' ~ election.logo) }}" class="img-fluid" /></div>
+  <div class="img-container">
+    <img src="{{ asset('img/election/' ~ election.logo) }}" class="img-fluid" alt="Logo - {{ election.name }}" />
+  </div>
   <div class="text-container {{ is_odd ? 'bg-grey' }}">
     <h3>{{ election.title }}</h3>
     <p>{{ election.description|raw }}</p>

@@ -777,6 +777,8 @@ h1 {
   .history table {
     td.left {
       padding-left: 10em;
+      font-family: "MuseoModerno", sans-serif;
+      font-weight: 700;
       @include respond-to-mobile-and-tablet {
         padding-left: 0em;
       }

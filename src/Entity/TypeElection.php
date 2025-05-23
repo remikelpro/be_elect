@@ -91,13 +91,25 @@ class TypeElection extends AbstractTranslation
         return $this->getName();
     }
 
-    public function getMainIcon(): string
+    public function getMainIcon(): array
     {
         return match (true) {
-            in_array($this->id, self::LEGISLATIVES_IDS) => 'img/election/icon-legislatives.svg',
-            in_array($this->id, self::EUROPEENNES_ID)         => 'img/election/icon-europeennes.svg',
-            in_array($this->id, self::REGIONALES_IDS)    => 'img/election/icon-regionales.svg',
-            default                                       => 'img/election/icon-default.svg',
+            in_array($this->id, self::LEGISLATIVES_IDS) => [
+                'src' => 'img/election/icon-legislatives.svg',
+                'alt' => 'Élections législatives',
+            ],
+            in_array($this->id, self::EUROPEENNES_ID) => [
+                'src' => 'img/election/icon-europeennes.svg',
+                'alt' => 'Une homme politique s’exprime à la tribune devant un micro',
+            ],
+            in_array($this->id, self::REGIONALES_IDS) => [
+                'src' => 'img/election/icon-regionales.svg',
+                'alt' => 'Une femme politique s’exprime à la tribune devant un micro',
+            ],
+            default => [
+                'src' => 'img/election/icon-default.svg',
+                'alt' => 'Élections',
+            ],
         };
     }
 

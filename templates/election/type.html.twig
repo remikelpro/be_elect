@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="col-lg-5 d-flex align-self-center">
-          <img src="{{ asset(image_path) }}" class="w-100 illustration" alt="" />
+          <img src="{{ asset(image_path.src) }}" class="w-100 illustration" alt="{{ image_path.alt|trans }}" />
         </div>
       </div>
     </section>
@@ -45,38 +45,75 @@
 
     <section class="history container-fluid bg-light py-4">
       <h2 class="mb-4 ps-4 text-center">{{ "L'historique des élections législatives en Belgique"|trans }}</h2>
+
       <table class="table table-striped text-center">
-        <tbody id="election-rows">
+        <tbody id="election-visible">
           {% for election in all_elections_date %}
-            <tr class="election-row {{ loop.index > 5 ? 'd-none' : '' }}" data-index="{{ loop.index }}">
-              <td class="left">Élections du {{ typeElection.name|trans|raw }} de {{ election.date|date('Y') }}</td>
-              <td class="right">
-                <a
-                  href="{{
-                  path(
-                    'electionDate',
-                    {
-                      slug: election.slug,
-                      year: election.date|date('Y')
-                    }
-                  )
-                  }}"
-                  class="btn btn-secondary btn-sm"
-                  --
-                >
-                  {{ "Plus d'infos sur cette élection"|trans }}
-                </a>
-              </td>
-            </tr>
+            {% if loop.index <= 5 %}
+              <tr class="election-row" data-index="{{ loop.index }}">
+                <td class="left">Élections du {{ typeElection.name|trans|raw }} de {{ election.date|date('Y') }}</td>
+                <td class="right">
+                  <a
+                    href="{{
+                    path(
+                      'electionDate',
+                      {
+                        slug: election.slug,
+                        year: election.date|date('Y')
+                      }
+                    )
+                    }}"
+                    class="btn btn-secondary btn-sm"
+                  >
+                    {{ "Plus d'infos sur cette élection"|trans }}
+                  </a>
+                </td>
+              </tr>
+            {% endif %}
           {% endfor %}
         </tbody>
       </table>
+
+      <div id="election-more" class="collapse">
+        <table class="table table-striped text-center">
+          <tbody>
+            <tr class="d-none"></tr>
+            {% for election in all_elections_date|slice(5) %}
+              <tr class="election-row" data-index="{{ loop.index + 5 }}">
+                <td class="left">Élections du {{ typeElection.name|trans|raw }} de {{ election.date|date('Y') }}</td>
+                <td class="right">
+                  <a
+                    href="{{
+                    path(
+                      'electionDate',
+                      {
+                        slug: election.slug,
+                        year: election.date|date('Y')
+                      }
+                    )
+                    }}"
+                    class="btn btn-secondary btn-sm"
+                  >
+                    {{ "Plus d'infos sur cette élection"|trans }}
+                  </a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
       <div class="text-center">
         <button
-          id="show-more"
-          class="btn btn-secondary"
+          class="btn btn-outline-primary"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#election-more"
+          aria-expanded="false"
+          {# aria-controls="election-more" #}
           data-show-more="{{ 'Afficher plus'|trans }}"
           data-show-less="{{ 'Afficher moins'|trans }}"
+          id="btn-show-more"
         >
           {{ 'Afficher plus'|trans }}
         </button>
