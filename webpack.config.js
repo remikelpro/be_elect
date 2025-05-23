@@ -24,6 +24,7 @@ Encore
     .addEntry('home', './assets/home.js')
     .addEntry('parti', './assets/parti.js')
     .addEntry('table', './assets/table.js')
+    .addEntry('election', './assets/election.js')
     .addEntry('trumbowyg', './assets/trumbowyg-init.js')
     .addEntry('trumbowyg-style', './assets/styles/trumbowyg-init.scss')
 

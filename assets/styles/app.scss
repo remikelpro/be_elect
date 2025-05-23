@@ -182,7 +182,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "MuseoModerno-Bold";
+  font-family: "MuseoModerno-bold", sans-serif;
   font-weight: 700;
 }
 h2 {
@@ -226,6 +226,20 @@ h1 {
 }
 .illustration {
   padding: 3rem;
+}
+
+.search-module {
+  background-color: $primary;
+  border-radius: 10px;
+
+  .search-select-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .custom-select {
+    padding: 0.6rem 1rem;
+  }
 }
 //####################
 //##### HOMEPAGE #####
@@ -401,7 +415,21 @@ h1 {
 }
 
 .select2-container--default .select2-selection--single {
+  display: flex;
+  align-items: center;
+  text-align: start;
+  padding: 2rem;
   border-radius: 90px;
+}
+
+.select2-selection__rendered {
+  white-space: normal !important;
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  display: none;
 }
 
 //##################
@@ -771,6 +799,9 @@ h1 {
     }
     .card {
       border-radius: 10px;
+    }
+    h3 {
+      margin-top: 1.5rem;
     }
   }
 

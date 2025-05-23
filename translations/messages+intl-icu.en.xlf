@@ -376,7 +376,20 @@
         <source>Remporté par le</source>
         <target>Won by the</target>
       </trans-unit>
-     
+      <trans-unit id="iZ89rjU" resname="icone loupe">
+        <source>icone loupe</source>
+        <target>search icon</target>
+      </trans-unit>
+      <trans-unit id="u5g14Fy" resname="Cherchez ici le nom ou la date d’une élection&#10;                (exemple : 1990, Election fédérale, 1996...)">
+        <source>Cherchez ici le nom ou la date d’une élection
+                (exemple : 1990, Election fédérale, 1996...)</source>
+        <target>Search here for the name or date of an election
+                (e.g.: 1990, Federal Election, 1996...)</target>
+      </trans-unit>
+      <trans-unit id="2XK891d" resname="Rechercher les résultats des élections">
+        <source>Rechercher les résultats des élections</source>
+        <target>Search for election results</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

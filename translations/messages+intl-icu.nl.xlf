@@ -376,6 +376,20 @@
         <source>Remporté par le</source>
         <target>Gewonnen door de</target>
       </trans-unit>
+      <trans-unit id="iZ89rjU" resname="icone loupe">
+        <source>icone loupe</source>
+        <target>zoekicoon</target>
+      </trans-unit>
+      <trans-unit id="2XK891d" resname="Rechercher les résultats des élections">
+        <source>Rechercher les résultats des élections</source>
+        <target>Zoek de verkiezingsuitslagen</target>
+      </trans-unit>
+      <trans-unit id="u5g14Fy" resname="Cherchez ici le nom ou la date d’une élection&#10;                (exemple : 1990, Election fédérale, 1996...)">
+        <source>Cherchez ici le nom ou la date d’une élection
+                (exemple : 1990, Election fédérale, 1996...)</source>
+        <target> Zoek hier op naam of datum van een verkiezing
+                (bijv.: 1990, Federale verkiezing, 1996...)</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

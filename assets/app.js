@@ -11,4 +11,3 @@ import "bootstrap";
 import "bootstrap-autocomplete";
 import "select2";
 import "./main";
-import "./search-election";

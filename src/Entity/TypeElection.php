@@ -2,12 +2,26 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Metadata\ApiFilter;
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
 use App\Repository\TypeElectionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: TypeElectionRepository::class)]
+#[ApiResource(normalizationContext: ['groups' => ['read']], operations: [
+    new Get(),
+    new GetCollection()
+])]
+#[ApiFilter(SearchFilter::class, properties: [
+    'name' => 'partial',
+    'title' => 'partial',
+])]
 class TypeElection extends AbstractTranslation
 {
 
@@ -20,9 +34,9 @@ class TypeElection extends AbstractTranslation
     #[ORM\Column]
     private ?int $id = null;
 
-    private ?string $name = null;
+    // private ?string $name = null;
 
-    private ?string $description = null;
+    // private ?string $description = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $logo = null;
@@ -121,5 +135,23 @@ class TypeElection extends AbstractTranslation
             in_array($this->id, self::REGIONALES_IDS) => 'bg-regional',
             default => 'bg-federal',
         };
+    }
+
+
+    #[Groups(['read'])]
+    public function getName(): ?string
+    {
+        /** @var TypeElectionTranslation|null $translation */
+        $translation = $this->translate(null, false);
+        return $translation ? $translation->getName() : null;
+    }
+
+
+    #[Groups(['read'])]
+    public function getTitle(): ?string
+    {
+        /** @var TypeElectionTranslation|null $translation */
+        $translation = $this->translate(null, false);
+        return $translation ? $translation->getName() : null;
     }
 }
