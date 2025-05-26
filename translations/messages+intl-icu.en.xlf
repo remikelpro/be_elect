@@ -390,6 +390,14 @@
         <source>Rechercher les résultats des élections</source>
         <target>Search for election results</target>
       </trans-unit>
+      <trans-unit id="VQW.R6D" resname="Rechercher une élection...leg sen ou autre">
+        <source>Rechercher une élection...leg sen ou autre</source>
+        <target>__Rechercher une élection...leg sen ou autre</target>
+      </trans-unit>
+      <trans-unit id="BfjCpSe" resname="Cherchez ici la date d’une élection (exemple : 1990, 1996..)">
+        <source>Cherchez ici la date d’une élection (exemple : 1990, 1996..)</source>
+        <target>Search here for the date of an election (e.g.: 1990, 1996...)</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -390,6 +390,14 @@
         <target> Zoek hier op naam of datum van een verkiezing
                 (bijv.: 1990, Federale verkiezing, 1996...)</target>
       </trans-unit>
+      <trans-unit id="VQW.R6D" resname="Rechercher une élection...leg sen ou autre">
+        <source>Rechercher une élection...leg sen ou autre</source>
+        <target>__Rechercher une élection...leg sen ou autre</target>
+      </trans-unit>
+      <trans-unit id="BfjCpSe" resname="Cherchez ici la date d’une élection (exemple : 1990, 1996..)">
+        <source>Cherchez ici la date d’une élection (exemple : 1990, 1996..)</source>
+        <target>Zoek hier de datum van een verkiezing (bijv.: 1990, 1996...)</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -10,16 +10,23 @@ $(".filterSelect").select2({
   theme: "bootstrap-5",
 });
 
+const typeId = $("#selectElection").data("type-id");
+
 const apiCall = {
   ajax: {
     delay: 200,
     data: function (params) {
       const term = params.term?.trim() || "";
       const isNumeric = /^\d+$/.test(term);
+
       let query = {
         itemsPerPage: 30,
         page: params.page || 1,
       };
+
+      if (typeId) {
+        query["idTypeElection.id"] = typeId;
+      }
 
       if (isNumeric) {
         query.date = term;

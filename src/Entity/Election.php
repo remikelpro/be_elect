@@ -25,6 +25,7 @@ use ApiPlatform\Metadata\GetCollection;
 #[ApiFilter(SearchFilter::class, properties: [
     'name' => 'partial',
     'date' => 'partial',
+    'idTypeElection.id' => 'exact',
 ])]
 class Election
 {

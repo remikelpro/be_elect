@@ -19,7 +19,11 @@
           <div class="text-center mt-5 p-5 text-light search-module">
             <img src="{{ asset('img/homepage/search_icon.svg') }}" alt="{{ 'icone loupe'|trans }}" class="mb-3" />
             <h3 class="mb-4">{{ 'Rechercher une élection...leg sen ou autre'|trans }}</h3>
-            <select id="selectElection" class="form-select filterSelect election-search"></select>
+            <select
+              id="selectElection"
+              class="form-select filterSelect election-search"
+              data-type-id="{{ typeElection.id }}"
+            ></select>
             <span hidden id="placeholderSelectElection">
               {{ 'Cherchez ici la date d’une élection (exemple : 1990, 1996..)'|trans }}
             </span>
@@ -137,4 +141,9 @@
       {% endfor %}
     </section>
   </div>
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  {{ encore_entry_script_tags('election') }}
 {% endblock %}

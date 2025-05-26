@@ -428,6 +428,14 @@
         <target>Cherchez ici le nom ou la date d’une élection
                 (exemple : 1990, Election fédérale, 1996...)</target>
       </trans-unit>
+      <trans-unit id="VQW.R6D" resname="Rechercher une élection...leg sen ou autre">
+        <source>Rechercher une élection...leg sen ou autre</source>
+        <target>__Rechercher une élection...leg sen ou autre</target>
+      </trans-unit>
+      <trans-unit id="BfjCpSe" resname="Cherchez ici la date d’une élection (exemple : 1990, 1996..)">
+        <source>Cherchez ici la date d’une élection (exemple : 1990, 1996..)</source>
+        <target>Cherchez ici la date d’une élection (exemple : 1990, 1996..)</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
