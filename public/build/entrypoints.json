@@ -9,37 +9,37 @@
       ],
       "css": [
         "/build/471.9be1b4fe.css",
-        "/build/app.8a3c0f2e.css"
+        "/build/app.c3b749d6.css"
       ]
     },
     "home": {
       "js": [
         "/build/runtime.3cfbb063.js",
         "/build/755.1af907cb.js",
-        "/build/570.a76046fa.js",
-        "/build/963.8331afe3.js",
+        "/build/135.c9df4436.js",
+        "/build/938.4c5a1ddb.js",
         "/build/676.8055c8bf.js",
         "/build/201.fa351aff.js",
-        "/build/home.b0daa938.js"
+        "/build/home.d8ce7027.js"
       ]
     },
     "parti": {
       "js": [
         "/build/runtime.3cfbb063.js",
         "/build/755.1af907cb.js",
-        "/build/570.a76046fa.js",
-        "/build/963.8331afe3.js",
+        "/build/135.c9df4436.js",
+        "/build/938.4c5a1ddb.js",
         "/build/175.d89ab825.js",
-        "/build/parti.b7f98c30.js"
+        "/build/parti.44fedaf9.js"
       ]
     },
     "table": {
       "js": [
         "/build/runtime.3cfbb063.js",
         "/build/755.1af907cb.js",
-        "/build/570.a76046fa.js",
+        "/build/135.c9df4436.js",
         "/build/175.d89ab825.js",
-        "/build/table.269a898b.js"
+        "/build/table.bdd265b0.js"
       ],
       "css": [
         "/build/table.1ddcb887.css"
@@ -49,17 +49,17 @@
       "js": [
         "/build/runtime.3cfbb063.js",
         "/build/755.1af907cb.js",
-        "/build/570.a76046fa.js",
-        "/build/election.af30172b.js"
+        "/build/135.c9df4436.js",
+        "/build/election.275db494.js"
       ]
     },
     "trumbowyg": {
       "js": [
         "/build/runtime.3cfbb063.js",
         "/build/755.1af907cb.js",
-        "/build/570.a76046fa.js",
+        "/build/135.c9df4436.js",
         "/build/676.8055c8bf.js",
-        "/build/trumbowyg.5eb6c99d.js"
+        "/build/trumbowyg.e65b4c14.js"
       ],
       "css": [
         "/build/904.37a35d24.css"

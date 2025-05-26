@@ -16,12 +16,12 @@
         <div class="col-lg-7">
           <h1>{{ typeElection.title }}</h1>
           <p>{{ typeElection.description|raw }}</p>
-          <div class="text-center mt-5 p-5 text-light search-election">
-            <img src="{{ asset('img/homepage/search_icon.svg') }}" alt="search icon" />
-            <h3 class="my-2">{{ 'Chercher une élection législative par date :'|trans }}</h3>
+          <div class="text-center mt-5 p-5 text-light search-module">
+            <img src="{{ asset('img/homepage/search_icon.svg') }}" alt="{{ 'icone loupe'|trans }}" class="mb-3" />
+            <h3 class="mb-4">{{ 'Rechercher une élection...leg sen ou autre'|trans }}</h3>
             <select id="selectElection" class="form-select filterSelect election-search"></select>
             <span hidden id="placeholderSelectElection">
-              {{ 'Cherchez ici la date d’une élection (exemple : 1990, 1996…)'|trans }}
+              {{ 'Cherchez ici la date d’une élection (exemple : 1990, 1996..)'|trans }}
             </span>
           </div>
         </div>
@@ -44,7 +44,7 @@
     </section>
 
     <section class="history container-fluid bg-light py-4">
-      <h2 class="mb-4 ps-4 text-center">       {{ typeElection.title }}</h2>
+      <h2 class="mb-4 ps-4 text-center">{{ typeElection.title }}</h2>
 
       <table class="table table-striped text-center">
         <tbody id="election-visible">
@@ -110,7 +110,6 @@
           data-bs-toggle="collapse"
           data-bs-target="#election-more"
           aria-expanded="false"
-          {# aria-controls="election-more" #}
           data-show-more="{{ 'Afficher plus'|trans }}"
           data-show-less="{{ 'Afficher moins'|trans }}"
           id="btn-show-more"

@@ -1,30 +1,41 @@
-$(".election-search").on("change", function (e) {
-  //   window.location.href = "election/" + $(this).val();
-  const id = e.params.data.id;
-  const locale = window.location.pathname.split("/")[1];
-  window.location.href = "/" + locale + "/elections/" + id;
+$("#selectElection").on("select2:select", function (e) {
+  const data = e.params.data;
+  const slug = data.slug;
+  const date = data.date;
+
+  window.location.href = `/elections/${slug}/${date}`;
 });
 
 $(".filterSelect").select2({
   theme: "bootstrap-5",
 });
 
-let apiCall = {
+const apiCall = {
   ajax: {
     delay: 200,
     data: function (params) {
-      var query = {
+      const term = params.term?.trim() || "";
+      const isNumeric = /^\d+$/.test(term);
+      let query = {
         itemsPerPage: 30,
         page: params.page || 1,
-        name: params.term,
       };
+
+      if (isNumeric) {
+        query.date = term;
+      } else {
+        query.name = term;
+      }
+
       return query;
     },
     processResults: function (data) {
-      let results = data["hydra:member"].map((item) => {
+      const results = data["hydra:member"].map((item) => {
         return {
           id: item.id,
-          text: item.title,
+          text: item.name + " (" + item.date + ")",
+          date: item.date,
+          slug: item.slug,
         };
       });
       return {
@@ -37,8 +48,7 @@ let apiCall = {
   },
 };
 
-let apiElection = apiCall;
-console.log(apiElection);
-apiElection.ajax.url = "/api/type_elections";
+const apiElection = apiCall;
+apiElection.ajax.url = "/api/elections";
 apiElection.placeholder = $("#placeholderSelectElection").html() ?? "Select an election";
 $("#selectElection").select2(apiElection);
