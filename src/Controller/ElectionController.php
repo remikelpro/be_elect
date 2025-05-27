@@ -6,6 +6,7 @@ use App\Entity\TypeElection;
 use App\Entity\TypeElectionTranslation;
 use App\Repository\ElectionRepository;
 use App\Repository\TypeElectionRepository;
+use App\Service\ElectionService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,6 +21,7 @@ class ElectionController extends AbstractBeElectController
         private TranslatorInterface $translator,
         private ElectionRepository $electionRepository,
         private TypeElectionRepository $TypeElectionRepository,
+        private ElectionService $electionService
     ) {}
 
     #[Route('/elections', name: 'elections')]
@@ -44,7 +46,7 @@ class ElectionController extends AbstractBeElectController
     public function typeElection($slug): Response
     {
         $typeElection = $this->typeElectionRepository->findOneBySlug($slug);
-        // dd($typeElection);
+
         $electionsByType = $this->typeElectionRepository->findAll();
 
         $imagePath = $typeElection->getMainIcon();
@@ -59,12 +61,18 @@ class ElectionController extends AbstractBeElectController
             ['name' => $typeElection->getName()]
         ]);
 
+        $locale = $this->translator->getLocale();
+        $label = $typeElection->getTitle();
+        $pluralLabel = $this->electionService->getPluralLabel($label, $locale);
+
+
         return $this->render('election/type.html.twig', [
             'typeElection' => $typeElection,
             'all_elections_type' => $electionsByType,
             'image_path' => $imagePath,
             'breadcrumb' => $breadcrumb,
-            'all_elections_date' =>   $electionsByDate
+            'all_elections_date' =>   $electionsByDate,
+            'plural_label' => $pluralLabel,
         ]);
     }
 

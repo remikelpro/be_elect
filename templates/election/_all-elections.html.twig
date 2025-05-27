@@ -3,7 +3,7 @@
     <img src="{{ asset('img/election/' ~ election.logo) }}" class="img-fluid" alt="Logo - {{ election.name }}" />
   </div>
   <div class="text-container {{ is_odd ? 'bg-grey' }}">
-    <h3>{{ election.title }}</h3>
+    <h3>{{ ('election.main_title_' ~ election.id)|trans }}</h3>
     <p>{{ election.description|raw }}</p>
     {# prettier-ignore-start #}
     <a 

@@ -398,6 +398,138 @@
         <source>Cherchez ici la date d’une élection (exemple : 1990, 1996..)</source>
         <target>Search here for the date of an election (e.g.: 1990, 1996...)</target>
       </trans-unit>
+      <trans-unit id="4bQEkwS" resname="Rechercher une">
+        <source>Rechercher une</source>
+        <target>Search for an</target>
+      </trans-unit>
+      <trans-unit id="SlThxnd" resname="election.history">
+        <source>election.history</source>
+        <target>The history of {type} in Belgium</target>
+      </trans-unit>
+      <trans-unit id="Ke4FoO4" resname="election.search_by_date">
+        <source>election.search_by_date</source>
+        <target>Search for a {type} by date</target>
+      </trans-unit>
+      <trans-unit id="zbOyWx." resname="election.main_title">
+        <source>election.main_title</source>
+        <target>The {type} in Belgium</target>
+      </trans-unit>
+      <trans-unit id="QD_jRRF" resname="election.title.year">
+        <source>election.title.year</source>
+        <target>{year} Belgian {type}</target>
+      </trans-unit>
+            <trans-unit id="election.main_title_2">
+        <source>election.main_title_2</source>
+        <target>Senate elections in Belgium</target>
+      </trans-unit>
+      <trans-unit id="election.main_title_3">
+        <source>election.main_title_3</source>
+        <target>Legislative elections in Belgium</target>
+      </trans-unit>
+      <trans-unit id="election.main_title_4">
+        <source>election.main_title_4</source>
+        <target>Provincial elections in Belgium</target>
+      </trans-unit>
+      <trans-unit id="election.main_title_5">
+        <source>election.main_title_5</source>
+        <target>European elections in Belgium</target>
+      </trans-unit>
+      <trans-unit id="election.main_title_6">
+        <source>election.main_title_6</source>
+        <target>Regional elections in Wallonia</target>
+      </trans-unit>
+      <trans-unit id="election.main_title_7">
+        <source>election.main_title_7</source>
+        <target>Regional elections in Flanders</target>
+      </trans-unit>
+      <trans-unit id="election.main_title_8">
+        <source>election.main_title_8</source>
+        <target>Regional elections in the German-speaking Community</target>
+      </trans-unit>
+      <trans-unit id="election.search_by_date_2">
+        <source>election.search_by_date_2</source>
+        <target>Search for a Senate election by date</target>
+      </trans-unit>
+      <trans-unit id="election.search_by_date_3">
+        <source>election.search_by_date_3</source>
+        <target>Search for a federal election by date</target>
+      </trans-unit>
+      <trans-unit id="election.search_by_date_4">
+        <source>election.search_by_date_4</source>
+        <target>Search for a provincial election by date</target>
+      </trans-unit>
+      <trans-unit id="election.search_by_date_5">
+        <source>election.search_by_date_5</source>
+        <target>Search for a European election by date</target>
+      </trans-unit>
+      <trans-unit id="election.search_by_date_6">
+        <source>election.search_by_date_6</source>
+        <target>Search for a Walloon election by date</target>
+      </trans-unit>
+      <trans-unit id="election.search_by_date_7">
+        <source>election.search_by_date_7</source>
+        <target>Search for a Flemish election by date</target>
+      </trans-unit>
+      <trans-unit id="election.search_by_date_8">
+        <source>election.search_by_date_8</source>
+        <target>Search for a German-speaking Community election by date</target>
+      </trans-unit>
+      <trans-unit id="election.history_2">
+        <source>election.history_2</source>
+        <target>The history of Senate elections in Belgium</target>
+      </trans-unit>
+      <trans-unit id="election.history_3">
+        <source>election.history_3</source>
+        <target>The history of federal elections in Belgium</target>
+      </trans-unit>
+      <trans-unit id="election.history_4">
+        <source>election.history_4</source>
+        <target>The history of provincial elections in Belgium</target>
+      </trans-unit>
+      <trans-unit id="election.history_5">
+        <source>election.history_5</source>
+        <target>The history of European elections in Belgium</target>
+      </trans-unit>
+      <trans-unit id="election.history_6">
+        <source>election.history_6</source>
+        <target>The history of regional elections in Wallonia</target>
+      </trans-unit>
+      <trans-unit id="election.history_7">
+        <source>election.history_7</source>
+        <target>The history of regional elections in Flanders</target>
+      </trans-unit>
+      <trans-unit id="election.history_8">
+        <source>election.history_8</source>
+        <target>The history of regional elections in the German-speaking Community</target>
+      </trans-unit>
+      <trans-unit id="election.table_title_2">
+        <source>election.table_title_2</source>
+        <target>{year} Belgian Senate elections</target>
+      </trans-unit>
+      <trans-unit id="election.table_title_3">
+        <source>election.table_title_3</source>
+        <target>{year} Belgian federal elections</target>
+      </trans-unit>
+      <trans-unit id="election.table_title_4">
+        <source>election.table_title_4</source>
+        <target>{year} Belgian provincial elections</target>
+      </trans-unit>
+      <trans-unit id="election.table_title_5">
+        <source>election.table_title_5</source>
+        <target>{year} Belgian European elections</target>
+      </trans-unit>
+      <trans-unit id="election.table_title_6">
+        <source>election.table_title_6</source>
+        <target>{year} Walloon regional elections</target>
+      </trans-unit>
+      <trans-unit id="election.table_title_7">
+        <source>election.table_title_7</source>
+        <target>{year} Flemish regional elections</target>
+      </trans-unit>
+      <trans-unit id="election.table_title_8">
+        <source>election.table_title_8</source>
+        <target>{year} regional elections in the German-speaking Community</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

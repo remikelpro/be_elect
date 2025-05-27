@@ -14,11 +14,14 @@
     <section class="my-2 container py-4">
       <div class="row">
         <div class="col-lg-7">
-          <h1>{{ typeElection.title }}</h1>
+          <h1>{{ ('election.main_title_' ~ typeElection.id)|trans }}</h1>
+
           <p>{{ typeElection.description|raw }}</p>
           <div class="text-center mt-5 p-5 text-light search-module">
             <img src="{{ asset('img/homepage/search_icon.svg') }}" alt="{{ 'icone loupe'|trans }}" class="mb-3" />
-            <h3 class="mb-4">{{ 'Rechercher une élection...leg sen ou autre'|trans }}</h3>
+            {# <h3 class="mb-4">{{ 'Rechercher'|trans }} {{ typeElection.title }}</h3> #}
+            <h3 class="mb-4">{{ ('election.search_by_date_' ~ typeElection.id)|trans }}</h3>
+
             <select
               id="selectElection"
               class="form-select filterSelect election-search"
@@ -48,14 +51,22 @@
     </section>
 
     <section class="history container-fluid bg-light py-4">
-      <h2 class="mb-4 ps-4 text-center">{{ typeElection.title }}</h2>
+      <h2 class="mb-4 ps-4 text-center">{{ ('election.history_' ~ typeElection.id)|trans }}</h2>
 
+      {% set label = app.request.locale == 'fr' ? plural_label|capitalize : plural_label %}
       <table class="table table-striped text-center">
         <tbody id="election-visible">
           {% for election in all_elections_date %}
             {% if loop.index <= 5 %}
               <tr class="election-row" data-index="{{ loop.index }}">
-                <td class="left">Élections du {{ typeElection.name|trans|raw }} de {{ election.date|date('Y') }}</td>
+                <td class="left">
+                  {{
+                    ('election.table_title_' ~ typeElection.id)|trans({
+                      year: election.date|date('Y')
+                    })
+                  }}
+                </td>
+
                 <td class="right">
                   <a
                     href="{{
@@ -84,7 +95,13 @@
             <tr class="d-none"></tr>
             {% for election in all_elections_date|slice(5) %}
               <tr class="election-row" data-index="{{ loop.index + 5 }}">
-                <td class="left">Élections du {{ typeElection.name|trans|raw }} de {{ election.date|date('Y') }}</td>
+                <td class="left">
+                  {{
+                    ('election.table_title_' ~ typeElection.id)|trans({
+                      year: election.date|date('Y')
+                    })
+                  }}
+                </td>
                 <td class="right">
                   <a
                     href="{{
