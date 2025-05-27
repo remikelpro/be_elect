@@ -102,7 +102,7 @@ class TypeElection extends AbstractTranslation
         return match (true) {
             in_array($this->id, self::LEGISLATIVES_IDS) => [
                 'src' => 'img/election/icon-legislatives.svg',
-                'alt' => 'Élections législatives',
+                'alt' => 'Icone représentant un batiment du parlement',
             ],
             in_array($this->id, self::EUROPEENNES_ID) => [
                 'src' => 'img/election/icon-europeennes.svg',
@@ -114,7 +114,7 @@ class TypeElection extends AbstractTranslation
             ],
             default => [
                 'src' => 'img/election/icon-default.svg',
-                'alt' => 'Élections',
+                'alt' => 'Bulletin de vote avec crayon',
             ],
         };
     }

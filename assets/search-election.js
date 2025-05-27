@@ -17,7 +17,18 @@ const apiCall = {
     delay: 200,
     data: function (params) {
       const term = params.term?.trim() || "";
-      const isNumeric = /^\d+$/.test(term);
+      const parts = term.split(/\s+/);
+
+      let nameParts = [];
+      let datePart = "";
+
+      parts.forEach((part) => {
+        if (/^\d+$/.test(part)) {
+          datePart = part;
+        } else {
+          nameParts.push(part);
+        }
+      });
 
       let query = {
         itemsPerPage: 30,
@@ -28,10 +39,12 @@ const apiCall = {
         query["idTypeElection.id"] = typeId;
       }
 
-      if (isNumeric) {
-        query.date = term;
-      } else {
-        query.name = term;
+      if (nameParts.length > 0) {
+        query.name = nameParts.join(" ");
+      }
+
+      if (datePart) {
+        query.date = datePart;
       }
 
       return query;
