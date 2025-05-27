@@ -61,10 +61,6 @@ class ElectionController extends AbstractBeElectController
             ['name' => $typeElection->getName()]
         ]);
 
-        $locale = $this->translator->getLocale();
-        $label = $typeElection->getTitle();
-        $pluralLabel = $this->electionService->getPluralLabel($label, $locale);
-
 
         return $this->render('election/type.html.twig', [
             'typeElection' => $typeElection,
@@ -72,7 +68,7 @@ class ElectionController extends AbstractBeElectController
             'image_path' => $imagePath,
             'breadcrumb' => $breadcrumb,
             'all_elections_date' =>   $electionsByDate,
-            'plural_label' => $pluralLabel,
+
         ]);
     }
 
@@ -99,15 +95,4 @@ class ElectionController extends AbstractBeElectController
             'election' => $electionByDate
         ]);
     }
-
-
-    // private function getImagePathForElection(string $name): string
-    // {
-    //     return match ($name) {
-    //         'Sénat', 'Chambre des représentants' => 'img/election/icon-legislatives.svg',
-    //         'Parlement européen' => 'img/election/icon-europeennes.svg',
-    //         'Province', 'Flandre', 'Wallonie', 'Communauté germanophone' => 'img/election/icon-regionales.svg',
-    //         default => 'img/election/icon-default.svg',
-    //     };
-    // }
 }

@@ -38,6 +38,7 @@ class TypeElectionCrudController extends AbstractCrudController
         yield TextField::new('name', 'name')->hideOnForm();
         yield TextField::new('description', 'description')->hideOnForm();
         yield TextField::new('all_about', 'all_about')->hideOnForm();
+        yield TextField::new('next_elections', 'next_elections')->hideOnForm();
         yield TextField::new('title', 'title')->hideOnForm();
         yield ImageField::new('logo')->setBasePath('img/election/')
             ->setUploadDir('public/img/election/')
@@ -66,6 +67,13 @@ class TypeElectionCrudController extends AbstractCrudController
                     'required' => true,
                 ],
                 'all_about' => [
+                    'field_type' => TextareaType::class,
+                    'required' => true,
+                    'attr' => [
+                        'class' => 'use-trumbowyg'
+                    ]
+                ],
+                'next_elections' => [
                     'field_type' => TextareaType::class,
                     'required' => true,
                     'attr' => [

@@ -19,7 +19,6 @@
           <p>{{ typeElection.description|raw }}</p>
           <div class="text-center mt-5 p-5 text-light search-module">
             <img src="{{ asset('img/homepage/search_icon.svg') }}" alt="{{ 'icone loupe'|trans }}" class="mb-3" />
-            {# <h3 class="mb-4">{{ 'Rechercher'|trans }} {{ typeElection.title }}</h3> #}
             <h3 class="mb-4">{{ ('election.search_by_date_' ~ typeElection.id)|trans }}</h3>
 
             <select
@@ -27,9 +26,7 @@
               class="form-select filterSelect election-search"
               data-type-id="{{ typeElection.id }}"
             ></select>
-            <span hidden id="placeholderSelectElection">
-              {{ 'Cherchez ici la date d’une élection (exemple : 1990, 1996..)'|trans }}
-            </span>
+            <span hidden id="placeholderSelectElection">{{ 'Ex : 1990, 1996...'|trans }}</span>
           </div>
         </div>
         <div class="col-lg-5 d-flex align-self-center">
@@ -40,26 +37,19 @@
 
     <section class="container-fluid bg-midnight-blue py-4">
       <div class="container">
-        <h2 class="mb-4 text-start">Prochaines élections du {{ typeElection.name|trans|raw }} de 2024 en Belgique</h2>
-        <p>
-          Exsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus sint
-          anteponendi, ut equis vetulis teneros anteponere solemus. Indigna homine dubitatio! Non enim debent esse
-          amicitiarum sicut aliarum rerum satietates; veterrima quaeque, ut ea vina, quae vetustatem ferunt. Exsistit
-          autem hoc loco quaedam quaestio subdifficilis...
-        </p>
+        {# <h2 class="mb-4 text-start">Prochaines élections du {{ typeElection.name|trans|raw }} de 2024 en Belgique</h2> #}
+        {{ typeElection.nextElections|raw }}
       </div>
     </section>
 
     <section class="history container-fluid bg-light py-4">
       <h2 class="mb-4 ps-4 text-center">{{ ('election.history_' ~ typeElection.id)|trans }}</h2>
-
-      {% set label = app.request.locale == 'fr' ? plural_label|capitalize : plural_label %}
       <table class="table table-striped text-center">
         <tbody id="election-visible">
           {% for election in all_elections_date %}
             {% if loop.index <= 5 %}
               <tr class="election-row" data-index="{{ loop.index }}">
-                <td class="left">
+                <td class="left p-3 text-start text-md-center">
                   {{
                     ('election.table_title_' ~ typeElection.id)|trans({
                       year: election.date|date('Y')
@@ -67,7 +57,7 @@
                   }}
                 </td>
 
-                <td class="right">
+                <td class="right p-3">
                   <a
                     href="{{
                     path(
@@ -95,14 +85,14 @@
             <tr class="d-none"></tr>
             {% for election in all_elections_date|slice(5) %}
               <tr class="election-row" data-index="{{ loop.index + 5 }}">
-                <td class="left">
+                <td class="left p-3 text-start text-md-center">
                   {{
                     ('election.table_title_' ~ typeElection.id)|trans({
                       year: election.date|date('Y')
                     })
                   }}
                 </td>
-                <td class="right">
+                <td class="right p-3">
                   <a
                     href="{{
                     path(
