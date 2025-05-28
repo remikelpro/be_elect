@@ -22,19 +22,18 @@ class PartiNameCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-        ->setFormThemes(
-            [
-                '@A2lixTranslationForm/bootstrap_5_layout.html.twig',
-                '@EasyAdmin/crud/form_theme.html.twig',
-                '@FOSCKEditor/Form/ckeditor_widget.html.twig',
-            ]
-        );
+            ->setFormThemes(
+                [
+                    '@A2lixTranslationForm/bootstrap_5_layout.html.twig',
+                    '@EasyAdmin/crud/form_theme.html.twig',
+                ]
+            );
     }
 
     public function configureFields(string $pageName): iterable
     {
         yield IdField::new('id')->hideOnForm();
-        
+
         if (Crud::PAGE_DETAIL !== $pageName) {
             yield TranslationField::new('translations', 'translations', [
                 'name' => [
@@ -43,11 +42,10 @@ class PartiNameCrudController extends AbstractCrudController
                 ]
             ])->hideOnIndex();
         }
-        
+
         yield BooleanField::new('main');
         yield DateField::new('startDate');
         yield DateField::new('endDate');
         yield AssociationField::new('parti');
     }
-    
 }

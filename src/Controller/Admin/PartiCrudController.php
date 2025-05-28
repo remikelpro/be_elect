@@ -12,8 +12,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ColorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class PartiCrudController extends AbstractCrudController
 {
@@ -29,7 +29,6 @@ class PartiCrudController extends AbstractCrudController
                 [
                     '@A2lixTranslationForm/bootstrap_5_layout.html.twig',
                     '@EasyAdmin/crud/form_theme.html.twig',
-                    '@FOSCKEditor/Form/ckeditor_widget.html.twig',
                 ]
             );
     }
@@ -47,23 +46,33 @@ class PartiCrudController extends AbstractCrudController
         yield ColorField::new('color');
         yield ColorField::new('color_bg');
         yield TextField::new('description', 'description')->hideOnForm()->hideOnIndex();
+        // Pour la section "description"
         if (Crud::PAGE_DETAIL !== $pageName) {
             yield TranslationField::new('translations', 'translations', [
                 'description' => [
-                    'field_type' => CKEditorType::class,
+                    'field_type' => TextareaType::class,
                     'required' => true,
+                    'attr' => [
+                        'class' => 'use-trumbowyg'
+                    ]
                 ]
             ])->hideOnIndex();
         }
-        yield TextField::new('about', 'about')->hideOnForm()->hideOnIndex();
+
+        // Pour la section "about"
         if (Crud::PAGE_DETAIL !== $pageName) {
             yield TranslationField::new('translations', 'translations', [
                 'about' => [
-                    'field_type' => CKEditorType::class,
+                    'field_type' => TextareaType::class,
                     'required' => true,
+                    'attr' => [
+                        'class' => 'use-trumbowyg'
+                    ]
                 ]
             ])->hideOnIndex();
         }
+
+
         yield TextField::new('twitter')->hideOnIndex();
         yield TextField::new('facebook')->hideOnIndex();
         yield TextField::new('instagram')->hideOnIndex();

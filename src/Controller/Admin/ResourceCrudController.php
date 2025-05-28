@@ -15,7 +15,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\FileUploadType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\SlugType;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ResourceCrudController extends AbstractCrudController
 {
@@ -27,26 +27,26 @@ class ResourceCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-        ->setFormThemes(
-            [
-                '@A2lixTranslationForm/bootstrap_5_layout.html.twig',
-                '@EasyAdmin/crud/form_theme.html.twig',
-                '@FOSCKEditor/Form/ckeditor_widget.html.twig',
-            ]
-        );
+            ->setFormThemes(
+                [
+                    '@A2lixTranslationForm/bootstrap_5_layout.html.twig',
+                    '@EasyAdmin/crud/form_theme.html.twig',
+                ]
+            );
     }
     public function configureFields(string $pageName): iterable
     {
         yield NumberField::new('id', 'id')->hideOnForm();
         yield ImageField::new('file')
-                ->setFormType(FileUploadType::class)
-                ->setUploadDir('public/img/resource/')
-                ->hideOnIndex()
-                ->setFormTypeOptions(['attr' => [
-                        'accept' => 'application/pdf'
-                    ]
-                ])
-                ->setFileConstraints([]);
+            ->setFormType(FileUploadType::class)
+            ->setUploadDir('public/img/resource/')
+            ->hideOnIndex()
+            ->setFormTypeOptions([
+                'attr' => [
+                    'accept' => 'application/pdf'
+                ]
+            ])
+            ->setFileConstraints([]);
         yield DateField::new('date');
         yield AssociationField::new('idParti');
         yield AssociationField::new('idElection');
@@ -66,8 +66,11 @@ class ResourceCrudController extends AbstractCrudController
                     'target' => 'name'
                 ],
                 'description' => [
-                    'field_type' => CKEditorType::class,
+                    'field_type' => TextareaType::class,
                     'required' => true,
+                    'attr' => [
+                        'class' => 'use-trumbowyg'
+                    ]
                 ]
             ])->hideOnIndex();
         }

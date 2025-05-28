@@ -3,7 +3,7 @@ composer 2
 PHP 8.1
 
 ## Assets
-``npm run encore -- dev --watch``
+``npx encore dev --watch``
 
 
 ## translate
@@ -58,8 +58,11 @@ Pour que les pages crudAction d'easyadmin ne plante pas, il faut exclure ainsi p
                     'required' => true,
                 ],
                 'content' => [
-                    'field_type' => CKEditorType::class,
+                    'field_type' => TextareaType::class,
                     'required' => true,
+                    'attr' => [
+                        'class' => 'use-trumbowyg'
+                    ]
                 ]
             ])
                 ->hideOnIndex();

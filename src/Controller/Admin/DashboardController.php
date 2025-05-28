@@ -26,6 +26,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -68,4 +69,12 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Canton', 'fas fa-tree-city', Canton::class);
         yield MenuItem::linkToCrud('Commune', 'fas fa-city', Commune::class);
     }
+
+    public function configureAssets(): Assets
+    {
+        return parent::configureAssets()
+            ->addWebpackEncoreEntry('trumbowyg')
+            ->addCssFile('build/trumbowyg-style.css');
+    }
+
 }
