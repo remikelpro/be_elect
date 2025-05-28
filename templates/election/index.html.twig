@@ -26,12 +26,7 @@
             <img src="{{ asset('img/homepage/search_icon.svg') }}" alt="{{ 'icone loupe'|trans }}" class="mb-3" />
             <h3 class="mb-4">{{ 'Rechercher les résultats des élections'|trans }}</h3>
             <select id="selectElection" class="form-select filterSelect election-search"></select>
-            <span hidden id="placeholderSelectElection">
-              {{
-                'Cherchez ici le nom ou la date d’une élection
-                (exemple : 1990, Election fédérale, 1996...)'|trans
-              }}
-            </span>
+            <span hidden id="placeholderSelectElection">{{ 'Ex: 1990, Élection fédérale, 1996...'|trans }}</span>
           </div>
           {# module search #}
         </div>
@@ -107,4 +102,5 @@
 {% block javascripts %}
   {{ parent() }}
   {{ encore_entry_script_tags('election') }}
+  <script src="{{ asset('build/js/i18n/fr.js') }}"></script>
 {% endblock %}

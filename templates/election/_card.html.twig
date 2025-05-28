@@ -4,7 +4,7 @@
     {# <h3 class="label-date">{{ election.date|date('F Y') }}</h3> #}
     <h3 class="label-date">{{ election.date|format_datetime(locale = app.request.locale, pattern = 'MMMM yyyy') }}</h3>
 
-    <h4 class="mt-5">{{ election.idTypeElection.name }}</h4>
+    <h4 class="mt-5" lang="{{ app.request.locale }}">{{ election.idTypeElection.name|raw }}</h4>
     <div class="icon mb-2 p-4">
       <img
         src="{{ asset('img/election/' ~ election.idTypeElection.logo) }}"

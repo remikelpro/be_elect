@@ -380,12 +380,6 @@
         <source>Rechercher les résultats des élections</source>
         <target>Zoek de verkiezingsuitslagen</target>
       </trans-unit>
-      <trans-unit id="u5g14Fy" resname="Cherchez ici le nom ou la date d’une élection&#10;                (exemple : 1990, Election fédérale, 1996...)">
-        <source>Cherchez ici le nom ou la date d’une élection
-                (exemple : 1990, Election fédérale, 1996...)</source>
-        <target> Zoek hier op naam of datum van een verkiezing
-                (bijv.: 1990, Federale verkiezing, 1996...)</target>
-      </trans-unit> 
       <trans-unit id="KkhOUNY" resname="election.main_title_2">
         <source>election.main_title_2</source>
         <target>De senaatsverkiezingen in België</target>
@@ -501,6 +495,26 @@
       <trans-unit id="CFfKZCu" resname="Ex : 1990, 1996...">
         <source>Ex : 1990, 1996...</source>
         <target>Bv. : 1990, 1996...</target>
+      </trans-unit>
+      <trans-unit id="FPBeySM" resname="Ex: 1990, Élection fédérale, 1996...">
+        <source>Ex: 1990, Élection fédérale, 1996...</source>
+        <target>Bv. : 1990, Federale verkiezing, 1996...</target>
+      </trans-unit>
+      <trans-unit id="election.icon_federal">
+        <source>election.icon_federal</source>
+        <target>Pictogram dat een parlementsgebouw voorstelt</target>
+      </trans-unit>
+      <trans-unit id="election.icon_european">
+        <source>election.icon_european</source>
+        <target>Een politicus spreekt vanaf het spreekgestoelte voor een microfoon</target>
+      </trans-unit>
+      <trans-unit id="election.icon_regional">
+        <source>election.icon_regional</source>
+        <target>Een politica spreekt vanaf het spreekgestoelte voor een microfoon</target>
+      </trans-unit>
+      <trans-unit id="election.icon_default">
+        <source>election.icon_default</source>
+        <target>Stembiljet met potlood</target>
       </trans-unit>
     </body>
   </file>

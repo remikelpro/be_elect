@@ -368,12 +368,6 @@
         <source>icone loupe</source>
         <target>search icon</target>
       </trans-unit>
-      <trans-unit id="u5g14Fy" resname="Cherchez ici le nom ou la date d’une élection&#10;                (exemple : 1990, Election fédérale, 1996...)">
-        <source>Cherchez ici le nom ou la date d’une élection
-                (exemple : 1990, Election fédérale, 1996...)</source>
-        <target>Search here for the name or date of an election
-                (e.g.: 1990, Federal Election, 1996...)</target>
-      </trans-unit>
       <trans-unit id="2XK891d" resname="Rechercher les résultats des élections">
         <source>Rechercher les résultats des élections</source>
         <target>Search for election results</target>
@@ -493,6 +487,30 @@
       <trans-unit id="CFfKZCu" resname="Ex : 1990, 1996...">
         <source>Ex : 1990, 1996...</source>
         <target>E.g. 1990, 1996…</target>
+      </trans-unit>
+      <trans-unit id="iYzuump" resname="L'historique des élections...">
+        <source>L'historique des élections...</source>
+        <target>__L'historique des élections...</target>
+      </trans-unit>
+      <trans-unit id="FPBeySM" resname="Ex: 1990, Élection fédérale, 1996...">
+        <source>Ex: 1990, Élection fédérale, 1996...</source>
+        <target>E.g. 1990, Federal election, 1996...</target>
+      </trans-unit>
+      <trans-unit id="election.icon_federal">
+        <source>election.icon_federal</source>
+        <target>Icon representing a parliamentary building</target>
+      </trans-unit>
+      <trans-unit id="election.icon_european">
+        <source>election.icon_european</source>
+        <target>A politician speaking at the podium in front of a microphone</target>
+      </trans-unit>
+      <trans-unit id="election.icon_regional">
+        <source>election.icon_regional</source>
+        <target>A female politician speaking at the podium in front of a microphone</target>
+      </trans-unit>
+      <trans-unit id="election.icon_default">
+        <source>election.icon_default</source>
+        <target>Ballot paper with pencil</target>
       </trans-unit>
     </body>
   </file>

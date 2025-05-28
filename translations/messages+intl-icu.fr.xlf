@@ -406,12 +406,6 @@
         <source>Rechercher les résultats des élections</source>
         <target>Rechercher les résultats des élections</target>
       </trans-unit>
-      <trans-unit id="u5g14Fy" resname="Cherchez ici le nom ou la date d’une élection&#10;                (exemple : 1990, Election fédérale, 1996...)">
-        <source>Cherchez ici le nom ou la date d’une élection
-                (exemple : 1990, Election fédérale, 1996...)</source>
-        <target>Cherchez ici le nom ou la date d’une élection
-                (exemple : 1990, Election fédérale, 1996...)</target>
-      </trans-unit>
       <trans-unit id="KkhOUNY" resname="election.main_title_2">
         <source>election.main_title_2</source>
         <target>Les élections sénatoriales en Belgique</target>
@@ -528,6 +522,31 @@
         <source>Ex : 1990, 1996...</source>
         <target>Ex : 1990, 1996...</target>
       </trans-unit>
+      <trans-unit id="iYzuump" resname="L'historique des élections...">
+        <source>L'historique des élections...</source>
+        <target>__L'historique des élections...</target>
+      </trans-unit>
+      <trans-unit id="FPBeySM" resname="Ex: 1990, Élection fédérale, 1996...">
+        <source>Ex: 1990, Élection fédérale, 1996...</source>
+        <target>Ex: 1990, Élection fédérale, 1996...</target>
+      </trans-unit>
+      <trans-unit id="election.icon_federal">
+        <source>election.icon_federal</source>
+        <target>Icone représentant un bâtiment du parlement</target>
+      </trans-unit>
+      <trans-unit id="election.icon_european">
+        <source>election.icon_european</source>
+        <target>Un homme politique s’exprime à la tribune devant un micro</target>
+      </trans-unit>
+      <trans-unit id="election.icon_regional">
+        <source>election.icon_regional</source>
+        <target>Une femme politique s’exprime à la tribune devant un micro</target>
+      </trans-unit>
+      <trans-unit id="election.icon.default">
+        <source>election.icon_default</source>
+        <target>Bulletin de vote avec crayon</target>
+      </trans-unit>
+      
     </body>
   </file>
 </xliff>
