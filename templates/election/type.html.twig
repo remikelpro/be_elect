@@ -63,8 +63,7 @@
                     path(
                       'electionDate',
                       {
-                        slug: election.slug,
-                        year: election.date|date('Y')
+                        slug: election.slug
                       }
                     )
                     }}"
@@ -98,8 +97,7 @@
                     path(
                       'electionDate',
                       {
-                        slug: election.slug,
-                        year: election.date|date('Y')
+                        slug: election.slug
                       }
                     )
                     }}"
@@ -133,10 +131,10 @@
     <section class="election-infos {{ typeElection.getCssClass }} py-4">
       <div class="container"><div class="card bg-blur p-4">{{ typeElection.allAbout|raw }}</div></div>
     </section>
+
     {% set i = 0 %}
     <section class="split-layout py-4">
       <h2 class="my-5 text-center">{{ 'Les autres élections en Belgique'|trans }}</h2>
-
       {% for election in all_elections_type %}
         {% if election.name != typeElection.name %}
           {% set i = i + 1 %}

@@ -5,9 +5,7 @@ import "./js/i18n/nl.js";
 $("#selectElection").on("select2:select", function (e) {
   const data = e.params.data;
   const slug = data.slug;
-  const date = data.date;
-
-  window.location.href = `/elections/${slug}/${date}`;
+  window.location.href = `/election/${slug}`;
 });
 
 $(".filterSelect").select2({

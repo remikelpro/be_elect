@@ -380,117 +380,149 @@
         <source>Rechercher les résultats des élections</source>
         <target>Zoek de verkiezingsuitslagen</target>
       </trans-unit>
-      <trans-unit id="KkhOUNY" resname="election.main_title_2">
-        <source>election.main_title_2</source>
-        <target>De senaatsverkiezingen in België</target>
+     <trans-unit id="OZG7PlA" resname="election.main_title_1">
+        <source>election.main_title_1</source>
+        <target>De verkiezingen van het Brussels Hoofdstedelijk Gewest</target>
       </trans-unit>
-      <trans-unit id="OZG7PlS" resname="election.main_title_3">
-        <source>election.main_title_3</source>
+      <trans-unit id="OZG7PlS" resname="election.main_title_2">
+        <source>election.main_title_2</source>
         <target>De federale verkiezingenin België</target>
       </trans-unit>
-      <trans-unit id="pkBoOqB" resname="election.main_title_4">
-        <source>election.main_title_4</source>
-        <target>De provinciale verkiezingen in België</target>
-      </trans-unit>
-      <trans-unit id="2D96xTm" resname="election.main_title_5">
-        <source>election.main_title_5</source>
+      <trans-unit id="2D96xTm" resname="election.main_title_3">
+        <source>election.main_title_3</source>
         <target>De Europese verkiezingen in België</target>
       </trans-unit>
-      <trans-unit id="VeIGQSA" resname="election.main_title_6">
+      <trans-unit id="2D96x0m" resname="election.main_title_4">
+        <source>election.main_title_4</source>
+        <target>De gemeenteraadsverkiezingen in België</target>
+      </trans-unit>
+      <trans-unit id="pkBoOqB" resname="election.main_title_5">
+        <source>election.main_title_5</source>
+        <target>De provinciale verkiezingen in België</target>
+      </trans-unit>
+      <trans-unit id="s0t2pvF" resname="election.main_title_6">
         <source>election.main_title_6</source>
-        <target>De regionale verkiezingen in Wallonië</target>
-      </trans-unit>
-      <trans-unit id="vuxZWN2" resname="election.main_title_7">
-        <source>election.main_title_7</source>
-        <target>De regionale verkiezingen in Vlaanderen</target>
-      </trans-unit>
-      <trans-unit id="s0t2pvF" resname="election.main_title_8">
-        <source>election.main_title_8</source>
         <target>De regionale verkiezingen in de Duitstalige Gemeenschap</target>
       </trans-unit>
-      <trans-unit id="aGWDs2T" resname="election.search_by_date_2">
-        <source>election.search_by_date_2</source>
-        <target>Zoek een Senaatsverkiezing op datum</target>
+      <trans-unit id="KkhOUNY" resname="election.main_title_7">
+        <source>election.main_title_7</source>
+        <target>De senaatsverkiezingen in België</target>
       </trans-unit>
-      <trans-unit id="mO8vdly" resname="election.search_by_date_3">
-        <source>election.search_by_date_3</source>
+      <trans-unit id="vuxZWN2" resname="election.main_title_8">
+        <source>election.main_title_8</source>
+        <target>De regionale verkiezingen in Vlaanderen</target>
+      </trans-unit>
+      <trans-unit id="VeIGQSA" resname="election.main_title_9">
+        <source>election.main_title_9</source>
+        <target>De regionale verkiezingen in Wallonië</target>
+      </trans-unit>
+      <trans-unit id="bGWDs2A" resname="election.search_by_date_1">
+        <source>election.search_by_date_1</source>
+        <target>Zoek een verkiezing van Brussel-Hoofdstad op datum</target>
+      </trans-unit>
+      <trans-unit id="mO8vdly" resname="election.search_by_date_2">
+        <source>election.search_by_date_2</source>
         <target>Zoek een federale verkiezing op datum</target>
       </trans-unit>
-      <trans-unit id="rmxd_CA" resname="election.search_by_date_4">
-        <source>election.search_by_date_4</source>
-        <target>Zoek een provinciale verkiezing op datum</target>
-      </trans-unit>
-      <trans-unit id="IxdGRPH" resname="election.search_by_date_5">
-        <source>election.search_by_date_5</source>
+      <trans-unit id="IxdGRPH" resname="election.search_by_date_3">
+        <source>election.search_by_date_3</source>
         <target>Zoek een Europese verkiezing op datum</target>
       </trans-unit>
-      <trans-unit id="hUTTq5j" resname="election.search_by_date_6">
+      <trans-unit id="AxdGRPz" resname="election.search_by_date_4">
+        <source>election.search_by_date_4</source>
+        <target>Zoek een gemeenteraadsverkiezing op datum</target>
+      </trans-unit>
+      <trans-unit id="rmxd_CA" resname="election.search_by_date_5">
+        <source>election.search_by_date_5</source>
+        <target>Zoek een provinciale verkiezing op datum</target>
+      </trans-unit>
+      <trans-unit id="tLN0i8_" resname="election.search_by_date_6">
         <source>election.search_by_date_6</source>
-        <target>Zoek een Waalse verkiezing op datum</target>
-      </trans-unit>
-      <trans-unit id="EN2i34Q" resname="election.search_by_date_7">
-        <source>election.search_by_date_7</source>
-        <target>Zoek een Vlaamse verkiezing op datum</target>
-      </trans-unit>
-      <trans-unit id="tLN0i8_" resname="election.search_by_date_8">
-        <source>election.search_by_date_8</source>
         <target>Zoek een verkiezing van de Duitstalige Gemeenschap op datum</target>
       </trans-unit>
-      <trans-unit id="L5JvpkM" resname="election.history_2">
-        <source>election.history_2</source>
-        <target>De geschiedenis van de Senaatsverkiezingen in België</target>
+      <trans-unit id="aGWDs2T" resname="election.search_by_date_7">
+        <source>election.search_by_date_7</source>
+        <target>Zoek een Senaatsverkiezing op datum</target>
       </trans-unit>
-      <trans-unit id="pIJzxip" resname="election.history_3">
-        <source>election.history_3</source>
+      <trans-unit id="EN2i34Q" resname="election.search_by_date_8">
+        <source>election.search_by_date_8</source>
+        <target>Zoek een Vlaamse verkiezing op datum</target>
+      </trans-unit>
+      <trans-unit id="hUTTq5j" resname="election.search_by_date_9">
+        <source>election.search_by_date_9</source>
+        <target>Zoek een Waalse verkiezing op datum</target>
+      </trans-unit>
+      <trans-unit id="AIJzxiO" resname="election.history_1">
+        <source>election.history_1</source>
+        <target>De geschiedenis van de regionale verkiezingen in Brussel-Hoofdstad</target>
+      </trans-unit>
+      <trans-unit id="pIJzxip" resname="election.history_2">
+        <source>election.history_2</source>
         <target>De geschiedenis van de federale verkiezingen in België</target>
       </trans-unit>
-      <trans-unit id="jMX7poe" resname="election.history_4">
-        <source>election.history_4</source>
-        <target>De geschiedenis van de provinciale verkiezingen in België</target>
-      </trans-unit>
-      <trans-unit id="QgCDvtW" resname="election.history_5">
-        <source>election.history_5</source>
+      <trans-unit id="QgCDvtW" resname="election.history_3">
+        <source>election.history_3</source>
         <target>De geschiedenis van de Europese verkiezingen in België</target>
       </trans-unit>
-      <trans-unit id="BBeKzeh" resname="election.history_6">
+      <trans-unit id="AgCDvtZ" resname="election.history_4">
+        <source>election.history_4</source>
+        <target>De geschiedenis van de gemeentelijke verkiezingen in België</target>
+      </trans-unit>
+      <trans-unit id="jMX7poe" resname="election.history_5">
+        <source>election.history_5</source>
+        <target>De geschiedenis van de provinciale verkiezingen in België</target>
+      </trans-unit>
+      <trans-unit id="einstMb" resname="election.history_6">
         <source>election.history_6</source>
-        <target>De geschiedenis van de regionale verkiezingen in Wallonië</target>
-      </trans-unit>
-      <trans-unit id="0I8umde" resname="election.history_7">
-        <source>election.history_7</source>
-        <target>De geschiedenis van de regionale verkiezingen in Vlaanderen</target>
-      </trans-unit>
-      <trans-unit id="einstMb" resname="election.history_8">
-        <source>election.history_8</source>
         <target>De geschiedenis van de regionale verkiezingen in de Duitstalige Gemeenschap</target>
       </trans-unit>
-      <trans-unit id=".7VFD03" resname="election.table_title_2">
+      <trans-unit id="L5JvpkM" resname="election.history_7">
+        <source>election.history_7</source>
+        <target>De geschiedenis van de Senaatsverkiezingen in België</target>
+      </trans-unit>
+      <trans-unit id="0I8umde" resname="election.history_8">
+        <source>election.history_8</source>
+        <target>De geschiedenis van de regionale verkiezingen in Vlaanderen</target>
+      </trans-unit>
+      <trans-unit id="BBeKzeh" resname="election.history_9">
+        <source>election.history_9</source>
+        <target>De geschiedenis van de regionale verkiezingen in Wallonië</target>
+      </trans-unit>
+      <trans-unit id="KSqEh1A" resname="election.table_title_1">
+      <source>election.table_title_1</source>
+        <target>Brusselse regionale verkiezingen van {year}</target>
+      </trans-unit>
+      <trans-unit id="KSqEh1Z" resname="election.table_title_2">
         <source>election.table_title_2</source>
-        <target>{year} Belgische Senaatsverkiezingen</target>
+        <target>Belgische federale verkiezingen van {year}</target>
       </trans-unit>
-      <trans-unit id="KSqEh1Z" resname="election.table_title_3">
+      <trans-unit id="hTS8dYI" resname="election.table_title_3">
         <source>election.table_title_3</source>
-        <target>{year} Belgische federale verkiezingen</target>
+        <target>Belgische Europese verkiezingen van {year}</target>
       </trans-unit>
-      <trans-unit id="hG3DZu3" resname="election.table_title_4">
+      <trans-unit id="hTS8dYA" resname="election.table_title_4">
         <source>election.table_title_4</source>
-        <target>{year} Belgische provinciale verkiezingen</target>
+        <target>Belgische gemeenteraadsverkiezingen van {year}</target>
       </trans-unit>
-      <trans-unit id="hTS8dYI" resname="election.table_title_5">
+      <trans-unit id="hG3DZu3" resname="election.table_title_5">
         <source>election.table_title_5</source>
-        <target>{year} Belgische Europese verkiezingen</target>
+        <target>Belgische provinciale verkiezingen van {year}</target>
       </trans-unit>
-      <trans-unit id="fb9FWnV" resname="election.table_title_6">
+      <trans-unit id="5tMuvhy" resname="election.table_title_6">
         <source>election.table_title_6</source>
-        <target>{year} Waalse regionale verkiezingen</target>
+        <target>Regionale verkiezingen in de Duitstalige Gemeenschap van {year}</target>
       </trans-unit>
-      <trans-unit id="OohyN1E" resname="election.table_title_7">
+      <trans-unit id=".7VFD03" resname="election.table_title_7">
         <source>election.table_title_7</source>
-        <target>{year} Vlaamse regionale verkiezingen</target>
+        <target>Belgische Senaatsverkiezingen van {year}</target>
       </trans-unit>
-      <trans-unit id="5tMuvhy" resname="election.table_title_8">
+      <trans-unit id="OohyN1E" resname="election.table_title_8">
         <source>election.table_title_8</source>
-        <target>{year} regionale verkiezingen in de Duitstalige Gemeenschap</target>
+        <target>Vlaamse regionale verkiezingen van {year}</target>
+      </trans-unit>
+      <trans-unit id="fb9FWnV" resname="election.table_title_9">
+        <source>election.table_title_9</source>
+        <target>Waalse regionale verkiezingen van {year}</target>
       </trans-unit>
       <trans-unit id="CFfKZCu" resname="Ex : 1990, 1996...">
         <source>Ex : 1990, 1996...</source>

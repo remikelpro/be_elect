@@ -17,9 +17,10 @@ use Symfony\Component\Serializer\Annotation\Groups;
 class TypeElection extends AbstractTranslation
 {
 
-    public const LEGISLATIVES_IDS = [2, 3];
-    public const EUROPEENNES_ID = [5];
-    public const REGIONALES_IDS = [4, 6, 7, 8];
+    public const LEGISLATIVES_IDS = [2, 7];
+    public const EUROPEAN_ID = [3];
+    public const MUNICIPAL_ID = [4];
+    public const REGIONAL_IDS = [1, 5, 6, 8, 9];
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -104,17 +105,22 @@ class TypeElection extends AbstractTranslation
                 'src' => 'img/election/icon-legislatives.svg',
                 'alt' => 'election.icon_federal',
             ],
-            in_array($this->id, self::EUROPEENNES_ID) => [
+            in_array($this->id, self::EUROPEAN_ID) => [
                 'src' => 'img/election/icon-europeennes.svg',
                 'alt' => 'election.icon_european',
             ],
-            in_array($this->id, self::REGIONALES_IDS) => [
+            in_array($this->id, self::REGIONAL_IDS) => [
                 'src' => 'img/election/icon-regionales.svg',
                 'alt' => 'election.icon_regional',
 
             ],
+            in_array($this->id, self::MUNICIPAL_ID) => [
+                'src' => 'img/election/icon-municipal.svg',
+                'alt' => 'election.icon_regional',
+
+            ],
             default => [
-                'src' => 'img/election/icon-default.svg',
+                'src' => 'img/election/icon-municipal.svg',
                 'alt' => 'election.icon_default',
             ],
         };
@@ -124,8 +130,8 @@ class TypeElection extends AbstractTranslation
     public function getCssClass(): string
     {
         return match (true) {
-            in_array($this->id, self::LEGISLATIVES_IDS) || in_array($this->id, self::EUROPEENNES_ID) => 'bg-federal',
-            in_array($this->id, self::REGIONALES_IDS) => 'bg-regional',
+            in_array($this->id, self::LEGISLATIVES_IDS) || in_array($this->id, self::EUROPEAN_ID) => 'bg-federal',
+            in_array($this->id, self::REGIONAL_IDS) || in_array($this->id, self::MUNICIPAL_ID) => 'bg-regional',
             default => 'bg-federal',
         };
     }

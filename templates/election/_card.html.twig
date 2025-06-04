@@ -14,9 +14,12 @@
     </div>
     <p>{{ 'Remporté par le'|trans }} {{ election.winner }}</p>
     {# prettier-ignore-start #}
-    <a href="{{ path('electionDate', { slug: election.slug, year: election.date|date('Y') }) }}" class="btn btn-sm btn-secondary">
+    <a href="{{ path('electionDate', { slug: election.slug }) }}" class="btn btn-sm btn-secondary">
       {{'En savoir plus'|trans}}
     </a>
+      {# <a href="#" class="btn btn-sm btn-secondary">
+      {{'En savoir plus'|trans}}
+    </a> #}
     {# prettier-ignore-end #}
   </div>
 </article>

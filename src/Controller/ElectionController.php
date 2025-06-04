@@ -72,17 +72,12 @@ class ElectionController extends AbstractBeElectController
         ]);
     }
 
-    #[Route('/elections/{slug}/{year}', name: 'electionDate')]
-    public function electionByTypeAndYear(string $slug, int $year): Response
+    #[Route('/election/{slug}', name: 'electionDate')]
+    public function electionByTypeAndYear(string $slug): Response
     {
-
-
-        $typeElection = $this->typeElectionRepository->findOneBySlug($slug);
-
-        $electionByDate = $this->electionRepository->findByTypeAndYear($typeElection, $year);
-
-        $year = $electionByDate->getDate()->format('Y');
-
+        $election = $this->electionRepository->findOneBySlug($slug);
+        $typeElection = $election->getIdTypeElection();
+        $year = $election->getDate()->format('Y');
 
         $breadcrumb = $this->getBreadcrumb([
             ['name' => $this->translator->trans('Elections'), 'href' => $this->generateUrl('elections')],
@@ -92,7 +87,7 @@ class ElectionController extends AbstractBeElectController
 
         return $this->render('election/date.html.twig', [
             'breadcrumb' => $breadcrumb,
-            'election' => $electionByDate
+            'election' => $election
         ]);
     }
 }

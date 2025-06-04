@@ -54,16 +54,27 @@ class ElectionRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function findByTypeAndYear(TypeElection $typeElection, int $year): ?Election
+
+    public function findOneBySlug(string $slug): ?Election
     {
         return $this->createQueryBuilder('e')
-            ->andWhere('e.idTypeElection = :type')
-            ->andWhere('YEAR(e.date) = :year')
-            ->setParameter('type', $typeElection)
-            ->setParameter('year', $year)
+            ->andWhere('e.slug = :slug')
+            ->setParameter('slug', $slug)
             ->getQuery()
             ->getOneOrNullResult();
     }
+
+
+    // public function findByTypeAndYear(TypeElection $typeElection, int $year): ?Election
+    // {
+    //     return $this->createQueryBuilder('e')
+    //         ->andWhere('e.idTypeElection = :type')
+    //         ->andWhere('YEAR(e.date) = :year')
+    //         ->setParameter('type', $typeElection)
+    //         ->setParameter('year', $year)
+    //         ->getQuery()
+    //         ->getOneOrNullResult();
+    // }
 
 
 
