@@ -112,20 +112,22 @@
         </table>
       </div>
 
-      <div class="text-center">
-        <button
-          class="btn btn-outline-primary"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#election-more"
-          aria-expanded="false"
-          data-show-more="{{ 'Afficher plus'|trans }}"
-          data-show-less="{{ 'Afficher moins'|trans }}"
-          id="btn-show-more"
-        >
-          {{ 'Afficher plus'|trans }}
-        </button>
-      </div>
+      {% if (all_elections_date|length) > 5 %}
+        <div class="text-center">
+          <button
+            class="btn btn-outline-primary"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#election-more"
+            aria-expanded="false"
+            data-show-more="{{ 'Afficher plus'|trans }}"
+            data-show-less="{{ 'Afficher moins'|trans }}"
+            id="btn-show-more"
+          >
+            {{ 'Afficher plus'|trans }}
+          </button>
+        </div>
+      {% endif %}
     </section>
 
     <section class="election-infos {{ typeElection.getCssClass }} py-4">
