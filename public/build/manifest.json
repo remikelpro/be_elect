@@ -1,5 +1,5 @@
 {
-  "build/app.css": "/build/app.49ffeed0.css",
+  "build/app.css": "/build/app.5384e566.css",
   "build/app.js": "/build/app.52187cff.js",
   "build/home.js": "/build/home.3197c42a.js",
   "build/parti.js": "/build/parti.a5a882d8.js",
@@ -18,12 +18,16 @@
   "build/471.9be1b4fe.css": "/build/471.9be1b4fe.css",
   "build/471.7ea42d3c.js": "/build/471.7ea42d3c.js",
   "build/904.37a35d24.css": "/build/904.37a35d24.css",
-  "build/fonts/PTS75F.ttf": "/build/fonts/PTS75F.67299b07.ttf",
-  "build/fonts/PTS55F.ttf": "/build/fonts/PTS55F.6b198b59.ttf",
   "build/images/non-federal-bg.png": "/build/images/non-federal-bg.eeea4710.png",
   "build/fonts/bootstrap-icons.woff?": "/build/fonts/bootstrap-icons.6959d0d9.woff",
+  "build/fonts/PTSans-Bold.woff": "/build/fonts/PTSans-Bold.f7489f7e.woff",
+  "build/fonts/PTSans-regular.woff": "/build/fonts/PTSans-regular.9afec4a7.woff",
   "build/fonts/bootstrap-icons.woff2?": "/build/fonts/bootstrap-icons.b2e5aab6.woff2",
-  "build/fonts/MuseoModerno-Regular.ttf": "/build/fonts/MuseoModerno-Regular.6019bae4.ttf",
-  "build/fonts/MuseoModerno-Bold.ttf": "/build/fonts/MuseoModerno-Bold.7c88dff0.ttf",
-  "build/images/icons.svg": "/build/images/icons.1fc6296b.svg"
+  "build/fonts/PTSans-Bold.woff2": "/build/fonts/PTSans-Bold.5bf9dadf.woff2",
+  "build/fonts/PTSans-regular.woff2": "/build/fonts/PTSans-regular.8da9642e.woff2",
+  "build/fonts/MuseoModerno-Bold.woff": "/build/fonts/MuseoModerno-Bold.5f2728da.woff",
+  "build/fonts/MuseoModerno-Regular.woff": "/build/fonts/MuseoModerno-Regular.076651cf.woff",
+  "build/images/icons.svg": "/build/images/icons.1fc6296b.svg",
+  "build/fonts/MuseoModerno-Bold.woff2": "/build/fonts/MuseoModerno-Bold.b75bf99b.woff2",
+  "build/fonts/MuseoModerno-Regular.woff2": "/build/fonts/MuseoModerno-Regular.f194d6a1.woff2"
 }
