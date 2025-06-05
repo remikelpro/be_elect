@@ -128,7 +128,7 @@
 	</main>{% endblock %}
 	<footer class="text-bg-secondary py-3">
 		<div class="container">
-			<div class="row">
+			<div class="row justify-content-center text-center text-md-start">
 				<div class="col-md-3">
 					<div><a href="{{path('homepage')}}">{{ "Accueil" | trans }}</a></div>
 					<div><a href="{{path('ressource')}}">{{ "Ressources" | trans }}</a></div>
@@ -156,7 +156,7 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col-md-6 d-flex align-items-center row">
+				<div class="col-md-6 d-flex align-items-center row mt-4 mt-md-0">
 					<div class="col-md-6 text-center">
 						<img src="{{ asset('img/logo-footer.svg') }}" class="m-3 logo" alt="{{ " logo be elect" | trans
 							}}" />
@@ -166,19 +166,21 @@
 							trans }}" />
 					</div>
 				</div>
-				<div class="col-md-3 text-light text-end">
+				<div class="col-md-3 text-light text-center text-md-end mt-4 mt-md-0">
 					<h6>Nous suivre sur les réseaux :</h6>
-					<a href="#"><img class="social-logo" src="{{ asset('img/social/facebook.svg') }}"
-							alt="logo facebook" /></a>
-					<a href="#"><img class="social-logo" src="{{ asset('img/social/twitter.svg') }}"
-							alt="logo twitter" /></a>
-					<a href="https://github.com/remikelpro/be_elect"><img class="social-logo" src="{{ asset('img/social/github.svg') }}"
-							alt="logo github" /></a>
-					<h6 class="mt-3">Nous contacter :</h6>
-					<p>beelect[at]ulb.be</p>
+					<nav>
+						<a href="#"><img class="social-logo" src="{{ asset('img/social/facebook.svg') }}"
+								alt="logo facebook" /></a>
+						<a href="#"><img class="social-logo" src="{{ asset('img/social/twitter.svg') }}"
+								alt="logo twitter" /></a>
+						<a href="https://github.com/remikelpro/be_elect"><img class="social-logo" src="{{ asset('img/social/github.svg') }}"
+								alt="logo github" /></a>
+						<h6 class="mt-3">Nous contacter :</h6>
+						<p>beelect[at]ulb.be</p>
+					</nav>
 				</div>
 			</div>
-			<div class="text-light text-center">
+			<div class="text-light text-center mt-4 mt-md-0">
 				© Be-Elect 2023 - Site web réalisé par <a href="https://remikel.fr">Rémi Mikel</a> - <a
 					href="#">Mentions légales</a> - <a href="#">CGV/CGU</a>
 			</div>
